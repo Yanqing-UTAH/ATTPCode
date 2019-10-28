@@ -24,7 +24,7 @@ void CMSketch::clear() {
 }
 
 void CMSketch::update(const char *str, int c) {
-    int item = hashstr(str);
+    unsigned int item = hashstr(str);
     for (unsigned int j = 0; j < d; j++) {
         unsigned int hashval = (hashes[j].first * item + hashes[j].second) % w;
         C[j][hashval] += c;
@@ -32,7 +32,7 @@ void CMSketch::update(const char *str, int c) {
 }
 
 int CMSketch::estimate(const char *str) {
-    int item = hashstr(str);
+    unsigned int item = hashstr(str);
     int val = numeric_limits<int>::max();
     for (unsigned int j = 0; j < d; j++) {
         unsigned int hashval = (hashes[j].first * item + hashes[j].second) % w;
@@ -65,7 +65,7 @@ void PCMSketch::clear() {
 }
 
 void PCMSketch::update(unsigned long long t, const char *str, int c) {
-    int item = hashstr(str);
+    unsigned int item = hashstr(str);
     for (unsigned int j = 0; j < d; j++) {
         unsigned int hashval = (hashes[j].first * item + hashes[j].second) % w;
         C[j][hashval] += c;
@@ -74,7 +74,7 @@ void PCMSketch::update(unsigned long long t, const char *str, int c) {
 }
 
 double PCMSketch::estimate(const char *str, unsigned long long s, unsigned long long e) {
-    int item = hashstr(str);
+    unsigned int item = hashstr(str);
     double vals[d];
     for (unsigned int j = 0; j < d; j++) {
         unsigned int hashval = (hashes[j].first * item + hashes[j].second) % w;

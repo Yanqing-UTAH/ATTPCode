@@ -32,11 +32,11 @@ class PCMSketch : public CMSketch {
         std::vector<std::vector<PLA>> pla;
         
     public:
-        PCMSketch(double, double, double);
+        PCMSketch(double eps, double delta, double Delta);
 
         void clear();
         
-        void update(unsigned long long, const char *, int = 1);
+        void update(unsigned long long t, const char *str, int c = 1);
 
         double estimate(const char *, unsigned long long, unsigned long long);
 

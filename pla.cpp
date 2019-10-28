@@ -47,7 +47,7 @@ void PLA::feed(point current) {
         begin = buffer_begin;
         initialized = buffer_initialized;
     }
-    else if (!result.empty() && abs(result.back().start - begin.x) < double_eps) {
+    else if (!result.empty() && abs((double) result.back().start - begin.x) < double_eps) {
         result.pop_back();
     }
 

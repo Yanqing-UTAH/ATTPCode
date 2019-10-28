@@ -58,7 +58,7 @@ class PLA {
         }
 
         inline double pointSlope(point pt1, point pt2) {
-            assert((abs(pt2.x - pt1.x) > double_eps));
+            assert((abs((double) pt2.x - pt1.x) > double_eps));
             return (pt2.y - pt1.y) / (pt2.x - pt1.x);
         }
 };

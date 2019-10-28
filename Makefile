@@ -1,11 +1,26 @@
-CFLAG = -Wall -O2 -std=c++11
+CXXFLAGS = -Wall -O0 -g -std=c++11
 
-detection: detection.cpp psketch.o pla.o
-	g++ $(CFLAG) detection.cpp psketch.o pla.o -o detection
-psketch.o: psketch.cpp psketch.h
-	g++ -c $(CFLAG) -o psketch.o psketch.cpp
-pla.o: pla.cpp pla.h
-	g++ -c $(CFLAG) -o pla.o pla.cpp
+.PHONY: all clean
+
+#detection: detection.cpp psketch.o pla.o
+#	g++ $(CXXFLAGS) detection.cpp psketch.o pla.o -o detection
+#psketch.o: psketch.cpp psketch.h
+#	g++ -c $(CXXFLAGS) -o psketch.o -c psketch.cpp
+
+all: test_pla test_pcm test_pams
+
+test_pla: test_pla.cpp pla.o
+
+pla.o: pla.cpp pla.h util.h
+
+test_pcm: test_pcm.cpp pcm.o pla.o
+
+pcm.o: pcm.cpp pcm.h pla.h util.h
+
+test_pams: test_pams.cpp pams.o
+
+pams.o: pams.cpp pams.h util.h
+
 clean:
-	rm -f *.o detection
+	rm -f *.o test_pla test_pams test_pcm
 
