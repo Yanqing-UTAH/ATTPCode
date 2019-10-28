@@ -8,6 +8,7 @@
 #include <vector>
 #include "pla.h"
 #include "util.h"
+#include "sketch.h"
 
 class CMSketch {
     protected:
@@ -27,20 +28,28 @@ class CMSketch {
         unsigned long long memory_usage();
 };
 
-class PCMSketch : public CMSketch {
+class PCMSketch :
+    protected CMSketch,
+    public IPersistentSketch,
+    public AbstractPersistentPointQueryable {
+
     private:
         std::vector<std::vector<PLA>> pla;
         
     public:
         PCMSketch(double eps, double delta, double Delta);
 
-        void clear();
+        void clear() override;
         
-        void update(unsigned long long t, const char *str, int c = 1);
+        void update(unsigned long long ts, const char *str, int c = 1) override;
 
-        double estimate(const char *, unsigned long long, unsigned long long);
+        double
+        estimate_point_in_interval(
+            const char * str,
+            unsigned long long ts_s,
+            unsigned long long ts_e) override;
 
-        unsigned long long memory_usage();
+        size_t memory_usage() override;
 };
 
 #endif

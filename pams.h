@@ -14,15 +14,15 @@
 
 class PAMSketch {
     protected:
-        struct Counters {
-            Counters(): val(0), samples() {}
+        struct Counter {
+            Counter(): val(0), samples() {}
 
             int val;
             std::vector<std::pair<unsigned long long, int>> samples;
         };
 
         const unsigned int w, d, D;
-        std::vector<std::vector<std::array<Counters, 2>>> C;
+        std::vector<std::vector<std::array<Counter, 2>>> C;
         std::vector<std::pair<int, int>> hashes;
 
         // need 4-wise independent hash rather than 2-wise

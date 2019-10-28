@@ -73,7 +73,8 @@ void PCMSketch::update(unsigned long long t, const char *str, int c) {
     }
 }
 
-double PCMSketch::estimate(const char *str, unsigned long long s, unsigned long long e) {
+double PCMSketch::estimate_point_in_interval(
+    const char *str, unsigned long long s, unsigned long long e) {
     unsigned int item = hashstr(str);
     double vals[d];
     for (unsigned int j = 0; j < d; j++) {
@@ -89,13 +90,13 @@ double PCMSketch::estimate(const char *str, unsigned long long s, unsigned long 
     }
 }
 
-unsigned long long PCMSketch::memory_usage() {
-    unsigned long long sum = 0;
+size_t PCMSketch::memory_usage() {
+    size_t sum = 0;
     for (unsigned int i = 0; i < d; i++) {
         for (unsigned int j = 0; j < w; j++) {
-            sum += pla[i][j].memory_usage();
+            sum += (size_t) pla[i][j].memory_usage();
         }
     }
-    return CMSketch::memory_usage() + sum;
+    return (size_t) CMSketch::memory_usage() + sum;
 }
 

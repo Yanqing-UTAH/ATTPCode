@@ -90,5 +90,15 @@ double PAMSketch::estimate_C(unsigned j, unsigned i, unsigned f, unsigned long l
 }
 
 size_t PAMSketch::memory_usage() {
-    return 0;
+    size_t mem = 0;
+    
+    mem += 2 * sizeof(Counter) * w * d;
+    for (unsigned j = 0; j < d; ++j)
+    for (unsigned h = 0; h < w; ++h) {
+        mem += sizeof(C[j][h][0].samples.front()) *
+            (C[j][h][0].samples.size() + C[j][h][1].samples.size());
+    }
+
+    return mem;
 }
+

@@ -2,3 +2,5 @@
 test_pcm
 test_pla
 test_pams
+deps
+Makefile.old
