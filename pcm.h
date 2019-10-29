@@ -30,7 +30,6 @@ class CMSketch {
 
 class PCMSketch :
     protected CMSketch,
-    public IPersistentSketch,
     public AbstractPersistentPointQueryable {
 
     private:
@@ -50,6 +49,9 @@ class PCMSketch :
             unsigned long long ts_e) override;
 
         size_t memory_usage() override;
+
+    public:
+        static PCMSketch *create(int argc, char *argv[], const char **help_str);
 };
 
 #endif

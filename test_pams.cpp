@@ -4,7 +4,7 @@
 
 using namespace std;
 
-  const char *data[] = {
+  const char *l_data[] = {
     "hello", "some", "one", "hello", "alice",
     "one", "lady", "let", "us", "lady",
     "alice", "in", "wonderland", "us", "lady",
@@ -14,8 +14,8 @@ using namespace std;
 
 int count(int begin, int end, const char * str) {
     int cnt = 0;
-    for (int i = begin; i <= end; ++i) {
-        if (!strcmp(str, data[i])) {
+    for (int i = begin + 1; i <= end; ++i) {
+        if (!strcmp(str, l_data[i])) {
             cnt += 1;
         }
     }
@@ -35,13 +35,13 @@ int main(int argc, char **argv) {
   cout << "pams SKETCH" << endl;
   PAMSketch pams(epsilon, delta, Delta);
 
-  for (int i = 1; i <= 20; i++) {
-      pams.update(i, data[i]);
+  for (int i = 0; i < 20; i++) {
+      pams.update(i + 1, l_data[i]);
       //ts, element, count = 1
   }
   pams_test(&pams, "lady", 0, 7);
   pams_test(&pams, "lady", 0, 4);
-  pams_test(&pams, "lady", 6, 15);
+  pams_test(&pams, "lady", 6, 16);
 
   return 0;
 }

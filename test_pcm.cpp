@@ -4,7 +4,7 @@
 
 using namespace std;
 
-  const char *data[] = {
+  const char *l_data[] = {
     "hello", "some", "one", "hello", "alice",
     "one", "lady", "let", "us", "lady",
     "alice", "in", "wonderland", "us", "lady",
@@ -14,8 +14,8 @@ using namespace std;
 
 int count(int begin, int end, const char * str) {
     int cnt = 0;
-    for (int i = begin; i <= end; ++i) {
-        if (!strcmp(str, data[i])) {
+    for (int i = begin + 1; i <= end; ++i) {
+        if (!strcmp(str, l_data[i])) {
             cnt += 1;
         }
     }
@@ -40,7 +40,7 @@ int main(int argc, char **argv) {
   CMSketch cm(epsilon, delta);
 
   for (int i = 0; i < 20; i++) {
-      cm.update(data[i]);
+      cm.update(l_data[i]);
       //element, count = 1
   }
   cm_test(&cm, "lady");
@@ -53,12 +53,12 @@ int main(int argc, char **argv) {
   PCMSketch pcm(epsilon, delta, Delta);
 
   for (int i = 0; i < 20; i++) {
-      pcm.update(i, data[i]);
+      pcm.update(i + 1, l_data[i]);
       //ts, element, count = 1
   }
   pcm_test(&pcm, "lady", 0, 7);
   pcm_test(&pcm, "lady", 0, 4);
-  pcm_test(&pcm, "lady", 6, 15);
+  pcm_test(&pcm, "lady", 6, 16);
 
   return 0;
 }

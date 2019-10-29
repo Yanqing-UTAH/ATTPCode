@@ -1,4 +1,5 @@
 #include "pcm.h"
+#include <cstdlib>
 
 using namespace std;
 
@@ -98,5 +99,31 @@ size_t PCMSketch::memory_usage() {
         }
     }
     return (size_t) CMSketch::memory_usage() + sum;
+}
+
+PCMSketch *PCMSketch::create(int argc, char *argv[], const char **help_str) {
+    if (argc < 3) {
+        if (help_str) *help_str = " <epsilon> <delta> <Delta>";
+        return nullptr;
+    }
+    
+    char *str_end;
+    double epsilon = std::strtod(argv[0], &str_end);
+    if (!check_double_ee(epsilon, 0, 1, str_end)) {
+        if (help_str) *help_str = " <epsilon> <detal> <Delta>\n[Error] Invalid epsilon\n";
+        return nullptr;
+    }
+    double delta = std::strtod(argv[0], &str_end);
+    if (!check_double_ee(delta, 0, 1, str_end)) {
+        if (help_str) *help_str = " <epsilon> <detal> <Delta>\n[Error] Invalid delta\n";
+        return nullptr;
+    }
+    double Delta = std::strtod(argv[0], &str_end);
+    if (!check_double_ee(Delta, 0, INFINITY, str_end)) {
+        if (help_str) *help_str = " <epsilon> <detal> <Delta>\n[Error] Invalid Delta\n";
+        return nullptr;
+    }
+
+    return new PCMSketch(epsilon, delta, Delta);
 }
 

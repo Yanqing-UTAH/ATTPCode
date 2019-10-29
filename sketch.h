@@ -16,7 +16,7 @@ struct IPersistentSketch {
     memory_usage() = 0;
 };
 
-struct IPersistentPointQueryable {
+struct IPersistentPointQueryable: virtual public IPersistentSketch {
     virtual double 
     estimate_point_in_interval(
         const char *str,
@@ -44,6 +44,19 @@ struct AbstractPersistentPointQueryable: public IPersistentPointQueryable {
     { return NAN; }
 };
 
+
+void setup_sketch_lib();
+
+typedef int SKETCH_TYPE;
+#define ST_INVALID -1
+SKETCH_TYPE sketch_name_to_sketch_type(const char *sketch_name);
+
+IPersistentPointQueryable*
+create_persistent_point_queryable(
+    SKETCH_TYPE st,
+    int argc,
+    char *argv[],
+    const char **help_str);
 
 #endif // SKETCH_H
 

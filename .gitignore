@@ -4,3 +4,4 @@ test_pla
 test_pams
 deps
 Makefile.old
+data/
