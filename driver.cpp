@@ -44,8 +44,8 @@ void pcm_test(PCMSketch *pcm, const char *str, int begin, int end) {
 } */
 
 void print_help(const char *progname, const char *help_str = nullptr) {
-    cout << "usage: " << progname << " <QueryType> <SketchType> <infile> <params...>";
-    if (help_str) cout << help_str;
+    cout << "usage: " << progname << " <QueryType> <SketchType> <infile>";
+    if (help_str) cout << help_str; else cout << " <params...>";
     cout << endl;
 
     cout << "available query types:" << endl;
@@ -120,6 +120,72 @@ test_point_interval(
     return nullptr;
 }
 
+std::tuple<unsigned long long, std::string>
+parse_point_att_query(const std::string &line) {
+    std::istringstream in(line);
+
+    char c;
+    unsigned long long ts_e;
+    std::string str;
+    in >> c >> ts_e >> str;
+    return std::make_tuple(ts_e, str);
+}
+
+const char*
+test_point_att(
+    const char *sketch_name,
+    const char *infile_name,
+    int argc, char *argv[]) {
+    
+    SKETCH_TYPE st = sketch_name_to_sketch_type(sketch_name);
+    if (st == ST_INVALID) {
+        return "\n[ERROR] Unknown sketch type";
+    }
+
+    const char *help_str;
+    IPersistentPointQueryable *ippq =
+        create_persistent_point_queryable(st, argc, argv, &help_str);
+    if (!ippq) {
+        return help_str;
+    }
+
+    ResourceGuard guard(ippq);
+    
+    std::ifstream infile(infile_name);
+    if (!infile) {
+        return "\n[ERROR] Unable to open input file";
+    }
+
+    std::unordered_map<std::string, std::set<unsigned long long>> cnt;
+
+    unsigned long long ts = 0;
+    std::string line;
+    while (std::getline(infile, line), !line.empty()) {
+        if (line[0] == '?') {
+            unsigned long long ts_e;
+            std::string str;
+            std::tie(ts_e, str) = parse_point_att_query(line);
+            
+            double est_value = ippq->estimate_point_at_the_time(str.c_str(), ts_e);
+            unsigned long long true_value = 0;
+            auto &ts_set = cnt[str];
+            for (auto iter = ts_set.begin();
+                    iter != ts_set.end() && *iter <= ts_e;
+                    ++iter) ++true_value;
+
+            cout << str << "[0," << ts_e << "]:\tEst: "
+                << est_value << "\tTruth: " <<  true_value << endl; 
+        } else {
+            ippq->update(++ts, line.c_str());
+            cnt[line].emplace(ts);
+        } // TODO turnstile: prefix the input with '-'
+    }
+
+    cout << "memory_usage() == " << ippq->memory_usage() << endl;
+
+    return nullptr;
+}
+
 int main(int argc, char **argv) {
 
     setup_sketch_lib();
@@ -143,8 +209,12 @@ int main(int argc, char **argv) {
             return 2; 
         }
     } else if (!strcmp(query_type, "point_att")) {
-        print_help(progname);
-        return 1;
+        const char *help_str =
+            test_point_att(sketch_type, infile_name, argc - 4, argv + 4);
+        if (help_str) {
+            print_help(progname, help_str);
+            return 2;
+        }
     } else {
         print_help(progname);
         return 1;
