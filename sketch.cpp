@@ -1,19 +1,23 @@
 #include "sketch.h"
 #include "util.h"
 #include "pcm.h"
+#include "pams.h"
 #include <unordered_map>
 #include <cassert>
 
+// The sketch enum literal is ST_XXX for a sketch named XXX
+#define ST_LITERAL(_1) CONCAT(ST_, _1)
+
 enum SKETCH_TYPES_ENUM: int {
-    ST_PCM = 0,
-    //ST_PAMS,
+    unused = ST_INVALID,
+#   define DEFINE_SKETCH_TYPE(stname, ...) ST_LITERAL(stname),
+#   include "sketch_list.h"
+#   undef DEFINE_SKETCH_TYPE
     
     NUM_SKETCH_TYPES
 };
 
 static std::unordered_map<std::string, SKETCH_TYPE> stname2st;
-
-#define ST_LITERAL(_1) CONCAT(ST_, _1)
 
 #define DEFINE_SKETCH_TYPE(stname, ...) STRINGIFY(stname),
 static const char *st2stname[NUM_SKETCH_TYPES] = {

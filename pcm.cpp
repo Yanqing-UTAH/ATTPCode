@@ -91,6 +91,13 @@ double PCMSketch::estimate_point_in_interval(
     }
 }
 
+double PCMSketch::estimate_point_at_the_time(
+    const char *str,
+    unsigned long long ts_e) {
+    
+    return estimate_point_in_interval(str, 0, ts_e); 
+}
+
 size_t PCMSketch::memory_usage() {
     size_t sum = 0;
     for (unsigned int i = 0; i < d; i++) {

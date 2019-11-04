@@ -14,7 +14,7 @@ using namespace std;
 
 int count(int begin, int end, const char * str) {
     int cnt = 0;
-    for (int i = begin + 1; i <= end; ++i) {
+    for (int i = begin; i < end; ++i) {
         if (!strcmp(str, l_data[i])) {
             cnt += 1;
         }

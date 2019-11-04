@@ -53,7 +53,7 @@ void print_help(const char *progname, const char *help_str = nullptr) {
     cout << "\tpoint_att (TODO)" << endl;
     cout << "available sketch types:" << endl;
     cout << "\tPCM (persistent_count_min)" << endl;
-    cout << "\tPAMS (persistent AMS Sketch)" << endl;
+    cout << "\tPAMS (persistent_AMS_Sketch)" << endl;
 }
 
 std::tuple<unsigned long long, unsigned long long, std::string>

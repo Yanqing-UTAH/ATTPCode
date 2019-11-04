@@ -9,4 +9,5 @@
 #endif
 
 DEFINE_SKETCH_TYPE(PCM, PCMSketch, persistent_count_min, PCMSketch::create)
+DEFINE_SKETCH_TYPE(PAMS, PAMSketch, persistent_AMS_sketch, PAMSketch::create)
 

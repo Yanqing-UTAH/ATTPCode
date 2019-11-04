@@ -14,7 +14,7 @@ using namespace std;
 
 int count(int begin, int end, const char * str) {
     int cnt = 0;
-    for (int i = begin + 1; i <= end; ++i) {
+    for (int i = begin; i < end; ++i) {
         if (!strcmp(str, l_data[i])) {
             cnt += 1;
         }
@@ -23,7 +23,7 @@ int count(int begin, int end, const char * str) {
 }
 
 void pams_test(PAMSketch *pams, const char *str, int begin, int end) {
-    cout << str << "[" << begin << "," << end << "]:\tEst: " << pams->estimate(str, begin, end) << "\tTruth: " << count(begin, end, str) << endl; 
+    cout << str << "[" << begin << "," << end << "]:\tEst: " << pams->estimate_point_in_interval(str, begin, end) << "\tTruth: " << count(begin, end, str) << endl; 
 }
 
 int main(int argc, char **argv) {

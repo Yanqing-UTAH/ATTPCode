@@ -10,9 +10,10 @@
 #include <array>
 #include <tuple>
 #include "util.h"
+#include "sketch.h"
 
 
-class PAMSketch {
+class PAMSketch: public AbstractPersistentPointQueryable {
     protected:
         struct Counter {
             Counter(): val(0), samples() {}
@@ -35,13 +36,22 @@ class PAMSketch {
     public:
         PAMSketch(double eps, double delta, double Delta);
 
-        void clear();
+        void clear() override;
 
-        void update(unsigned long long t, const char *str, int c = 1);
+        void update(unsigned long long t, const char *str, int c = 1) override;
 
-        int estimate(const char *str, unsigned long long s, unsigned long long e);
+        double
+        estimate_point_in_interval(
+            const char *str,
+            unsigned long long ts_s,
+            unsigned long long ts_e) override;
 
-        size_t memory_usage();
+        double
+        estimate_point_at_the_time(
+            const char *str,
+            unsigned long long ts_e) override;
+
+        size_t memory_usage() override;
 
     protected:
     
@@ -61,6 +71,9 @@ class PAMSketch {
         }
 
         double estimate_C(unsigned j, unsigned i, unsigned int f, unsigned long long t);
+
+    public:
+        static PAMSketch *create(int argc, char *argv[], const char **help_str);
 };
 
 #endif // PAMS_H

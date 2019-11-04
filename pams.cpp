@@ -43,7 +43,11 @@ void PAMSketch::update(unsigned long long t, const char *str, int c) {
     }
 }
 
-int PAMSketch::estimate(const char *str, unsigned long long s, unsigned long long e) {
+double
+PAMSketch::estimate_point_in_interval(
+    const char *str,
+    unsigned long long s,
+    unsigned long long e) {
     unsigned int item = hashstr(str);
     
     std::vector<double> D;
@@ -63,6 +67,14 @@ int PAMSketch::estimate(const char *str, unsigned long long s, unsigned long lon
     } else {
         return (D[d/2] + D[d/2 - 1]) / 2.;
     }
+}
+
+double
+PAMSketch::estimate_point_at_the_time(
+    const char *str,
+    unsigned long long ts_e) {
+
+    return estimate_point_in_interval(str, 0, ts_e);
 }
 
 double PAMSketch::estimate_C(unsigned j, unsigned i, unsigned f, unsigned long long t) {
@@ -100,5 +112,31 @@ size_t PAMSketch::memory_usage() {
     }
 
     return mem;
+}
+
+PAMSketch *PAMSketch::create(int argc, char *argv[], const char **help_str) {
+    if (argc < 3) {
+        if (help_str) *help_str = " <epsilon> <delta> <Delta>";
+        return nullptr;
+    }
+    
+    char *str_end;
+    double epsilon = std::strtod(argv[0], &str_end);
+    if (!check_double_ee(epsilon, 0, 1, str_end)) {
+        if (help_str) *help_str = " <epsilon> <detal> <Delta>\n[Error] Invalid epsilon\n";
+        return nullptr;
+    }
+    double delta = std::strtod(argv[0], &str_end);
+    if (!check_double_ee(delta, 0, 1, str_end)) {
+        if (help_str) *help_str = " <epsilon> <detal> <Delta>\n[Error] Invalid delta\n";
+        return nullptr;
+    }
+    double Delta = std::strtod(argv[0], &str_end);
+    if (!check_double_ee(Delta, 0, INFINITY, str_end)) {
+        if (help_str) *help_str = " <epsilon> <detal> <Delta>\n[Error] Invalid Delta\n";
+        return nullptr;
+    }
+
+    return new PAMSketch(epsilon, delta, Delta);
 }
 

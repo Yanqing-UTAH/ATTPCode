@@ -4,8 +4,8 @@ CXXFLAGS = -Wall -O0 -g -std=c++17
 CPPFLAGS =
 LDFLAGS =
 
-EXES=test_pla test_pcm test_pams test_point_query
-OBJS=test_pams.o sketch.o pcm.o pla.o test_pcm.o test_point_query.o test_pla.o pams.o 
+EXES=test_pla test_pcm test_pams driver
+OBJS=test_pams.o sketch.o tester.o pcm.o pla.o test_pcm.o test_point_query.o driver.o test_pla.o pams.o 
 
 .PHONY: all clean depend
 
@@ -19,13 +19,15 @@ test_pcm: test_pcm.o pcm.o pla.o
 
 test_pams: test_pams.o pams.o
 
-test_point_query: test_point_query.o pla.o pcm.o sketch.o
+driver: driver.o pla.o pcm.o pams.o sketch.o
 
 # objs
 
-test_pams.o: test_pams.cpp pams.h util.h
+test_pams.o: test_pams.cpp pams.h util.h sketch.h
 
-sketch.o: sketch.cpp sketch.h util.h sketch_list.h
+sketch.o: sketch.cpp sketch.h util.h pcm.h pla.h pams.h sketch_list.h
+
+tester.o: tester.cpp sketch.h
 
 pcm.o: pcm.cpp pcm.h pla.h util.h sketch.h
 
@@ -35,9 +37,11 @@ test_pcm.o: test_pcm.cpp pcm.h pla.h util.h sketch.h
 
 test_point_query.o: test_point_query.cpp sketch.h
 
+driver.o: driver.cpp sketch.h
+
 test_pla.o: test_pla.cpp pla.h
 
-pams.o: pams.cpp pams.h util.h
+pams.o: pams.cpp pams.h util.h sketch.h
 
 
 # end of objs

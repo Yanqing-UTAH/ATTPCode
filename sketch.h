@@ -3,6 +3,10 @@
 
 #include <cmath>
 
+/*
+ * Note: ts > 0, following the notation in Wei et al. (Persistent Data Sketching)
+ * Intervals are in the form of (ts_s, ts_e]
+ */
 struct IPersistentSketch {
     virtual ~IPersistentSketch() {} ;
 
@@ -16,6 +20,10 @@ struct IPersistentSketch {
     memory_usage() = 0;
 };
 
+/*
+ *
+ *
+ */
 struct IPersistentPointQueryable: virtual public IPersistentSketch {
     virtual double 
     estimate_point_in_interval(

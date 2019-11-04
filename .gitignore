@@ -2,7 +2,7 @@
 test_pcm
 test_pla
 test_pams
-test_point_query
+driver
 deps
 Makefile.old
 data/

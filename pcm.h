@@ -44,9 +44,14 @@ class PCMSketch :
 
         double
         estimate_point_in_interval(
-            const char * str,
+            const char *str,
             unsigned long long ts_s,
             unsigned long long ts_e) override;
+
+        double
+        estimate_point_at_the_time(
+            const char *str,
+            unsigned long long ts_e) override;     
 
         size_t memory_usage() override;
 
