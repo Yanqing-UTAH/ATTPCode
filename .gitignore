@@ -1,4 +1,5 @@
 *.o
+test_hh
 test_pcm
 test_pla
 test_pams
