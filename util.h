@@ -2,6 +2,7 @@
 #define util_h
 
 #include <cmath>
+#include <cerrno>
 
 #define STRINGIFY_HELPER(_1) #_1
 #define STRINGIFY(_1) STRINGIFY_HELPER(_1)
@@ -26,6 +27,11 @@ inline int rand_int() {
 inline bool check_double_ee(double value, double min, double max, char *str_end) {
     return !(!str_end || *str_end != '\0' ||
         value == HUGE_VAL || value <= min || value >= max);
+}
+
+inline bool check_long_ii(long value, long min, long max, char *str_end) {
+    return !(!str_end || *str_end != '\0' ||
+       errno == ERANGE || value < min || value > max); 
 }
 
 #endif

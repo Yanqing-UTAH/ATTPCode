@@ -126,12 +126,12 @@ PAMSketch *PAMSketch::create(int argc, char *argv[], const char **help_str) {
         if (help_str) *help_str = " <epsilon> <detal> <Delta>\n[Error] Invalid epsilon\n";
         return nullptr;
     }
-    double delta = std::strtod(argv[0], &str_end);
+    double delta = std::strtod(argv[1], &str_end);
     if (!check_double_ee(delta, 0, 1, str_end)) {
         if (help_str) *help_str = " <epsilon> <detal> <Delta>\n[Error] Invalid delta\n";
         return nullptr;
     }
-    double Delta = std::strtod(argv[0], &str_end);
+    double Delta = std::strtod(argv[2], &str_end);
     if (!check_double_ee(Delta, 0, INFINITY, str_end)) {
         if (help_str) *help_str = " <epsilon> <detal> <Delta>\n[Error] Invalid Delta\n";
         return nullptr;

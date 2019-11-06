@@ -50,7 +50,7 @@ void print_help(const char *progname, const char *help_str = nullptr) {
 
     cout << "available query types:" << endl;
     cout << "\tpoint_interval" << endl;
-    cout << "\tpoint_att (TODO)" << endl;
+    cout << "\tpoint_att" << endl;
     cout << "available sketch types:" << endl;
     cout << "\tPCM (persistent_count_min)" << endl;
     cout << "\tPAMS (persistent_AMS_Sketch)" << endl;

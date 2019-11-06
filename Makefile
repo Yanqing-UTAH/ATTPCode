@@ -5,7 +5,7 @@ CPPFLAGS =
 LDFLAGS =
 
 EXES=test_pla test_pcm test_pams driver
-OBJS=test_pams.o sketch.o tester.o pcm.o pla.o test_pcm.o test_point_query.o driver.o test_pla.o pams.o 
+OBJS=test_pams.o sketch.o tester.o pcm.o pla.o sampling.o test_pcm.o test_point_query.o driver.o test_pla.o pams.o 
 
 .PHONY: all clean depend
 
@@ -19,7 +19,7 @@ test_pcm: test_pcm.o pcm.o pla.o
 
 test_pams: test_pams.o pams.o
 
-driver: driver.o pla.o pcm.o pams.o sketch.o
+driver: driver.o pla.o pcm.o pams.o sampling.o sketch.o
 
 # objs
 
@@ -32,6 +32,8 @@ tester.o: tester.cpp sketch.h
 pcm.o: pcm.cpp pcm.h pla.h util.h sketch.h
 
 pla.o: pla.cpp pla.h
+
+sampling.o: sampling.cpp sampling.h sketch.h
 
 test_pcm.o: test_pcm.cpp pcm.h pla.h util.h sketch.h
 
