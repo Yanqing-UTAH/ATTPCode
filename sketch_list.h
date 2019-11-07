@@ -10,4 +10,5 @@
 
 DEFINE_SKETCH_TYPE(PCM, PCMSketch, persistent_count_min, PCMSketch::create)
 DEFINE_SKETCH_TYPE(PAMS, PAMSketch, persistent_AMS_sketch, PAMSketch::create)
+DEFINE_SKETCH_TYPE(SAMPLING, SamplingSketch, persistent_sampling_sketch, SamplingSketch::create)
 

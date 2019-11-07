@@ -2,6 +2,7 @@
 #include "util.h"
 #include "pcm.h"
 #include "pams.h"
+#include "sampling.h"
 #include <unordered_map>
 #include <cassert>
 
