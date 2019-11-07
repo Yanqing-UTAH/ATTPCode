@@ -25,7 +25,7 @@ class CMSketch {
 
         int estimate(const char *);
 
-        unsigned long long memory_usage();
+        unsigned long long memory_usage() const;
 };
 
 class PCMSketch :
@@ -53,7 +53,7 @@ class PCMSketch :
             const char *str,
             unsigned long long ts_e) override;     
 
-        size_t memory_usage() override;
+        size_t memory_usage() const override;
 
     public:
         static PCMSketch *create(int argc, char *argv[], const char **help_str);

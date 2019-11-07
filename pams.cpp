@@ -101,7 +101,7 @@ double PAMSketch::estimate_C(unsigned j, unsigned i, unsigned f, unsigned long l
     }
 }
 
-size_t PAMSketch::memory_usage() {
+size_t PAMSketch::memory_usage() const {
     size_t mem = 0;
     
     mem += 2 * sizeof(Counter) * w * d;

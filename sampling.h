@@ -66,7 +66,7 @@ public:
     clear() override;
 
     size_t
-    memory_usage() override;
+    memory_usage() const override;
 
     double
     estimate_point_at_the_time(

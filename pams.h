@@ -51,7 +51,7 @@ class PAMSketch: public AbstractPersistentPointQueryable {
             const char *str,
             unsigned long long ts_e) override;
 
-        size_t memory_usage() override;
+        size_t memory_usage() const override;
 
     protected:
     

@@ -78,6 +78,6 @@ void PLA::feed(point current) {
     buffer_last = current;
 }
 
-unsigned long long PLA::memory_usage() {
+unsigned long long PLA::memory_usage() const {
     return result.size() * sizeof(int) * 3;
 }

@@ -31,7 +31,7 @@ class PLA {
 
         void feed(point current);
 
-        unsigned long long memory_usage();
+        unsigned long long memory_usage() const;
 
     private:
 

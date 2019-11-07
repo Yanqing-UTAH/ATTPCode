@@ -134,7 +134,7 @@ SamplingSketch::clear()
 }
 
 size_t
-SamplingSketch::memory_usage()
+SamplingSketch::memory_usage() const
 {
     size_t sum = sizeof(*this);
     for (unsigned i = 0; i < m_sample_size; ++i)

@@ -42,7 +42,7 @@ int CMSketch::estimate(const char *str) {
     return val;
 }
 
-unsigned long long CMSketch::memory_usage() {
+unsigned long long CMSketch::memory_usage() const {
     return d * w * sizeof(int);
 }
 
@@ -98,7 +98,7 @@ double PCMSketch::estimate_point_at_the_time(
     return estimate_point_in_interval(str, 0, ts_e); 
 }
 
-size_t PCMSketch::memory_usage() {
+size_t PCMSketch::memory_usage() const {
     size_t sum = 0;
     for (unsigned int i = 0; i < d; i++) {
         for (unsigned int j = 0; j < w; j++) {

@@ -7,7 +7,8 @@
  * Note: ts > 0, following the notation in Wei et al. (Persistent Data Sketching)
  * Intervals are in the form of (ts_s, ts_e]
  */
-struct IPersistentSketch {
+struct IPersistentSketch
+{
     virtual ~IPersistentSketch() {} ;
 
     virtual void 
@@ -17,14 +18,15 @@ struct IPersistentSketch {
     clear() = 0;
 
     virtual size_t
-    memory_usage() = 0;
+    memory_usage() const = 0;
 };
 
 /*
  *
  *
  */
-struct IPersistentPointQueryable: virtual public IPersistentSketch {
+struct IPersistentPointQueryable: virtual public IPersistentSketch
+{
     virtual double 
     estimate_point_in_interval(
         const char *str,
@@ -37,7 +39,8 @@ struct IPersistentPointQueryable: virtual public IPersistentSketch {
         unsigned long long ts_e) = 0;
 };
 
-struct AbstractPersistentPointQueryable: public IPersistentPointQueryable {
+struct AbstractPersistentPointQueryable: public IPersistentPointQueryable
+{
     double
     estimate_point_in_interval(
         const char *str,
