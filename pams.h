@@ -73,7 +73,9 @@ class PAMSketch: public AbstractPersistentPointQueryable {
         double estimate_C(unsigned j, unsigned i, unsigned int f, unsigned long long t);
 
     public:
-        static PAMSketch *create(int argc, char *argv[], const char **help_str);
+        static PAMSketch *create(int &argi, int argc, char *argv[], const char **help_str);
+
+        static PAMSketch *get_test_instance();
 };
 
 #endif // PAMS_H

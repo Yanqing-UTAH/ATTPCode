@@ -10,7 +10,7 @@ if [ ! -d deps ]; then
     fi
 fi
 
-FILE_LIST="`find . -name '*.cpp'`"
+FILE_LIST="`find . -maxdepth 1 -name '*.cpp'`"
 
 for src_file in $FILE_LIST; do
     dirname=`dirname "$src_file"`

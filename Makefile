@@ -5,7 +5,7 @@ CPPFLAGS =
 LDFLAGS =
 
 EXES=test_pla test_pcm test_pams test_hh driver
-OBJS=test_pams.o sketch.o tester.o pcm.o pla.o sampling.o test_pcm.o test_point_query.o driver.o test_pla.o pams.o test_hh.o heavyhitters.o
+OBJS=test_pams.o sketch.o test_hh.o pcm.o pla.o sampling.o heavyhitters.o test_pcm.o driver.o test_pla.o pams.o 
 
 .PHONY: all clean depend
 
@@ -27,27 +27,25 @@ driver: driver.o pla.o pcm.o pams.o sampling.o heavyhitters.o sketch.o
 
 test_pams.o: test_pams.cpp pams.h util.h sketch.h
 
-sketch.o: sketch.cpp sketch.h util.h pcm.h pla.h pams.h sketch_list.h
+sketch.o: sketch.cpp sketch.h util.h pcm.h pla.h pams.h sampling.h \
+ sketch_list.h
 
-tester.o: tester.cpp sketch.h
+test_hh.o: test_hh.cpp heavyhitters.h pcm.h pla.h util.h sketch.h
 
 pcm.o: pcm.cpp pcm.h pla.h util.h sketch.h
 
-heavyhitters.o: heavyhitters.cpp heavyhitters.h pcm.cpp pcm.h pla.h util.h sketch.h
-
 pla.o: pla.cpp pla.h
 
-sampling.o: sampling.cpp sampling.h sketch.h
+sampling.o: sampling.cpp sampling.h sketch.h util.h
+
+heavyhitters.o: heavyhitters.cpp heavyhitters.h pcm.h pla.h util.h \
+ sketch.h
 
 test_pcm.o: test_pcm.cpp pcm.h pla.h util.h sketch.h
 
-test_point_query.o: test_point_query.cpp sketch.h
-
-driver.o: driver.cpp sketch.h
+driver.o: driver.cpp sketch.h util.h
 
 test_pla.o: test_pla.cpp pla.h
-
-test_hh.o: test_hh.cpp pcm.cpp pcm.h pla.h util.h sketch.h heavyhitters.cpp heavyhitters.h
 
 pams.o: pams.cpp pams.h util.h sketch.h
 

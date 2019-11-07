@@ -172,38 +172,45 @@ SamplingSketch::estimate_point_at_the_time(
 
 SamplingSketch*
 SamplingSketch::create(
+    int &argi,
     int argc,
     char *argv[],
     const char **help_str)
 {
-    if (argc < 1)
+    if (argi >= argc)
     {
-        if (help_str) *help_str = " <sample size> [seed]";
+        if (help_str) *help_str = " <sample size> [seed]\n";
         return nullptr;
     }
 
     char *str_end;
-    auto v = strtol(argv[0], &str_end, 0);
+    auto v = strtol(argv[argi++], &str_end, 0);
     if (!check_long_ii(v, 1, MAX_SAMPLE_SIZE, str_end))
     {
-        if (help_str) *help_str = " <sample size> [seed]\n[Error] Invalid sample size";
+        if (help_str) *help_str = " <sample size> [seed]\n[Error] Invalid sample size\n";
         return nullptr;
     }
     unsigned sample_size = (unsigned) v;
 
-    if (argc < 2)
+    if (argi >= argc)
     {
         return new SamplingSketch(sample_size);
     }
     
-    v = strtol(argv[0], &str_end, 0);
+    v = strtol(argv[argi++], &str_end, 0);
     if (!check_long_ii(v, 0, ~0u, str_end))
     {
-        if (help_str) *help_str = " <sample size> [seed]\n[Error] Invalid seed";
+        if (help_str) *help_str = " <sample size> [seed]\n[Error] Invalid seed\n";
         return nullptr;
     }
     unsigned seed = (unsigned) v;
 
     return new SamplingSketch(sample_size, seed);
+}
+
+SamplingSketch*
+SamplingSketch::get_test_instance()
+{
+    return new SamplingSketch(1);
 }
 

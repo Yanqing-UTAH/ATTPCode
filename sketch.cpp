@@ -5,6 +5,10 @@
 #include "sampling.h"
 #include <unordered_map>
 #include <cassert>
+#include <utility>
+#include <memory>
+
+char help_str_buffer[help_str_bufsize];
 
 // The sketch enum literal is ST_XXX for a sketch named XXX
 #define ST_LITERAL(_1) CONCAT(ST_, _1)
@@ -25,12 +29,20 @@ static const char *st2stname[NUM_SKETCH_TYPES] = {
 #   include "sketch_list.h" 
 };
 #undef DEFINE_SKETCH_TYPE
+const char *sketch_type_to_sketch_name(SKETCH_TYPE st)
+{
+    return st2stname[st];
+}
 
 #define DEFINE_SKETCH_TYPE(_1, _2, staltname, ...) STRINGIFY(staltname),
 static const char *st2staltname[NUM_SKETCH_TYPES] = {
 #   include "sketch_list.h"
 };
 #undef DEFINE_SKETCH_TYPE
+const char *sketch_type_to_altname(SKETCH_TYPE st)
+{
+    return st2staltname[st];
+}
 
 void setup_sketch_lib() {
 #   define DEFINE_SKETCH_TYPE(stname, _2, staltname, ...) \
@@ -47,17 +59,19 @@ SKETCH_TYPE sketch_name_to_sketch_type(const char *sketch_name) {
     return iter->second;
 }
 
-IPersistentPointQueryable*
-create_persistent_point_queryable(
+IPersistentSketch*
+create_persistent_sketch(
     SKETCH_TYPE st,
+    int &argi,
     int argc,
     char *argv[],
-    const char **help_str) {
-
+    const char **help_str)
+{
+    *help_str = nullptr;
     switch (st) {
-#   define DEFINE_SKETCH_TYPE(stname, _2, _3, create) \
+#   define DEFINE_SKETCH_TYPE(stname, _2, _3, create, ...) \
     case ST_LITERAL(stname): \
-        return static_cast<IPersistentPointQueryable*>(create(argc, argv, help_str));
+        return static_cast<IPersistentSketch*>(create(argi, argc, argv, help_str));
 #   include "sketch_list.h"
 #   undef DEFINE_SKETCH_TYPE
     }
@@ -65,5 +79,54 @@ create_persistent_point_queryable(
     /* shouldn't really get here!! */
     assert(false);
     return nullptr;
+}
+
+std::vector<SKETCH_TYPE>
+check_query_type(
+    const char *query_type,
+    const char **help_str)
+{
+    std::vector<SKETCH_TYPE> ret;
+    std::vector<ResourceGuard<IPersistentSketch>> test_instances;
+#       define DEFINE_SKETCH_TYPE(_1, _2, _3, _4, get_test_instance, ...) \
+            test_instances.emplace_back(get_test_instance()),
+#       include "sketch_list.h"
+#       undef DEFINE_SKETCH_TYPE
+    assert(test_instances.size() == NUM_SKETCH_TYPES);
+    
+    *help_str = nullptr;
+    if (!strcmp(query_type, "point_interval"))
+    {
+        for (SKETCH_TYPE st = 0; st < NUM_SKETCH_TYPES; ++st)
+        {
+            IPersistentPointQueryable *ippq =
+                dynamic_cast<IPersistentPointQueryable*>(test_instances[st].get());
+            if (ippq && !std::isnan(ippq->estimate_point_in_interval("", 0, 1)))
+            {
+                ret.push_back(st);
+            }
+        }
+    }
+    else if (!strcmp(query_type, "point_att"))
+    {
+        for (SKETCH_TYPE st = 0; st < NUM_SKETCH_TYPES; ++st)
+        {
+            IPersistentPointQueryable *ippq =
+                dynamic_cast<IPersistentPointQueryable*>(test_instances[st].get());
+            if (ippq && !std::isnan(ippq->estimate_point_at_the_time("", 1)))
+            {
+                ret.push_back(st);
+            }
+        }
+
+    }
+    else
+    {
+        snprintf(help_str_buffer, help_str_bufsize,
+            "\n[ERROR] Unknown query type: %s\n", query_type);
+        *help_str = help_str_buffer;
+    }
+
+    return std::move(ret);
 }
 

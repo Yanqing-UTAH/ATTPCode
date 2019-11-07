@@ -10,6 +10,9 @@
 #define CONCAT_HELPER(_1, _2) _1 ## _2
 #define CONCAT(_1, _2) CONCAT_HELPER(_1, _2)
 
+const ssize_t help_str_bufsize = 65536ul;
+extern char help_str_buffer[help_str_bufsize];
+
 inline unsigned int hashstr(const char *str) {
 	unsigned long hash = 5381;
 	int c;
@@ -33,5 +36,33 @@ inline bool check_long_ii(long value, long min, long max, char *str_end) {
     return !(!str_end || *str_end != '\0' ||
        errno == ERANGE || value < min || value > max); 
 }
+
+template<class T>
+struct ResourceGuard {
+    ResourceGuard(T *t = nullptr) {
+        m_t = t;
+    }
+    ResourceGuard(const ResourceGuard &) = delete;
+    ResourceGuard& operator=(const ResourceGuard &) = delete;
+    
+    ResourceGuard(ResourceGuard &&other) noexcept: m_t(other.m_t) {
+        other.m_t = nullptr; 
+    }
+
+    ResourceGuard& operator=(ResourceGuard &&other) noexcept {
+        delete m_t;
+        this.m_t = other.m_t;
+        other.m_t = nullptr; 
+    }
+
+    ~ResourceGuard() {
+        delete m_t;
+    }
+
+    T *get() const { return m_t; }
+
+private:
+    T *m_t;
+};
 
 #endif

@@ -2,6 +2,10 @@
 #define SKETCH_H
 
 #include <cmath>
+#include <vector>
+#include <cstdint>
+
+typedef unsigned long long TIMESTAMP;
 
 /*
  * Note: ts > 0, following the notation in Wei et al. (Persistent Data Sketching)
@@ -12,7 +16,7 @@ struct IPersistentSketch
     virtual ~IPersistentSketch() {} ;
 
     virtual void 
-    update(unsigned long long ts, const char *str, int c = 1) = 0;
+    update(TIMESTAMP ts, const char *str, int c = 1) = 0;
     
     virtual void
     clear() = 0;
@@ -25,48 +29,72 @@ struct IPersistentSketch
  *
  *
  */
-struct IPersistentPointQueryable: virtual public IPersistentSketch
+struct IPersistentPointQueryable:
+    virtual public IPersistentSketch
 {
     virtual double 
     estimate_point_in_interval(
         const char *str,
-        unsigned long long ts_s,
-        unsigned long long ts_e) = 0;
+        TIMESTAMP ts_s,
+        TIMESTAMP ts_e) = 0;
 
     virtual double
     estimate_point_at_the_time(
         const char *str,
-        unsigned long long ts_e) = 0;
+        TIMESTAMP ts_e) = 0;
 };
 
-struct AbstractPersistentPointQueryable: public IPersistentPointQueryable
+struct AbstractPersistentPointQueryable:
+    public IPersistentPointQueryable
 {
     double
     estimate_point_in_interval(
         const char *str,
-        unsigned long long ts_s,
-        unsigned long long ts_e) override
+        TIMESTAMP ts_s,
+        TIMESTAMP ts_e) override
     { return NAN; }
 
     double
     estimate_point_at_the_time(
         const char *str,
-        unsigned long long ts_e) override
+        TIMESTAMP ts_e) override
     { return NAN; }
 };
 
+struct IPersistentHeavyHitterSketch:
+    virtual public IPersistentSketch
+{
+    struct HeavyHitter
+    {
+        uint32_t        m_value;     
+        float           m_fraction;
+    };
+
+    virtual std::vector<HeavyHitter>
+    estimate_heavy_hitters(
+        TIMESTAMP ts_e,
+        double frac_threshold) const = 0;
+};
 
 void setup_sketch_lib();
 
 typedef int SKETCH_TYPE;
 #define ST_INVALID -1
 SKETCH_TYPE sketch_name_to_sketch_type(const char *sketch_name);
+const char *sketch_type_to_sketch_name(SKETCH_TYPE st);
+const char *sketch_type_to_altname(SKETCH_TYPE st);
 
-IPersistentPointQueryable*
-create_persistent_point_queryable(
+IPersistentSketch*
+create_persistent_sketch(
     SKETCH_TYPE st,
+    int &argi,
     int argc,
     char *argv[],
+    const char **help_str);
+
+std::vector<SKETCH_TYPE>
+check_query_type(
+    const char *query_type,
     const char **help_str);
 
 #endif // SKETCH_H

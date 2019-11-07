@@ -5,55 +5,28 @@
 #include <sstream>
 #include <fstream>
 #include "sketch.h"
-
-template<class T>
-struct ResourceGuard {
-    ResourceGuard(T *t) {
-        m_t = t;
-    }
-    ~ResourceGuard() {
-        delete m_t;
-    }
-
-private:
-    T *m_t;
-};
+#include <cassert>
+#include <algorithm>
+#include "util.h"
 
 using namespace std;
 
-/*  const char *data[] = {
-    "hello", "some", "one", "hello", "alice",
-    "one", "lady", "let", "us", "lady",
-    "alice", "in", "wonderland", "us", "lady",
-    "lady", "some", "hello", "none", "pie"
-
-  };
-
-int count(int begin, int end, const char * str) {
-    int cnt = 0;
-    for (int i = begin; i <= end; ++i) {
-        if (!strcmp(str, data[i])) {
-            cnt += 1;
-        }
-    }
-    return cnt;
-}
-
-void pcm_test(PCMSketch *pcm, const char *str, int begin, int end) {
-    cout << str << "[" << begin << "," << end << "]:\tEst: " << pcm->estimate_point_in_interval(str, begin, end) << "\tTruth: " << count(begin, end, str) << endl; 
-} */
-
 void print_help(const char *progname, const char *help_str = nullptr) {
     cout << "usage: " << progname << " <QueryType> <SketchType> <infile>";
-    if (help_str) cout << help_str; else cout << " <params...>";
-    cout << endl;
-
-    cout << "available query types:" << endl;
-    cout << "\tpoint_interval" << endl;
-    cout << "\tpoint_att" << endl;
-    cout << "available sketch types:" << endl;
-    cout << "\tPCM (persistent_count_min)" << endl;
-    cout << "\tPAMS (persistent_AMS_Sketch)" << endl;
+    if (help_str)
+    {
+        cout << help_str; 
+    }
+    else
+    {
+        /* We have argc <= 2 at this point */
+        cout << " <params...>";
+        cout << endl;
+        cout << "Hint: enter query type to view the list of supported sketch types" << endl;
+        cout << "\navailable query types:" << endl;
+        cout << "\tpoint_interval" << endl;
+        cout << "\tpoint_att" << endl;
+    }
 }
 
 std::tuple<unsigned long long, unsigned long long, std::string>
@@ -69,25 +42,15 @@ parse_point_interval_query(const std::string &line) {
 
 const char*
 test_point_interval(
-    const char *sketch_name,
-    const char *infile_name,
-    int argc, char *argv[]) {
-    
-    SKETCH_TYPE st = sketch_name_to_sketch_type(sketch_name);
-    if (st == ST_INVALID) {
-        return "\n[ERROR] Unknown sketch type";
-    }
+    IPersistentSketch *sketch,
+    const char *infile_name) {
 
-    const char *help_str;
-    IPersistentPointQueryable *ippq =
-        create_persistent_point_queryable(st, argc, argv, &help_str);
-    if (!ippq) return help_str;
-
-    ResourceGuard guard(ippq);
+    IPersistentPointQueryable *ippq = dynamic_cast<IPersistentPointQueryable*>(sketch);
+    assert(ippq);
     
     std::ifstream infile(infile_name); 
     if (!infile) {
-        return "\n[ERROR] Unable to open input file";
+        return "\n[ERROR] Unable to open input file\n";
     }
 
     std::unordered_map<std::string, std::set<unsigned long long>> cnt;
@@ -133,27 +96,16 @@ parse_point_att_query(const std::string &line) {
 
 const char*
 test_point_att(
-    const char *sketch_name,
-    const char *infile_name,
-    int argc, char *argv[]) {
+    IPersistentSketch *sketch,
+    const char *infile_name) {
+
+    IPersistentPointQueryable *ippq = dynamic_cast<IPersistentPointQueryable*>(sketch);
+    assert(ippq);
     
-    SKETCH_TYPE st = sketch_name_to_sketch_type(sketch_name);
-    if (st == ST_INVALID) {
-        return "\n[ERROR] Unknown sketch type";
-    }
-
-    const char *help_str;
-    IPersistentPointQueryable *ippq =
-        create_persistent_point_queryable(st, argc, argv, &help_str);
-    if (!ippq) {
-        return help_str;
-    }
-
-    ResourceGuard guard(ippq);
     
     std::ifstream infile(infile_name);
     if (!infile) {
-        return "\n[ERROR] Unable to open input file";
+        return "\n[ERROR] Unable to open input file\n";
     }
 
     std::unordered_map<std::string, std::set<unsigned long long>> cnt;
@@ -190,27 +142,109 @@ int main(int argc, char **argv) {
 
     setup_sketch_lib();
 
-    const char *progname = argv[0];
-    
-    if (argc < 4) {
+    int argi = 0;
+    const char *progname = argv[argi++];
+    if (argc < 2) {
         print_help(progname);
         return 1;
     }
 
-    const char *query_type = argv[1];
-    const char *sketch_type = argv[2];
-    const char *infile_name = argv[3];
+    const char *help_str = nullptr;
+    const char *query_type = argv[argi++];
+    std::vector<SKETCH_TYPE> supported_sketch_types =
+        check_query_type(query_type, &help_str);
+    if (help_str)
+    {
+        print_help(progname, help_str);
+        return 1;
+    }
 
+    auto get_supported_sketch_types_helpstr= [&](ssize_t &off) -> const char *
+    {
+
+        if (off >= help_str_bufsize)
+        {
+            help_str_buffer[help_str_bufsize] = '\0';
+            return help_str_buffer;
+        }
+
+        off += snprintf(help_str_buffer + off, help_str_bufsize - off,
+            "\nSupported sketch types for %s:\n", query_type);
+        if (off >= help_str_bufsize)
+        {
+            help_str_buffer[help_str_bufsize] = '\0';
+            return help_str_buffer;
+        }
+
+        for (auto st: supported_sketch_types)
+        {
+            off += snprintf(help_str_buffer + off, help_str_bufsize - off,
+                "\t%s (%s)\n", sketch_type_to_sketch_name(st),
+                sketch_type_to_altname(st));
+            if (off >= help_str_bufsize)
+            {
+                help_str_buffer[help_str_bufsize] = '\0';
+                break;
+            }
+        }
+        return help_str_buffer; 
+    };
+
+    if (argc < 3)
+    {
+        ssize_t off = snprintf(help_str_buffer, help_str_bufsize,
+            " <params...>\n");
+        help_str = get_supported_sketch_types_helpstr(off);
+        print_help(progname, help_str);
+        return 1;
+    }
+    
+    const char *sketch_name = argv[argi++];
+    SKETCH_TYPE st = sketch_name_to_sketch_type(sketch_name);
+    if (st == ST_INVALID) {
+        ssize_t off = snprintf(help_str_buffer, help_str_bufsize,
+            " <params...>\n[ERROR] Unknown sketch type: %s\n", sketch_name);
+        help_str = get_supported_sketch_types_helpstr(off);
+        print_help(progname, help_str);
+        return 1;
+    }
+
+    if (supported_sketch_types.end() == 
+        std::find(supported_sketch_types.begin(), supported_sketch_types.end(), st))
+    {
+        ssize_t off = snprintf(help_str_buffer, help_str_bufsize,
+            " <params...>\n[ERROR] Unsupported sketch type: %s\n", sketch_name);
+        help_str = get_supported_sketch_types_helpstr(off);
+        print_help(progname, help_str);
+        return 1;
+    }
+
+    if (argi >= argc)
+    {
+        print_help(progname, " <params...>\n[ERROR] missing input file\n");
+        return 1;
+    }
+    const char *infile_name = argv[argi++];
+
+    IPersistentSketch *sketch =
+        create_persistent_sketch(st, argi, argc, argv, &help_str);
+    if (!sketch) {
+        print_help(progname, help_str);
+        return 1;
+    }
+    ResourceGuard guard(sketch);
+
+    
     if (!strcmp(query_type, "point_interval")) {
-        const char *help_str =
-            test_point_interval(sketch_type, infile_name, argc - 4, argv + 4);
+        help_str =
+            test_point_interval(sketch, infile_name);
         if (help_str) {
             print_help(progname, help_str);
             return 2; 
         }
     } else if (!strcmp(query_type, "point_att")) {
-        const char *help_str =
-            test_point_att(sketch_type, infile_name, argc - 4, argv + 4);
+        help_str =
+            test_point_att(sketch, infile_name);
         if (help_str) {
             print_help(progname, help_str);
             return 2;

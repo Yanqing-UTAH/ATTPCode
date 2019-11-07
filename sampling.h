@@ -84,7 +84,10 @@ private:
 
 public:
     static SamplingSketch*
-    create(int argc, char *argv[], const char **help_str);
+    create(int &argi, int argc, char *argv[], const char **help_str);
+
+    static SamplingSketch*
+    get_test_instance();
 };
 
 #endif // SAMPLING_H

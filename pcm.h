@@ -56,7 +56,9 @@ class PCMSketch :
         size_t memory_usage() const override;
 
     public:
-        static PCMSketch *create(int argc, char *argv[], const char **help_str);
+        static PCMSketch *create(int &argi, int argc, char *argv[], const char **help_str);
+
+        static PCMSketch *get_test_instance();
 };
 
 #endif
