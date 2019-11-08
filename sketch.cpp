@@ -3,6 +3,7 @@
 #include "pcm.h"
 #include "pams.h"
 #include "sampling.h"
+#include "heavyhitters.h"
 #include <unordered_map>
 #include <cassert>
 #include <utility>

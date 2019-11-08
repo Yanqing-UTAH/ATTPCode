@@ -4,22 +4,49 @@
 #include <vector>
 #include "pcm.h"
 
-class HeavyHitters {
+class HeavyHitters:
+    public IPersistentHeavyHitterSketch {
 
-    public:
-        HeavyHitters(unsigned logUniverseSize);
+public:
+    HeavyHitters(unsigned logUniverseSize);
 
-        ~HeavyHitters();
+    HeavyHitters(
+        unsigned logUniverseSize,
+        double epsilon,
+        double delta,
+        double Delta);
 
-        void update(unsigned long long ts, unsigned element, int cnt = 1);
+    virtual ~HeavyHitters();
 
-	std::vector<unsigned long long> query_hh(unsigned long long ts, double threshold) const;
+    void clear() override;
 
-	size_t memory_usage() const;
+    void update(unsigned long long ts, uint32_t element, int cnt = 1) override;
+    
+    /* absolute threshold */
+	std::vector<uint32_t> query_hh(unsigned long long ts, double threshold) const;
+
+    std::vector<IPersistentHeavyHitterSketch::HeavyHitter>
+    estimate_heavy_hitters(
+        TIMESTAMP ts_e,
+        double frac_threshold) const override;
+
+	size_t memory_usage() const override;
 
     private:
         int levels;
+        
         PCMSketch **pcm;
+        
+        TIMESTAMP last_ts;
+
+        uint64_t last_cnt; 
+
+        PLA *cnt_pla;
+
+    public:
+        static HeavyHitters* create(int &argi, int argc, char *argv[], const char **help_str);
+
+        static HeavyHitters* get_test_instance();
 };
 
 
