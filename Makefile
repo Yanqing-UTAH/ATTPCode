@@ -4,7 +4,7 @@ CXXFLAGS = -Wall -O0 -g -std=c++17
 CPPFLAGS =
 LDFLAGS =
 
-EXES=test_pla test_pcm test_pams test_hh driver
+EXES=test_hh driver
 OBJS=test_pams.o sketch.o test_hh.o pcm.o pla.o sampling.o heavyhitters.o test_pcm.o driver.o test_pla.o pams.o 
 
 .PHONY: all clean depend

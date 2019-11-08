@@ -13,13 +13,17 @@
 const ssize_t help_str_bufsize = 65536ul;
 extern char help_str_buffer[help_str_bufsize];
 
-inline unsigned int hashstr(const char *str) {
+inline unsigned long hashstr_l(const char *str) {
 	unsigned long hash = 5381;
 	int c;
 	while ((c = *str++)) {
 		hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
 	}
 	return hash;
+}
+
+inline unsigned int hashstr(const char *str) {
+    return (unsigned) hashstr_l(str);
 }
 
 inline int rand_int() {

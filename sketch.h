@@ -6,6 +6,9 @@
 #include <cstdint>
 
 typedef unsigned long long TIMESTAMP;
+using std::uint32_t;
+using std::uint64_t;
+
 
 /*
  * Note: ts > 0, following the notation in Wei et al. (Persistent Data Sketching)
@@ -14,9 +17,6 @@ typedef unsigned long long TIMESTAMP;
 struct IPersistentSketch
 {
     virtual ~IPersistentSketch() {} ;
-
-    virtual void 
-    update(TIMESTAMP ts, const char *str, int c = 1) = 0;
     
     virtual void
     clear() = 0;
@@ -25,12 +25,23 @@ struct IPersistentSketch
     memory_usage() const = 0;
 };
 
-/*
- *
- *
- */
-struct IPersistentPointQueryable:
+struct IPersistentSketch_str:
     virtual public IPersistentSketch
+{
+    virtual void
+    update(TIMESTAMP ts, const char *str, int c = 1) = 0;
+
+};
+
+struct IPersistentSketch_u32:
+    virtual public IPersistentSketch
+{
+    virtual void
+    update(TIMESTAMP ts, uint32_t value, int c = 1) = 0;
+};
+
+struct IPersistentPointQueryable:
+    virtual public IPersistentSketch_str
 {
     virtual double 
     estimate_point_in_interval(
@@ -62,7 +73,7 @@ struct AbstractPersistentPointQueryable:
 };
 
 struct IPersistentHeavyHitterSketch:
-    virtual public IPersistentSketch
+    virtual public IPersistentSketch_u32
 {
     struct HeavyHitter
     {

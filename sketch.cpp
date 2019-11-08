@@ -118,7 +118,18 @@ check_query_type(
                 ret.push_back(st);
             }
         }
-
+    }
+    else if (!strcmp(query_type, "heavy_hitter"))
+    {
+        for (SKETCH_TYPE st = 0; st < NUM_SKETCH_TYPES; ++st)
+        {
+            IPersistentHeavyHitterSketch *iphh =
+                dynamic_cast<IPersistentHeavyHitterSketch*>(test_instances[st].get());
+            if (iphh)
+            {
+                ret.push_back(st);
+            }
+        }
     }
     else
     {

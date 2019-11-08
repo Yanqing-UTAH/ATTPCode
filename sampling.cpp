@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <algorithm>
 #include <cstdlib>
+#include <unordered_map>
 #include "util.h"
 
 SamplingSketch::List::List():
@@ -34,9 +35,55 @@ SamplingSketch::List::append(
     unsigned long long ts,
     const char *str)
 {
-    if (m_length == m_capacity)
+    ensure_item_capacity(m_length + 1);
+
+    size_t value_len = strlen(str);
+    ensure_content_capacity(m_end_of_content + value_len + 1);
+
+    m_items[m_length].m_ts = ts;
+    m_items[m_length].m_value.m_str_off = m_end_of_content;
+    memcpy(m_content + m_end_of_content, str, value_len + 1);
+    ++m_length;
+    m_end_of_content += value_len + 1;
+}
+
+void
+SamplingSketch::List::append(
+    TIMESTAMP ts,
+    uint32_t value)
+{
+    ensure_item_capacity(m_length + 1); 
+
+    m_items[m_length].m_ts = ts;
+    m_items[m_length++].m_value.m_u32 = value;
+}
+
+size_t
+SamplingSketch::List::memory_usage() const
+{
+    return m_capacity * sizeof(Item) + m_capacity_of_content;
+}
+
+SamplingSketch::Item*
+SamplingSketch::List::last_of(unsigned long long ts) const
+{
+    Item * item = std::upper_bound(m_items, m_items + m_length, ts,
+        [](unsigned long long ts, const Item& i) -> bool {
+            return ts < i.m_ts;
+        });
+    return (item == m_items) ? nullptr : (item - 1);
+}
+
+void
+SamplingSketch::List::ensure_item_capacity(unsigned desired_length)
+{
+    if (desired_length > m_capacity)
     {
         unsigned new_capacity = (m_capacity) ? (m_capacity << 1) : 16u;
+        while (desired_length > new_capacity)
+        {
+            new_capacity = new_capacity << 1;
+        }
         Item *new_items = new Item[new_capacity];
         if (m_capacity)
         {
@@ -46,13 +93,16 @@ SamplingSketch::List::append(
         m_capacity = new_capacity;
         m_items = new_items;
     }
+}
 
-    size_t value_len = strlen(str);
-    if (m_end_of_content + value_len >= m_capacity_of_content)
+void
+SamplingSketch::List::ensure_content_capacity(size_t desired_length)
+{
+    if (desired_length > m_capacity_of_content)
     {
         unsigned new_capacity_of_content =
             (m_capacity_of_content) ? (m_capacity_of_content << 1) : 1024u;
-        while (m_end_of_content + value_len >= new_capacity_of_content)
+        while (desired_length > new_capacity_of_content)
         {
             new_capacity_of_content = new_capacity_of_content << 1;
         }
@@ -65,27 +115,6 @@ SamplingSketch::List::append(
         m_capacity_of_content = new_capacity_of_content;
         m_content = new_content;
     }
-
-    m_items[m_length].m_ts = ts;
-    m_items[m_length].m_value_off = m_end_of_content;
-    memcpy(m_content + m_end_of_content, str, value_len + 1);
-    ++m_length;
-    m_end_of_content += value_len + 1;
-}
-
-size_t
-SamplingSketch::List::memory_usage() const
-{
-    return m_capacity * sizeof(Item) + m_capacity_of_content;
-}
-
-const char *
-SamplingSketch::List::last_of(unsigned long long ts) const
-{
-    return m_content + (std::upper_bound(m_items, m_items + m_length, ts,
-        [](unsigned long long ts, const Item& i) -> bool {
-            return ts < i.m_ts;
-        }) - 1)->m_value_off;
 }
 
 SamplingSketch::SamplingSketch(
@@ -104,7 +133,8 @@ SamplingSketch::~SamplingSketch()
 }
 
 void
-SamplingSketch::update(unsigned long long ts, const char *str, int c) {
+SamplingSketch::update(unsigned long long ts, const char *str, int c)
+{
 update_loop:
     if (m_seen < m_sample_size)
     {
@@ -117,6 +147,27 @@ update_loop:
         if (i < m_sample_size)
         {
             m_reservoir[i].append(ts, str);
+        }
+    }
+
+    if (--c) goto update_loop;
+}
+
+void
+SamplingSketch::update(TIMESTAMP ts, uint32_t value, int c)
+{
+update_loop:
+    if (m_seen < m_sample_size)
+    {
+        m_reservoir[m_seen++].append(ts, value);
+    }
+    else
+    {
+        std::uniform_int_distribution<unsigned long long> unif(0, m_seen++);
+        auto i = unif(m_rng);
+        if (i < m_sample_size)
+        {
+            m_reservoir[i].append(ts, value);
         }
     }
 
@@ -150,17 +201,23 @@ SamplingSketch::estimate_point_at_the_time(
     unsigned long long ts_e)
 {
     unsigned n = (unsigned) std::min((unsigned long long) m_sample_size, m_seen);
+    unsigned nvalid = 0;
     unsigned c = 0;
     for (unsigned i = 0; i < n; ++i)
     {
-        const char *s = m_reservoir[i].last_of(ts_e);
-        if (!strcmp(s, str))
+        Item *item = m_reservoir[i].last_of(ts_e);
+        if (item)
         {
-            ++c;
+            const char *s = m_reservoir[i].get_str(*item);
+            if (!strcmp(s, str))
+            {
+                ++c;
+            }
+            ++nvalid;
         }
     }
     
-    if (m_seen <= m_sample_size)
+    if (nvalid <= m_sample_size)
     {
         return (double) c;
     }
@@ -168,6 +225,38 @@ SamplingSketch::estimate_point_at_the_time(
     {
         return c * ((double) m_seen / m_sample_size);
     }
+}
+
+std::vector<IPersistentHeavyHitterSketch::HeavyHitter>
+SamplingSketch::estimate_heavy_hitters(
+    TIMESTAMP ts_e,
+    double frac_threshold) const
+{
+    std::unordered_map<uint32_t, unsigned> cnt_map;
+    
+    unsigned n = (unsigned) std::min((unsigned long long) m_sample_size, m_seen);
+    unsigned nvalid = 0;
+    for (unsigned i = 0; i < n; ++i)
+    {
+        Item *item = m_reservoir[i].last_of(ts_e);
+        if (item)
+        {
+            ++nvalid;
+            ++cnt_map[item->m_value.m_u32];
+        }
+    }
+
+    std::vector<IPersistentHeavyHitterSketch::HeavyHitter> ret;
+    auto sample_threshold = (unsigned) std::ceil(frac_threshold * nvalid);
+    for (const auto &p: cnt_map)
+    {
+        if (p.second >= sample_threshold)
+        {
+            ret.emplace_back(IPersistentHeavyHitterSketch::HeavyHitter{
+                    p.first, (float) p.second / nvalid});
+        }
+    }
+    return std::move(ret);
 }
 
 SamplingSketch*

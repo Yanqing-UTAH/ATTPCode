@@ -8,6 +8,9 @@
 #include <cassert>
 #include <algorithm>
 #include "util.h"
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
 
 using namespace std;
 
@@ -26,6 +29,7 @@ void print_help(const char *progname, const char *help_str = nullptr) {
         cout << "\navailable query types:" << endl;
         cout << "\tpoint_interval" << endl;
         cout << "\tpoint_att" << endl;
+        cout << "\theavy_hitter" << endl;
     }
 }
 
@@ -138,6 +142,57 @@ test_point_att(
     return nullptr;
 }
 
+const char*
+test_heavy_hitter(
+    IPersistentSketch *sketch,
+    const char *infile_name)
+{
+    IPersistentHeavyHitterSketch *iphh =
+        dynamic_cast<IPersistentHeavyHitterSketch*>(sketch);
+    assert(iphh);
+
+    std::ifstream infile(infile_name);
+    if (!infile)
+    {
+        return "\n[ERROR] Unable to open input file\n";
+    }
+    
+    std::string line;
+    while (std::getline(infile, line), !line.empty()) {
+        if (line[0] == '?')
+        {
+            TIMESTAMP ts_e;
+            double fraction;
+            sscanf(line.c_str(), "? %llu %lf", &ts_e, &fraction);
+            auto estimated = iphh->estimate_heavy_hitters(ts_e, fraction);
+            cout << "HeavyHitter(" << fraction << "|" << ts_e << ") = {" << endl;
+            for (const auto &hh: estimated)
+            {
+                struct in_addr ip = { .s_addr = (in_addr_t) hh.m_value };
+                
+                cout << '\t' << inet_ntoa(ip) << ' ' << hh.m_fraction << endl;
+            }
+            cout << '}' << endl;
+        }
+        else
+        {
+            TIMESTAMP ts;
+            char ip_str[17];
+            struct in_addr ip;
+
+            sscanf(line.c_str(), "%llu %16s", &ts, ip_str);
+            if (!inet_aton(ip_str, &ip))
+            {
+                cout << "[WARN] Malformatted line: " << line << endl;
+                continue;
+            }
+            iphh->update(ts, (uint32_t) ip.s_addr);
+        }
+    }
+
+    return nullptr;
+}
+
 int main(int argc, char **argv) {
 
     setup_sketch_lib();
@@ -234,26 +289,26 @@ int main(int argc, char **argv) {
     }
     ResourceGuard guard(sketch);
 
-    
+    help_str = nullptr; 
     if (!strcmp(query_type, "point_interval")) {
         help_str =
             test_point_interval(sketch, infile_name);
-        if (help_str) {
-            print_help(progname, help_str);
-            return 2; 
-        }
     } else if (!strcmp(query_type, "point_att")) {
         help_str =
             test_point_att(sketch, infile_name);
-        if (help_str) {
-            print_help(progname, help_str);
-            return 2;
-        }
+    } else if (!strcmp(query_type, "heavy_hitter")) {
+        help_str =
+            test_heavy_hitter(sketch, infile_name);
     } else {
         print_help(progname);
         return 1;
     }
-
+    
+    if (help_str)
+    {
+        print_help(progname, help_str);
+        return 2;
+    }
     return 0;
 }
 
