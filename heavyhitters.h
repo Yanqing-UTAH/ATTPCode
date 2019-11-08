@@ -37,9 +37,7 @@ public:
         
         PCMSketch **pcm;
         
-        TIMESTAMP last_ts;
-
-        uint64_t last_cnt; 
+        uint64_t tot_cnt; 
 
         PLA *cnt_pla;
 

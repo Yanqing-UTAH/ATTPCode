@@ -1,4 +1,5 @@
 #include "heavyhitters.h"
+#include <iostream>
 
 using namespace std;
 
@@ -18,9 +19,8 @@ HeavyHitters::HeavyHitters(
     double Delta):
     levels(logUniverseSize),
     pcm(nullptr),
-    last_ts(0ull),
-    last_cnt(0ull),
-    cnt_pla(0ull)
+    tot_cnt(0ull),
+    cnt_pla(nullptr)
 {
     pcm = new PCMSketch*[levels];
     for (auto i = 0; i < levels; ++i)
@@ -39,10 +39,15 @@ HeavyHitters::~HeavyHitters() {
 }
 
 void HeavyHitters::clear() {
-    for (auto i = 0; i < levels; ++i) {
+    for (auto i = 0; i < levels; ++i)
+    {
         pcm[i]->clear();
     }
-    if (cnt_pla) cnt_pla->clear();
+    if (cnt_pla)
+    {
+        cnt_pla->clear();
+        tot_cnt = 0;
+    }
 }
 
 void HeavyHitters::update(unsigned long long ts, uint32_t element, int cnt) {
@@ -53,23 +58,25 @@ void HeavyHitters::update(unsigned long long ts, uint32_t element, int cnt) {
 		pcm[i]->update(ts, buffer, cnt);
 		idx >>= 1;
 	}
-
-    if (ts > last_ts)
+    
+    if (cnt_pla)
     {
-        last_ts = ts;
-        last_cnt = 0;
+        ++tot_cnt;
+        cnt_pla->feed(PLA::point{ts, (double) tot_cnt});
     }
-    cnt_pla->feed(PLA::point{ts, (double) ++last_cnt});
 }
 
 vector<uint32_t> HeavyHitters::query_hh(unsigned long long ts, double threshold) const {
 	vector<uint32_t> result;
 	vector<pair<int, unsigned>> stack = {{levels - 1, 0U}, {levels - 1, 1U}};
 	char buffer[30];
+    //uint64_t n = 0;
 	while (!stack.empty()) {
 		auto [level, x] = stack.back();
 		stack.pop_back();
 		sprintf(buffer, "%u", x);
+        //if (++n % 100000 == 0)
+            //cout << stack.size() << endl;
 		auto freq = pcm[level]->estimate_point_at_the_time(buffer, ts);
 		if (freq >= threshold) {
 			if (level == 0) {
@@ -91,6 +98,9 @@ HeavyHitters::estimate_heavy_hitters(
 {
     double cnt_est = cnt_pla->estimate(ts_e);
     double threshold = frac_threshold * cnt_est;
+    cout << cnt_est << ' ' << threshold << endl;
+    
+    //decltype(query_hh(ts_e, threshold)) raw_result;
     auto raw_result = query_hh(ts_e, threshold);
     
     std::vector<IPersistentHeavyHitterSketch::HeavyHitter> ret;
