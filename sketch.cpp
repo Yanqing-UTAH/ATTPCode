@@ -4,6 +4,7 @@
 #include "pams.h"
 #include "sampling.h"
 #include "heavyhitters.h"
+#include "exact_query.h"
 #include <unordered_map>
 #include <cassert>
 #include <utility>
