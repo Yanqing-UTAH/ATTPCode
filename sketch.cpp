@@ -96,7 +96,7 @@ check_query_type(
 #       undef DEFINE_SKETCH_TYPE
     assert(test_instances.size() == NUM_SKETCH_TYPES);
     
-    *help_str = nullptr;
+    if (help_str) *help_str = nullptr;
     if (!strcmp(query_type, "point_interval"))
     {
         for (SKETCH_TYPE st = 0; st < NUM_SKETCH_TYPES; ++st)
@@ -133,7 +133,7 @@ check_query_type(
             }
         }
     }
-    else
+    else if (help_str)
     {
         snprintf(help_str_buffer, help_str_bufsize,
             "\n[ERROR] Unknown query type: %s\n", query_type);

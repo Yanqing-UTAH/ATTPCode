@@ -11,6 +11,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include "conf.h"
 
 using namespace std;
 
@@ -193,7 +194,7 @@ test_heavy_hitter(
     return nullptr;
 }
 
-int main(int argc, char **argv) {
+int old_main(int argc, char **argv) {
 
     setup_sketch_lib();
 
@@ -309,6 +310,72 @@ int main(int argc, char **argv) {
         print_help(progname, help_str);
         return 2;
     }
+    return 0;
+}
+
+void print_new_help(const char *progname) {
+    if (progname)
+    {
+        std::cout << "usage: " << progname << " run <ConfigFile>" << std::endl;
+        std::cout << "usage: " << progname << " help <QueryType>" << std::endl;
+    }
+    std::cout << "Available query types:" << std::endl;
+    std::cout << "\theavy_hitter" << std::endl;
+}
+
+int
+main(int argc, char *argv[])
+{
+    setup_sketch_lib();
+    setup_config();
+
+    int argi = 0;
+    const char *progname = argv[argi++];
+    if (argc < 3) {
+        print_new_help(progname);
+        return 1;
+    }
+    
+    const char *command = argv[argi++];
+    if (!strcmp(command, "run"))
+    {
+        const char *config_file = argv[argi++];
+        const char *help_str;
+        if (!g_config->parse_file(config_file, &help_str))
+        {
+            std::cout << help_str; 
+            return 2;
+        }
+    }
+    else if (!strcmp(command, "help"))
+    {
+        const char *query_type = argv[argi++];
+        if (!strcmp(query_type, "heavy_hitter"))
+        {
+            std::cout << "Query heavy_hitter" << std::endl; 
+        }
+        else
+        {
+            std::cout << "[ERROR] Invalid query type " << query_type << std::endl;
+            print_new_help(nullptr);
+            return 1;
+        }
+
+        std::cout << "Supported sketches:" << std::endl;
+        std::vector<SKETCH_TYPE> supported_sketch_types =
+            check_query_type(query_type, nullptr);
+        for (SKETCH_TYPE st: supported_sketch_types)
+        {
+            std::cout << '\t' << sketch_type_to_sketch_name(st) << " ("
+                << sketch_type_to_altname(st) << ')' << std::endl;
+        }
+    }
+    else
+    {
+        print_new_help(progname);
+        return 1;
+    }
+
     return 0;
 }
 
