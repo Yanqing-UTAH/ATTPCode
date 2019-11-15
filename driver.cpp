@@ -378,7 +378,7 @@ int run_new_heavy_hitter()
         {
             if (!strcmp(sketch_type_to_sketch_name(st), "EXACT_HH"))
             {
-                exact_pos = (int) i;
+                exact_pos = (int) sketches.size();
             }
             
             auto added_sketches = create_persistent_sketch_from_config(st);
@@ -492,6 +492,13 @@ int run_new_heavy_hitter()
                 rg_ipph.get()->update(ts, (uint32_t) ip.s_addr);
             }
         }
+    }
+
+    for (auto &rg_ipph: sketches)
+    {
+        std::cout << rg_ipph.get()->get_short_description() <<
+             " memory_usage() = " <<
+             rg_ipph.get()->memory_usage() << std::endl;
     }
 
     return 0;
