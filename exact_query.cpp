@@ -1,6 +1,8 @@
 #include "exact_query.h"
 #include <algorithm>
 #include <numeric>
+#include <sstream>
+#include "conf.h"
 
 ExactHeavyHitters::ExactHeavyHitters():
     m_items(),
@@ -34,6 +36,12 @@ ExactHeavyHitters::memory_usage() const
             [](auto acc, const auto &p) -> auto {
                 return acc + p.second.capacity() * sizeof(Item);
             }); // item arrays
+}
+
+std::string
+ExactHeavyHitters::get_short_description() const
+{
+    return "EXACT_HH";
 }
 
 void
@@ -107,4 +115,9 @@ ExactHeavyHitters::get_test_instance()
     return new ExactHeavyHitters();
 }
 
-
+ExactHeavyHitters*
+ExactHeavyHitters::create_from_config(
+    int idx)
+{
+    return new ExactHeavyHitters();
+}

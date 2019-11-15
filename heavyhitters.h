@@ -32,6 +32,8 @@ public:
 
 	size_t memory_usage() const override;
 
+    std::string get_short_description() const override;
+
     private:
         int levels;
         
@@ -41,10 +43,16 @@ public:
 
         PLA *cnt_pla;
 
+        double m_eps;
+        double m_delta;
+        double m_Delta;
+
     public:
         static HeavyHitters* create(int &argi, int argc, char *argv[], const char **help_str);
 
         static HeavyHitters* get_test_instance();
+
+        static HeavyHitters* create_from_config(int idx = -1);
 };
 
 

@@ -1,5 +1,7 @@
 #include "pcm.h"
 #include <cstdlib>
+#include "conf.h"
+#include <sstream>
 
 using namespace std;
 
@@ -46,7 +48,8 @@ unsigned long long CMSketch::memory_usage() const {
     return d * w * sizeof(int);
 }
 
-PCMSketch::PCMSketch(double eps, double delta, double Delta) : CMSketch(eps, delta){
+PCMSketch::PCMSketch(double eps, double delta, double Delta) : CMSketch(eps, delta),
+    m_eps(eps), m_delta(delta), m_Delta(Delta) {
     pla.resize(d);
     for (unsigned int i = 0; i < d; i++) {
         pla[i].reserve(w);
@@ -108,6 +111,12 @@ size_t PCMSketch::memory_usage() const {
     return (size_t) CMSketch::memory_usage() + sum;
 }
 
+std::string PCMSketch::get_short_description() const {
+    std::ostringstream oss;
+    oss << std::fixed << "PCM-e" << m_eps << "-d" << m_delta << "-D" << m_Delta;
+    return oss.str();
+}
+
 PCMSketch *PCMSketch::create(int &argi, int argc, char *argv[], const char **help_str) {
     if (argi + 3 > argc) {
         if (help_str) *help_str = " <epsilon> <delta> <Delta>\n";
@@ -136,5 +145,13 @@ PCMSketch *PCMSketch::create(int &argi, int argc, char *argv[], const char **hel
 
 PCMSketch *PCMSketch::get_test_instance() {
     return new PCMSketch(0.01, 0.1, 0.5);
+}
+
+PCMSketch *PCMSketch::create_from_config(int idx) {
+    double epsilon = g_config->get_double("PCM.epsilon").value();
+    double delta = g_config->get_double("PCM.delta").value();
+    double Delta = g_config->get_double("PCM.Delta").value();
+
+    return new PCMSketch(epsilon, delta, Delta);
 }
 

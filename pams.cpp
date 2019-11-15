@@ -1,4 +1,6 @@
 #include "pams.h"
+#include "conf.h"
+#include <sstream>
 
 using namespace std;
 
@@ -6,7 +8,10 @@ PAMSketch::PAMSketch(double eps, double delta, double Delta) :
     w(ceil(exp(1)/eps)),
     d(ceil(log(1/delta))),
     D(Delta),
-    p_sampling(1/Delta) {
+    p_sampling(1/Delta),
+    m_eps(eps),
+    m_delta(delta),
+    m_Delta(Delta) {
 
     C.resize(d);
     for (unsigned int i = 0; i < d; i++) {
@@ -114,6 +119,12 @@ size_t PAMSketch::memory_usage() const {
     return mem;
 }
 
+std::string PAMSketch::get_short_description() const {
+    std::ostringstream oss;
+    oss << std::fixed << "PAMS-e" << m_eps << "-d" << m_delta << "-D" << m_Delta;
+    return oss.str();
+}
+
 PAMSketch *PAMSketch::create(int &argi, int argc, char *argv[], const char **help_str) {
     if (argi + 3 > argc) {
         if (help_str) *help_str = " <epsilon> <delta> <Delta>\n";
@@ -144,4 +155,11 @@ PAMSketch *PAMSketch::get_test_instance() {
     return new PAMSketch(0.01, 0.1, 0.5);
 }
 
+PAMSketch *PAMSketch::create_from_config(int idx) {
+    double epsilon = g_config->get_double("PAMS.epsilon").value();
+    double delta = g_config->get_double("PAMS.delta").value();
+    double Delta = g_config->get_double("PAMS.Delta").value();
+
+    return new PAMSketch(epsilon, delta, Delta);
+}
 

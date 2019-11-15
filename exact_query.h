@@ -23,6 +23,9 @@ public:
     size_t
     memory_usage() const override;
 
+    std::string
+    get_short_description() const override;
+
     void
     update(TIMESTAMP ts, uint32_t value, int c = 1) override;
 
@@ -42,5 +45,7 @@ public:
     static ExactHeavyHitters *create(int &argi, int argc, char *argv[], const char **help_str);
 
     static ExactHeavyHitters *get_test_instance();
+    
+    static ExactHeavyHitters *create_from_config(int idx = -1);
 };
 

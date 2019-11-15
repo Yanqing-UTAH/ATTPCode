@@ -34,6 +34,10 @@ class PCMSketch :
 
     private:
         std::vector<std::vector<PLA>> pla;
+
+        double m_eps;
+        double m_delta;
+        double m_Delta;
         
     public:
         PCMSketch(double eps, double delta, double Delta);
@@ -55,10 +59,14 @@ class PCMSketch :
 
         size_t memory_usage() const override;
 
+        std::string get_short_description() const override;
+
     public:
         static PCMSketch *create(int &argi, int argc, char *argv[], const char **help_str);
 
         static PCMSketch *get_test_instance();
+
+        static PCMSketch *create_from_config(int idx = -1);
 };
 
 #endif

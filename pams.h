@@ -32,6 +32,10 @@ class PAMSketch: public AbstractPersistentPointQueryable {
         std::bernoulli_distribution p_sampling;
 
         std::mt19937 rgen;
+
+        double m_eps;
+        double m_delta;
+        double m_Delta;
     
     public:
         PAMSketch(double eps, double delta, double Delta);
@@ -52,6 +56,8 @@ class PAMSketch: public AbstractPersistentPointQueryable {
             unsigned long long ts_e) override;
 
         size_t memory_usage() const override;
+
+        std::string get_short_description() const override;
 
     protected:
     
@@ -76,6 +82,8 @@ class PAMSketch: public AbstractPersistentPointQueryable {
         static PAMSketch *create(int &argi, int argc, char *argv[], const char **help_str);
 
         static PAMSketch *get_test_instance();
+    
+        static PAMSketch *create_from_config(int idx = -1);
 };
 
 #endif // PAMS_H

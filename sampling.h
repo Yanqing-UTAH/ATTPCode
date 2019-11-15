@@ -93,6 +93,9 @@ public:
     size_t
     memory_usage() const override;
 
+    std::string
+    get_short_description() const override;
+
     double
     estimate_point_at_the_time(
         const char *str,
@@ -118,6 +121,9 @@ public:
 
     static SamplingSketch*
     get_test_instance();
+
+    static SamplingSketch*
+    create_from_config(int idx = -1);
 };
 
 #endif // SAMPLING_H

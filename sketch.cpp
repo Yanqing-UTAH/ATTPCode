@@ -36,7 +36,7 @@ const char *sketch_type_to_sketch_name(SKETCH_TYPE st)
     return st2stname[st];
 }
 
-#define DEFINE_SKETCH_TYPE(_1, _2, staltname, ...) STRINGIFY(staltname),
+#define DEFINE_SKETCH_TYPE(_1, _2, staltname) STRINGIFY(staltname),
 static const char *st2staltname[NUM_SKETCH_TYPES] = {
 #   include "sketch_list.h"
 };
@@ -47,7 +47,7 @@ const char *sketch_type_to_altname(SKETCH_TYPE st)
 }
 
 void setup_sketch_lib() {
-#   define DEFINE_SKETCH_TYPE(stname, _2, staltname, ...) \
+#   define DEFINE_SKETCH_TYPE(stname, _2, staltname) \
         stname2st[STRINGIFY(stname)] = ST_LITERAL(stname); \
         stname2st[STRINGIFY(staltname)] = ST_LITERAL(stname);
 
@@ -71,9 +71,9 @@ create_persistent_sketch(
 {
     *help_str = nullptr;
     switch (st) {
-#   define DEFINE_SKETCH_TYPE(stname, _2, _3, create, ...) \
+#   define DEFINE_SKETCH_TYPE(stname, clsname, _3) \
     case ST_LITERAL(stname): \
-        return static_cast<IPersistentSketch*>(create(argi, argc, argv, help_str));
+        return static_cast<IPersistentSketch*>(clsname::create(argi, argc, argv, help_str));
 #   include "sketch_list.h"
 #   undef DEFINE_SKETCH_TYPE
     }
@@ -90,8 +90,8 @@ check_query_type(
 {
     std::vector<SKETCH_TYPE> ret;
     std::vector<ResourceGuard<IPersistentSketch>> test_instances;
-#       define DEFINE_SKETCH_TYPE(_1, _2, _3, _4, get_test_instance, ...) \
-            test_instances.emplace_back(get_test_instance()),
+#       define DEFINE_SKETCH_TYPE(_1, clsname, _3) \
+            test_instances.emplace_back(clsname::get_test_instance()),
 #       include "sketch_list.h"
 #       undef DEFINE_SKETCH_TYPE
     assert(test_instances.size() == NUM_SKETCH_TYPES);
@@ -138,6 +138,24 @@ check_query_type(
         snprintf(help_str_buffer, help_str_bufsize,
             "\n[ERROR] Unknown query type: %s\n", query_type);
         *help_str = help_str_buffer;
+    }
+
+    return std::move(ret);
+}
+
+std::vector<IPersistentSketch*>
+create_persistent_sketch_from_config(
+    SKETCH_TYPE st)
+{
+    std::vector<IPersistentSketch*> ret;
+    switch (st)
+    {
+#   define DEFINE_SKETCH_TYPE(stname, clsname, _3) \
+    case ST_LITERAL(stname): \
+        ret.emplace_back(clsname::create_from_config()); \
+        break;
+#   include "sketch_list.h"
+#   undef DEFINE_SKETCH_TYPE
     }
 
     return std::move(ret);

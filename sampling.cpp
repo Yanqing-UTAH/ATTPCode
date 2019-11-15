@@ -5,6 +5,8 @@
 #include <cstdlib>
 #include <unordered_map>
 #include "util.h"
+#include "conf.h"
+#include <sstream>
 
 SamplingSketch::List::List():
     m_length(0u),
@@ -195,6 +197,14 @@ SamplingSketch::memory_usage() const
     return sum;
 }
 
+std::string
+SamplingSketch::get_short_description() const
+{
+    std::ostringstream oss;
+    oss << "SAMPLING-ss" << m_sample_size;
+    return oss.str();
+}
+
 double
 SamplingSketch::estimate_point_at_the_time(
     const char *str,
@@ -301,5 +311,15 @@ SamplingSketch*
 SamplingSketch::get_test_instance()
 {
     return new SamplingSketch(1);
+}
+
+SamplingSketch*
+SamplingSketch::create_from_config(
+    int idx)
+{
+    uint32_t sample_size = g_config->get_u32("SAMPLING.sample_size").value();
+    uint32_t seed = g_config->get_u32("SAMPLING.seed").value();
+
+    return new SamplingSketch(sample_size, seed);
 }
 

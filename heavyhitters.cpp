@@ -1,5 +1,6 @@
 #include "heavyhitters.h"
-#include <iostream>
+#include <sstream>
+#include "conf.h"
 
 using namespace std;
 
@@ -20,7 +21,10 @@ HeavyHitters::HeavyHitters(
     levels(logUniverseSize),
     pcm(nullptr),
     tot_cnt(0ull),
-    cnt_pla(nullptr)
+    cnt_pla(nullptr),
+    m_eps(epsilon),
+    m_delta(delta),
+    m_Delta(Delta)
 {
     pcm = new PCMSketch*[levels];
     for (auto i = 0; i < levels; ++i)
@@ -98,7 +102,6 @@ HeavyHitters::estimate_heavy_hitters(
 {
     double cnt_est = cnt_pla->estimate(ts_e);
     double threshold = frac_threshold * cnt_est;
-    cout << cnt_est << ' ' << threshold << endl;
     
     //decltype(query_hh(ts_e, threshold)) raw_result;
     auto raw_result = query_hh(ts_e, threshold);
@@ -125,6 +128,12 @@ size_t HeavyHitters::memory_usage() const {
 	}
     if (cnt_pla) s += cnt_pla->memory_usage();
 	return s;
+}
+
+std::string HeavyHitters::get_short_description() const {
+    std::ostringstream oss;
+    oss << "PCM_HH-logU" << levels << "-e" << m_eps << "-d" << m_delta << "-D" << m_Delta;
+    return oss.str();
 }
 
 HeavyHitters*
@@ -170,5 +179,14 @@ HeavyHitters::get_test_instance()
     return new HeavyHitters(5, 0.01, 0.1, 0.5);
 }
 
+HeavyHitters*
+HeavyHitters::create_from_config(int idx)
+{
+    uint32_t logUniverseSize = g_config->get_u32("PCM_HH.log_universe_size").value();
+    double epsilon = g_config->get_double("PCM_HH.epsilon").value();
+    double delta = g_config->get_double("PCM_HH.delta").value();
+    double Delta = g_config->get_double("PCM_HH.Delta").value();
 
+    return new HeavyHitters(logUniverseSize, epsilon, delta, Delta);
+}
 

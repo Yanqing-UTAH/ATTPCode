@@ -13,13 +13,13 @@ all: $(EXES)
 
 # exe targets
 
-test_pla: test_pla.o pla.o
+test_pla: test_pla.o pla.o conf.o
 
-test_pcm: test_pcm.o pcm.o pla.o
+test_pcm: test_pcm.o pcm.o pla.o conf.o
 
-test_pams: test_pams.o pams.o
+test_pams: test_pams.o pams.o conf.o
 
-test_hh: test_hh.o heavyhitters.o pcm.o pla.o
+test_hh: test_hh.o heavyhitters.o pcm.o pla.o conf.o
 
 driver: driver.o pla.o pcm.o pams.o sampling.o heavyhitters.o sketch.o exact_query.o conf.o
 

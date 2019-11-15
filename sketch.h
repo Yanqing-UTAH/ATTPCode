@@ -4,6 +4,8 @@
 #include <cmath>
 #include <vector>
 #include <cstdint>
+#include <string>
+#include "util.h"
 
 typedef unsigned long long TIMESTAMP;
 using std::uint32_t;
@@ -23,6 +25,9 @@ struct IPersistentSketch
 
     virtual size_t
     memory_usage() const = 0;
+
+    virtual std::string
+    get_short_description() const = 0;
 };
 
 struct IPersistentSketch_str:
@@ -107,6 +112,10 @@ std::vector<SKETCH_TYPE>
 check_query_type(
     const char *query_type,
     const char **help_str);
+
+std::vector<IPersistentSketch*>
+create_persistent_sketch_from_config(
+    SKETCH_TYPE st);
 
 #endif // SKETCH_H
 
