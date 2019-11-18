@@ -13,6 +13,7 @@
 #include <arpa/inet.h>
 #include <ctime>
 #include "conf.h"
+#include "misra_gries.h"
 
 using namespace std;
 
@@ -523,6 +524,11 @@ main(int argc, char *argv[])
         {
             argv[1] = argv[0];
             return old_main(argc - 1, argv + 1);
+        }
+        else if (!strcmp(argv[1], "--test-misra-gries"))
+        {
+            argv[1] = argv[0];
+            return MisraGries::unit_test(argc - 1, argv + 1);
         }
     }
 

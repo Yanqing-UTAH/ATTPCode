@@ -37,7 +37,7 @@ public:
 private:
     std::unordered_map<uint32_t, std::vector<Item>> m_items;
 
-    std::unordered_map<uint32_t, std::vector<Item>>::size_type
+    const std::unordered_map<uint32_t, std::vector<Item>>::size_type
                                                     m_initial_bucket_count;
 
 public:

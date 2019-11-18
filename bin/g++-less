@@ -1,0 +1,5 @@
+#!/bin/bash
+
+g++ -fdiagnostics-color=always $@ 2>&1 | less -R -F -X
+exit ${PIPESTATUS[0]}
+
