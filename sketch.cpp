@@ -143,16 +143,29 @@ check_query_type(
     return std::move(ret);
 }
 
+#define ST_NEW_IMPL
+
 std::vector<IPersistentSketch*>
 create_persistent_sketch_from_config(
     SKETCH_TYPE st)
 {
     std::vector<IPersistentSketch*> ret;
+    int num_configs;
     switch (st)
     {
 #   define DEFINE_SKETCH_TYPE(stname, clsname, _3) \
     case ST_LITERAL(stname): \
-        ret.emplace_back(clsname::create_from_config()); \
+        num_configs = clsname::num_configs_defined(); \
+        if (num_configs == -1) \
+        { \
+            ret.emplace_back(clsname::create_from_config(-1)); \
+        } \
+        else \
+        { \
+            for (int i = 0; i < num_configs; ++i) { \
+                ret.emplace_back(clsname::create_from_config(i)); \
+            } \
+        } \
         break;
 #   include "sketch_list.h"
 #   undef DEFINE_SKETCH_TYPE

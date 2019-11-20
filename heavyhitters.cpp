@@ -1,6 +1,7 @@
 #include "heavyhitters.h"
 #include <sstream>
 #include "conf.h"
+#include <iostream>
 
 using namespace std;
 
@@ -182,11 +183,31 @@ HeavyHitters::get_test_instance()
 HeavyHitters*
 HeavyHitters::create_from_config(int idx)
 {
-    uint32_t logUniverseSize = g_config->get_u32("PCM_HH.log_universe_size").value();
-    double epsilon = g_config->get_double("PCM_HH.epsilon").value();
-    double delta = g_config->get_double("PCM_HH.delta").value();
-    double Delta = g_config->get_double("PCM_HH.Delta").value();
+    uint32_t logUniverseSize = g_config->get_u32("PCM_HH.log_universe_size", idx).value();
+    double epsilon = g_config->get_double("PCM_HH.epsilon", idx).value();
+    double delta = g_config->get_double("PCM_HH.delta", idx).value();
+    double Delta = g_config->get_double("PCM_HH.Delta", idx).value();
 
     return new HeavyHitters(logUniverseSize, epsilon, delta, Delta);
+}
+
+int
+HeavyHitters::num_configs_defined()
+{
+    if (g_config->is_list("PCM_HH.log_universe_size"))
+    {
+        int len = (int) g_config->list_length("PCM_HH.log_universe_size");
+        if (len != g_config->list_length("PCM_HH.epsilon") ||
+            len != g_config->list_length("PCM_HH.delta") ||
+            len != g_config->list_length("PCM_HH.Delta"))
+        {
+            std::cerr << "[WARN] PCM_HH ignored because list length mismatch in params"
+                << std::endl;
+            return 0;
+        }
+        return len;
+    }
+
+    return -1;
 }
 

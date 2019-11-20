@@ -11,26 +11,49 @@ class Config
 {
 public:
     Config();
+
+    bool
+    is_list(
+        const std::string &key) const;
+
+    bool
+    is_assigned(
+        const std::string &key) const;
+    
+    /*
+     * >=0: list length
+     * -1: assigned but not a list
+     * -2: key not found
+     * -3: not assigned
+     */
+    int
+    list_length(
+        const std::string &key) const;
     
     std::optional<std::string>
     get(
-        const std::string &key) const;
+        const std::string &key,
+        int idx = -1) const;
 
     std::optional<bool>
     get_boolean(
-        const std::string &key) const;
+        const std::string &key,
+        int idx = -1) const;
 
     std::optional<uint32_t>
     get_u32(
-        const std::string &key) const;
+        const std::string &key,
+        int idx = -1) const;
 
     std::optional<int64_t>
     get_i64(
-        const std::string &key) const;
+        const std::string &key,
+        int idx = -1) const;
     
     std::optional<double>
     get_double(
-        const std::string &key) const;
+        const std::string &key,
+        int idx = -1) const;
     
     bool
     parse_file(
@@ -38,19 +61,20 @@ public:
         const char **help_str);
 
 private:
-    __HashSet<ConfigEntry*,
-        std::function<const std::string&(ConfigEntry*)>>
-                                        m_entry_map;
-    
     bool
     parse_line(
-        std::string &str,
+        const std::string &str,
         int lineno);
 
     /* should not be used */
     std::optional<std::string>
     get_string(
-        const std::string &key) const;
+        const std::string &key,
+        int idx = -1) const;
+
+    __HashSet<ConfigEntry*,
+        std::function<const std::string&(ConfigEntry*)>>
+                                        m_entry_map;
 
     std::string                         m_help_str;
 };

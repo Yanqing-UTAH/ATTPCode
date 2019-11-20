@@ -12,6 +12,8 @@
 // SomeSketch::get_test_instance()
 // factory method for new impl. is
 // SomeSketch::create_from_config(int idx = -1)
+// method for determining the number of configs for a particular sketch is
+// SomeSketch::num_configs_defined() // returns -1 if it's not a list
 #endif
 
 DEFINE_SKETCH_TYPE(PCM, PCMSketch, persistent_count_min)
@@ -19,4 +21,9 @@ DEFINE_SKETCH_TYPE(PAMS, PAMSketch, persistent_AMS_sketch)
 DEFINE_SKETCH_TYPE(SAMPLING, SamplingSketch, persistent_sampling_sketch)
 DEFINE_SKETCH_TYPE(PCM_HH, HeavyHitters, PCM_based_heavy_hitters)
 DEFINE_SKETCH_TYPE(EXACT_HH, ExactHeavyHitters, exact_heavy_hitters)
+
+// new sketches will not have create factory method
+#ifdef ST_NEW_IMPL
+//DEFINE_SKETCH_TYPE(PMMG, PersistentMergeableMisraGries, persistent_mergeable_misra_gries)
+#endif
 

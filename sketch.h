@@ -28,6 +28,8 @@ struct IPersistentSketch
 
     virtual std::string
     get_short_description() const = 0;
+
+    static int num_configs_defined() { return -1; }
 };
 
 struct IPersistentSketch_str:

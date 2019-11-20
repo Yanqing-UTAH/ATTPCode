@@ -14,6 +14,7 @@
 #include <ctime>
 #include "conf.h"
 #include "misra_gries.h"
+#include <iomanip>
 
 using namespace std;
 
@@ -419,6 +420,8 @@ int run_new_heavy_hitter()
             TIMESTAMP ts_e;
             double fraction;
             sscanf(line.c_str(), "? %llu %lf", &ts_e, &fraction);
+
+            std::cout << "HH(" << fraction << "|" << ts_e <<"): " << std::endl;
             
             std::vector<IPersistentHeavyHitterSketch::HeavyHitter> exact_answer;
             std::unordered_set<uint32_t> exact_answer_set;
@@ -431,6 +434,8 @@ int run_new_heavy_hitter()
                         [](const auto &hh) -> uint32_t {
                             return hh.m_value;
                         });
+                std::cout << "\t" << sketches[exact_pos].get()->get_short_description()
+                    << ':' << exact_answer.size() << std::endl;
             }
 
             for (int i = 0; i < (int) sketches.size(); ++i)
@@ -453,8 +458,9 @@ int run_new_heavy_hitter()
                         size_t tot_cnt = exact_answer.size() - intersection_count +
                             answer.size();
                         size_t sym_diff_cnt = tot_cnt - intersection_count;
-                        std::cout << sketches[i].get()->get_short_description()
-                            << " HH(" << fraction << "|" << ts_e <<"): "
+                        std::cout << '\t'
+                            << sketches[i].get()->get_short_description()
+                            << ": "
                             << sym_diff_cnt << "/" << tot_cnt << " = "
                             << (double) sym_diff_cnt / tot_cnt << std::endl;
                     }
@@ -494,12 +500,24 @@ int run_new_heavy_hitter()
             }
         }
     }
-
+    
+    std::cout << "memory_usage() = " << std::endl;
     for (auto &rg_ipph: sketches)
     {
-        std::cout << rg_ipph.get()->get_short_description() <<
-             " memory_usage() = " <<
-             rg_ipph.get()->memory_usage() << std::endl;
+        size_t mm_b = rg_ipph.get()->memory_usage();
+        double mm_mb = mm_b / 1024.0 / 1024;
+        char saved_fill = std::cout.fill();
+        std::cout << '\t'
+             << rg_ipph.get()->get_short_description()
+             << ": "
+             << rg_ipph.get()->memory_usage()
+             << " B = "
+             << (size_t) std::floor(mm_mb) << '.'
+             << std::setfill('0')
+             << ((size_t)(std::floor(mm_mb * 1000))) % 1000
+             << std::setfill(saved_fill)
+             << " MB"
+             << std::endl;
     }
 
     return 0;

@@ -8,6 +8,7 @@
 //        key /* required */ ,
 //        type_name, /* required, see below for CONFIG_VALUE_TYPE */
 //        is_optional, /* required, true, false or a dependent key*/
+//        can_be_list, /* optional, defaults to false */
 //        default_value, /* optional */
 //        min_inclusive, /* optional */
 //        min_value, /* required if min_inclusive set */
@@ -18,15 +19,15 @@
 DEFINE_CONFIG_ENTRY(infile, string, false)
 DEFINE_CONFIG_ENTRY(outfile, string, true)
 DEFINE_CONFIG_ENTRY(test_name, string, false)
-DEFINE_CONFIG_ENTRY(SAMPLING.enabled, boolean, true, false)
-DEFINE_CONFIG_ENTRY(SAMPLING.sample_size, u32, sampling.enabled, , true, 1u)
-DEFINE_CONFIG_ENTRY(SAMPLING.seed, u32, true, 19950810u)
-DEFINE_CONFIG_ENTRY(PCM_HH.enabled, boolean, true, false)
-DEFINE_CONFIG_ENTRY(PCM_HH.log_universe_size, u32, PCM_HH.enabled, , true, 1u, true, 32u)
-DEFINE_CONFIG_ENTRY(PCM_HH.epsilon, double, PCM_HH.enabled, , false, 0, false, 1)
-DEFINE_CONFIG_ENTRY(PCM_HH.delta, double, PCM_HH.enabled, , false, 0, false, 1)
-DEFINE_CONFIG_ENTRY(PCM_HH.Delta, double, PCM_HH.enabled, , false, 0)
-DEFINE_CONFIG_ENTRY(EXACT_HH.enabled, boolean, true, false)
+DEFINE_CONFIG_ENTRY(SAMPLING.enabled, boolean, true, false, false)
+DEFINE_CONFIG_ENTRY(SAMPLING.sample_size, u32, sampling.enabled, true, , true, 1u)
+DEFINE_CONFIG_ENTRY(SAMPLING.seed, u32, true, false, 19950810u)
+DEFINE_CONFIG_ENTRY(PCM_HH.enabled, boolean, true, false, false)
+DEFINE_CONFIG_ENTRY(PCM_HH.log_universe_size, u32, PCM_HH.enabled, true, , true, 1u, true, 32u)
+DEFINE_CONFIG_ENTRY(PCM_HH.epsilon, double, PCM_HH.enabled, true, , false, 0, false, 1)
+DEFINE_CONFIG_ENTRY(PCM_HH.delta, double, PCM_HH.enabled, true, , false, 0, false, 1)
+DEFINE_CONFIG_ENTRY(PCM_HH.Delta, double, PCM_HH.enabled, true, , false, 0)
+DEFINE_CONFIG_ENTRY(EXACT_HH.enabled, boolean, true, false, false)
 
 #ifdef HAS_DEFINE_CONFIG_ENTRY_STUB
 #undef HAS_DEFINE_CONFIG_ENTRY_STUB

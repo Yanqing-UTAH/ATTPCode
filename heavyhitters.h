@@ -53,6 +53,8 @@ public:
         static HeavyHitters* get_test_instance();
 
         static HeavyHitters* create_from_config(int idx = -1);
+
+        static int num_configs_defined();
 };
 
 

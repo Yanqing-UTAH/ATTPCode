@@ -124,6 +124,9 @@ public:
 
     static SamplingSketch*
     create_from_config(int idx = -1);
+
+    static int
+    num_configs_defined();
 };
 
 #endif // SAMPLING_H

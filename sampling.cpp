@@ -317,9 +317,22 @@ SamplingSketch*
 SamplingSketch::create_from_config(
     int idx)
 {
-    uint32_t sample_size = g_config->get_u32("SAMPLING.sample_size").value();
-    uint32_t seed = g_config->get_u32("SAMPLING.seed").value();
+    uint32_t sample_size, seed;
+
+    sample_size = g_config->get_u32("SAMPLING.sample_size", idx).value();
+    seed = g_config->get_u32("SAMPLING.seed", -1).value();
 
     return new SamplingSketch(sample_size, seed);
+}
+
+int
+SamplingSketch::num_configs_defined()
+{
+    if (g_config->is_list("SAMPLING.sample_size"))
+    {
+        return g_config->list_length("SAMPLING.sample_size");   
+    }
+
+    return -1;
 }
 
