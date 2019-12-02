@@ -413,6 +413,7 @@ int run_new_heavy_hitter()
     }
 
     std::string line;
+    size_t n_data = 0;
     while (std::getline(infile, line))
     {
         if (line[0] == '?')
@@ -501,6 +502,13 @@ int run_new_heavy_hitter()
             for (auto &rg_ipph: sketches)
             {
                 rg_ipph.get()->update(ts, (uint32_t) ip.s_addr);
+            }
+
+            ++n_data;
+            if (n_data % 50000 == 0)
+            {
+                std::cout << "Progress: " << n_data << " data points processed"
+                    << std::endl;
             }
         }
     }
