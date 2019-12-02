@@ -5,7 +5,7 @@ CPPFLAGS =
 LDFLAGS =
 
 EXES=test_hh driver
-OBJS=test_pams.o sketch.o test_hh.o conf.o exact_query.o misra_gries.o pcm.o pla.o sampling.o heavyhitters.o test_pcm.o driver.o test_pla.o test_conf.o pams.o 
+OBJS=test_pams.o sketch.o test_hh.o conf.o exact_query.o misra_gries.o pcm.o pla.o sampling.o heavyhitters.o test_pcm.o driver.o pmmg.o test_pla.o test_conf.o pams.o 
 
 .PHONY: all clean depend
 
@@ -21,7 +21,7 @@ test_pams: test_pams.o pams.o conf.o
 
 test_hh: test_hh.o heavyhitters.o pcm.o pla.o conf.o
 
-driver: driver.o pla.o pcm.o pams.o sampling.o heavyhitters.o sketch.o exact_query.o conf.o misra_gries.o
+driver: driver.o pla.o pcm.o pams.o sampling.o heavyhitters.o sketch.o exact_query.o conf.o misra_gries.o pmmg.o
 
 # objs
 
@@ -37,7 +37,7 @@ conf.o: conf.cpp conf.h hashtable.h util.h config_list.h
 exact_query.o: exact_query.cpp exact_query.h sketch.h util.h conf.h \
  hashtable.h
 
-misra_gries.o: misra_gries.cpp misra_gries.cpp
+misra_gries.o: misra_gries.cpp misra_gries.h hashtable.h
 
 pcm.o: pcm.cpp pcm.h pla.h util.h sketch.h conf.h hashtable.h
 
@@ -51,6 +51,8 @@ heavyhitters.o: heavyhitters.cpp heavyhitters.h pcm.h pla.h util.h \
 test_pcm.o: test_pcm.cpp pcm.h pla.h util.h sketch.h
 
 driver.o: driver.cpp sketch.h util.h conf.h hashtable.h misra_gries.h
+
+pmmg.o: pmmg.cpp pmmg.h util.h conf.h hashtable.h
 
 test_pla.o: test_pla.cpp pla.h
 

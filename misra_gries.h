@@ -2,12 +2,20 @@
 #define MISRA_GRIES_H
 
 #include <unordered_map>
+#include "hashtable.h"
+
+namespace MisraGriesSketches {
+    class MisraGriesAccessor;
+}
 
 class MisraGries
 {
 public:
     MisraGries(
         double epsilon);
+
+    MisraGries(
+        uint32_t k);
 
     ~MisraGries();
 
@@ -33,10 +41,16 @@ public:
         uint32_t element,
         int cnt = 1);
 
-private:
-    double            m_eps;
+    MisraGries*
+    clone();
 
-    uint32_t          m_k;
+private:
+    void
+    reset_delta();
+
+    double                  m_eps;
+
+    uint32_t                m_k;
 
     mutable std::unordered_map<uint32_t, uint64_t>
                             m_cnt;
@@ -53,6 +67,8 @@ public:
     unit_test(
         int argc,
         char *argv[]);
+
+    friend class MisraGriesSketches::MisraGriesAccessor;
 };
 
 #endif // MISRA_GRIES_H

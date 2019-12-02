@@ -83,7 +83,7 @@ vector<uint32_t> HeavyHitters::query_hh(unsigned long long ts, double threshold)
         //if (++n % 100000 == 0)
             //cout << stack.size() << endl;
 		auto freq = pcm[level]->estimate_point_at_the_time(buffer, ts);
-		if (freq >= threshold) {
+		if (freq > threshold) {
 			if (level == 0) {
 				result.push_back(x);
 			}

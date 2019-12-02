@@ -260,7 +260,7 @@ SamplingSketch::estimate_heavy_hitters(
     auto sample_threshold = (unsigned) std::ceil(frac_threshold * nvalid);
     for (const auto &p: cnt_map)
     {
-        if (p.second >= sample_threshold)
+        if (p.second > sample_threshold)
         {
             ret.emplace_back(IPersistentHeavyHitterSketch::HeavyHitter{
                     p.first, (float) p.second / nvalid});

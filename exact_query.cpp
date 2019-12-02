@@ -27,10 +27,8 @@ ExactHeavyHitters::memory_usage() const
 {
     // assuming gcc
     return 
-        // 8 + // initial bucket count ignored
-        56 + // misc book keeping in unordered_map
-        m_items.bucket_count() * 8 + // _M_buckets array
-        m_items.size() * 40 + // nodes in the array (40 == sizeof(std::__detail::_Hash_node<std::pair<uint32_t, std::vector<Item>>>)
+        8 + // initial bucket count
+        size_of_unordered_map(m_items) +
         std::accumulate(m_items.cbegin(), m_items.cend(),
             (decltype(m_items.size())) 0,
             [](auto acc, const auto &p) -> auto {
@@ -88,7 +86,7 @@ ExactHeavyHitters::estimate_heavy_hitters(
     std::vector<IPersistentHeavyHitterSketch::HeavyHitter> ret;
     for (const auto &item: snapshot)
     {
-        if (item.second >= threshold)
+        if (item.second > threshold)
         {
             ret.emplace_back(IPersistentHeavyHitterSketch::HeavyHitter{
                 item.first, (float) item.second / tot_cnt});

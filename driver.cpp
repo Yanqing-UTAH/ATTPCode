@@ -455,14 +455,18 @@ int run_new_heavy_hitter()
                                 return exact_answer_set.find(hh.m_value) != exact_answer_set.end();
                             });
 
-                        size_t tot_cnt = exact_answer.size() - intersection_count +
-                            answer.size();
-                        size_t sym_diff_cnt = tot_cnt - intersection_count;
+                        double precision = (double) intersection_count / answer.size();
+                        double recall = (double) intersection_count / exact_answer_set.size();
+
                         std::cout << '\t'
                             << sketches[i].get()->get_short_description()
-                            << ": "
-                            << sym_diff_cnt << "/" << tot_cnt << " = "
-                            << (double) sym_diff_cnt / tot_cnt << std::endl;
+                            << ": prec = "
+                            << intersection_count << '/' << answer.size()
+                            << " = " << precision
+                            << ", recall = "
+                            << intersection_count << '/' << exact_answer.size()
+                            << " = " << recall
+                            << std::endl;
                     }
                 }
 

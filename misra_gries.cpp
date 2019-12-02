@@ -14,6 +14,17 @@ MisraGries::MisraGries(
 {
 }
 
+MisraGries::MisraGries(
+    uint32_t k):
+    m_eps(1.0 / k),
+    m_k(k),
+    m_cnt(),
+    m_min_cnt(~0ul),
+    m_delta(0),
+    m_initial_bucket_count(m_cnt.bucket_count())
+{
+}
+
 MisraGries::~MisraGries()
 {
 }
@@ -30,12 +41,7 @@ MisraGries::clear()
 size_t
 MisraGries::memory_usage() const
 {
-    return 16 + 56 +
-        m_cnt.bucket_count() * 8 +
-        m_cnt.size() * sizeof(std::__detail::_Hash_node<
-            std::pair<uint32_t, uint64_t>,
-            std::__cache_default<
-                std::pair<uint32_t, uint64_t>, std::hash<uint32_t>>::value>);
+    return 40 + size_of_unordered_map(m_cnt);
 }
 
 void
@@ -62,7 +68,7 @@ MisraGries::update(
         }
         return ;
     }
-
+    
     if ((m_delta += cnt) >= m_min_cnt)
     {
         /* 
@@ -94,7 +100,7 @@ MisraGries::update(
         m_min_cnt = new_min_cnt;
     
         // nothing left to insert
-        if (m_delta == 0) return;
+        if (m_delta == 0) return ;
        
         // we found a spot for the insertion
         if (m_cnt.size() < m_k - 1)
@@ -132,13 +138,31 @@ MisraGries::update(
             assert(m_cnt.size() < m_k - 1);
             assert(m_delta <= (unsigned) cnt);
 
-            if (m_delta == 0) return;
+            if (m_delta == 0) return ;
             m_cnt[element] = m_delta;
             m_min_cnt = std::min(m_min_cnt, m_delta);
             m_delta = 0;
             return ;
         }
     }
+}
+
+MisraGries*
+MisraGries::clone()
+{
+    return new MisraGries(*this);
+}
+
+void
+MisraGries::reset_delta()
+{
+    m_min_cnt = ~0ul;
+    for (auto &p: m_cnt)
+    {
+        m_min_cnt = std::min(m_min_cnt, p.second -= m_delta);
+        assert(p.second > 0);
+    }
+    m_delta = 0;
 }
 
 int

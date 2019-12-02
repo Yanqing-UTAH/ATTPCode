@@ -28,6 +28,8 @@ DEFINE_CONFIG_ENTRY(PCM_HH.epsilon, double, PCM_HH.enabled, true, , false, 0, fa
 DEFINE_CONFIG_ENTRY(PCM_HH.delta, double, PCM_HH.enabled, true, , false, 0, false, 1)
 DEFINE_CONFIG_ENTRY(PCM_HH.Delta, double, PCM_HH.enabled, true, , false, 0)
 DEFINE_CONFIG_ENTRY(EXACT_HH.enabled, boolean, true, false, false)
+DEFINE_CONFIG_ENTRY(CMG.enabled, boolean, true, false, false)
+DEFINE_CONFIG_ENTRY(CMG.epsilon, double, CMG.enabled, true, , false, 0, false, 1)
 
 #ifdef HAS_DEFINE_CONFIG_ENTRY_STUB
 #undef HAS_DEFINE_CONFIG_ENTRY_STUB

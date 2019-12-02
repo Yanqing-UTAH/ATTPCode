@@ -23,7 +23,7 @@ DEFINE_SKETCH_TYPE(PCM_HH, HeavyHitters, PCM_based_heavy_hitters)
 DEFINE_SKETCH_TYPE(EXACT_HH, ExactHeavyHitters, exact_heavy_hitters)
 
 // new sketches will not have create factory method
-#ifdef ST_NEW_IMPL
-//DEFINE_SKETCH_TYPE(PMMG, PersistentMergeableMisraGries, persistent_mergeable_misra_gries)
+#ifndef ST_REQUIRE_CREATE
+DEFINE_SKETCH_TYPE(CMG, ChainMisraGries, chain_misra_gries)
 #endif
 

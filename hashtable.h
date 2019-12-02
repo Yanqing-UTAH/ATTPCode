@@ -54,6 +54,18 @@ struct __HashSet: public std::_Hashtable<
     {}
 };
 
+template<typename umap_t>
+size_t size_of_unordered_map(umap_t &umap)
+{
+    return 56 + // misc bookkepping in unordered_map
+        umap.bucket_count() * 8 + // _M_buckets array
+        umap.size() * sizeof(std::__detail::_Hash_node<
+            typename umap_t::value_type,
+            std::__cache_default<
+                typename umap_t::value_type,
+                std::hash<typename umap_t::key_type>>::value>); // nodes
+}
+
 #else
 // default version
 

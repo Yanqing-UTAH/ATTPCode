@@ -139,6 +139,9 @@ struct ResourceGuard {
         delete m_t;
     }
 
+    T* operator->() const { return m_t; }
+    T& operator*() const { return m_t; }
+
     T *get() const { return m_t; }
 
 private:

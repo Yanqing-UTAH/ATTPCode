@@ -5,6 +5,7 @@
 #include "sampling.h"
 #include "heavyhitters.h"
 #include "exact_query.h"
+#include "pmmg.h"
 #include <unordered_map>
 #include <cassert>
 #include <utility>
@@ -71,11 +72,15 @@ create_persistent_sketch(
 {
     *help_str = nullptr;
     switch (st) {
+#   define ST_REQUIRE_CREATE
 #   define DEFINE_SKETCH_TYPE(stname, clsname, _3) \
     case ST_LITERAL(stname): \
         return static_cast<IPersistentSketch*>(clsname::create(argi, argc, argv, help_str));
 #   include "sketch_list.h"
 #   undef DEFINE_SKETCH_TYPE
+#   undef ST_REQUIRE_CREATE
+    default:
+        return nullptr;
     }
     
     /* shouldn't really get here!! */
@@ -142,8 +147,6 @@ check_query_type(
 
     return std::move(ret);
 }
-
-#define ST_NEW_IMPL
 
 std::vector<IPersistentSketch*>
 create_persistent_sketch_from_config(
