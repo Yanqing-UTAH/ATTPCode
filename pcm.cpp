@@ -15,8 +15,7 @@ CMSketch::CMSketch(double eps, double delta) :
     srand(time(NULL));
     hashes.resize(d);
     for (unsigned int i = 0; i < d; i++) {
-        hashes[i].first = rand_int();
-        hashes[i].second = rand_int();
+        hashes[i] = rand_int();
     }
 }
 
@@ -27,19 +26,23 @@ void CMSketch::clear() {
 }
 
 void CMSketch::update(const char *str, int c) {
-    unsigned int item = hashstr(str);
+    size_t len = strlen(str);
+    uint64_t hashval[2];
     for (unsigned int j = 0; j < d; j++) {
-        unsigned int hashval = (hashes[j].first * item + hashes[j].second) % w;
-        C[j][hashval] += c;
+        MurmurHash3_x64_128(str, len, hashes[j], hashval);
+	int h = (hashval[0] ^ hashval[1]) % w;
+        C[j][h] += c;
     }
 }
 
 int CMSketch::estimate(const char *str) {
-    unsigned int item = hashstr(str);
+    size_t len = strlen(str);
     int val = numeric_limits<int>::max();
+    uint64_t hashval[2];
     for (unsigned int j = 0; j < d; j++) {
-        unsigned int hashval = (hashes[j].first * item + hashes[j].second) % w;
-        val = min(val, C[j][hashval]);
+        MurmurHash3_x64_128(str, len, hashes[j], hashval);
+	int h = (hashval[0] ^ hashval[1]) % w;
+        val = min(val, C[j][h]);
     }
     return val;
 }
@@ -69,21 +72,25 @@ void PCMSketch::clear() {
 }
 
 void PCMSketch::update(unsigned long long t, const char *str, int c) {
-    unsigned int item = hashstr(str);
+    size_t len = strlen(str);
+    uint64_t hashval[2];
     for (unsigned int j = 0; j < d; j++) {
-        unsigned int hashval = (hashes[j].first * item + hashes[j].second) % w;
-        C[j][hashval] += c;
-        pla[j][hashval].feed({t, (double)C[j][hashval]});
+        MurmurHash3_x64_128(str, len, hashes[j], hashval);
+	int h = (hashval[0] ^ hashval[1]) % w;
+        C[j][h] += c;
+        pla[j][h].feed({t, (double)C[j][h]});
     }
 }
 
 double PCMSketch::estimate_point_in_interval(
     const char *str, unsigned long long s, unsigned long long e) {
-    unsigned int item = hashstr(str);
+    size_t len = strlen(str);
+    uint64_t hashval[2];
     double vals[d];
     for (unsigned int j = 0; j < d; j++) {
-        unsigned int hashval = (hashes[j].first * item + hashes[j].second) % w;
-        PLA &target = pla[j][hashval];
+        MurmurHash3_x64_128(str, len, hashes[j], hashval);
+	int h = (hashval[0] ^ hashval[1]) % w;
+        PLA &target = pla[j][h];
         vals[j] = target.estimate(e) - target.estimate(s);
     }
     sort(vals, vals + d);

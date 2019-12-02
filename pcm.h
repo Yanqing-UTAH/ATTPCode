@@ -9,12 +9,13 @@
 #include "pla.h"
 #include "util.h"
 #include "sketch.h"
+#include "MurmurHash3.h"
 
 class CMSketch {
     protected:
         const unsigned int w, d;
         std::vector<std::vector<int>> C;
-        std::vector<std::pair<int, int>> hashes;
+        std::vector<int> hashes;
 
     public:
         CMSketch(double, double);
