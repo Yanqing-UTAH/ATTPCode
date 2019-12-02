@@ -19,11 +19,8 @@ PAMSketch::PAMSketch(double eps, double delta, double Delta) :
     }
 
     //srand(time(NULL));
-    hashes.resize(d);
     ksi.resize(d);
     for (unsigned int i = 0; i < d; i++) {
-        hashes[i].first = rand_int();
-        hashes[i].second = rand_int();
         ksi[i] = std::make_tuple(rand_int(), rand_int(), rand_int(), rand_int());
     }
 }
@@ -36,9 +33,10 @@ void PAMSketch::clear() {
 }
 
 void PAMSketch::update(unsigned long long t, const char *str, int c) {
+	size_t len = strlen(str);
     unsigned int item = hashstr(str);
     for (unsigned int j = 0; j < d; j++) {
-        unsigned int hashval = h(j, item);
+        unsigned int hashval = h(j, str, len);
         unsigned int f = flag(j, item);
         C[j][hashval][f].val += c;
 
@@ -53,12 +51,12 @@ PAMSketch::estimate_point_in_interval(
     const char *str,
     unsigned long long s,
     unsigned long long e) {
-    unsigned int item = hashstr(str);
+    size_t len = strlen(str);
     
     std::vector<double> D;
     D.reserve(d);
     for (unsigned int j = 0; j < d; j++) {
-        unsigned int hashval = h(j, item);
+        unsigned int hashval = h(j, str, len);
         int Xi_value = Xi(j, hashval);
         double D_s = Xi_value * (estimate_C(j, hashval, 1, s) - estimate_C(j, hashval, 0, s));
         double D_e = Xi_value * (estimate_C(j, hashval, 1, e) - estimate_C(j, hashval, 0, e));

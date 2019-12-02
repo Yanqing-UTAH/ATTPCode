@@ -11,6 +11,7 @@
 #include <tuple>
 #include "util.h"
 #include "sketch.h"
+#include "MurmurHash3.h"
 
 
 class PAMSketch: public AbstractPersistentPointQueryable {
@@ -62,8 +63,10 @@ class PAMSketch: public AbstractPersistentPointQueryable {
     protected:
     
         // use j^th hash to hash value i
-        inline unsigned int h(unsigned j, unsigned int i) {
-            return (hashes[j].first * i + hashes[j].second) % w;
+        inline unsigned int h(unsigned j, const void *dat, size_t len) {
+		uint64_t h[2];
+		MurmurHash3_x64_128(dat, len, j, h);
+		return (h[0] ^ h[1]) % w;
         }
     
         // j^th ksi to hash value i (mapped to 0, 1)

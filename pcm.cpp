@@ -15,7 +15,7 @@ CMSketch::CMSketch(double eps, double delta) :
     srand(time(NULL));
     hashes.resize(d);
     for (unsigned int i = 0; i < d; i++) {
-        hashes[i] = rand_int();
+        hashes[i] = i;
     }
 }
 
