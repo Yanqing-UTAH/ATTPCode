@@ -153,6 +153,27 @@ MisraGries::clone()
     return new MisraGries(*this);
 }
 
+std::vector<IPersistentHeavyHitterSketch::HeavyHitter>
+MisraGries::estimate_heavy_hitters(
+    double frac_threshold,
+    uint64_t tot_cnt) const
+{
+    std::vector<IPersistentHeavyHitterSketch::HeavyHitter> ret;
+
+    uint64_t threshold = (uint64_t) std::ceil(tot_cnt * (frac_threshold - m_eps));
+    for (const auto &p: m_cnt)
+    {
+        if (p.second >= threshold)
+        {
+            ret.emplace_back(IPersistentHeavyHitterSketch::HeavyHitter{
+                p.first, (float) ((double) p.second / tot_cnt)
+            });
+        }
+    }
+
+    return std::move(ret);
+}
+
 void
 MisraGries::reset_delta()
 {

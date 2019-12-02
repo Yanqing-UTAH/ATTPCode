@@ -1,6 +1,7 @@
 CXX = ./bin/g++-less
 LINK.o = $(LINK.cc)
 CXXFLAGS = -Wall -O0 -g -std=c++17
+CXXFLAGS = -Wall -O2 -std=c++17
 CPPFLAGS =
 LDFLAGS =
 
@@ -28,7 +29,8 @@ driver: driver.o pla.o pcm.o pams.o sampling.o heavyhitters.o sketch.o exact_que
 test_pams.o: test_pams.cpp pams.h util.h sketch.h
 
 sketch.o: sketch.cpp sketch.h util.h pcm.h pla.h pams.h sampling.h \
- heavyhitters.h exact_query.h sketch_list.h
+ heavyhitters.h exact_query.h pmmg.h misra_gries.h hashtable.h \
+ sketch_list.h
 
 test_hh.o: test_hh.cpp heavyhitters.h pcm.h pla.h util.h sketch.h
 
@@ -37,7 +39,7 @@ conf.o: conf.cpp conf.h hashtable.h util.h config_list.h
 exact_query.o: exact_query.cpp exact_query.h sketch.h util.h conf.h \
  hashtable.h
 
-misra_gries.o: misra_gries.cpp misra_gries.h hashtable.h
+misra_gries.o: misra_gries.cpp misra_gries.h hashtable.h sketch.h util.h
 
 pcm.o: pcm.cpp pcm.h pla.h util.h sketch.h conf.h hashtable.h
 
@@ -52,7 +54,7 @@ test_pcm.o: test_pcm.cpp pcm.h pla.h util.h sketch.h
 
 driver.o: driver.cpp sketch.h util.h conf.h hashtable.h misra_gries.h
 
-pmmg.o: pmmg.cpp pmmg.h util.h conf.h hashtable.h
+pmmg.o: pmmg.cpp pmmg.h util.h misra_gries.h hashtable.h sketch.h conf.h
 
 test_pla.o: test_pla.cpp pla.h
 

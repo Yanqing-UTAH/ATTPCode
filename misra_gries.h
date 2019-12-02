@@ -3,6 +3,7 @@
 
 #include <unordered_map>
 #include "hashtable.h"
+#include "sketch.h"
 
 namespace MisraGriesSketches {
     class MisraGriesAccessor;
@@ -43,6 +44,11 @@ public:
 
     MisraGries*
     clone();
+
+    std::vector<IPersistentHeavyHitterSketch::HeavyHitter>
+    estimate_heavy_hitters(
+        double frac_threshold,
+        uint64_t tot_cnt) const;
 
 private:
     void

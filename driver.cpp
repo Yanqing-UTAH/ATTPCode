@@ -224,7 +224,7 @@ int old_main(int argc, char **argv) {
 
         if (off >= help_str_bufsize)
         {
-            help_str_buffer[help_str_bufsize] = '\0';
+            help_str_buffer[help_str_bufsize - 1] = '\0';
             return help_str_buffer;
         }
 
@@ -232,7 +232,7 @@ int old_main(int argc, char **argv) {
             "\nSupported sketch types for %s:\n", query_type);
         if (off >= help_str_bufsize)
         {
-            help_str_buffer[help_str_bufsize] = '\0';
+            help_str_buffer[help_str_bufsize - 1] = '\0';
             return help_str_buffer;
         }
 
@@ -243,7 +243,7 @@ int old_main(int argc, char **argv) {
                 sketch_type_to_altname(st));
             if (off >= help_str_bufsize)
             {
-                help_str_buffer[help_str_bufsize] = '\0';
+                help_str_buffer[help_str_bufsize - 1] = '\0';
                 break;
             }
         }

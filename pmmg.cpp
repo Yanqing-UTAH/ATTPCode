@@ -2,6 +2,8 @@
 #include "conf.h"
 #include <cmath>
 #include <numeric>
+#include <cassert>
+#include <iostream>
 
 namespace MisraGriesSketches {
 
@@ -194,6 +196,11 @@ ChainMisraGries::estimate_heavy_hitters(
     TIMESTAMP ts_e,
     double frac_threshold) const
 {
+    if (ts_e >= m_last_ts)
+    {
+        return m_cur_sketch.estimate_heavy_hitters(frac_threshold, m_tot_cnt);
+    }
+
     auto iter = std::upper_bound(
         m_checkpoints.begin(), m_checkpoints.end(),
         ts_e,
@@ -217,6 +224,9 @@ ChainMisraGries::estimate_heavy_hitters(
             snapshot[p.first] = p.second - d;
         }
     }
+    
+    TIMESTAMP prev_ts = last_chkpt.m_ts;
+    uint64_t prev_tot_cnt = last_chkpt.m_tot_cnt;
 
     DeltaNode *n = last_chkpt.m_first_delta_node;
     while (n)
@@ -238,19 +248,60 @@ ChainMisraGries::estimate_heavy_hitters(
                 snapshot.erase(n->m_key);
             }
         }
+        prev_ts = n->m_ts;
+        prev_tot_cnt = n->m_tot_cnt;
         n = n->m_next;
     }
     
-    // Note: m_tot_cnt is an underestimate of m_tot_cnt at timestamp ts_e and it
+    TIMESTAMP next_ts;
+    uint64_t next_tot_cnt;
+    if (!n)
+    {
+        if (iter == m_checkpoints.end())
+        {
+            next_ts = m_last_ts;
+            next_tot_cnt = m_tot_cnt;
+        }
+        else
+        {
+            next_ts = iter->m_ts;
+            next_tot_cnt = iter->m_tot_cnt;
+        }
+    }
+    else
+    {
+        next_ts = n->m_ts;
+        next_tot_cnt = n->m_tot_cnt;
+    }
+    
+    
+    // Obsolete: m_tot_cnt is an underestimate of m_tot_cnt at timestamp ts_e and it
     // can deviate by an arbitrarily large number
-    uint64_t threshold = (uint64_t) (m_epsilon_over_3 + frac_threshold - m_epsilon) * last_chkpt.m_tot_cnt;
+    
+    // We now estimate tot_cnt_at_ts as a linear interpolation with its previous and next stored counts
+    uint64_t tot_cnt_at_ts_e;
+    if (prev_ts == next_ts)
+    {
+        assert(ts_e == prev_ts);
+        tot_cnt_at_ts_e = iter->m_tot_cnt;
+    }
+    else
+    {
+        tot_cnt_at_ts_e = (
+            (next_tot_cnt - prev_tot_cnt) * 1.0 * ts_e +
+            prev_tot_cnt * 1.0 * next_ts -
+            next_tot_cnt * 1.0 * prev_ts) / (next_ts - prev_ts);
+    }
+
+    
+    uint64_t threshold = (uint64_t) std::ceil((m_epsilon_over_3 + frac_threshold - m_epsilon) * tot_cnt_at_ts_e);
     std::vector<HeavyHitter> ret;
     for (auto &p: snapshot)
     {
         if (p.second >= threshold)
         {
             ret.emplace_back(HeavyHitter{
-                p.first, (float)((double) p.second / last_chkpt.m_tot_cnt - m_epsilon_over_3)
+                p.first, (float)((double) p.second / tot_cnt_at_ts_e - m_epsilon_over_3)
             });
         }
     }
