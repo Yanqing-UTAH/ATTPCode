@@ -18,6 +18,7 @@
 
 DEFINE_CONFIG_ENTRY(infile, string, false)
 DEFINE_CONFIG_ENTRY(outfile, string, true)
+DEFINE_CONFIG_ENTRY(out_limit, u64, true, false, 0) // 0 for unlimited
 DEFINE_CONFIG_ENTRY(test_name, string, false)
 DEFINE_CONFIG_ENTRY(SAMPLING.enabled, boolean, true, false, false)
 DEFINE_CONFIG_ENTRY(SAMPLING.sample_size, u32, sampling.enabled, true, , true, 1u)
@@ -52,6 +53,7 @@ DEFINE_CONFIG_ENTRY(CMG.epsilon, double, CMG.enabled, true, , false, 0, false, 1
 CONFIG_VALUE_TYPE(boolean, bool)
 CONFIG_VALUE_TYPE(u32, uint32_t)
 CONFIG_VALUE_TYPE(i64, int64_t)
+CONFIG_VALUE_TYPE(u64, uint64_t)
 CONFIG_VALUE_TYPE(double, double)
 CONFIG_VALUE_TYPE(string, std::string)
 

@@ -393,6 +393,7 @@ int run_new_heavy_hitter()
     
     std::string infile_name = g_config->get("infile").value();
     std::optional<std::string> outfile_name_opt = g_config->get("outfile");
+    uint64_t out_limit = g_config->get("out_limit").value();
 
     std::ifstream infile(infile_name);
     if (!infile)
@@ -476,11 +477,20 @@ int run_new_heavy_hitter()
                     auto &res = (i == exact_pos) ? exact_answer : answer;
                     
                     *outfiles[i].get() << "HH(" << fraction << "|" << ts_e << ") = {" << std::endl;
+
+                    uint64_t n_written = 0;
                     for (const auto &hh: res)
                     {
                         struct in_addr ip = { .s_addr = (in_addr_t) hh.m_value };
                         
                         *outfiles[i].get() << '\t' << inet_ntoa(ip) << ' ' << hh.m_fraction << std::endl;
+                        if (out_limit > 0 && ++n_written == out_limit)
+                        {
+                            *outfiles[i].get() << "... <" 
+                                << res.size() - n_written
+                                << " omitted>"
+                                << std::endl;
+                        }
                     }
 
                     *outfiles[i].get() << '}' << std::endl;

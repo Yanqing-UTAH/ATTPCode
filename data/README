@@ -8,12 +8,30 @@ http://log-sharing.dreamhosters.com/hnet-hon-var-log-02282006.tgz
     -- ip_only_02282006.dat
         access logs in httpd concatenated in ts order
 
-world-cup-98.txt:
-    -- timestamp followed by a tab followed by an IP address on each line
+world-cup-98 dataset:
+     Min Client ID: 0
+     Max Client ID: 2770107
+     Min Object ID: 0
+     Max Object ID: 89996
+     Min Time: 893971817
+     Max Time: 901490395
+
+world-cup-98-client-ip.txt:
+    -- timestamp followed by a tab followed by a client IP address (randomly
+    mapped from client IDs) on each line
     -- 1352804107 lines
 
-sample-world-cup.txt:
-    -- first 1M lines of world-cup-98.txt
+world-cup-98-client-id.txt
+    -- timestamp followed by a tab followed by the client ID
+
+world-cup-98-object-id.txt
+    -- ... the object ID
+
+sample-world-cup-client-ip.txt:
+    -- first 1M lines of world-cup-98-client-ip.txt
+
+sample-....txt
+    -- first 1M lines of resp. files
     
-
-
+wc-client-id-7M.txt
+    -- Lines 7,000,001 - 14,000,000 of world-cup-98-client-id.txt

@@ -49,6 +49,11 @@ public:
     get_i64(
         const std::string &key,
         int idx = -1) const;
+
+    std::optional<uint64_t>
+    get_u64(
+        const std::string &key,
+        int idx = -1) const;
     
     std::optional<double>
     get_double(
