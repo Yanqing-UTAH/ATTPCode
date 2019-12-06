@@ -542,7 +542,7 @@ int run_new_heavy_hitter()
             }
             else
             {
-                sscanf(line.c_str(), "%llu, %u", &ts, &value);
+                sscanf(line.c_str(), "%llu %u", &ts, &value);
             }
             for (auto &rg_ipph: sketches)
             {
