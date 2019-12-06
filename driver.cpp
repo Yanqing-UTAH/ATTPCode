@@ -361,6 +361,23 @@ int run_new_heavy_hitter()
         strcpy(text_tt, "<time_buffer_too_small>");
     }
 
+    auto input_type = g_config->get("HH.input_type").value();
+    bool input_is_ip;
+    if (input_type == "IP")
+    {
+        input_is_ip = true;
+    }
+    else if (input_type == "uint32")
+    {
+        input_is_ip = false;
+    }
+    else
+    {
+        std::cerr << "[ERROR] Invalid HH.input_type: " << input_type
+             << " (IP or uint32 required)" << std::endl;
+        return 1;
+    }
+
     std::cerr << "Running query heavy_hitter at " << text_tt << std::endl;
     if (0 == strftime(text_tt, 256, "%Y-%m-%d-%H-%M-%S", &local_time))
     {
@@ -393,7 +410,7 @@ int run_new_heavy_hitter()
     
     std::string infile_name = g_config->get("infile").value();
     std::optional<std::string> outfile_name_opt = g_config->get("outfile");
-    uint64_t out_limit = g_config->get("out_limit").value();
+    uint64_t out_limit = g_config->get_u64("out_limit").value();
 
     std::ifstream infile(infile_name);
     if (!infile)
@@ -481,9 +498,18 @@ int run_new_heavy_hitter()
                     uint64_t n_written = 0;
                     for (const auto &hh: res)
                     {
-                        struct in_addr ip = { .s_addr = (in_addr_t) hh.m_value };
-                        
-                        *outfiles[i].get() << '\t' << inet_ntoa(ip) << ' ' << hh.m_fraction << std::endl;
+                        *outfiles[i].get() << '\t';
+                        if (input_is_ip)
+                        {
+                            struct in_addr ip = { .s_addr = (in_addr_t) hh.m_value };
+                            
+                            *outfiles[i].get() << inet_ntoa(ip); 
+                        }
+                        else
+                        {
+                            *outfiles[i].get() << hh.m_value;
+                        }
+                        *outfiles[i].get() << ' ' << hh.m_fraction << std::endl;
                         if (out_limit > 0 && ++n_written == out_limit)
                         {
                             *outfiles[i].get() << "... <" 
@@ -500,18 +526,27 @@ int run_new_heavy_hitter()
         else
         {
             TIMESTAMP ts;
-            char ip_str[17];
-            struct in_addr ip;
-
-            sscanf(line.c_str(), "%llu %16s", &ts, ip_str);
-            if (!inet_aton(ip_str, &ip))
+            uint32_t value;
+            
+            if (input_is_ip)
             {
-                cout << "[WARN] Malformatted line: " << line << endl;
-                continue;
+                char ip_str[17];
+                struct in_addr ip;
+                sscanf(line.c_str(), "%llu %16s", &ts, ip_str);
+                if (!inet_aton(ip_str, &ip))
+                {
+                    cerr << "[WARN] Malformatted line: " << line << endl;
+                    continue;
+                }
+                value = (uint32_t) ip.s_addr;
+            }
+            else
+            {
+                sscanf(line.c_str(), "%llu, %u", &ts, &value);
             }
             for (auto &rg_ipph: sketches)
             {
-                rg_ipph.get()->update(ts, (uint32_t) ip.s_addr);
+                rg_ipph.get()->update(ts, value);
             }
 
             ++n_data;
