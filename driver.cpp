@@ -351,7 +351,7 @@ std::string format_outfile_name(
 }
 
 /* new impl. */
-int run_new_heavy_hitter()
+int run_new_heavy_hitter(bool is_bitp = false)
 {
     std::time_t tt = std::time(nullptr);
     std::tm local_time = *std::localtime(&tt);
@@ -385,7 +385,9 @@ int run_new_heavy_hitter()
     }
 
     std::vector<SKETCH_TYPE> supported_sketch_types =
-        check_query_type("heavy_hitter", nullptr);
+        !is_bitp ?
+        check_query_type("heavy_hitter", nullptr) :
+        check_query_type("heavy_hitter_bitp", nullptr);
     
     int exact_pos = -1;
     std::vector<ResourceGuard<IPersistentHeavyHitterSketch>> sketches;
@@ -438,6 +440,8 @@ int run_new_heavy_hitter()
         {
             TIMESTAMP ts_e;
             double fraction;
+            // for BITP, ts_e is actually ts_s, but the input format
+            // is the same
             sscanf(line.c_str(), "? %llu %lf", &ts_e, &fraction);
 
             std::cout << "HH(" << fraction << "|" << ts_e <<"): " << std::endl;
@@ -588,6 +592,7 @@ void print_new_help(const char *progname) {
     }
     std::cerr << "Available query types:" << std::endl;
     std::cerr << "\theavy_hitter" << std::endl;
+    std::cerr << "\theavy_hitter_bitp" << std::endl;
 }
 
 int
@@ -634,6 +639,11 @@ main(int argc, char *argv[])
         {
             return run_new_heavy_hitter();
         }
+        else if (query_type == "heavy_hitter_bitp")
+        {
+            // is_bitp == true
+            return run_new_heavy_hitter(true);
+        }
         else
         {
             std::cerr << "[ERROR] Invalid query type " << query_type << std::endl;
@@ -647,6 +657,10 @@ main(int argc, char *argv[])
         if (!strcmp(query_type, "heavy_hitter"))
         {
             std::cerr << "Query heavy_hitter" << std::endl; 
+        }
+        else if (!strcmp(query_type, "heavy_hitter_bitp"))
+        {
+            std::cerr << "Query heavy_hitter_bitp" << std::endl;
         }
         else
         {

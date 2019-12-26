@@ -79,18 +79,31 @@ struct AbstractPersistentPointQueryable:
     { return NAN; }
 };
 
+struct HeavyHitter_u32
+{
+    uint32_t        m_value;     
+    float           m_fraction;
+};
+
 struct IPersistentHeavyHitterSketch:
     virtual public IPersistentSketch_u32
 {
-    struct HeavyHitter
-    {
-        uint32_t        m_value;     
-        float           m_fraction;
-    };
+    typedef HeavyHitter_u32 HeavyHitter;
 
     virtual std::vector<HeavyHitter>
     estimate_heavy_hitters(
         TIMESTAMP ts_e,
+        double frac_threshold) const = 0;
+};
+
+struct IPersistentHeavyHitterSketchBITP:
+    virtual public IPersistentSketch_u32
+{
+    typedef HeavyHitter_u32 HeavyHitter;
+
+    virtual std::vector<HeavyHitter>
+    estimate_heavy_hitters_bitp(
+        TIMESTAMP ts_s,
         double frac_threshold) const = 0;
 };
 

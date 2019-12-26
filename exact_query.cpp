@@ -96,6 +96,52 @@ ExactHeavyHitters::estimate_heavy_hitters(
     return std::move(ret);
 }
 
+std::vector<IPersistentHeavyHitterSketchBITP::HeavyHitter>
+ExactHeavyHitters::estimate_heavy_hitters_bitp(
+    TIMESTAMP ts_s,
+    double frac_threshold) const
+{
+    std::vector<std::pair<uint32_t, uint64_t>> snapshot;
+
+    uint64_t tot_cnt = 0;
+    for (const auto &p: m_items)
+    {
+        auto &item_vec = p.second;
+        auto upper_ptr = std::upper_bound(item_vec.begin(),
+            item_vec.end(),
+            ts_s, [](TIMESTAMP ts, const Item i) -> bool {
+                return ts < i.m_ts;
+            });
+        
+        uint64_t cnt;
+        if (upper_ptr == item_vec.begin())
+        {
+            cnt = item_vec.back().m_cnt; 
+        }
+        else
+        {
+            cnt = item_vec.back().m_cnt - upper_ptr[-1].m_cnt;
+        }
+
+        snapshot.emplace_back(p.first, cnt);
+        tot_cnt += cnt;
+    }
+
+    double threshold = frac_threshold * tot_cnt;
+    std::vector<IPersistentHeavyHitterSketchBITP::HeavyHitter> ret;
+    for (const auto &item: snapshot)
+    {
+        if (item.second > threshold)
+        {
+            ret.emplace_back(IPersistentHeavyHitterSketchBITP::HeavyHitter{
+                item.first, (float) item.second / tot_cnt
+            });
+        }
+    }
+
+    return std::move(ret);
+}
+
 ExactHeavyHitters*
 ExactHeavyHitters::create(
     int &argi,
