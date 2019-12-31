@@ -17,6 +17,15 @@ struct MisraGriesAccessor {
 
 using MGA = MisraGriesAccessor;
 
+static MisraGries*
+merge_misra_gries(
+    MisraGries *mg1,
+    MisraGries *mg2);
+
+//
+// ChainMisraGries implementation
+// 
+
 ChainMisraGries::ChainMisraGries(
     double epsilon):
     m_epsilon(epsilon),
@@ -366,6 +375,244 @@ ChainMisraGries::clear_delta_list(
         n = n->m_next;
         delete n2;
     }
+}
+
+//
+// TreeMisraGries implementation
+//
+
+TreeMisraGries::TreeMisraGries(
+    double epsilon):
+    m_epsilon(epsilon),
+    m_epsilon_prime(epsilon / 2.0),
+    m_k((uint32_t) std::ceil(1 / m_epsilon_prime)),
+    m_last_ts(0),
+    m_tot_cnt(0),
+    m_tree(64, nullptr), // this is the tallest tree we can have with 64-bit counters
+    m_level(0),
+    m_remaining_nodes_at_cur_level(2 * m_k),
+    m_target_cnt(1),
+    m_max_cnt_per_node_at_cur_level(1),
+    m_cur_sketch(nullptr),
+    m_size_counter(0)
+{
+    m_cur_sketch = new MisraGries(m_k);
+}
+
+TreeMisraGries::~TreeMisraGries()
+{
+    clear();
+    delete m_cur_sketch;
+}
+
+void
+TreeMisraGries::clear()
+{
+    m_last_ts = 0;
+    m_tot_cnt = 0;
+    
+    for (unsigned i = 0; i < m_tree.size(); ++i)
+    {
+        clear_tree(m_tree[i]);
+    }
+    std::fill(m_tree.begin(), m_tree.end(), nullptr);
+
+    m_level = 0;
+    m_remaining_nodes_at_cur_level = 2 * m_k;
+    m_target_cnt = 1;
+    m_max_cnt_per_node_at_cur_level =1;
+    m_cur_sketch->clear();
+    m_size_counter = 0;
+}
+
+size_t
+TreeMisraGries::memory_usage() const
+{
+    return 104 + // sclar members
+        512 + // size of m_tree = 8 * 64
+        m_size_counter +  // tot size of tree nodes
+        m_cur_sketch->memory_usage();
+}
+
+std::string
+TreeMisraGries::get_short_description() const
+{
+    return "TMG-e" + std::to_string(m_epsilon);
+}
+
+void
+TreeMisraGries::update(
+    TIMESTAMP ts,
+    uint32_t value,
+    int c)
+{
+    if (m_last_ts > 0 && m_last_ts != ts)
+    {
+        if (m_tot_cnt >= m_target_cnt ||
+            m_tot_cnt + c >= m_target_cnt)
+        {
+            merge_cur_sketch();    
+        }
+    }
+    
+    m_cur_sketch->update(value, c);
+    m_last_ts = ts;
+    m_tot_cnt += c;
+}
+
+
+std::vector<IPersistentHeavyHitterSketch::HeavyHitter>
+TreeMisraGries::estimate_heavy_hitters(
+    TIMESTAMP ts_e,
+    double frac_threshold) const
+{
+    MisraGries *mg;
+    uint32_t level;
+    uint64_t est_tot_cnt = 0;
+    if (ts_e >= m_last_ts)
+    {
+        mg = m_cur_sketch->clone();
+        level = m_level;
+        est_tot_cnt = m_tot_cnt;
+    }
+    else
+    {
+        level = m_level;
+        mg = new MisraGries(m_k);
+        for (; level < m_tree.size(); ++level)
+        {
+            if (m_tree[level] && m_tree[level]->m_ts > ts_e)
+            {
+                bool does_intersect = false;
+                TreeNode *tn = m_tree[level];
+                while (tn->m_left)
+                {
+                    if (tn->m_left->m_ts > ts_e)
+                    {
+                        tn = tn->m_left;
+                    }
+                    else
+                    {
+                        does_intersect = true;
+                        mg->merge(tn->m_left->m_mg);
+                        est_tot_cnt = tn->m_left->m_tot_cnt;
+                        tn = tn->m_right;
+                    }
+                }
+                if (does_intersect)
+                {
+                    ++level;
+                    break;
+                }
+            }
+        }
+    }
+
+    for (; level < m_tree.size(); ++level)
+    {
+        if (m_tree[level])
+        {
+            assert(ts_e >= m_tree[level]->m_ts);
+            mg->merge(m_tree[level]->m_mg);
+        }
+    }
+
+    auto ret = mg->estimate_heavy_hitters(
+            frac_threshold, est_tot_cnt);
+
+    delete mg;
+    return std::move(ret);
+}
+
+void
+TreeMisraGries::merge_cur_sketch()
+{
+    TreeNode *tn = new TreeNode;
+    tn->m_ts = m_last_ts;
+    tn->m_tot_cnt = m_tot_cnt;
+    tn->m_mg = m_cur_sketch;
+    tn->m_left = tn->m_right = nullptr;
+    m_size_counter += sizeof(TreeNode) + tn->m_mg->memory_usage();
+    
+    uint32_t level = m_level;
+    while (m_tree[level])
+    {
+        TreeNode *tn_merged = new TreeNode;
+        tn_merged->m_ts = m_last_ts;
+        tn_merged->m_tot_cnt = m_tot_cnt;
+        tn_merged->m_mg = merge_misra_gries(tn->m_mg, m_tree[level]->m_mg);
+        tn_merged->m_left = m_tree[level];
+        tn_merged->m_right = tn;
+        m_size_counter += sizeof(TreeNode) + tn_merged->m_mg->memory_usage();
+
+        m_tree[level] = nullptr;
+        tn = tn_merged;
+        ++level;
+
+        if (level >= m_tree.size())
+        {
+            throw "Too many items inserted into TMG"; 
+        }
+    }
+
+    m_tree[level] = tn;
+
+    if (--m_remaining_nodes_at_cur_level == 0)
+    {
+        ++m_level;
+        m_remaining_nodes_at_cur_level = m_k;
+        m_max_cnt_per_node_at_cur_level *= 2;
+    }
+
+    m_target_cnt = m_tot_cnt + m_max_cnt_per_node_at_cur_level;
+    m_cur_sketch = new MisraGries(m_k);
+}
+
+void
+TreeMisraGries::clear_tree(
+    TreeNode *root)
+{
+    delete root->m_mg;
+    clear_tree(root->m_left);
+    clear_tree(root->m_right);
+    delete root;
+}
+
+int
+TreeMisraGries::num_configs_defined()
+{
+    if (g_config->is_list("TMG.epsilon"))
+    {
+        int len = (int) g_config->list_length("TMG.epsilon");
+        return len;
+    }
+
+    return -1;
+}
+
+TreeMisraGries*
+TreeMisraGries::get_test_instance()
+{
+    return new TreeMisraGries(0.1);
+}
+
+TreeMisraGries*
+TreeMisraGries::create_from_config(
+    int idx)
+{
+    double epsilon = g_config->get_double("TMG.epsilon", idx).value();
+
+    return new TreeMisraGries(epsilon);
+}
+
+static MisraGries*
+merge_misra_gries(
+    MisraGries *mg1,
+    MisraGries *mg2)
+{
+    MisraGries *mg_merged = mg1->clone();
+    mg_merged->merge(mg2);
+    return mg_merged;
 }
 
 }

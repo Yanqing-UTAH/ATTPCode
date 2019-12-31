@@ -45,6 +45,10 @@ public:
     MisraGries*
     clone();
 
+    void
+    merge(
+        MisraGries *mg2);
+
     std::vector<IPersistentHeavyHitterSketch::HeavyHitter>
     estimate_heavy_hitters(
         double frac_threshold,

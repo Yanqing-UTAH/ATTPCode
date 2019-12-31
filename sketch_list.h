@@ -25,5 +25,6 @@ DEFINE_SKETCH_TYPE(EXACT_HH, ExactHeavyHitters, exact_heavy_hitters)
 // new sketches will not have create factory method
 #ifndef ST_REQUIRE_CREATE
 DEFINE_SKETCH_TYPE(CMG, ChainMisraGries, chain_misra_gries)
+DEFINE_SKETCH_TYPE(TMG, TreeMisraGries, tree_misra_gries)
 #endif
 

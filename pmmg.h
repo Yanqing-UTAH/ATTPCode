@@ -138,9 +138,103 @@ private:
     static void
     clear_delta_list(DeltaNode *n);
 };
+
+class TreeMisraGries:
+    public IPersistentHeavyHitterSketch
+{
+private:
+    struct TreeNode {
+        TIMESTAMP           m_ts;
+
+        uint64_t            m_tot_cnt;
+
+        MisraGries          *m_mg;
+
+        TreeNode            *m_left,
+
+                            *m_right;
+    };
+    
+public:
+    TreeMisraGries(
+        double epsilon);
+
+    virtual
+    ~TreeMisraGries();
+    
+    void
+    clear() override;
+
+    size_t
+    memory_usage() const override;
+
+    std::string
+    get_short_description() const;
+
+    void
+    update(
+        TIMESTAMP ts,
+        uint32_t value,
+        int c);
+
+    std::vector<HeavyHitter>
+    estimate_heavy_hitters(
+        TIMESTAMP ts_e,
+        double frac_threshold) const;
+
+private:
+    void
+    merge_cur_sketch();
+
+    static void
+    clear_tree(
+        TreeNode *root);
+
+    double                  m_epsilon,
+
+                            m_epsilon_prime; // epsilon / 2.0
+
+    uint32_t                m_k;
+
+    TIMESTAMP               m_last_ts;
+    
+    uint64_t                m_tot_cnt;
+
+    std::vector<TreeNode*>  m_tree;
+
+    uint32_t                m_level;
+
+    uint32_t                m_remaining_nodes_at_cur_level;
+
+    uint64_t                m_target_cnt;
+
+    uint64_t                m_max_cnt_per_node_at_cur_level;
+
+    MisraGries              *m_cur_sketch;
+
+    size_t                  m_size_counter;
+    
+public:
+    static int
+    num_configs_defined();
+
+    static TreeMisraGries*
+    get_test_instance();
+
+    static TreeMisraGries*
+    create_from_config(int idx);
+};
+
+/*class TreeMisraGriesBITP:
+    public IPersistentHeavyHitterSketchBITP
+{
+    
+}; */
+
 }
 
 using MisraGriesSketches::ChainMisraGries;
+using MisraGriesSketches::TreeMisraGries;
 
 #endif // PMMG_H
 

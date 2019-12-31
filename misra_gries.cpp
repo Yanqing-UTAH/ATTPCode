@@ -153,6 +153,53 @@ MisraGries::clone()
     return new MisraGries(*this);
 }
 
+void
+MisraGries::merge(
+    MisraGries *mg2)
+{
+    reset_delta();
+    mg2->reset_delta();
+
+    for (const auto &p: mg2->m_cnt)
+    {
+        m_cnt[p.first] += p.second;
+    }
+    
+    if (m_cnt.size() <= m_k)
+    {
+        return ;
+    }
+
+    std::vector<std::pair<uint32_t, uint64_t>> cnt_pairs(
+        m_cnt.begin(), m_cnt.end());
+    
+    std::nth_element(
+        cnt_pairs.begin(),
+        cnt_pairs.begin() + m_k,
+        cnt_pairs.end(),
+        [](const auto &p1, const auto &p2) -> bool {
+            return p1.second < p2.second;
+        });
+
+    uint64_t delta = cnt_pairs[m_k].second;
+    
+    auto iter = m_cnt.begin();
+    while (iter != m_cnt.end())
+    {
+        if (iter->second <= delta)
+        {
+            auto to_remove = iter;
+            ++iter;
+            m_cnt.erase(to_remove);
+        }
+        else
+        {
+            iter->second -= delta;
+            ++iter;
+        }
+    }
+}
+
 std::vector<IPersistentHeavyHitterSketch::HeavyHitter>
 MisraGries::estimate_heavy_hitters(
     double frac_threshold,
