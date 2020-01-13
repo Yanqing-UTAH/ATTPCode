@@ -1,6 +1,6 @@
 CXX = ./bin/g++-less
 LINK.o = $(LINK.cc)
-CXXFLAGS = -Wall -O0 -g -std=c++17
+#CXXFLAGS = -Wall -O0 -g -std=c++17
 CXXFLAGS = -Wall -O2 -std=c++17
 CPPFLAGS =
 LDFLAGS =

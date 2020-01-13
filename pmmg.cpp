@@ -448,7 +448,7 @@ TreeMisraGries::update(
 {
     if (m_last_ts > 0 && m_last_ts != ts)
     {
-        if (m_tot_cnt >= m_target_cnt ||
+        if (//m_tot_cnt >= m_target_cnt ||
             m_tot_cnt + c >= m_target_cnt)
         {
             merge_cur_sketch();    
@@ -477,46 +477,73 @@ TreeMisraGries::estimate_heavy_hitters(
     }
     else
     {
+        //std::cout << "TMG " << m_epsilon << " " << ts_e << " " << frac_threshold << std::endl;
         level = m_level;
         mg = new MisraGries(m_k);
         for (; level < m_tree.size(); ++level)
         {
-            if (m_tree[level] && m_tree[level]->m_ts > ts_e)
+            //std::cout << level << " ";
+            if (!m_tree[level])
             {
-                bool does_intersect = false;
-                TreeNode *tn = m_tree[level];
-                while (tn->m_left)
+                //std::cout << "null";
+            }
+            else
+            {
+                //std::cout << m_tree[level]->m_ts;
+            }
+            if (m_tree[level])
+            {
+                if (m_tree[level]->m_ts >= ts_e)
                 {
-                    if (tn->m_left->m_ts > ts_e)
+                    bool does_intersect = false;
+                    TreeNode *tn = m_tree[level];
+                    while (tn->m_left)
                     {
-                        tn = tn->m_left;
+                        //std::cout << ' ' << tn->m_left->m_ts;
+                        if (tn->m_left->m_ts >= ts_e)
+                        {
+                            //std::cout << " l";
+                            tn = tn->m_left;
+                        }
+                        else
+                        {
+                            //std::cout << " r";
+                            does_intersect = true;
+                            mg->merge(tn->m_left->m_mg);
+                            est_tot_cnt = tn->m_left->m_tot_cnt;
+                            tn = tn->m_right;
+                        }
                     }
-                    else
+                    if (does_intersect)
                     {
-                        does_intersect = true;
-                        mg->merge(tn->m_left->m_mg);
-                        est_tot_cnt = tn->m_left->m_tot_cnt;
-                        tn = tn->m_right;
+                        ++level;
+                        break;
                     }
                 }
-                if (does_intersect)
+                else
                 {
-                    ++level;
-                    break;
+                    // the entire tree is in range
+                    est_tot_cnt = m_tree[level]->m_tot_cnt;
+                    break;            
                 }
             }
+            //std::cout << std::endl;
         }
     }
 
+    //std::cout << std::endl << "Remaining levels:";
     for (; level < m_tree.size(); ++level)
     {
         if (m_tree[level])
         {
+            //std::cout << ' ' << level;
             assert(ts_e >= m_tree[level]->m_ts);
             mg->merge(m_tree[level]->m_mg);
         }
     }
-
+    //std::cout << std::endl;
+    
+    std::cout << "est_tot_cnt = " << est_tot_cnt << std::endl;
     auto ret = mg->estimate_heavy_hitters(
             frac_threshold, est_tot_cnt);
 
@@ -560,6 +587,7 @@ TreeMisraGries::merge_cur_sketch()
     if (--m_remaining_nodes_at_cur_level == 0)
     {
         ++m_level;
+        std::cout << "merge_cur_sketch(): " << m_level << ' ' << m_tot_cnt << std::endl;
         m_remaining_nodes_at_cur_level = m_k;
         m_max_cnt_per_node_at_cur_level *= 2;
     }
@@ -572,6 +600,7 @@ void
 TreeMisraGries::clear_tree(
     TreeNode *root)
 {
+    if (!root) return ;
     delete root->m_mg;
     clear_tree(root->m_left);
     clear_tree(root->m_right);
