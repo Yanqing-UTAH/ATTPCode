@@ -1,0 +1,252 @@
+Progress: 50000 data points processed
+Progress: 100000 data points processed
+Progress: 150000 data points processed
+Progress: 200000 data points processed
+Progress: 250000 data points processed
+Progress: 300000 data points processed
+Progress: 350000 data points processed
+Progress: 400000 data points processed
+Progress: 450000 data points processed
+Progress: 500000 data points processed
+Progress: 550000 data points processed
+Progress: 600000 data points processed
+Progress: 650000 data points processed
+Progress: 700000 data points processed
+Progress: 750000 data points processed
+Progress: 800000 data points processed
+Progress: 850000 data points processed
+Progress: 900000 data points processed
+Progress: 950000 data points processed
+Progress: 1000000 data points processed
+Progress: 1050000 data points processed
+Progress: 1100000 data points processed
+Progress: 1150000 data points processed
+Progress: 1200000 data points processed
+Progress: 1250000 data points processed
+Progress: 1300000 data points processed
+Progress: 1350000 data points processed
+Progress: 1400000 data points processed
+Progress: 1450000 data points processed
+Progress: 1500000 data points processed
+Progress: 1550000 data points processed
+Progress: 1600000 data points processed
+Progress: 1650000 data points processed
+Progress: 1700000 data points processed
+Progress: 1750000 data points processed
+Progress: 1800000 data points processed
+Progress: 1850000 data points processed
+Progress: 1900000 data points processed
+Progress: 1950000 data points processed
+Progress: 2000000 data points processed
+Progress: 2050000 data points processed
+Progress: 2100000 data points processed
+Progress: 2150000 data points processed
+Progress: 2200000 data points processed
+Progress: 2250000 data points processed
+Progress: 2300000 data points processed
+Progress: 2350000 data points processed
+Progress: 2400000 data points processed
+Progress: 2450000 data points processed
+Progress: 2500000 data points processed
+Progress: 2550000 data points processed
+Progress: 2600000 data points processed
+Progress: 2650000 data points processed
+Progress: 2700000 data points processed
+Progress: 2750000 data points processed
+Progress: 2800000 data points processed
+Progress: 2850000 data points processed
+Progress: 2900000 data points processed
+Progress: 2950000 data points processed
+Progress: 3000000 data points processed
+Progress: 3050000 data points processed
+Progress: 3100000 data points processed
+Progress: 3150000 data points processed
+Progress: 3200000 data points processed
+Progress: 3250000 data points processed
+Progress: 3300000 data points processed
+Progress: 3350000 data points processed
+Progress: 3400000 data points processed
+Progress: 3450000 data points processed
+Progress: 3500000 data points processed
+Progress: 3550000 data points processed
+Progress: 3600000 data points processed
+Progress: 3650000 data points processed
+Progress: 3700000 data points processed
+Progress: 3750000 data points processed
+Progress: 3800000 data points processed
+Progress: 3850000 data points processed
+Progress: 3900000 data points processed
+Progress: 3950000 data points processed
+Progress: 4000000 data points processed
+Progress: 4050000 data points processed
+Progress: 4100000 data points processed
+Progress: 4150000 data points processed
+Progress: 4200000 data points processed
+Progress: 4250000 data points processed
+Progress: 4300000 data points processed
+Progress: 4350000 data points processed
+Progress: 4400000 data points processed
+Progress: 4450000 data points processed
+Progress: 4500000 data points processed
+Progress: 4550000 data points processed
+Progress: 4600000 data points processed
+Progress: 4650000 data points processed
+Progress: 4700000 data points processed
+Progress: 4750000 data points processed
+Progress: 4800000 data points processed
+Progress: 4850000 data points processed
+Progress: 4900000 data points processed
+Progress: 4950000 data points processed
+Progress: 5000000 data points processed
+Progress: 5050000 data points processed
+Progress: 5100000 data points processed
+Progress: 5150000 data points processed
+Progress: 5200000 data points processed
+Progress: 5250000 data points processed
+Progress: 5300000 data points processed
+Progress: 5350000 data points processed
+Progress: 5400000 data points processed
+Progress: 5450000 data points processed
+Progress: 5500000 data points processed
+Progress: 5550000 data points processed
+Progress: 5600000 data points processed
+Progress: 5650000 data points processed
+Progress: 5700000 data points processed
+Progress: 5750000 data points processed
+Progress: 5800000 data points processed
+Progress: 5850000 data points processed
+Progress: 5900000 data points processed
+Progress: 5950000 data points processed
+Progress: 6000000 data points processed
+Progress: 6050000 data points processed
+Progress: 6100000 data points processed
+Progress: 6150000 data points processed
+Progress: 6200000 data points processed
+Progress: 6250000 data points processed
+Progress: 6300000 data points processed
+Progress: 6350000 data points processed
+Progress: 6400000 data points processed
+Progress: 6450000 data points processed
+Progress: 6500000 data points processed
+Progress: 6550000 data points processed
+Progress: 6600000 data points processed
+Progress: 6650000 data points processed
+Progress: 6700000 data points processed
+Progress: 6750000 data points processed
+Progress: 6800000 data points processed
+Progress: 6850000 data points processed
+Progress: 6900000 data points processed
+Progress: 6950000 data points processed
+Progress: 7000000 data points processed
+HH(0.0002|894557531): 
+	EXACT_HH:294
+	SAMPLING-ss10000: prec = 168/640 = 0.2625, recall = 168/294 = 0.571429
+	SAMPLING-ss30000: prec = 202/403 = 0.501241, recall = 202/294 = 0.687075
+	SAMPLING-ss50000: prec = 211/347 = 0.608069, recall = 211/294 = 0.717687
+	SAMPLING-ss100000: prec = 227/302 = 0.751656, recall = 227/294 = 0.772109
+	PCM_HH-logU23-e0.00013592-d0.001-D1: prec = 44/46 = 0.956522, recall = 44/294 = 0.14966
+	CMG-e0.000200: prec = 294/575 = 0.511304, recall = 294/294 = 1
+	TMG-e0.000200: prec = 294/9867 = 0.0297963, recall = 294/294 = 1
+	TMG-e0.000100: prec = 294/1669 = 0.176153, recall = 294/294 = 1
+	TMG-e0.000010: prec = 294/325 = 0.904615, recall = 294/294 = 1
+HH(0.0002|894634656): 
+	EXACT_HH:185
+	SAMPLING-ss10000: prec = 105/396 = 0.265152, recall = 105/185 = 0.567568
+	SAMPLING-ss30000: prec = 136/237 = 0.57384, recall = 136/185 = 0.735135
+	SAMPLING-ss50000: prec = 150/197 = 0.761421, recall = 150/185 = 0.810811
+	SAMPLING-ss100000: prec = 152/194 = 0.783505, recall = 152/185 = 0.821622
+	PCM_HH-logU23-e0.00013592-d0.001-D1: prec = 63/90 = 0.7, recall = 63/185 = 0.340541
+	CMG-e0.000200: prec = 185/264 = 0.700758, recall = 185/185 = 1
+	TMG-e0.000200: prec = 185/9856 = 0.0187703, recall = 185/185 = 1
+	TMG-e0.000100: prec = 185/550 = 0.336364, recall = 185/185 = 1
+	TMG-e0.000010: prec = 185/208 = 0.889423, recall = 185/185 = 1
+HH(0.0002|894726621): 
+	EXACT_HH:159
+	SAMPLING-ss10000: prec = 83/275 = 0.301818, recall = 83/159 = 0.522013
+	SAMPLING-ss30000: prec = 123/195 = 0.630769, recall = 123/159 = 0.773585
+	SAMPLING-ss50000: prec = 120/175 = 0.685714, recall = 120/159 = 0.754717
+	SAMPLING-ss100000: prec = 140/163 = 0.858896, recall = 140/159 = 0.880503
+	PCM_HH-logU23-e0.00013592-d0.001-D1: prec = 122/170 = 0.717647, recall = 122/159 = 0.767296
+	CMG-e0.000200: prec = 159/216 = 0.736111, recall = 159/159 = 1
+	TMG-e0.000200: prec = 159/9860 = 0.0161258, recall = 159/159 = 1
+	TMG-e0.000100: prec = 159/412 = 0.385922, recall = 159/159 = 1
+	TMG-e0.000010: prec = 159/183 = 0.868852, recall = 159/159 = 1
+HH(0.0002|894856213): 
+	EXACT_HH:155
+	SAMPLING-ss10000: prec = 85/217 = 0.391705, recall = 85/155 = 0.548387
+	SAMPLING-ss30000: prec = 112/178 = 0.629213, recall = 112/155 = 0.722581
+	SAMPLING-ss50000: prec = 124/163 = 0.760736, recall = 124/155 = 0.8
+	SAMPLING-ss100000: prec = 134/166 = 0.807229, recall = 134/155 = 0.864516
+	PCM_HH-logU23-e0.00013592-d0.001-D1: prec = 0/0 = -nan, recall = 0/155 = 0
+	CMG-e0.000200: prec = 155/186 = 0.833333, recall = 155/155 = 1
+	TMG-e0.000200: prec = 155/9880 = 0.0156883, recall = 155/155 = 1
+	TMG-e0.000100: prec = 155/329 = 0.471125, recall = 155/155 = 1
+	TMG-e0.000010: prec = 155/178 = 0.870787, recall = 155/155 = 1
+HH(0.0002|894918950): 
+	EXACT_HH:147
+	SAMPLING-ss10000: prec = 74/208 = 0.355769, recall = 74/147 = 0.503401
+	SAMPLING-ss30000: prec = 103/148 = 0.695946, recall = 103/147 = 0.70068
+	SAMPLING-ss50000: prec = 116/156 = 0.74359, recall = 116/147 = 0.789116
+	SAMPLING-ss100000: prec = 128/158 = 0.810127, recall = 128/147 = 0.870748
+	PCM_HH-logU23-e0.00013592-d0.001-D1: prec = 147/199 = 0.738693, recall = 147/147 = 1
+	CMG-e0.000200: prec = 147/170 = 0.864706, recall = 147/147 = 1
+	TMG-e0.000200: prec = 147/9865 = 0.0149012, recall = 147/147 = 1
+	TMG-e0.000100: prec = 147/326 = 0.45092, recall = 147/147 = 1
+	TMG-e0.000010: prec = 147/163 = 0.90184, recall = 147/147 = 1
+HH(0.0002|894918952): 
+	EXACT_HH:147
+	SAMPLING-ss10000: prec = 74/208 = 0.355769, recall = 74/147 = 0.503401
+	SAMPLING-ss30000: prec = 103/148 = 0.695946, recall = 103/147 = 0.70068
+	SAMPLING-ss50000: prec = 116/156 = 0.74359, recall = 116/147 = 0.789116
+	SAMPLING-ss100000: prec = 128/158 = 0.810127, recall = 128/147 = 0.870748
+	PCM_HH-logU23-e0.00013592-d0.001-D1: prec = 147/199 = 0.738693, recall = 147/147 = 1
+	CMG-e0.000200: prec = 147/170 = 0.864706, recall = 147/147 = 1
+	TMG-e0.000200: prec = 147/9865 = 0.0149012, recall = 147/147 = 1
+	TMG-e0.000100: prec = 147/326 = 0.45092, recall = 147/147 = 1
+	TMG-e0.000010: prec = 147/163 = 0.90184, recall = 147/147 = 1
+HH(0.0002|900000000): 
+	EXACT_HH:147
+	SAMPLING-ss10000: prec = 74/208 = 0.355769, recall = 74/147 = 0.503401
+	SAMPLING-ss30000: prec = 103/148 = 0.695946, recall = 103/147 = 0.70068
+	SAMPLING-ss50000: prec = 116/156 = 0.74359, recall = 116/147 = 0.789116
+	SAMPLING-ss100000: prec = 128/158 = 0.810127, recall = 128/147 = 0.870748
+	PCM_HH-logU23-e0.00013592-d0.001-D1: prec = 147/199 = 0.738693, recall = 147/147 = 1
+	CMG-e0.000200: prec = 147/170 = 0.864706, recall = 147/147 = 1
+	TMG-e0.000200: prec = 147/9865 = 0.0149012, recall = 147/147 = 1
+	TMG-e0.000100: prec = 147/326 = 0.45092, recall = 147/147 = 1
+	TMG-e0.000010: prec = 147/163 = 0.90184, recall = 147/147 = 1
+
+=============  Memory Usage  =============
+	SAMPLING-ss10000: 2568368 B = 2.449 MB
+	SAMPLING-ss30000: 7686320 B = 7.330 MB
+	SAMPLING-ss50000: 12806320 B = 12.213 MB
+	SAMPLING-ss100000: 25605040 B = 24.418 MB
+	PCM_HH-logU23-e0.00013592-d0.001-D1: 1578045244 B = 1504.941 MB
+	EXACT_HH: 108171912 B = 103.160 MB
+	CMG-e0.000200: 1975184 B = 1.883 MB
+	TMG-e0.000200: 432958080 B = 412.901 MB
+	TMG-e0.000100: 612417280 B = 584.46 MB
+	TMG-e0.000010: 961168384 B = 916.641 MB
+=============  Time stats    =============
+	Update timers:
+	SAMPLING-ss10000: tot = 1212 ms = 1 s (avg 0 us = 0 ms)
+	SAMPLING-ss30000: tot = 1038 ms = 1 s (avg 0 us = 0 ms)
+	SAMPLING-ss50000: tot = 1249 ms = 1 s (avg 0 us = 0 ms)
+	SAMPLING-ss100000: tot = 1592 ms = 1 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.00013592-d0.001-D1: tot = 177533 ms = 177 s (avg 25 us = 0 ms)
+	EXACT_HH: tot = 2649 ms = 2 s (avg 0 us = 0 ms)
+	CMG-e0.000200: tot = 1257497 ms = 1257 s (avg 179 us = 0 ms)
+	TMG-e0.000200: tot = 3035 ms = 3 s (avg 0 us = 0 ms)
+	TMG-e0.000100: tot = 3082 ms = 3 s (avg 0 us = 0 ms)
+	TMG-e0.000010: tot = 3853 ms = 3 s (avg 0 us = 0 ms)
+	Query timers:
+	SAMPLING-ss10000: tot = 18 ms = 0 s (avg 2708 us = 2 ms)
+	SAMPLING-ss30000: tot = 51 ms = 0 s (avg 7316 us = 7 ms)
+	SAMPLING-ss50000: tot = 79 ms = 0 s (avg 11420 us = 11 ms)
+	SAMPLING-ss100000: tot = 132 ms = 0 s (avg 18953 us = 18 ms)
+	PCM_HH-logU23-e0.00013592-d0.001-D1: tot = 333 ms = 0 s (avg 47667 us = 47 ms)
+	EXACT_HH: tot = 186 ms = 0 s (avg 26693 us = 26 ms)
+	CMG-e0.000200: tot = 7 ms = 0 s (avg 1020 us = 1 ms)
+	TMG-e0.000200: tot = 53 ms = 0 s (avg 7688 us = 7 ms)
+	TMG-e0.000100: tot = 59 ms = 0 s (avg 8530 us = 8 ms)
+	TMG-e0.000010: tot = 109 ms = 0 s (avg 15652 us = 15 ms)
