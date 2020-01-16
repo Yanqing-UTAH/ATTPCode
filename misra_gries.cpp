@@ -75,7 +75,7 @@ MisraGries::update(
          * first pass may or may not be able to vacate any spot because
          * m_min_cnt is lazily maintained and thus is a lower bound of the
          * actual value. Hopefully we can avoid the second pass by either
-         * vacating a spot or reduce m_delta to 0.
+         * vacating a spot or reducing m_delta to 0.
          */
         m_delta -= m_min_cnt;
         uint64_t new_min_cnt = ~0ul;
@@ -159,12 +159,14 @@ MisraGries::merge(
 {
     reset_delta();
     mg2->reset_delta();
-
+    
+    //size_t pre_size_1 = m_cnt.size(), pre_size_2 = mg2->m_cnt.size();
     for (const auto &p: mg2->m_cnt)
     {
         m_cnt[p.first] += p.second;
     }
     
+    //size_t post_size = m_cnt.size();
     if (m_cnt.size() <= m_k)
     {
         return ;
@@ -178,10 +180,30 @@ MisraGries::merge(
         cnt_pairs.begin() + m_k,
         cnt_pairs.end(),
         [](const auto &p1, const auto &p2) -> bool {
-            return p1.second < p2.second;
+            return p1.second > p2.second;
         });
 
     uint64_t delta = cnt_pairs[m_k].second;
+
+    /*std::cout << "In mg::merge(): " << std::endl;
+    std::cout << "\tPre-merge size: " << pre_size_1 << ' ' << pre_size_2
+        << std::endl;
+    std::cout << "\tPost-merge size: " << post_size << std::endl;
+
+    std::cout << "Purging by delta = " << delta
+        << ": "
+        << std::count_if(m_cnt.begin(), m_cnt.end(),
+            [delta](const auto &p) -> bool { return p.second > delta; })
+        << " stays and "
+        << std::count_if(m_cnt.begin(), m_cnt.end(),
+            [delta](const auto &p) -> bool { return p.second <= delta; })
+        << " goes"
+        << ", with "
+        << std::count_if(m_cnt.begin(), m_cnt.end(),
+            [delta](const auto &p) -> bool { return p.second == delta; })
+        << " being equal to delta"
+        << std::endl; */
+        
     
     auto iter = m_cnt.begin();
     while (iter != m_cnt.end())
@@ -198,6 +220,8 @@ MisraGries::merge(
             ++iter;
         }
     }
+
+    //std::cout << "\tPost-purge size: " << m_cnt.size() << std::endl;
 }
 
 std::vector<IPersistentHeavyHitterSketch::HeavyHitter>
@@ -208,6 +232,7 @@ MisraGries::estimate_heavy_hitters(
     std::vector<IPersistentHeavyHitterSketch::HeavyHitter> ret;
 
     uint64_t threshold = (uint64_t) std::ceil(tot_cnt * (frac_threshold - m_eps));
+    //std::cout << "In mg: threshold = " << threshold << std::endl;
     for (const auto &p: m_cnt)
     {
         if (p.second >= threshold)
@@ -227,7 +252,8 @@ MisraGries::reset_delta()
     m_min_cnt = ~0ul;
     for (auto &p: m_cnt)
     {
-        m_min_cnt = std::min(m_min_cnt, p.second -= m_delta);
+        p.second -= m_delta;
+        m_min_cnt = std::min(m_min_cnt, p.second);
         assert(p.second > 0);
     }
     m_delta = 0;

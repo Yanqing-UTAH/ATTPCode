@@ -878,8 +878,8 @@ Config::parse_file(
 
     for (ConfigEntry *entry: m_entry_map)
     {
-        if (!entry->m_is_assigned && (!entry->m_optional ||
-            (entry->m_has_dependent &&
+        if (!entry->m_is_assigned && (!entry->m_optional &&
+            (!entry->m_has_dependent ||
              std::get<bool>((*m_entry_map.find(entry->m_dependent_key))->m_value))))
         {
             m_help_str.append("[ERROR] missing required entry ")

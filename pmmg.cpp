@@ -482,15 +482,15 @@ TreeMisraGries::estimate_heavy_hitters(
         mg = new MisraGries(m_k);
         for (; level < m_tree.size(); ++level)
         {
-            //std::cout << level << " ";
+            /*std::cout << level << " ";
             if (!m_tree[level])
             {
-                //std::cout << "null";
+                std::cout << "null";
             }
             else
             {
-                //std::cout << m_tree[level]->m_ts;
-            }
+                std::cout << m_tree[level]->m_ts;
+            } */
             if (m_tree[level])
             {
                 if (m_tree[level]->m_ts >= ts_e)
@@ -517,6 +517,7 @@ TreeMisraGries::estimate_heavy_hitters(
                     if (does_intersect)
                     {
                         ++level;
+                        //std::cout << std::endl;
                         break;
                     }
                 }
@@ -524,6 +525,7 @@ TreeMisraGries::estimate_heavy_hitters(
                 {
                     // the entire tree is in range
                     est_tot_cnt = m_tree[level]->m_tot_cnt;
+                    //std::cout << std::endl;
                     break;            
                 }
             }
@@ -531,21 +533,29 @@ TreeMisraGries::estimate_heavy_hitters(
         }
     }
 
-    //std::cout << std::endl << "Remaining levels:";
+    //std::cout << "Remaining levels:" << std::endl;
     for (; level < m_tree.size(); ++level)
     {
         if (m_tree[level])
         {
-            //std::cout << ' ' << level;
-            assert(ts_e >= m_tree[level]->m_ts);
+            /*std::cout << '\t' << level
+                << ' ' << m_tree[level]->m_ts
+                << ' ' << MGA::cnt_map(m_tree[level]->m_mg).size()
+                << std::endl; */
+            assert(ts_e > m_tree[level]->m_ts);
             mg->merge(m_tree[level]->m_mg);
         }
     }
     //std::cout << std::endl;
     
-    std::cout << "est_tot_cnt = " << est_tot_cnt << std::endl;
+    //std::cout << "est_tot_cnt = " << est_tot_cnt << std::endl;
+    //est_tot_cnt = (ts_e > m_tot_cnt) ? m_tot_cnt : (ts_e);
+    //std::cout << "est_tot_cnt = " << est_tot_cnt << std::endl;
+    
+    //std::cout << "frac_threshold' = " << frac_threshold - m_epsilon_prime << std::endl;
+    //std::cout << "cnt_map.size() = " << MGA::cnt_map(mg).size() << std::endl;
     auto ret = mg->estimate_heavy_hitters(
-            frac_threshold, est_tot_cnt);
+            frac_threshold - m_epsilon_prime, est_tot_cnt);
 
     delete mg;
     return std::move(ret);
@@ -587,7 +597,7 @@ TreeMisraGries::merge_cur_sketch()
     if (--m_remaining_nodes_at_cur_level == 0)
     {
         ++m_level;
-        std::cout << "merge_cur_sketch(): " << m_level << ' ' << m_tot_cnt << std::endl;
+        //std::cout << "merge_cur_sketch(): " << m_level << ' ' << m_tot_cnt << std::endl;
         m_remaining_nodes_at_cur_level = m_k;
         m_max_cnt_per_node_at_cur_level *= 2;
     }

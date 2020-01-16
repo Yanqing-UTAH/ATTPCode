@@ -525,7 +525,7 @@ int run_new_heavy_hitter()
                 }
             }
         }
-        else
+        else if (line[0] != '#') // a line starting with # is ignored
         {
             TIMESTAMP ts;
             uint32_t value;

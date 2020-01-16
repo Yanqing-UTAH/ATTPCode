@@ -49,7 +49,7 @@ public:
     merge(
         MisraGries *mg2);
 
-    std::vector<IPersistentHeavyHitterSketch::HeavyHitter>
+    std::vector<HeavyHitter_u32>
     estimate_heavy_hitters(
         double frac_threshold,
         uint64_t tot_cnt) const;

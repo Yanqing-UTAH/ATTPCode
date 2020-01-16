@@ -26,11 +26,11 @@ driver: driver.o pla.o pcm.o pams.o sampling.o heavyhitters.o sketch.o exact_que
 
 # objs
 
-test_pams.o: test_pams.cpp pams.h util.h sketch.h
+test_pams.o: test_pams.cpp pams.h util.h sketch.h MurmurHash3.h
 
 sketch.o: sketch.cpp sketch.h util.h pcm.h pla.h MurmurHash3.h pams.h \
  sampling.h heavyhitters.h exact_query.h pmmg.h misra_gries.h hashtable.h \
- sketch_list.h
+ dummy_persistent_misra_gries.h conf.h sketch_list.h
 
 test_hh.o: test_hh.cpp heavyhitters.h pcm.h pla.h util.h sketch.h \
  MurmurHash3.h
@@ -64,7 +64,7 @@ test_conf.o: test_conf.cpp conf.h hashtable.h
 
 MurmurHash3.o: MurmurHash3.cpp MurmurHash3.h
 
-pams.o: pams.cpp pams.h util.h sketch.h conf.h hashtable.h
+pams.o: pams.cpp pams.h util.h sketch.h MurmurHash3.h conf.h hashtable.h
 
 
 # end of objs
