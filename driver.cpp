@@ -566,7 +566,7 @@ int run_new_heavy_hitter_bitp()
         std::cout << '\t'
              << rg_ipph.get()->get_short_description()
              << ": "
-             << rg_ipph.get()->memory_usage()
+             << mm_b
              << " B = "
              << (size_t) std::floor(mm_mb) << '.'
              << std::setfill('0')

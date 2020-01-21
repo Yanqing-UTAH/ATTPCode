@@ -43,6 +43,13 @@ private:
         DeltaNode           *m_next;
     };
 
+    struct SnapshotCounter
+    {
+        uint64_t                m_cnt;
+
+        uint64_t                m_last_tot_cnt;
+    };
+
 public:
     ChainMisraGries(
         double epsilon);
@@ -65,6 +72,12 @@ public:
         uint32_t key,
         int c = 1) override;
 
+    void
+    update_old(
+        TIMESTAMP ts,
+        uint32_t key,
+        int c = 1);
+
     std::vector<HeavyHitter>
     estimate_heavy_hitters(
         TIMESTAMP ts_e,
@@ -84,17 +97,17 @@ private:
         uint64_t last_tot_cnt)
     {
         uint64_t d = (uint64_t) std::floor(last_tot_cnt * m_epsilon_over_3);
-        return std::make_pair(
-            (d < cnt) ? cnt - d: 0,
-            cnt + (uint64_t) std::floor(last_tot_cnt * m_epsilon_over_3));
+        return std::make_pair((d < cnt) ? cnt - d: 0, cnt + d);
     }
-
-    struct SnapshotCounter
+    
+    uint64_t
+    get_allowable_approx_cnt_upper_bound(
+        uint64_t cnt,
+        uint64_t last_tot_cnt)
     {
-        uint64_t                m_cnt;
-
-        uint64_t                m_last_tot_cnt;
-    };
+        uint64_t d = (uint64_t) std::floor(last_tot_cnt * m_epsilon_over_3);
+        return cnt + d;
+    }
 
     std::pair<uint64_t, uint64_t>
     get_allowable_approx_cnt_range(const SnapshotCounter &cnt)
@@ -123,6 +136,10 @@ private:
 
     size_t                      m_num_delta_nodes_since_last_chkpt;
 
+    //uint64_t                    m_last_chkpt_or_dnode_cnt;
+    
+    uint64_t                    m_sub_amount;
+
 public:
     static ChainMisraGries*
     get_test_instance();
@@ -134,7 +151,6 @@ public:
     num_configs_defined();
 
 private:
-
     static void
     clear_delta_list(DeltaNode *n);
 };
@@ -213,7 +229,7 @@ private:
     MisraGries              *m_cur_sketch;
 
     size_t                  m_size_counter;
-    
+
 public:
     static int
     num_configs_defined();

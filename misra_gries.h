@@ -58,6 +58,19 @@ private:
     void
     reset_delta();
 
+    enum UpdateResult {
+        MGUR_FOUND,
+        MGUR_INSERTED,
+        MGUR_SUBTRACTED,
+        MGUR_SUBTRACTED_AND_INSERTED
+    };
+
+    UpdateResult
+    update_impl(
+        uint32_t                element,
+        int                     cnt,
+        uint64_t                *p_sub_amount);
+
     double                  m_eps;
 
     uint32_t                m_k;

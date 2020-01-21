@@ -13,6 +13,16 @@ struct MisraGriesAccessor {
 
     static void
     reset_delta(MG *mg) { mg->reset_delta(); }
+
+    static MG::UpdateResult
+    update_impl(
+        MG          *mg,
+        uint32_t    element,
+        int         cnt,
+        uint64_t    *p_sub_amount)
+    {
+        return mg->update_impl(element, cnt, p_sub_amount);
+    }
 };
 
 using MGA = MisraGriesAccessor;
@@ -37,7 +47,8 @@ ChainMisraGries::ChainMisraGries(
     m_snapshot_cnt_map((cnt_map_t::size_type) std::ceil(umap_default_load_factor * (m_k > 1 ? m_k - 1: 1))),
     m_checkpoints(),
     m_delta_list_tail_ptr(nullptr),
-    m_num_delta_nodes_since_last_chkpt(0)
+    m_num_delta_nodes_since_last_chkpt(0),
+    m_last_chkpt_or_dnode_cnt(0u)
 {
 }
 
@@ -60,6 +71,7 @@ ChainMisraGries::clear()
     m_checkpoints.clear();
     m_delta_list_tail_ptr = nullptr;
     m_num_delta_nodes_since_last_chkpt = 0;
+    m_last_chkpt_or_dnode_cnt = 0;
 }
 
 size_t
@@ -90,9 +102,33 @@ ChainMisraGries::get_short_description() const
 
 void
 ChainMisraGries::update(
-    TIMESTAMP ts,
-    uint32_t key,
-    int c)
+    TIMESTAMP           ts,
+    uint32_t            key,
+    int                 c)
+{
+    update_new(ts, key, c);
+}
+
+void
+ChainMisraGries::update_new(
+    TIMESTAMP           ts,
+    uint32_t            key,
+    int                 c)
+{
+    if (m_last_ts > 0 && ts != m_last_ts)
+    {
+        // TODO check if we have delta changes and make checkpoint if necessary
+    }
+     
+    
+    auto update_result = MGA::update_impl(&m_cur_sketch, key, c, &m_sub_amount);
+}
+
+void
+ChainMisraGries::update_old(
+    TIMESTAMP           ts,
+    uint32_t            key,
+    int                 c)
 {
     if (m_last_ts > 0 && ts != m_last_ts)
     {
@@ -105,92 +141,101 @@ ChainMisraGries::update(
         }
         else
         {
-            // find delta changes
-            auto &cur_cnt_map = MGA::cnt_map(&m_cur_sketch);
-            
-            bool do_make_checkpoint = false;
-            DeltaNode *new_delta_list = nullptr;
-            DeltaNode **new_delta_list_tail_ptr = &new_delta_list;
-            size_t num_deltas = m_num_delta_nodes_since_last_chkpt;
-            size_t max_allowable_num_deltas = (size_t) std::log2(m_tot_cnt);
-            for (auto iter_snapshot = m_snapshot_cnt_map.begin();
-                    iter_snapshot != m_snapshot_cnt_map.end(); )
+            //uint64_t last_chkpt_cnt = m_checkpoints.back().m_tot_cnt;
+            //uint64_t max_cnt_allowed_before_check =
+                //get_allowable_approx_cnt_upper_bound(
+                    //m_last_chkpt_or_dnode_cnt, last_chkpt_cnt); 
+            //if (m_tot_cnt > max_cnt_allowed_before_check)
             {
-                auto iter_cur = cur_cnt_map.find(iter_snapshot->first);
-                if (iter_cur == cur_cnt_map.end())
-                {
-                    if (++num_deltas > max_allowable_num_deltas)
-                    {
-                        do_make_checkpoint = true;
-                        break;
-                    }
 
-                    DeltaNode *n = new DeltaNode;
-                    n->m_ts = m_last_ts;
-                    n->m_tot_cnt = m_tot_cnt;
-                    n->m_key = iter_snapshot->first;
-                    n->m_new_cnt = 0;
-                    n->m_next = nullptr;
-                    *new_delta_list_tail_ptr = n;
-                    new_delta_list_tail_ptr = &n->m_next;
-                    m_snapshot_cnt_map.erase(iter_snapshot++);
-                }
-                else
+                // find delta changes
+                auto &cur_cnt_map = MGA::cnt_map(&m_cur_sketch);
+                
+                bool do_make_checkpoint = false;
+                DeltaNode *new_delta_list = nullptr;
+                DeltaNode **new_delta_list_tail_ptr = &new_delta_list;
+                size_t num_deltas = m_num_delta_nodes_since_last_chkpt;
+                size_t max_allowable_num_deltas = (size_t) std::log2(m_tot_cnt);
+                for (auto iter_snapshot = m_snapshot_cnt_map.begin();
+                        iter_snapshot != m_snapshot_cnt_map.end(); )
                 {
-                    ++iter_snapshot;
-                }
-            }
-        
-            if (!do_make_checkpoint)
-            {
-                for (const auto &p: cur_cnt_map)
-                {
-                    auto iter_snapshot = m_snapshot_cnt_map.find(p.first);
-                    bool do_make_delta = false;
-                    if (iter_snapshot == m_snapshot_cnt_map.end())
-                    {
-                        do_make_delta = p.second > (uint64_t) std::floor(
-                            m_checkpoints.back().m_tot_cnt * m_epsilon_over_3);
-                    }
-                    else
-                    {
-                        auto range = get_allowable_approx_cnt_range(iter_snapshot->second);
-                        do_make_delta = p.second < range.first || p.second > range.second;
-                    }
-
-                    if (do_make_delta)
+                    auto iter_cur = cur_cnt_map.find(iter_snapshot->first);
+                    if (iter_cur == cur_cnt_map.end())
                     {
                         if (++num_deltas > max_allowable_num_deltas)
                         {
                             do_make_checkpoint = true;
                             break;
                         }
-                    
+
                         DeltaNode *n = new DeltaNode;
                         n->m_ts = m_last_ts;
                         n->m_tot_cnt = m_tot_cnt;
-                        n->m_key = p.first;
-                        n->m_new_cnt = p.second;
+                        n->m_key = iter_snapshot->first;
+                        n->m_new_cnt = 0;
                         n->m_next = nullptr;
                         *new_delta_list_tail_ptr = n;
                         new_delta_list_tail_ptr = &n->m_next;
-                        m_snapshot_cnt_map[p.first] = SnapshotCounter{
-                            p.second, m_tot_cnt  
-                        };
+                        m_snapshot_cnt_map.erase(iter_snapshot++);
+                    }
+                    else
+                    {
+                        ++iter_snapshot;
                     }
                 }
-            }
+            
+                if (!do_make_checkpoint)
+                {
+                    for (const auto &p: cur_cnt_map)
+                    {
+                        auto iter_snapshot = m_snapshot_cnt_map.find(p.first);
+                        bool do_make_delta = false;
+                        if (iter_snapshot == m_snapshot_cnt_map.end())
+                        {
+                            do_make_delta = p.second > (uint64_t) std::floor(
+                                m_checkpoints.back().m_tot_cnt * m_epsilon_over_3);
+                        }
+                        else
+                        {
+                            auto range = get_allowable_approx_cnt_range(iter_snapshot->second);
+                            do_make_delta = p.second < range.first || p.second > range.second;
+                        }
 
-            if (do_make_checkpoint)
-            {
-                clear_delta_list(new_delta_list);
-                make_checkpoint();
-            }
-            else
-            {
-                *m_delta_list_tail_ptr = new_delta_list;
-                m_delta_list_tail_ptr = new_delta_list_tail_ptr;
-                m_num_delta_nodes_since_last_chkpt = num_deltas;
+                        if (do_make_delta)
+                        {
+                            if (++num_deltas > max_allowable_num_deltas)
+                            {
+                                do_make_checkpoint = true;
+                                break;
+                            }
+                        
+                            DeltaNode *n = new DeltaNode;
+                            n->m_ts = m_last_ts;
+                            n->m_tot_cnt = m_tot_cnt;
+                            n->m_key = p.first;
+                            n->m_new_cnt = p.second;
+                            n->m_next = nullptr;
+                            *new_delta_list_tail_ptr = n;
+                            new_delta_list_tail_ptr = &n->m_next;
+                            m_snapshot_cnt_map[p.first] = SnapshotCounter{
+                                p.second, m_tot_cnt  
+                            };
+                        }
+                    }
+                }
+
+                if (do_make_checkpoint)
+                {
+                    clear_delta_list(new_delta_list);
+                    make_checkpoint();
+                }
+                else if (new_delta_list)
+                {
+                    *m_delta_list_tail_ptr = new_delta_list;
+                    m_delta_list_tail_ptr = new_delta_list_tail_ptr;
+                    m_num_delta_nodes_since_last_chkpt = num_deltas;
+                    m_last_chkpt_or_dnode_cnt = m_tot_cnt;
+                }
             }
         }
     }
@@ -337,6 +382,8 @@ ChainMisraGries::make_checkpoint()
             p.second, m_tot_cnt 
         });
     }
+
+    m_last_chkpt_or_dnode_cnt = m_tot_cnt;
 }
 
 ChainMisraGries*
