@@ -2,6 +2,7 @@
 #define MISRA_GRIES_H
 
 #include <unordered_map>
+#include <list>
 #include "hashtable.h"
 #include "sketch.h"
 
@@ -58,18 +59,19 @@ private:
     void
     reset_delta();
 
-    enum UpdateResult {
+    /*enum UpdateResult {
         MGUR_FOUND,
         MGUR_INSERTED,
         MGUR_SUBTRACTED,
         MGUR_SUBTRACTED_AND_INSERTED
-    };
+    }; */
 
-    UpdateResult
+    //UpdateResult
+    void
     update_impl(
         uint32_t                element,
         int                     cnt,
-        uint64_t                *p_sub_amount);
+        std::list<uint32_t>     *p_deleted_list);
 
     double                  m_eps;
 

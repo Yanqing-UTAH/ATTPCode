@@ -157,6 +157,7 @@ int run_new_heavy_hitter()
 
     std::string line;
     size_t n_data = 0;
+    size_t dbg_break_point = ~0ull;
     while (std::getline(infile, line))
     {
         if (line[0] == '?')
@@ -279,6 +280,11 @@ int run_new_heavy_hitter()
 
             for (auto i = 0u; i < sketches.size(); ++i)
             {
+                if (n_data == dbg_break_point)
+                {
+                    sketches[i].get()->update(ts, value);
+                    continue;
+                }
                 PERF_TIMER_TIMEIT(&update_timers[i],
                 {
                     sketches[i].get()->update(ts, value);

@@ -52,11 +52,11 @@ MisraGries::update(
     update_impl(element, cnt, nullptr);
 }
 
-MisraGries::UpdateResult
+void
 MisraGries::update_impl(
     uint32_t                element,
     int                     cnt,
-    uint64_t                *p_sub_amount)
+    std::list<uint32_t>     *p_deleted_list)
 {
     assert(cnt > 0);
     assert(m_min_cnt > m_delta);
@@ -65,7 +65,8 @@ MisraGries::update_impl(
     if (ele_iter != m_cnt.end())
     {
         ele_iter->second += cnt;
-        return MGUR_FOUND;
+        //return MGUR_FOUND;
+        return;
     }
 
     if (m_cnt.size() < m_k - 1)
@@ -76,7 +77,8 @@ MisraGries::update_impl(
             assert(m_delta == 0);
             m_min_cnt = cnt;
         }
-        return MGUR_INSERTED;
+        //return MGUR_INSERTED;
+        return;
     }
     
     if ((m_delta += cnt) >= m_min_cnt)
@@ -87,10 +89,6 @@ MisraGries::update_impl(
          * actual value. Hopefully we can avoid the second pass by either
          * vacating a spot or reducing m_delta to 0.
          */
-        if (p_sub_amount)
-        {
-            *p_sub_amount += m_min_cnt;
-        }
         m_delta -= m_min_cnt;
         uint64_t new_min_cnt = ~0ul;
         auto iter = m_cnt.begin();
@@ -107,42 +105,37 @@ MisraGries::update_impl(
             }
             else
             {
-                auto to_remove = iter++;
-                m_cnt.erase(to_remove);
+                if (p_deleted_list)
+                {
+                    p_deleted_list->push_back(iter->first);
+                }
+                iter = m_cnt.erase(iter);
             }
         }
         m_min_cnt = new_min_cnt;
     
         // nothing left to insert
-        if (m_delta == 0) return MGUR_SUBTRACTED;
-       
-        // we found a spot for the insertion
-        if (m_cnt.size() < m_k - 1)
-        {
-            m_cnt[element] = m_delta;
-            m_min_cnt = std::min(m_delta, m_min_cnt);
-            m_delta = 0;
-            return MGUR_SUBTRACTED_AND_INSERTED;
+        if (m_delta == 0) {
+            return;
+            //return MGUR_SUBTRACTED;
         }
-        
-        /* the second pass will have to vacate some spot in the sketch for the
-         * new element
+       
+        /* use the correct m_min_cnt to do the second pass if needed
          */
         if (m_delta >= m_min_cnt)
         {
-            if (p_sub_amount)
-            {
-                *p_sub_amount += m_min_cnt;
-            }
-
             auto iter = m_cnt.begin();
             new_min_cnt = ~0ul;
             while (iter != m_cnt.end())
             {
+                assert(iter->second >= m_min_cnt);
                 if (iter->second == m_min_cnt)
                 {
-                    auto to_remove = iter++;
-                    m_cnt.erase(to_remove);
+                    if (p_deleted_list)
+                    {
+                        p_deleted_list->push_back(iter->first);
+                    }
+                    iter = m_cnt.erase(iter);
                 }
                 else
                 {
@@ -153,22 +146,27 @@ MisraGries::update_impl(
             m_delta -= m_min_cnt;
             m_min_cnt = new_min_cnt;
 
-            assert(m_cnt.size() < m_k - 1);
             assert(m_delta <= (unsigned) cnt);
-
-            if (m_delta == 0) return MGUR_SUBTRACTED;
-            m_cnt[element] = m_delta;
-            m_min_cnt = std::min(m_min_cnt, m_delta);
-            m_delta = 0;
-            return MGUR_SUBTRACTED_AND_INSERTED;
         }
+
+        if (m_delta == 0) {
+            return ;
+            //return MGUR_SUBTRACTED;
+        }
+    
+        assert(m_cnt.size() < m_k - 1);
+
+        // we must have found a spot for the insertion
+        m_cnt[element] = m_delta;
+        m_min_cnt = std::min(m_delta, m_min_cnt);
+        m_delta = 0;
+        //return MGUR_SUBTRACTED_AND_INSERTED;
+        return ;
     }
     
     // This happens if
-    // 1) cnt is added to m_delta and that is still < m_min_cnt
-    // or 2) we subtracted part of m_delta from all counters in the first pass
-    // and have a positive m_delta that is less than m_min_cnt 
-    return MGUR_SUBTRACTED;
+    // cnt is added to m_delta and that is still < m_min_cnt
+    //return MGUR_SUBTRACTED;
 }
 
 MisraGries*
@@ -276,9 +274,9 @@ MisraGries::reset_delta()
     m_min_cnt = ~0ul;
     for (auto &p: m_cnt)
     {
+        assert(p.second > m_delta);
         p.second -= m_delta;
         m_min_cnt = std::min(m_min_cnt, p.second);
-        assert(p.second > 0);
     }
     m_delta = 0;
 }

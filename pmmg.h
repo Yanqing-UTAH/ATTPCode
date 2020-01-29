@@ -5,6 +5,7 @@
 #include "util.h"
 #include "misra_gries.h"
 #include "sketch.h"
+#include "min_heap.h"
 
 namespace MisraGriesSketches {
 
@@ -49,10 +50,82 @@ private:
 
         uint64_t                m_last_tot_cnt;
     };
+    
+    // Let c' be the actual counter, c be the counter since the last recorded
+    // change (in dnode or checkpoint), and N be the total count when the last
+    // recorded change happens. These variables are different for different keys.
+    //
+    // Any change to c' within c +/- eps/3 * N is not recorded until the threshold
+    // is reached. Then the change is recorded at the end of that timestamp.
+    //
+    // The pending amounts to be subtracted across all counters, which is d =
+    // m_sub_amount + m_cur_sketch.m_delta and is shared by all counters, are
+    // not applied until the next checkpoint. Thus the value of the these
+    // counters c'' = c' + d.
+    //
+    // We maintain two heaps over the counters.
+    //
+    // 1. A max heap over c1 = c'' - c - eps/3 * N. At the end of each timestamp,
+    // all counters with c1 > d need to be recorded.
+    //
+    // 2. A min heap over c2 = c'' - c + eps/3 * N. At the end of each timestamp,
+    // all counters with c2 < d need to be recorded.
+    //
+    struct Counter
+    {
+        uint32_t                m_key;
+
+        bool                    m_in_last_snapshot: 1;
+
+        bool                    m_last_node_is_chkpt: 1;
+
+        int64_t                 m_c1;
+        
+        uint64_t                m_c1_max_heap_idx;
+
+        int64_t                 m_c2;
+
+        uint64_t                m_c2_min_heap_idx;
+
+        union {
+            Counter             *m_next_free_counter;
+
+            DeltaNode           *m_prev_delta_node;
+
+            ChkptNode           *m_prev_chkpt_node;
+        };
+
+        // debug only
+        
+        //uint64_t                m_c;
+
+        //uint64_t                m_c_double_prime;
+
+        //uint64_t                m_prev_N;
+
+        //DeltaNode               *m_prev_delta_node;
+    
+        //ChkptNode               *m_prev_chkpt_node;
+    };
+
+    struct InvertedIndexProxy
+    {
+        typedef uint64_t value_type;
+
+        bool                    m_updating_c1_max_heap;
+
+        uint64_t&
+        operator[](Counter *counter) const
+        {
+            return m_updating_c1_max_heap ? counter->m_c1_max_heap_idx :
+                counter->m_c2_min_heap_idx;
+        }
+    };
 
 public:
     ChainMisraGries(
-        double epsilon);
+        double      epsilon,
+        bool        use_update_new = true);
 
     virtual
     ~ChainMisraGries();
@@ -72,12 +145,6 @@ public:
         uint32_t key,
         int c = 1) override;
 
-    void
-    update_old(
-        TIMESTAMP ts,
-        uint32_t key,
-        int c = 1);
-
     std::vector<HeavyHitter>
     estimate_heavy_hitters(
         TIMESTAMP ts_e,
@@ -89,10 +156,25 @@ private:
         bool reinit);
 
     void
+    update_new(
+        TIMESTAMP ts,
+        uint32_t key,
+        int c);
+
+    void
+    update_old(
+        TIMESTAMP ts,
+        uint32_t key,
+        int c);
+
+    void
+    make_checkpoint_old();
+
+    void
     make_checkpoint();
 
     std::pair<uint64_t, uint64_t>
-    get_allowable_approx_cnt_range(
+    get_allowable_cnt_range(
         uint64_t cnt,
         uint64_t last_tot_cnt)
     {
@@ -101,7 +183,7 @@ private:
     }
     
     uint64_t
-    get_allowable_approx_cnt_upper_bound(
+    get_allowable_cnt_upper_bound(
         uint64_t cnt,
         uint64_t last_tot_cnt)
     {
@@ -112,8 +194,50 @@ private:
     std::pair<uint64_t, uint64_t>
     get_allowable_approx_cnt_range(const SnapshotCounter &cnt)
     {
-        return get_allowable_approx_cnt_range(cnt.m_cnt, cnt.m_last_tot_cnt);     
+        return get_allowable_cnt_range(cnt.m_cnt, cnt.m_last_tot_cnt);     
     }
+    
+    static int64_t
+    c1_max_heap_key_func(const Counter *counter)
+    {
+        return counter->m_c1;
+    }
+
+    static int64_t
+    c2_min_heap_key_func(const Counter *counter)
+    {
+        return counter->m_c2;
+    }
+
+    static Counter*
+    heap_idx_func(Counter *counter)
+    {
+        return counter;
+    }
+
+    uint64_t
+    tot_cnt_at_last_chkpt() const
+    {
+        return m_checkpoints.empty() ? 0 : m_checkpoints.back().m_tot_cnt;
+    }
+
+    bool
+    p_counter_is_valid(Counter *p_counter) const
+    {
+        return p_counter >= m_all_counters && p_counter < m_all_counters + 2 * (m_k - 1);
+    }
+
+    Counter *
+    get_counter_from_map(std::unordered_map<uint32_t, Counter*> &map, uint32_t key) const
+    {
+        auto iter = map.find(key);
+        if (iter == map.end()) return nullptr;
+        return iter->second;
+    }
+    
+    std::vector<bool>           m_counter_checks;
+    void
+    check_free_counters_chain();
 
     double                      m_epsilon,
 
@@ -121,12 +245,15 @@ private:
 
     uint32_t                    m_k;
 
+    bool                        m_use_update_new;
+
     uint64_t                    m_tot_cnt;
 
     TIMESTAMP                   m_last_ts;
 
     MG                          m_cur_sketch; // the one up to the current count
-
+    
+    // for update_old impl. only
     std::unordered_map<key_type, SnapshotCounter>
                                 m_snapshot_cnt_map; // the one up to the last delta/chkpt
 
@@ -138,7 +265,25 @@ private:
 
     //uint64_t                    m_last_chkpt_or_dnode_cnt;
     
+
+    // variables for update_new()
     uint64_t                    m_sub_amount;
+    
+    Counter                     *m_all_counters;
+
+    Counter                     *m_free_counters;
+
+    std::unordered_map<key_type, Counter*>
+                                m_key_to_counter_map;
+
+    std::unordered_map<key_type, Counter*>
+                                m_deleted_counters;
+
+    std::vector<Counter*>       m_c1_max_heap;
+
+    std::vector<Counter*>       m_c2_min_heap;
+
+    InvertedIndexProxy          m_inverted_index_proxy;
 
 public:
     static ChainMisraGries*

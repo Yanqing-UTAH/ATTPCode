@@ -4,6 +4,7 @@
 #include <numeric>
 #include <cassert>
 #include <iostream>
+#include <list>
 
 namespace MisraGriesSketches {
 
@@ -14,16 +15,45 @@ struct MisraGriesAccessor {
     static void
     reset_delta(MG *mg) { mg->reset_delta(); }
 
-    static MG::UpdateResult
+    static uint64_t
+    delta(MG *mg) { return mg->m_delta; }
+
+    static void
     update_impl(
-        MG          *mg,
-        uint32_t    element,
-        int         cnt,
-        uint64_t    *p_sub_amount)
+        MG                      *mg,
+        uint32_t                element,
+        int                     cnt,
+        std::list<uint32_t>     *p_deleted_list)
     {
-        return mg->update_impl(element, cnt, p_sub_amount);
+        mg->update_impl(element, cnt, p_deleted_list);
+    }
+
+    static uint64_t
+    get_cnt(MG *mg, uint32_t key)
+    {
+        return (mg->m_cnt.find(key) == mg->m_cnt.end()) ? 0 : mg->m_cnt[key];
+    }
+
+    static uint64_t
+    get_cnt_prime(MG *mg, uint32_t key)
+    {
+        auto iter = mg->m_cnt.find(key);
+        if (iter == mg->m_cnt.end()) return 0;
+        if (iter->second < mg->m_delta) return 0;
+        return iter->second - mg->m_delta;
     }
 };
+
+static
+uint64_t get_cnt_from_map(cnt_map_t &cnt_map, uint32_t key)
+{
+    auto iter = cnt_map.find(key);
+    if (iter != cnt_map.end())
+    {
+        return iter->second;
+    }
+    return 0;
+}
 
 using MGA = MisraGriesAccessor;
 
@@ -36,11 +66,48 @@ merge_misra_gries(
 // ChainMisraGries implementation
 // 
 
+void
+ChainMisraGries::check_free_counters_chain()
+{
+    Counter *c = m_free_counters;
+    m_counter_checks.clear();
+    m_counter_checks.resize(2 * m_k - 2, false);
+    uint64_t i = 0;
+    while (c != nullptr)
+    {
+        ++i;
+        auto idx = c - m_all_counters;
+        assert(c);
+        assert(!c->m_in_last_snapshot);
+        assert(idx >= 0 && idx < 2 * m_k - 2 && !m_counter_checks[idx]);
+        m_counter_checks[idx] = true;
+        c = c->m_next_free_counter;
+    }
+
+    for (auto &p: m_key_to_counter_map)
+    {
+        auto idx = p.second - m_all_counters;
+        assert(idx >= 0 && idx < 2 * m_k - 2 && !m_counter_checks[idx]);
+        assert(p.second->m_key == p.first);
+        m_counter_checks[idx] = true;
+    }
+
+    for (auto &p: m_deleted_counters)
+    {
+        auto idx = p.second - m_all_counters;
+        assert(idx >= 0 && idx < 2 * m_k - 2 && !m_counter_checks[idx]);
+        assert(p.second->m_key == p.first);
+        m_counter_checks[idx] = true;
+    }
+}
+
 ChainMisraGries::ChainMisraGries(
-    double epsilon):
+    double  epsilon,
+    bool    use_update_new):
     m_epsilon(epsilon),
     m_epsilon_over_3(epsilon / 3),
     m_k((uint32_t) std::ceil(1 / m_epsilon_over_3)),
+    m_use_update_new(use_update_new),
     m_tot_cnt(0u),
     m_last_ts(0u),
     m_cur_sketch(m_k),
@@ -48,13 +115,37 @@ ChainMisraGries::ChainMisraGries(
     m_checkpoints(),
     m_delta_list_tail_ptr(nullptr),
     m_num_delta_nodes_since_last_chkpt(0),
-    m_last_chkpt_or_dnode_cnt(0u)
+    //m_last_chkpt_or_dnode_cnt(0u)
+    
+    m_sub_amount(0),
+    m_all_counters(nullptr),
+    m_free_counters(nullptr),
+    m_key_to_counter_map(),
+    m_deleted_counters(),
+    m_c1_max_heap(),
+    m_c2_min_heap(),
+    m_inverted_index_proxy()
 {
+    m_all_counters = new Counter[2 * (m_k - 1)];
+    
+    m_free_counters = m_all_counters;
+    for (uint64_t i = 1; i < 2 * (m_k - 1); ++i)
+    {
+        m_all_counters[i-1].m_next_free_counter = &m_all_counters[i];
+        m_all_counters[i-1].m_in_last_snapshot = false;
+        m_all_counters[i-1].m_last_node_is_chkpt = false;
+    }
+    m_all_counters[2 * m_k - 3].m_next_free_counter = nullptr;
+    m_all_counters[2 * m_k - 3].m_in_last_snapshot = false;
+    m_all_counters[2 * m_k - 3].m_last_node_is_chkpt = false;
+
+    m_counter_checks.resize(2 * m_k - 2);
 }
 
 ChainMisraGries::~ChainMisraGries()
 {
     clear();
+    delete [] m_all_counters;
 }
 
 void
@@ -71,15 +162,29 @@ ChainMisraGries::clear()
     m_checkpoints.clear();
     m_delta_list_tail_ptr = nullptr;
     m_num_delta_nodes_since_last_chkpt = 0;
-    m_last_chkpt_or_dnode_cnt = 0;
+
+    m_free_counters = m_all_counters;
+    for (uint64_t i = 1; i < 2 * (m_k - 1); ++i)
+    {
+        m_all_counters[i-1].m_next_free_counter = &m_all_counters[i];
+        m_all_counters[i-1].m_in_last_snapshot = false;
+        m_all_counters[i-1].m_last_node_is_chkpt = false;
+    }
+    m_all_counters[2 * m_k - 3].m_next_free_counter = nullptr;
+    m_all_counters[2 * m_k - 3].m_in_last_snapshot = false;
+    m_all_counters[2 * m_k - 3].m_last_node_is_chkpt = false;
+
+    m_sub_amount = 0;
+    m_key_to_counter_map.clear();
+    m_c1_max_heap.clear();
+    m_c2_min_heap.clear();
+    m_deleted_counters.clear();
 }
 
 size_t
 ChainMisraGries::memory_usage() const
 {
-    return 56 + // scalar members
-        m_cur_sketch.memory_usage() +
-        size_of_unordered_map(m_snapshot_cnt_map) +
+    size_t size_of_checkpoints_and_dnodes = 
         sizeof(m_checkpoints) + sizeof(ChkptNode) * m_checkpoints.capacity() +
         std::accumulate(m_checkpoints.cbegin(), m_checkpoints.cend(),
             (size_t) 0,
@@ -92,6 +197,52 @@ ChainMisraGries::memory_usage() const
                 }
                 return acc;
             });
+
+        /*std::cout << std::endl;
+        std::cout << "DEBUG STATS for CMG " << m_epsilon << ":" << std::endl;
+        if (m_use_update_new)
+            std::cout << "using update_new" << std::endl;
+        else
+            std::cout << "using update_old" << std::endl;
+        std::cout << "m_k = " << m_k << ", m_epsilon_over_3 = " << m_epsilon_over_3
+            << std::endl;
+        std::cout << "num_checkpoints = " << m_checkpoints.size() << std::endl;
+        uint64_t i = 0;
+        for (auto &chkpt: m_checkpoints)
+        {
+            uint64_t l = 0;
+            auto c = chkpt.m_first_delta_node;
+            while (c)
+            {
+                ++l;
+                c = c->m_next;
+            }
+            std::cout << "Chkpt " << i++
+                << ' ' << chkpt.m_ts
+                << ' ' << chkpt.m_tot_cnt
+                << ' ' << l
+                << ' ' << chkpt.m_cnt_map.size()
+                << std::endl;
+        }
+        std::cout << std::endl; */
+
+    if (m_use_update_new)
+    {
+
+        return 88 + // scalar members + m_inverted_index_proxy (which counts as 8 for alignment)
+            m_cur_sketch.memory_usage() + 
+            size_of_checkpoints_and_dnodes +
+            sizeof(Counter) * (2 * m_k - 2) +
+            size_of_unordered_map(m_key_to_counter_map) +
+            size_of_unordered_map(m_deleted_counters) +
+            sizeof(m_c1_max_heap) + sizeof(Counter*) * m_c1_max_heap.capacity() +
+            sizeof(m_c2_min_heap) + sizeof(Counter*) * m_c2_min_heap.capacity();
+    }
+
+    return 56 + // scalar members
+        m_cur_sketch.memory_usage() +
+        size_of_unordered_map(m_snapshot_cnt_map) +
+        size_of_checkpoints_and_dnodes;
 }
 
 std::string
@@ -106,7 +257,10 @@ ChainMisraGries::update(
     uint32_t            key,
     int                 c)
 {
-    update_new(ts, key, c);
+    if (m_use_update_new)
+        update_new(ts, key, c);
+    else
+        update_old(ts, key, c);
 }
 
 void
@@ -115,13 +269,397 @@ ChainMisraGries::update_new(
     uint32_t            key,
     int                 c)
 {
+    assert(c > 0);
+    
+    assert(!m_free_counters || (p_counter_is_valid(m_free_counters)
+            && !m_free_counters->m_in_last_snapshot
+            && (m_key_to_counter_map.count(m_free_counters->m_key) == 0 ||
+                m_key_to_counter_map[m_free_counters->m_key] != m_free_counters)
+            && (m_deleted_counters.count(m_free_counters->m_key) == 0 ||
+                m_deleted_counters[m_free_counters->m_key] != m_free_counters)));
+    //if (ts >= 894728434)
+        //check_free_counters_chain();
+
     if (m_last_ts > 0 && ts != m_last_ts)
     {
-        // TODO check if we have delta changes and make checkpoint if necessary
+        if (m_checkpoints.empty())
+        {
+            make_checkpoint();
+        }
+        else
+        {
+            int64_t d = (int64_t)(m_sub_amount + MGA::delta(&m_cur_sketch));
+    
+            bool do_make_checkpoint = false;
+            DeltaNode *new_dnode_list = nullptr;
+            DeltaNode **new_dnode_list_tail_ptr = &new_dnode_list;
+            size_t num_deltas = m_num_delta_nodes_since_last_chkpt;
+            size_t max_allowable_num_deltas = (size_t) std::log2(m_tot_cnt);
+
+            int64_t max_delta_c = (int64_t) get_allowable_cnt_upper_bound(0, m_tot_cnt);
+
+            // find keys whose counts exceed the upper limit
+            while (m_c1_max_heap[0]->m_c1 > d)
+            {
+                if (++num_deltas > max_allowable_num_deltas)
+                {
+                    do_make_checkpoint = true;
+                    goto check_for_checkpoint;
+                }
+
+                Counter *p_counter = m_c1_max_heap[0];
+                assert(p_counter->m_c2 >= d);
+            
+                uint64_t c_prime = MGA::get_cnt_prime(&m_cur_sketch, p_counter->m_key);
+                //uint64_t c_prime_alt = ((p_counter->m_c1 + p_counter->m_c2) >> 1) +
+                //    p_counter->m_c - d;
+                //assert(c_prime == c_prime_alt);
+
+                DeltaNode *n = new DeltaNode;
+                n->m_ts = m_last_ts;
+                n->m_tot_cnt = m_tot_cnt;
+                n->m_key = p_counter->m_key;
+                n->m_new_cnt = c_prime;
+                n->m_next = nullptr;
+                *new_dnode_list_tail_ptr = n;
+                new_dnode_list_tail_ptr = &n->m_next;
+
+                p_counter->m_c1 = d - max_delta_c;
+                m_inverted_index_proxy.m_updating_c1_max_heap = true;
+                dsimpl::max_heap_with_inverted_index_push_down(
+                    m_c1_max_heap,
+                    m_inverted_index_proxy,
+                    0,
+                    (UINT8) m_c1_max_heap.size(),
+                    c1_max_heap_key_func,
+                    heap_idx_func);
+
+                p_counter->m_c2 = d + max_delta_c;
+                m_inverted_index_proxy.m_updating_c1_max_heap = false;
+                dsimpl::min_heap_with_inverted_index_mark_updated(
+                    m_c2_min_heap,
+                    m_inverted_index_proxy,
+                    p_counter->m_c2_min_heap_idx,
+                    (UINT8) m_c2_min_heap.size(),
+                    c2_min_heap_key_func,
+                    heap_idx_func);
+                
+                p_counter->m_in_last_snapshot = true;
+                p_counter->m_last_node_is_chkpt = false;
+                p_counter->m_prev_delta_node = n;
+
+                //p_counter->m_c = c_prime;
+                //p_counter->m_prev_N = m_tot_cnt;
+            }
+        
+            // find keys whose counts drop below the lower limit
+            while (m_c2_min_heap[0]->m_c2 < d)
+            {
+                if (++num_deltas > max_allowable_num_deltas)
+                {
+                    do_make_checkpoint = true;
+                    goto check_for_checkpoint;
+                }
+
+                Counter *p_counter = m_c2_min_heap[0];
+                assert(p_counter->m_c1 <= d);
+                assert(p_counter_is_valid(p_counter));
+
+                uint64_t c_prime = MGA::get_cnt_prime(&m_cur_sketch, p_counter->m_key);
+                /*uint64_t c_prime_alt =
+                    ((p_counter->m_c1 + p_counter->m_c2) >> 1) + p_counter->m_c;
+                assert((int64_t) c_prime_alt > d);
+                if ((int64_t) c_prime_alt < d)
+                {
+                    c_prime_alt = 0;
+                }
+                else
+                {
+                    c_prime_alt -= d;
+                }
+                assert(c_prime == c_prime_alt); */
+
+                DeltaNode *n = new DeltaNode;
+                n->m_ts = m_last_ts;
+                n->m_tot_cnt = m_tot_cnt;
+                n->m_key = p_counter->m_key;
+                n->m_new_cnt = c_prime;
+                n->m_next = nullptr;
+                *new_dnode_list_tail_ptr = n;
+                new_dnode_list_tail_ptr = &n->m_next;
+
+                p_counter->m_c1 = d - max_delta_c;
+                m_inverted_index_proxy.m_updating_c1_max_heap = true;
+                dsimpl::max_heap_with_inverted_index_mark_updated(
+                    m_c1_max_heap,
+                    m_inverted_index_proxy,
+                    (UINT8) p_counter->m_c1_max_heap_idx,
+                    (UINT8) m_c1_max_heap.size(),
+                    c1_max_heap_key_func,
+                    heap_idx_func);
+
+                p_counter->m_c2 = d + max_delta_c;
+                m_inverted_index_proxy.m_updating_c1_max_heap = false;
+                dsimpl::min_heap_with_inverted_index_push_down(
+                    m_c2_min_heap,
+                    m_inverted_index_proxy,
+                    (UINT8) 0,
+                    (UINT8) m_c2_min_heap.size(),
+                    c2_min_heap_key_func,
+                    heap_idx_func);
+
+                p_counter->m_in_last_snapshot = true;
+                p_counter->m_last_node_is_chkpt = false;
+                p_counter->m_prev_delta_node = n;
+
+                //p_counter->m_c = c_prime;
+                //p_counter->m_prev_N = m_tot_cnt;
+            }
+
+            // record deleted nodes as well
+            for (auto iter2 = m_deleted_counters.begin();
+                      iter2 != m_deleted_counters.end();
+                      ++iter2)
+            {
+                if (++num_deltas > max_allowable_num_deltas)
+                {
+                    do_make_checkpoint = true;
+                    // can't goto check_for_checkpoint because
+                    // make_checkpoint could be adding counters prior to this
+                    // one in the list a second time
+                }
+
+                Counter *p_counter = iter2->second;
+                assert(p_counter_is_valid(p_counter));
+                assert(p_counter->m_in_last_snapshot);
+                assert(m_key_to_counter_map.count(p_counter->m_key) == 0);
+
+                assert(MGA::cnt_map(&m_cur_sketch).find(p_counter->m_key) == MGA::cnt_map(&m_cur_sketch).end());
+                assert(p_counter->m_in_last_snapshot);
+                
+                if (!do_make_checkpoint)
+                {
+                    DeltaNode *n = new DeltaNode;
+                    n->m_ts = m_last_ts;
+                    n->m_tot_cnt = m_tot_cnt;
+                    n->m_key = p_counter->m_key;
+                    n->m_new_cnt = 0;
+                    n->m_next = nullptr;
+                    *new_dnode_list_tail_ptr = n;
+                    new_dnode_list_tail_ptr = &n->m_next;
+                }
+
+                p_counter->m_in_last_snapshot = false;
+                p_counter->m_next_free_counter = m_free_counters;
+                m_free_counters = p_counter;
+            }
+            m_deleted_counters.clear();
+
+check_for_checkpoint:
+            if (do_make_checkpoint)
+            {
+                clear_delta_list(new_dnode_list);
+                make_checkpoint();
+            }
+            else if (new_dnode_list)
+            {
+                *m_delta_list_tail_ptr = new_dnode_list;
+                m_delta_list_tail_ptr = new_dnode_list_tail_ptr;
+                m_num_delta_nodes_since_last_chkpt = num_deltas;
+            }
+        }
     }
      
+    auto &cnt_map = MGA::cnt_map(&m_cur_sketch);
+    assert(cnt_map.size() == m_key_to_counter_map.size());
+
+    auto iter = cnt_map.find(key);
+    uint64_t c0, c1;
+    if (iter == cnt_map.end())
+    {
+        c0 = 0;
+    }
+    else
+    {
+        c0 = iter->second;
+    }
     
-    auto update_result = MGA::update_impl(&m_cur_sketch, key, c, &m_sub_amount);
+    std::list<uint32_t> deleted_list;
+    //uint64_t delta_sub_amount = m_sub_amount;
+    uint64_t old_delta = MGA::delta(&m_cur_sketch);
+    //MGA::update_impl(&m_cur_sketch, key, c, &m_sub_amount, &deleted_list);
+    MGA::update_impl(&m_cur_sketch, key, c, &deleted_list);
+    //delta_sub_amount = m_sub_amount - delta_sub_amount;
+    uint64_t new_delta = MGA::delta(&m_cur_sketch);
+    
+    iter = cnt_map.find(key);
+    if (iter == cnt_map.end())
+    {
+        c1 = 0;
+    }
+    else
+    {
+        c1 = iter->second;
+    }
+
+    m_sub_amount += c0 + c - c1 + old_delta - new_delta;
+    assert(c1 <= c0 + c);
+    //assert(c0 + c - c1 == new_delta - old_delta + delta_sub_amount);
+    
+    // now counters are in sync with m_cur_sketch.m_cnt
+    for (uint32_t deleted_key : deleted_list)
+    {
+        auto iter2 = m_key_to_counter_map.find(deleted_key);
+        assert(iter2 != m_key_to_counter_map.end());
+
+        Counter *p_counter = iter2->second;
+
+        m_inverted_index_proxy.m_updating_c1_max_heap = true;
+        dsimpl::max_heap_with_inverted_index_remove(
+            m_c1_max_heap,
+            m_inverted_index_proxy,
+            p_counter->m_c1_max_heap_idx,
+            (UINT8) m_c1_max_heap.size(),
+            c1_max_heap_key_func,
+            heap_idx_func);
+        m_c1_max_heap.pop_back();
+
+        m_inverted_index_proxy.m_updating_c1_max_heap = false;
+        dsimpl::min_heap_with_inverted_index_remove(
+            m_c2_min_heap,
+            m_inverted_index_proxy,
+            p_counter->m_c2_min_heap_idx,
+            (UINT8) m_c2_min_heap.size(),
+            c2_min_heap_key_func,
+            heap_idx_func);
+        m_c2_min_heap.pop_back();
+
+        m_key_to_counter_map.erase(iter2);
+        if (p_counter->m_in_last_snapshot)
+        {
+            m_deleted_counters[p_counter->m_key] = p_counter;
+        }
+        else
+        {
+            p_counter->m_next_free_counter = m_free_counters;
+            m_free_counters = p_counter;
+        }
+    }
+    
+    if (c1 > 0)
+    {
+        auto iter2 = m_key_to_counter_map.find(key);
+        if (iter2 == m_key_to_counter_map.end())
+        {
+            //if (c1 > max_delta_c)
+            //{
+                uint64_t c2 = c1 + m_sub_amount;
+                Counter *p_counter;
+                auto iter3 = m_deleted_counters.find(key);
+                if (iter3 != m_deleted_counters.end())
+                {
+                    p_counter = iter3->second;
+                    m_deleted_counters.erase(iter3);
+                    
+                    int64_t c;
+                    int64_t max_delta_c;
+                    if (p_counter->m_last_node_is_chkpt)
+                    {
+                        auto iter = p_counter->m_prev_chkpt_node->m_cnt_map.find(key);
+                        assert(iter != p_counter->m_prev_chkpt_node->m_cnt_map.end());
+                        c = iter->second;
+                        max_delta_c = (int64_t) get_allowable_cnt_upper_bound(
+                                0, p_counter->m_prev_chkpt_node->m_tot_cnt);
+                    
+                        //p_counter->m_prev_N = p_counter->m_prev_chkpt_node->m_tot_cnt;
+                    }
+                    else
+                    {
+                        c = p_counter->m_prev_delta_node->m_new_cnt;
+                        max_delta_c = (int64_t) get_allowable_cnt_upper_bound(
+                                0, p_counter->m_prev_delta_node->m_tot_cnt);
+
+                        //p_counter->m_prev_N = p_counter->m_prev_delta_node->m_tot_cnt;
+                    }
+                    p_counter->m_c1 = (int64_t) c2 - c - max_delta_c;
+                    p_counter->m_c2 = (int64_t) c2 - c + max_delta_c;
+                    //p_counter->m_c = c;
+                    //p_counter->m_c_double_prime = c2;
+
+                }
+                else
+                {
+                    p_counter = m_free_counters;
+                    m_free_counters = m_free_counters->m_next_free_counter;
+                    assert(p_counter_is_valid(p_counter));
+                    assert(!m_free_counters || p_counter_is_valid(m_free_counters));
+                    p_counter->m_key = key;
+                        
+                    int64_t max_delta_c = (int64_t) get_allowable_cnt_upper_bound(
+                            0, tot_cnt_at_last_chkpt());
+                    p_counter->m_c1 = (int64_t) c2 - max_delta_c;
+                    p_counter->m_c2 = (int64_t) c2 + max_delta_c;
+
+                    //p_counter->m_c = 0;
+                    //p_counter->m_c_double_prime = c2;
+                    //p_counter->m_prev_N = tot_cnt_at_last_chkpt();
+                }
+
+                m_key_to_counter_map[key] = p_counter;
+                
+                m_c1_max_heap.push_back(p_counter); 
+                m_inverted_index_proxy.m_updating_c1_max_heap = true;
+                dsimpl::max_heap_with_inverted_index_push_up(
+                    m_c1_max_heap,
+                    m_inverted_index_proxy,
+                    (UINT8)(m_c1_max_heap.size() - 1),
+                    (UINT8) m_c1_max_heap.size(),
+                    c1_max_heap_key_func,
+                    heap_idx_func);
+
+                m_c2_min_heap.push_back(p_counter);
+                m_inverted_index_proxy.m_updating_c1_max_heap = false;
+                dsimpl::min_heap_with_inverted_index_push_up(
+                    m_c2_min_heap,
+                    m_inverted_index_proxy,
+                    (UINT8)(m_c2_min_heap.size() - 1),
+                    (UINT8) m_c2_min_heap.size(),
+                    c2_min_heap_key_func,
+                    heap_idx_func);
+
+            //}
+        }
+        else
+        {
+            // key found in m_counters
+            Counter *p_counter = iter2->second;
+            p_counter->m_c1 += c;
+            m_inverted_index_proxy.m_updating_c1_max_heap = true;
+            dsimpl::max_heap_with_inverted_index_push_up(
+                m_c1_max_heap,
+                m_inverted_index_proxy,
+                (UINT8) p_counter->m_c1_max_heap_idx,
+                (UINT8) m_c1_max_heap.size(),
+                c1_max_heap_key_func,
+                heap_idx_func); 
+
+            p_counter->m_c2 += c;
+            m_inverted_index_proxy.m_updating_c1_max_heap = false;
+            dsimpl::min_heap_with_inverted_index_push_up(
+                m_c2_min_heap,
+                m_inverted_index_proxy,
+                (UINT8) p_counter->m_c2_min_heap_idx,
+                (UINT8) m_c2_min_heap.size(),
+                c2_min_heap_key_func,
+                heap_idx_func);
+
+            //p_counter->m_c_double_prime += c;
+            //assert(p_counter->m_c_double_prime == c1 + m_sub_amount);
+        }
+    }
+    
+    m_tot_cnt += c;
+    m_last_ts = ts;
 }
 
 void
@@ -137,7 +675,7 @@ ChainMisraGries::update_old(
         if (m_checkpoints.empty())
         {
             // first checkpoint
-            make_checkpoint();
+            make_checkpoint_old();
         }
         else
         {
@@ -176,7 +714,7 @@ ChainMisraGries::update_old(
                         n->m_next = nullptr;
                         *new_delta_list_tail_ptr = n;
                         new_delta_list_tail_ptr = &n->m_next;
-                        m_snapshot_cnt_map.erase(iter_snapshot++);
+                        iter_snapshot = m_snapshot_cnt_map.erase(iter_snapshot);
                     }
                     else
                     {
@@ -227,14 +765,14 @@ ChainMisraGries::update_old(
                 if (do_make_checkpoint)
                 {
                     clear_delta_list(new_delta_list);
-                    make_checkpoint();
+                    make_checkpoint_old();
                 }
                 else if (new_delta_list)
                 {
                     *m_delta_list_tail_ptr = new_delta_list;
                     m_delta_list_tail_ptr = new_delta_list_tail_ptr;
                     m_num_delta_nodes_since_last_chkpt = num_deltas;
-                    m_last_chkpt_or_dnode_cnt = m_tot_cnt;
+                    //m_last_chkpt_or_dnode_cnt = m_tot_cnt;
                 }
             }
         }
@@ -364,7 +902,7 @@ ChainMisraGries::estimate_heavy_hitters(
 }
 
 void
-ChainMisraGries::make_checkpoint()
+ChainMisraGries::make_checkpoint_old()
 {
     m_checkpoints.emplace_back(ChkptNode {
         m_last_ts,
@@ -383,7 +921,62 @@ ChainMisraGries::make_checkpoint()
         });
     }
 
-    m_last_chkpt_or_dnode_cnt = m_tot_cnt;
+    //m_last_chkpt_or_dnode_cnt = m_tot_cnt;
+}
+
+void
+ChainMisraGries::make_checkpoint()
+{
+    if (!m_checkpoints.empty()) {
+        uint64_t len = 0;
+        auto dnode = m_checkpoints.back().m_first_delta_node;
+        while (dnode)
+        {
+            ++len;
+            dnode = dnode->m_next;
+        }
+        assert(len == m_num_delta_nodes_since_last_chkpt);
+    }
+
+
+    MGA::reset_delta(&m_cur_sketch);
+    m_checkpoints.emplace_back(ChkptNode {
+        m_last_ts,
+        m_tot_cnt,
+        nullptr,
+        MGA::cnt_map(&m_cur_sketch)
+    });
+    m_delta_list_tail_ptr = &m_checkpoints.back().m_first_delta_node;
+    m_num_delta_nodes_since_last_chkpt = 0;
+
+    m_sub_amount = 0;
+    //cnt_map_t &cnt_map = m_checkpoints.back().m_cnt_map;
+    int64_t max_delta_c = (int64_t) get_allowable_cnt_upper_bound(0, m_tot_cnt);
+    for (Counter *p_counter : m_c1_max_heap)
+    {
+        p_counter->m_c1 = -max_delta_c;
+        p_counter->m_c2 = max_delta_c;
+        p_counter->m_in_last_snapshot = true;
+        p_counter->m_last_node_is_chkpt = true;
+        p_counter->m_prev_chkpt_node = &m_checkpoints.back();
+
+        //p_counter->m_c = get_cnt_from_map(cnt_map, p_counter->m_key);
+        //p_counter->m_c_double_prime = p_counter->m_c;
+        //p_counter->m_prev_N = m_tot_cnt;
+    }
+    
+    for (auto &p: m_deleted_counters)
+    {
+        Counter *p_counter = p.second;
+        assert(p_counter_is_valid(p_counter));
+        //assert(m_key_to_counter_map.count(p_counter->m_key) == 0);
+        p_counter->m_in_last_snapshot = false;
+        p_counter->m_next_free_counter = m_free_counters;
+        m_free_counters = p_counter;
+                //assert((uintptr_t) m_free_counters != 0x7ffff6e23558ul);
+        assert(p_counter_is_valid(m_free_counters));
+    }
+    m_deleted_counters.clear();
 }
 
 ChainMisraGries*
@@ -397,8 +990,18 @@ ChainMisraGries::create_from_config(
     int idx)
 {
     double epsilon = g_config->get_double("CMG.epsilon", idx).value();
+    
+    bool use_update_new;
+    if (!g_config->is_list("CMG.use_update_new"))
+    {
+        use_update_new = g_config->get_boolean("CMG.use_update_new").value(); 
+    }
+    else
+    {
+        use_update_new = g_config->get_boolean("CMG.use_update_new", idx).value();
+    }
 
-    return new ChainMisraGries(epsilon);
+    return new ChainMisraGries(epsilon, use_update_new);
 }
 
 int
@@ -407,6 +1010,15 @@ ChainMisraGries::num_configs_defined()
     if (g_config->is_list("CMG.epsilon")) 
     {
         int len = (int) g_config->list_length("CMG.epsilon");
+        
+        int len2 = (int) g_config->list_length("CMG.use_update_new");
+        if (len2 != -1 && len2 != len)
+        {
+            std::cerr << "[WARN] CMG ignored because list length mismatch in params"
+                << std::endl;
+            return 0;
+        }
+
         return len;
     }
     return -1;
