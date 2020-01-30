@@ -44,7 +44,7 @@ struct MisraGriesAccessor {
     }
 };
 
-static
+/*static
 uint64_t get_cnt_from_map(cnt_map_t &cnt_map, uint32_t key)
 {
     auto iter = cnt_map.find(key);
@@ -53,7 +53,7 @@ uint64_t get_cnt_from_map(cnt_map_t &cnt_map, uint32_t key)
         return iter->second;
     }
     return 0;
-}
+} */
 
 using MGA = MisraGriesAccessor;
 
@@ -66,7 +66,7 @@ merge_misra_gries(
 // ChainMisraGries implementation
 // 
 
-void
+/*void
 ChainMisraGries::check_free_counters_chain()
 {
     Counter *c = m_free_counters;
@@ -99,7 +99,7 @@ ChainMisraGries::check_free_counters_chain()
         assert(p.second->m_key == p.first);
         m_counter_checks[idx] = true;
     }
-}
+} */
 
 ChainMisraGries::ChainMisraGries(
     double  epsilon,
@@ -139,7 +139,7 @@ ChainMisraGries::ChainMisraGries(
     m_all_counters[2 * m_k - 3].m_in_last_snapshot = false;
     m_all_counters[2 * m_k - 3].m_last_node_is_chkpt = false;
 
-    m_counter_checks.resize(2 * m_k - 2);
+    //m_counter_checks.resize(2 * m_k - 2);
 }
 
 ChainMisraGries::~ChainMisraGries()
@@ -271,12 +271,12 @@ ChainMisraGries::update_new(
 {
     assert(c > 0);
     
-    assert(!m_free_counters || (p_counter_is_valid(m_free_counters)
+    /*assert(!m_free_counters || (p_counter_is_valid(m_free_counters)
             && !m_free_counters->m_in_last_snapshot
             && (m_key_to_counter_map.count(m_free_counters->m_key) == 0 ||
                 m_key_to_counter_map[m_free_counters->m_key] != m_free_counters)
             && (m_deleted_counters.count(m_free_counters->m_key) == 0 ||
-                m_deleted_counters[m_free_counters->m_key] != m_free_counters)));
+                m_deleted_counters[m_free_counters->m_key] != m_free_counters))); */
     //if (ts >= 894728434)
         //check_free_counters_chain();
 
@@ -363,7 +363,6 @@ ChainMisraGries::update_new(
 
                 Counter *p_counter = m_c2_min_heap[0];
                 assert(p_counter->m_c1 <= d);
-                assert(p_counter_is_valid(p_counter));
 
                 uint64_t c_prime = MGA::get_cnt_prime(&m_cur_sketch, p_counter->m_key);
                 /*uint64_t c_prime_alt =
@@ -430,12 +429,10 @@ ChainMisraGries::update_new(
                 }
 
                 Counter *p_counter = iter2->second;
-                assert(p_counter_is_valid(p_counter));
                 assert(p_counter->m_in_last_snapshot);
                 assert(m_key_to_counter_map.count(p_counter->m_key) == 0);
 
                 assert(MGA::cnt_map(&m_cur_sketch).find(p_counter->m_key) == MGA::cnt_map(&m_cur_sketch).end());
-                assert(p_counter->m_in_last_snapshot);
                 
                 if (!do_make_checkpoint)
                 {
@@ -591,8 +588,6 @@ check_for_checkpoint:
                 {
                     p_counter = m_free_counters;
                     m_free_counters = m_free_counters->m_next_free_counter;
-                    assert(p_counter_is_valid(p_counter));
-                    assert(!m_free_counters || p_counter_is_valid(m_free_counters));
                     p_counter->m_key = key;
                         
                     int64_t max_delta_c = (int64_t) get_allowable_cnt_upper_bound(

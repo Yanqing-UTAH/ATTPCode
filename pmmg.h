@@ -221,7 +221,7 @@ private:
         return m_checkpoints.empty() ? 0 : m_checkpoints.back().m_tot_cnt;
     }
 
-    bool
+    /*bool
     p_counter_is_valid(Counter *p_counter) const
     {
         return p_counter >= m_all_counters && p_counter < m_all_counters + 2 * (m_k - 1);
@@ -237,7 +237,7 @@ private:
     
     std::vector<bool>           m_counter_checks;
     void
-    check_free_counters_chain();
+    check_free_counters_chain(); */
 
     double                      m_epsilon,
 
