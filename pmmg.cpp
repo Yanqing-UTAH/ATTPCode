@@ -57,10 +57,10 @@ uint64_t get_cnt_from_map(cnt_map_t &cnt_map, uint32_t key)
 
 using MGA = MisraGriesAccessor;
 
-static MisraGries*
+/*static MisraGries*
 merge_misra_gries(
     MisraGries *mg1,
-    MisraGries *mg2);
+    MisraGries *mg2); */
 
 //
 // ChainMisraGries implementation
@@ -1221,7 +1221,7 @@ TreeMisraGries::merge_cur_sketch()
     TreeNode *tn = new TreeNode;
     tn->m_ts = m_last_ts;
     tn->m_tot_cnt = m_tot_cnt;
-    tn->m_mg = m_cur_sketch;
+    tn->m_mg = m_cur_sketch->clone();
     tn->m_left = tn->m_right = nullptr;
     m_size_counter += sizeof(TreeNode) + tn->m_mg->memory_usage();
     
@@ -1231,7 +1231,11 @@ TreeMisraGries::merge_cur_sketch()
         TreeNode *tn_merged = new TreeNode;
         tn_merged->m_ts = m_last_ts;
         tn_merged->m_tot_cnt = m_tot_cnt;
-        tn_merged->m_mg = merge_misra_gries(tn->m_mg, m_tree[level]->m_mg);
+
+        m_size_counter -= tn->m_mg->memory_usage();
+        tn_merged->m_mg = tn->m_mg;
+        tn_merged->m_mg->merge(m_tree[level]->m_mg);
+        tn->m_mg = nullptr; // drop the mg sketch in the right child
         tn_merged->m_left = m_tree[level];
         tn_merged->m_right = tn;
         m_size_counter += sizeof(TreeNode) + tn_merged->m_mg->memory_usage();
@@ -1298,7 +1302,7 @@ TreeMisraGries::create_from_config(
     return new TreeMisraGries(epsilon);
 }
 
-static MisraGries*
+/*static MisraGries*
 merge_misra_gries(
     MisraGries *mg1,
     MisraGries *mg2)
@@ -1306,6 +1310,6 @@ merge_misra_gries(
     MisraGries *mg_merged = mg1->clone();
     mg_merged->merge(mg2);
     return mg_merged;
-}
+} */
 
 }
