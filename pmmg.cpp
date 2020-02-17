@@ -922,7 +922,7 @@ ChainMisraGries::make_checkpoint_old()
 void
 ChainMisraGries::make_checkpoint()
 {
-    if (!m_checkpoints.empty()) {
+    /*if (!m_checkpoints.empty()) {
         uint64_t len = 0;
         auto dnode = m_checkpoints.back().m_first_delta_node;
         while (dnode)
@@ -931,7 +931,7 @@ ChainMisraGries::make_checkpoint()
             dnode = dnode->m_next;
         }
         assert(len == m_num_delta_nodes_since_last_chkpt);
-    }
+    } */
 
 
     MGA::reset_delta(&m_cur_sketch);
@@ -943,9 +943,14 @@ ChainMisraGries::make_checkpoint()
     });
     m_delta_list_tail_ptr = &m_checkpoints.back().m_first_delta_node;
     m_num_delta_nodes_since_last_chkpt = 0;
+    
+    // XXX doesn't reduce memory usage
+    // reset load factor to the default value
+    //cnt_map_t &cnt_map = m_checkpoints.back().m_cnt_map;
+    //cnt_map.max_load_factor(1 / umap_default_load_factor);
+    //cnt_map.rehash(cnt_map.size() * umap_default_load_factor);
 
     m_sub_amount = 0;
-    //cnt_map_t &cnt_map = m_checkpoints.back().m_cnt_map;
     int64_t max_delta_c = (int64_t) get_allowable_cnt_upper_bound(0, m_tot_cnt);
     for (Counter *p_counter : m_c1_max_heap)
     {
@@ -1164,6 +1169,9 @@ TreeMisraGries::estimate_heavy_hitters(
                             //std::cout << " r";
                             does_intersect = true;
                             mg->merge(tn->m_left->m_mg);
+
+                            std::cout << MGA::cnt_map(tn->m_left->m_mg).load_factor() 
+                                << std::endl;
                             est_tot_cnt = tn->m_left->m_tot_cnt;
                             tn = tn->m_right;
                         }

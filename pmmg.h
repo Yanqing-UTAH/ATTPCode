@@ -357,6 +357,8 @@ private:
 
     uint32_t                m_k;
 
+    //bool                    m_enable_map_pruning;
+
     TIMESTAMP               m_last_ts;
     
     uint64_t                m_tot_cnt;
