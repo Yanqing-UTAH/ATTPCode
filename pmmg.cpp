@@ -15,8 +15,11 @@ struct MisraGriesAccessor {
     static void
     reset_delta(MG *mg) { mg->reset_delta(); }
 
-    static uint64_t
+    static uint64_t&
     delta(MG *mg) { return mg->m_delta; }
+
+    static uint64_t&
+    min_cnt(MG *mg) { return mg->m_min_cnt; }
 
     static void
     update_impl(
@@ -44,62 +47,11 @@ struct MisraGriesAccessor {
     }
 };
 
-/*static
-uint64_t get_cnt_from_map(cnt_map_t &cnt_map, uint32_t key)
-{
-    auto iter = cnt_map.find(key);
-    if (iter != cnt_map.end())
-    {
-        return iter->second;
-    }
-    return 0;
-} */
-
 using MGA = MisraGriesAccessor;
-
-/*static MisraGries*
-merge_misra_gries(
-    MisraGries *mg1,
-    MisraGries *mg2); */
 
 //
 // ChainMisraGries implementation
 // 
-
-/*void
-ChainMisraGries::check_free_counters_chain()
-{
-    Counter *c = m_free_counters;
-    m_counter_checks.clear();
-    m_counter_checks.resize(2 * m_k - 2, false);
-    uint64_t i = 0;
-    while (c != nullptr)
-    {
-        ++i;
-        auto idx = c - m_all_counters;
-        assert(c);
-        assert(!c->m_in_last_snapshot);
-        assert(idx >= 0 && idx < 2 * m_k - 2 && !m_counter_checks[idx]);
-        m_counter_checks[idx] = true;
-        c = c->m_next_free_counter;
-    }
-
-    for (auto &p: m_key_to_counter_map)
-    {
-        auto idx = p.second - m_all_counters;
-        assert(idx >= 0 && idx < 2 * m_k - 2 && !m_counter_checks[idx]);
-        assert(p.second->m_key == p.first);
-        m_counter_checks[idx] = true;
-    }
-
-    for (auto &p: m_deleted_counters)
-    {
-        auto idx = p.second - m_all_counters;
-        assert(idx >= 0 && idx < 2 * m_k - 2 && !m_counter_checks[idx]);
-        assert(p.second->m_key == p.first);
-        m_counter_checks[idx] = true;
-    }
-} */
 
 ChainMisraGries::ChainMisraGries(
     double  epsilon,
@@ -115,8 +67,6 @@ ChainMisraGries::ChainMisraGries(
     m_checkpoints(),
     m_delta_list_tail_ptr(nullptr),
     m_num_delta_nodes_since_last_chkpt(0),
-    //m_last_chkpt_or_dnode_cnt(0u)
-    
     m_sub_amount(0),
     m_all_counters(nullptr),
     m_free_counters(nullptr),
@@ -138,8 +88,6 @@ ChainMisraGries::ChainMisraGries(
     m_all_counters[2 * m_k - 3].m_next_free_counter = nullptr;
     m_all_counters[2 * m_k - 3].m_in_last_snapshot = false;
     m_all_counters[2 * m_k - 3].m_last_node_is_chkpt = false;
-
-    //m_counter_checks.resize(2 * m_k - 2);
 }
 
 ChainMisraGries::~ChainMisraGries()
@@ -198,34 +146,6 @@ ChainMisraGries::memory_usage() const
                 return acc;
             });
 
-        /*std::cout << std::endl;
-        std::cout << "DEBUG STATS for CMG " << m_epsilon << ":" << std::endl;
-        if (m_use_update_new)
-            std::cout << "using update_new" << std::endl;
-        else
-            std::cout << "using update_old" << std::endl;
-        std::cout << "m_k = " << m_k << ", m_epsilon_over_3 = " << m_epsilon_over_3
-            << std::endl;
-        std::cout << "num_checkpoints = " << m_checkpoints.size() << std::endl;
-        uint64_t i = 0;
-        for (auto &chkpt: m_checkpoints)
-        {
-            uint64_t l = 0;
-            auto c = chkpt.m_first_delta_node;
-            while (c)
-            {
-                ++l;
-                c = c->m_next;
-            }
-            std::cout << "Chkpt " << i++
-                << ' ' << chkpt.m_ts
-                << ' ' << chkpt.m_tot_cnt
-                << ' ' << l
-                << ' ' << chkpt.m_cnt_map.size()
-                << std::endl;
-        }
-        std::cout << std::endl; */
-
     if (m_use_update_new)
     {
 
@@ -270,15 +190,6 @@ ChainMisraGries::update_new(
     int                 c)
 {
     assert(c > 0);
-    
-    /*assert(!m_free_counters || (p_counter_is_valid(m_free_counters)
-            && !m_free_counters->m_in_last_snapshot
-            && (m_key_to_counter_map.count(m_free_counters->m_key) == 0 ||
-                m_key_to_counter_map[m_free_counters->m_key] != m_free_counters)
-            && (m_deleted_counters.count(m_free_counters->m_key) == 0 ||
-                m_deleted_counters[m_free_counters->m_key] != m_free_counters))); */
-    //if (ts >= 894728434)
-        //check_free_counters_chain();
 
     if (m_last_ts > 0 && ts != m_last_ts)
     {
@@ -347,9 +258,6 @@ ChainMisraGries::update_new(
                 p_counter->m_in_last_snapshot = true;
                 p_counter->m_last_node_is_chkpt = false;
                 p_counter->m_prev_delta_node = n;
-
-                //p_counter->m_c = c_prime;
-                //p_counter->m_prev_N = m_tot_cnt;
             }
         
             // find keys whose counts drop below the lower limit
@@ -366,17 +274,7 @@ ChainMisraGries::update_new(
 
                 uint64_t c_prime = MGA::get_cnt_prime(&m_cur_sketch, p_counter->m_key);
                 /*uint64_t c_prime_alt =
-                    ((p_counter->m_c1 + p_counter->m_c2) >> 1) + p_counter->m_c;
-                assert((int64_t) c_prime_alt > d);
-                if ((int64_t) c_prime_alt < d)
-                {
-                    c_prime_alt = 0;
-                }
-                else
-                {
-                    c_prime_alt -= d;
-                }
-                assert(c_prime == c_prime_alt); */
+                    ((p_counter->m_c1 + p_counter->m_c2) >> 1) + p_counter->m_c; */
 
                 DeltaNode *n = new DeltaNode;
                 n->m_ts = m_last_ts;
@@ -410,9 +308,6 @@ ChainMisraGries::update_new(
                 p_counter->m_in_last_snapshot = true;
                 p_counter->m_last_node_is_chkpt = false;
                 p_counter->m_prev_delta_node = n;
-
-                //p_counter->m_c = c_prime;
-                //p_counter->m_prev_N = m_tot_cnt;
             }
 
             // record deleted nodes as well
@@ -548,81 +443,66 @@ check_for_checkpoint:
         auto iter2 = m_key_to_counter_map.find(key);
         if (iter2 == m_key_to_counter_map.end())
         {
-            //if (c1 > max_delta_c)
-            //{
-                uint64_t c2 = c1 + m_sub_amount;
-                Counter *p_counter;
-                auto iter3 = m_deleted_counters.find(key);
-                if (iter3 != m_deleted_counters.end())
+            uint64_t c2 = c1 + m_sub_amount;
+            Counter *p_counter;
+            auto iter3 = m_deleted_counters.find(key);
+            if (iter3 != m_deleted_counters.end())
+            {
+                p_counter = iter3->second;
+                m_deleted_counters.erase(iter3);
+                
+                int64_t c;
+                int64_t max_delta_c;
+                if (p_counter->m_last_node_is_chkpt)
                 {
-                    p_counter = iter3->second;
-                    m_deleted_counters.erase(iter3);
-                    
-                    int64_t c;
-                    int64_t max_delta_c;
-                    if (p_counter->m_last_node_is_chkpt)
-                    {
-                        auto iter = p_counter->m_prev_chkpt_node->m_cnt_map.find(key);
-                        assert(iter != p_counter->m_prev_chkpt_node->m_cnt_map.end());
-                        c = iter->second;
-                        max_delta_c = (int64_t) get_allowable_cnt_upper_bound(
-                                0, p_counter->m_prev_chkpt_node->m_tot_cnt);
-                    
-                        //p_counter->m_prev_N = p_counter->m_prev_chkpt_node->m_tot_cnt;
-                    }
-                    else
-                    {
-                        c = p_counter->m_prev_delta_node->m_new_cnt;
-                        max_delta_c = (int64_t) get_allowable_cnt_upper_bound(
-                                0, p_counter->m_prev_delta_node->m_tot_cnt);
-
-                        //p_counter->m_prev_N = p_counter->m_prev_delta_node->m_tot_cnt;
-                    }
-                    p_counter->m_c1 = (int64_t) c2 - c - max_delta_c;
-                    p_counter->m_c2 = (int64_t) c2 - c + max_delta_c;
-                    //p_counter->m_c = c;
-                    //p_counter->m_c_double_prime = c2;
-
+                    auto iter = p_counter->m_prev_chkpt_node->m_cnt_map.find(key);
+                    assert(iter != p_counter->m_prev_chkpt_node->m_cnt_map.end());
+                    c = iter->second;
+                    max_delta_c = (int64_t) get_allowable_cnt_upper_bound(
+                            0, p_counter->m_prev_chkpt_node->m_tot_cnt);
                 }
                 else
                 {
-                    p_counter = m_free_counters;
-                    m_free_counters = m_free_counters->m_next_free_counter;
-                    p_counter->m_key = key;
-                        
-                    int64_t max_delta_c = (int64_t) get_allowable_cnt_upper_bound(
-                            0, tot_cnt_at_last_chkpt());
-                    p_counter->m_c1 = (int64_t) c2 - max_delta_c;
-                    p_counter->m_c2 = (int64_t) c2 + max_delta_c;
-
-                    //p_counter->m_c = 0;
-                    //p_counter->m_c_double_prime = c2;
-                    //p_counter->m_prev_N = tot_cnt_at_last_chkpt();
+                    c = p_counter->m_prev_delta_node->m_new_cnt;
+                    max_delta_c = (int64_t) get_allowable_cnt_upper_bound(
+                            0, p_counter->m_prev_delta_node->m_tot_cnt);
                 }
+                p_counter->m_c1 = (int64_t) c2 - c - max_delta_c;
+                p_counter->m_c2 = (int64_t) c2 - c + max_delta_c;
+            }
+            else
+            {
+                p_counter = m_free_counters;
+                m_free_counters = m_free_counters->m_next_free_counter;
+                p_counter->m_key = key;
+                    
+                int64_t max_delta_c = (int64_t) get_allowable_cnt_upper_bound(
+                        0, tot_cnt_at_last_chkpt());
+                p_counter->m_c1 = (int64_t) c2 - max_delta_c;
+                p_counter->m_c2 = (int64_t) c2 + max_delta_c;
+            }
 
-                m_key_to_counter_map[key] = p_counter;
-                
-                m_c1_max_heap.push_back(p_counter); 
-                m_inverted_index_proxy.m_updating_c1_max_heap = true;
-                dsimpl::max_heap_with_inverted_index_push_up(
-                    m_c1_max_heap,
-                    m_inverted_index_proxy,
-                    (UINT8)(m_c1_max_heap.size() - 1),
-                    (UINT8) m_c1_max_heap.size(),
-                    c1_max_heap_key_func,
-                    heap_idx_func);
+            m_key_to_counter_map[key] = p_counter;
+            
+            m_c1_max_heap.push_back(p_counter); 
+            m_inverted_index_proxy.m_updating_c1_max_heap = true;
+            dsimpl::max_heap_with_inverted_index_push_up(
+                m_c1_max_heap,
+                m_inverted_index_proxy,
+                (UINT8)(m_c1_max_heap.size() - 1),
+                (UINT8) m_c1_max_heap.size(),
+                c1_max_heap_key_func,
+                heap_idx_func);
 
-                m_c2_min_heap.push_back(p_counter);
-                m_inverted_index_proxy.m_updating_c1_max_heap = false;
-                dsimpl::min_heap_with_inverted_index_push_up(
-                    m_c2_min_heap,
-                    m_inverted_index_proxy,
-                    (UINT8)(m_c2_min_heap.size() - 1),
-                    (UINT8) m_c2_min_heap.size(),
-                    c2_min_heap_key_func,
-                    heap_idx_func);
-
-            //}
+            m_c2_min_heap.push_back(p_counter);
+            m_inverted_index_proxy.m_updating_c1_max_heap = false;
+            dsimpl::min_heap_with_inverted_index_push_up(
+                m_c2_min_heap,
+                m_inverted_index_proxy,
+                (UINT8)(m_c2_min_heap.size() - 1),
+                (UINT8) m_c2_min_heap.size(),
+                c2_min_heap_key_func,
+                heap_idx_func);
         }
         else
         {
@@ -647,9 +527,6 @@ check_for_checkpoint:
                 (UINT8) m_c2_min_heap.size(),
                 c2_min_heap_key_func,
                 heap_idx_func);
-
-            //p_counter->m_c_double_prime += c;
-            //assert(p_counter->m_c_double_prime == c1 + m_sub_amount);
         }
     }
     
@@ -666,7 +543,10 @@ ChainMisraGries::update_old(
     if (m_last_ts > 0 && ts != m_last_ts)
     {
         // ts change, find delta changes and make checkpoint if necessary
-        MGA::reset_delta(&m_cur_sketch);
+        if (MGA::delta(&m_cur_sketch) != 0)
+        {
+            MGA::reset_delta(&m_cur_sketch);
+        }
         if (m_checkpoints.empty())
         {
             // first checkpoint
@@ -674,101 +554,92 @@ ChainMisraGries::update_old(
         }
         else
         {
-            //uint64_t last_chkpt_cnt = m_checkpoints.back().m_tot_cnt;
-            //uint64_t max_cnt_allowed_before_check =
-                //get_allowable_approx_cnt_upper_bound(
-                    //m_last_chkpt_or_dnode_cnt, last_chkpt_cnt); 
-            //if (m_tot_cnt > max_cnt_allowed_before_check)
+            // find delta changes
+            auto &cur_cnt_map = MGA::cnt_map(&m_cur_sketch);
+            
+            bool do_make_checkpoint = false;
+            DeltaNode *new_delta_list = nullptr;
+            DeltaNode **new_delta_list_tail_ptr = &new_delta_list;
+            size_t num_deltas = m_num_delta_nodes_since_last_chkpt;
+            size_t max_allowable_num_deltas = (size_t) std::log2(m_tot_cnt);
+            for (auto iter_snapshot = m_snapshot_cnt_map.begin();
+                    iter_snapshot != m_snapshot_cnt_map.end(); )
             {
-
-                // find delta changes
-                auto &cur_cnt_map = MGA::cnt_map(&m_cur_sketch);
-                
-                bool do_make_checkpoint = false;
-                DeltaNode *new_delta_list = nullptr;
-                DeltaNode **new_delta_list_tail_ptr = &new_delta_list;
-                size_t num_deltas = m_num_delta_nodes_since_last_chkpt;
-                size_t max_allowable_num_deltas = (size_t) std::log2(m_tot_cnt);
-                for (auto iter_snapshot = m_snapshot_cnt_map.begin();
-                        iter_snapshot != m_snapshot_cnt_map.end(); )
+                auto iter_cur = cur_cnt_map.find(iter_snapshot->first);
+                if (iter_cur == cur_cnt_map.end())
                 {
-                    auto iter_cur = cur_cnt_map.find(iter_snapshot->first);
-                    if (iter_cur == cur_cnt_map.end())
+                    if (++num_deltas > max_allowable_num_deltas)
+                    {
+                        do_make_checkpoint = true;
+                        break;
+                    }
+
+                    DeltaNode *n = new DeltaNode;
+                    n->m_ts = m_last_ts;
+                    n->m_tot_cnt = m_tot_cnt;
+                    n->m_key = iter_snapshot->first;
+                    n->m_new_cnt = 0;
+                    n->m_next = nullptr;
+                    *new_delta_list_tail_ptr = n;
+                    new_delta_list_tail_ptr = &n->m_next;
+                    iter_snapshot = m_snapshot_cnt_map.erase(iter_snapshot);
+                }
+                else
+                {
+                    ++iter_snapshot;
+                }
+            }
+        
+            if (!do_make_checkpoint)
+            {
+                for (const auto &p: cur_cnt_map)
+                {
+                    auto iter_snapshot = m_snapshot_cnt_map.find(p.first);
+                    bool do_make_delta = false;
+                    if (iter_snapshot == m_snapshot_cnt_map.end())
+                    {
+                        do_make_delta = p.second > (uint64_t) std::floor(
+                            m_checkpoints.back().m_tot_cnt * m_epsilon_over_3);
+                    }
+                    else
+                    {
+                        auto range = get_allowable_approx_cnt_range(iter_snapshot->second);
+                        do_make_delta = p.second < range.first || p.second > range.second;
+                    }
+
+                    if (do_make_delta)
                     {
                         if (++num_deltas > max_allowable_num_deltas)
                         {
                             do_make_checkpoint = true;
                             break;
                         }
-
+                    
                         DeltaNode *n = new DeltaNode;
                         n->m_ts = m_last_ts;
                         n->m_tot_cnt = m_tot_cnt;
-                        n->m_key = iter_snapshot->first;
-                        n->m_new_cnt = 0;
+                        n->m_key = p.first;
+                        n->m_new_cnt = p.second;
                         n->m_next = nullptr;
                         *new_delta_list_tail_ptr = n;
                         new_delta_list_tail_ptr = &n->m_next;
-                        iter_snapshot = m_snapshot_cnt_map.erase(iter_snapshot);
-                    }
-                    else
-                    {
-                        ++iter_snapshot;
+                        m_snapshot_cnt_map[p.first] = SnapshotCounter{
+                            p.second, m_tot_cnt  
+                        };
                     }
                 }
-            
-                if (!do_make_checkpoint)
-                {
-                    for (const auto &p: cur_cnt_map)
-                    {
-                        auto iter_snapshot = m_snapshot_cnt_map.find(p.first);
-                        bool do_make_delta = false;
-                        if (iter_snapshot == m_snapshot_cnt_map.end())
-                        {
-                            do_make_delta = p.second > (uint64_t) std::floor(
-                                m_checkpoints.back().m_tot_cnt * m_epsilon_over_3);
-                        }
-                        else
-                        {
-                            auto range = get_allowable_approx_cnt_range(iter_snapshot->second);
-                            do_make_delta = p.second < range.first || p.second > range.second;
-                        }
+            }
 
-                        if (do_make_delta)
-                        {
-                            if (++num_deltas > max_allowable_num_deltas)
-                            {
-                                do_make_checkpoint = true;
-                                break;
-                            }
-                        
-                            DeltaNode *n = new DeltaNode;
-                            n->m_ts = m_last_ts;
-                            n->m_tot_cnt = m_tot_cnt;
-                            n->m_key = p.first;
-                            n->m_new_cnt = p.second;
-                            n->m_next = nullptr;
-                            *new_delta_list_tail_ptr = n;
-                            new_delta_list_tail_ptr = &n->m_next;
-                            m_snapshot_cnt_map[p.first] = SnapshotCounter{
-                                p.second, m_tot_cnt  
-                            };
-                        }
-                    }
-                }
-
-                if (do_make_checkpoint)
-                {
-                    clear_delta_list(new_delta_list);
-                    make_checkpoint_old();
-                }
-                else if (new_delta_list)
-                {
-                    *m_delta_list_tail_ptr = new_delta_list;
-                    m_delta_list_tail_ptr = new_delta_list_tail_ptr;
-                    m_num_delta_nodes_since_last_chkpt = num_deltas;
-                    //m_last_chkpt_or_dnode_cnt = m_tot_cnt;
-                }
+            if (do_make_checkpoint)
+            {
+                clear_delta_list(new_delta_list);
+                make_checkpoint_old();
+            }
+            else if (new_delta_list)
+            {
+                *m_delta_list_tail_ptr = new_delta_list;
+                m_delta_list_tail_ptr = new_delta_list_tail_ptr;
+                m_num_delta_nodes_since_last_chkpt = num_deltas;
             }
         }
     }
@@ -915,26 +786,15 @@ ChainMisraGries::make_checkpoint_old()
             p.second, m_tot_cnt 
         });
     }
-
-    //m_last_chkpt_or_dnode_cnt = m_tot_cnt;
 }
 
 void
 ChainMisraGries::make_checkpoint()
 {
-    /*if (!m_checkpoints.empty()) {
-        uint64_t len = 0;
-        auto dnode = m_checkpoints.back().m_first_delta_node;
-        while (dnode)
-        {
-            ++len;
-            dnode = dnode->m_next;
-        }
-        assert(len == m_num_delta_nodes_since_last_chkpt);
-    } */
-
-
-    MGA::reset_delta(&m_cur_sketch);
+    if (MGA::delta(&m_cur_sketch) != 0)
+    {
+        MGA::reset_delta(&m_cur_sketch);
+    }
     m_checkpoints.emplace_back(ChkptNode {
         m_last_ts,
         m_tot_cnt,
@@ -959,22 +819,14 @@ ChainMisraGries::make_checkpoint()
         p_counter->m_in_last_snapshot = true;
         p_counter->m_last_node_is_chkpt = true;
         p_counter->m_prev_chkpt_node = &m_checkpoints.back();
-
-        //p_counter->m_c = get_cnt_from_map(cnt_map, p_counter->m_key);
-        //p_counter->m_c_double_prime = p_counter->m_c;
-        //p_counter->m_prev_N = m_tot_cnt;
     }
     
     for (auto &p: m_deleted_counters)
     {
         Counter *p_counter = p.second;
-        assert(p_counter_is_valid(p_counter));
-        //assert(m_key_to_counter_map.count(p_counter->m_key) == 0);
         p_counter->m_in_last_snapshot = false;
         p_counter->m_next_free_counter = m_free_counters;
         m_free_counters = p_counter;
-                //assert((uintptr_t) m_free_counters != 0x7ffff6e23558ul);
-        assert(p_counter_is_valid(m_free_counters));
     }
     m_deleted_counters.clear();
 }
@@ -1043,7 +895,7 @@ ChainMisraGries::clear_delta_list(
 TreeMisraGries::TreeMisraGries(
     double epsilon):
     m_epsilon(epsilon),
-    m_epsilon_prime(epsilon / 2.0),
+    m_epsilon_prime(epsilon / 3.0),
     m_k((uint32_t) std::ceil(1 / m_epsilon_prime)),
     m_last_ts(0),
     m_tot_cnt(0),
@@ -1136,20 +988,10 @@ TreeMisraGries::estimate_heavy_hitters(
     }
     else
     {
-        //std::cout << "TMG " << m_epsilon << " " << ts_e << " " << frac_threshold << std::endl;
         level = m_level;
         mg = new MisraGries(m_k);
         for (; level < m_tree.size(); ++level)
         {
-            /*std::cout << level << " ";
-            if (!m_tree[level])
-            {
-                std::cout << "null";
-            }
-            else
-            {
-                std::cout << m_tree[level]->m_ts;
-            } */
             if (m_tree[level])
             {
                 if (m_tree[level]->m_ts >= ts_e)
@@ -1158,20 +1000,15 @@ TreeMisraGries::estimate_heavy_hitters(
                     TreeNode *tn = m_tree[level];
                     while (tn->m_left)
                     {
-                        //std::cout << ' ' << tn->m_left->m_ts;
                         if (tn->m_left->m_ts >= ts_e)
                         {
-                            //std::cout << " l";
                             tn = tn->m_left;
                         }
                         else
                         {
-                            //std::cout << " r";
                             does_intersect = true;
                             mg->merge(tn->m_left->m_mg);
 
-                            std::cout << MGA::cnt_map(tn->m_left->m_mg).load_factor() 
-                                << std::endl;
                             est_tot_cnt = tn->m_left->m_tot_cnt;
                             tn = tn->m_right;
                         }
@@ -1179,7 +1016,6 @@ TreeMisraGries::estimate_heavy_hitters(
                     if (does_intersect)
                     {
                         ++level;
-                        //std::cout << std::endl;
                         break;
                     }
                 }
@@ -1187,35 +1023,20 @@ TreeMisraGries::estimate_heavy_hitters(
                 {
                     // the entire tree is in range
                     est_tot_cnt = m_tree[level]->m_tot_cnt;
-                    //std::cout << std::endl;
                     break;            
                 }
             }
-            //std::cout << std::endl;
         }
     }
 
-    //std::cout << "Remaining levels:" << std::endl;
     for (; level < m_tree.size(); ++level)
     {
         if (m_tree[level])
         {
-            /*std::cout << '\t' << level
-                << ' ' << m_tree[level]->m_ts
-                << ' ' << MGA::cnt_map(m_tree[level]->m_mg).size()
-                << std::endl; */
             assert(ts_e > m_tree[level]->m_ts);
             mg->merge(m_tree[level]->m_mg);
         }
     }
-    //std::cout << std::endl;
-    
-    //std::cout << "est_tot_cnt = " << est_tot_cnt << std::endl;
-    //est_tot_cnt = (ts_e > m_tot_cnt) ? m_tot_cnt : (ts_e);
-    //std::cout << "est_tot_cnt = " << est_tot_cnt << std::endl;
-    
-    //std::cout << "frac_threshold' = " << frac_threshold - m_epsilon_prime << std::endl;
-    //std::cout << "cnt_map.size() = " << MGA::cnt_map(mg).size() << std::endl;
     auto ret = mg->estimate_heavy_hitters(
             frac_threshold - m_epsilon_prime, est_tot_cnt);
 
@@ -1229,10 +1050,34 @@ TreeMisraGries::merge_cur_sketch()
     TreeNode *tn = new TreeNode;
     tn->m_ts = m_last_ts;
     tn->m_tot_cnt = m_tot_cnt;
-    tn->m_mg = m_cur_sketch->clone();
+    tn->m_mg = new MisraGries(m_k);
     tn->m_left = tn->m_right = nullptr;
-    m_size_counter += sizeof(TreeNode) + tn->m_mg->memory_usage();
     
+    if (MGA::delta(m_cur_sketch) != 0)
+    {
+        MGA::reset_delta(m_cur_sketch);
+    }
+    cnt_map_t &cnt_map = MGA::cnt_map(m_cur_sketch);
+    auto purge_threshold = m_tot_cnt * m_epsilon_prime;
+    for (auto iter = cnt_map.begin(); iter != cnt_map.end();)
+    {
+        if (iter->second >= purge_threshold)
+        {
+            tn->m_mg->update(iter->first, iter->second);
+            iter = cnt_map.erase(iter);
+        }
+        else
+        {
+            ++iter;
+        }
+    }
+    if (cnt_map.size() == 0)
+    {
+        MGA::min_cnt(m_cur_sketch) = ~0ul;
+    }
+
+    m_size_counter += sizeof(TreeNode) + tn->m_mg->memory_usage();
+
     uint32_t level = m_level;
     while (m_tree[level])
     {
@@ -1269,7 +1114,6 @@ TreeMisraGries::merge_cur_sketch()
     }
 
     m_target_cnt = m_tot_cnt + m_max_cnt_per_node_at_cur_level;
-    m_cur_sketch = new MisraGries(m_k);
 }
 
 void

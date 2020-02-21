@@ -221,24 +221,6 @@ private:
         return m_checkpoints.empty() ? 0 : m_checkpoints.back().m_tot_cnt;
     }
 
-    /*bool
-    p_counter_is_valid(Counter *p_counter) const
-    {
-        return p_counter >= m_all_counters && p_counter < m_all_counters + 2 * (m_k - 1);
-    }
-
-    Counter *
-    get_counter_from_map(std::unordered_map<uint32_t, Counter*> &map, uint32_t key) const
-    {
-        auto iter = map.find(key);
-        if (iter == map.end()) return nullptr;
-        return iter->second;
-    }
-    
-    std::vector<bool>           m_counter_checks;
-    void
-    check_free_counters_chain(); */
-
     double                      m_epsilon,
 
                                 m_epsilon_over_3;
@@ -263,8 +245,6 @@ private:
 
     size_t                      m_num_delta_nodes_since_last_chkpt;
 
-    //uint64_t                    m_last_chkpt_or_dnode_cnt;
-    
 
     // variables for update_new()
     uint64_t                    m_sub_amount;
