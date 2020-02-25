@@ -1,0 +1,268 @@
+
+HH(0.0002|894557531):
+        EXACT_HH:294
+        CMG-e0.000200: prec = 294/575 = 0.511304, recall = 294/294 = 1
+        CMG-e0.000100: prec = 294/472 = 0.622881, recall = 294/294 = 1
+        CMG-e0.000050: prec = 294/362 = 0.812155, recall = 294/294 = 1
+        TMG-e0.000100: prec = 294/703 = 0.418208, recall = 294/294 = 1
+HH(0.0002|894634656):
+        EXACT_HH:185
+        CMG-e0.000200: prec = 185/264 = 0.700758, recall = 185/185 = 1
+        CMG-e0.000100: prec = 185/251 = 0.737052, recall = 185/185 = 1
+        CMG-e0.000050: prec = 185/226 = 0.818584, recall = 185/185 = 1
+        TMG-e0.000100: prec = 185/384 = 0.481771, recall = 185/185 = 1
+HH(0.0002|894726621):
+        EXACT_HH:159
+        CMG-e0.000200: prec = 159/216 = 0.736111, recall = 159/159 = 1
+        CMG-e0.000100: prec = 159/203 = 0.783251, recall = 159/159 = 1
+        CMG-e0.000050: prec = 159/201 = 0.791045, recall = 159/159 = 1
+        TMG-e0.000100: prec = 159/293 = 0.542662, recall = 159/159 = 1
+HH(0.0002|894856213):
+        EXACT_HH:155
+        CMG-e0.000200: prec = 155/186 = 0.833333, recall = 155/155 = 1
+        CMG-e0.000100: prec = 155/180 = 0.861111, recall = 155/155 = 1
+        CMG-e0.000050: prec = 155/179 = 0.865922, recall = 155/155 = 1
+        TMG-e0.000100: prec = 155/259 = 0.598456, recall = 155/155 = 1
+HH(0.0002|894918950):
+        EXACT_HH:147
+        CMG-e0.000200: prec = 147/170 = 0.864706, recall = 147/147 = 1
+        CMG-e0.000100: prec = 147/165 = 0.890909, recall = 147/147 = 1
+        CMG-e0.000050: prec = 147/164 = 0.896341, recall = 147/147 = 1
+        TMG-e0.000100: prec = 147/237 = 0.620253, recall = 147/147 = 1
+HH(0.0002|894918952):
+        EXACT_HH:147
+        CMG-e0.000200: prec = 147/170 = 0.864706, recall = 147/147 = 1
+        CMG-e0.000100: prec = 147/165 = 0.890909, recall = 147/147 = 1
+        CMG-e0.000050: prec = 147/164 = 0.896341, recall = 147/147 = 1
+        TMG-e0.000100: prec = 147/255 = 0.576471, recall = 147/147 = 1
+HH(0.0002|900000000):
+        EXACT_HH:147
+        CMG-e0.000200: prec = 147/170 = 0.864706, recall = 147/147 = 1
+        CMG-e0.000100: prec = 147/165 = 0.890909, recall = 147/147 = 1
+        CMG-e0.000050: prec = 147/164 = 0.896341, recall = 147/147 = 1
+        TMG-e0.000100: prec = 147/255 = 0.576471, recall = 147/147 = 1
+
+=============  Memory Usage  =============
+        EXACT_HH: 108171912 B = 103.160 MB
+        CMG-e0.000200: 4252184 B = 4.55 MB
+        CMG-e0.000100: 8274296 B = 7.890 MB
+        CMG-e0.000050: 16768928 B = 15.992 MB
+        TMG-e0.000100: 74359536 B = 70.914 MB
+=============  Time stats    =============
+Update timers:
+        EXACT_HH: tot = 2786 ms = 2 s (avg 0 us = 0 ms)
+        CMG-e0.000200: tot = 5488 ms = 5 s (avg 0 us = 0 ms)
+        CMG-e0.000100: tot = 7313 ms = 7 s (avg 1 us = 0 ms)
+        CMG-e0.000050: tot = 16421 ms = 16 s (avg 2 us = 0 ms)
+        TMG-e0.000100: tot = 176612 ms = 176 s (avg 25 us = 0 ms)
+Query timers:
+        EXACT_HH: tot = 132 ms = 0 s (avg 18951 us = 18 ms)
+        CMG-e0.000200: tot = 4 ms = 0 s (avg 707 us = 0 ms)
+        CMG-e0.000100: tot = 11 ms = 0 s (avg 1614 us = 1 ms)
+        CMG-e0.000050: tot = 28 ms = 0 s (avg 4013 us = 4 ms)
+        TMG-e0.000100: tot = 50 ms = 0 s (avg 7156 us = 7 ms)
+zyzhao@ravenserv1:/uusoc/scratch/ravenserv1/zyzhao/ATTPCode$ vim configs/test-client-id.conf
+zyzhao@ravenserv1:/uusoc/scratch/ravenserv1/zyzhao/ATTPCode$ ./driver run configs/test-client-id.conf
+Running query heavy_hitter at 2020/02/21 12:24:56
+Progress: 50000 data points processed
+Progress: 100000 data points processed
+Progress: 150000 data points processed
+Progress: 200000 data points processed
+Progress: 250000 data points processed
+Progress: 300000 data points processed
+Progress: 350000 data points processed
+Progress: 400000 data points processed
+Progress: 450000 data points processed
+Progress: 500000 data points processed
+Progress: 550000 data points processed
+Progress: 600000 data points processed
+Progress: 650000 data points processed
+Progress: 700000 data points processed
+Progress: 750000 data points processed
+Progress: 800000 data points processed
+Progress: 850000 data points processed
+Progress: 900000 data points processed
+Progress: 950000 data points processed
+Progress: 1000000 data points processed
+Progress: 1050000 data points processed
+Progress: 1100000 data points processed
+Progress: 1150000 data points processed
+Progress: 1200000 data points processed
+Progress: 1250000 data points processed
+Progress: 1300000 data points processed
+Progress: 1350000 data points processed
+Progress: 1400000 data points processed
+Progress: 1450000 data points processed
+Progress: 1500000 data points processed
+Progress: 1550000 data points processed
+Progress: 1600000 data points processed
+Progress: 1650000 data points processed
+Progress: 1700000 data points processed
+Progress: 1750000 data points processed
+Progress: 1800000 data points processed
+Progress: 1850000 data points processed
+Progress: 1900000 data points processed
+Progress: 1950000 data points processed
+Progress: 2000000 data points processed
+Progress: 2050000 data points processed
+Progress: 2100000 data points processed
+Progress: 2150000 data points processed
+Progress: 2200000 data points processed
+Progress: 2250000 data points processed
+Progress: 2300000 data points processed
+Progress: 2350000 data points processed
+Progress: 2400000 data points processed
+Progress: 2450000 data points processed
+Progress: 2500000 data points processed
+Progress: 2550000 data points processed
+Progress: 2600000 data points processed
+Progress: 2650000 data points processed
+Progress: 2700000 data points processed
+Progress: 2750000 data points processed
+Progress: 2800000 data points processed
+Progress: 2850000 data points processed
+Progress: 2900000 data points processed
+Progress: 2950000 data points processed
+Progress: 3000000 data points processed
+Progress: 3050000 data points processed
+Progress: 3100000 data points processed
+Progress: 3150000 data points processed
+Progress: 3200000 data points processed
+Progress: 3250000 data points processed
+Progress: 3300000 data points processed
+Progress: 3350000 data points processed
+Progress: 3400000 data points processed
+Progress: 3450000 data points processed
+Progress: 3500000 data points processed
+Progress: 3550000 data points processed
+Progress: 3600000 data points processed
+Progress: 3650000 data points processed
+Progress: 3700000 data points processed
+Progress: 3750000 data points processed
+Progress: 3800000 data points processed
+Progress: 3850000 data points processed
+Progress: 3900000 data points processed
+Progress: 3950000 data points processed
+Progress: 4000000 data points processed
+Progress: 4050000 data points processed
+Progress: 4100000 data points processed
+Progress: 4150000 data points processed
+Progress: 4200000 data points processed
+Progress: 4250000 data points processed
+Progress: 4300000 data points processed
+Progress: 4350000 data points processed
+Progress: 4400000 data points processed
+Progress: 4450000 data points processed
+Progress: 4500000 data points processed
+Progress: 4550000 data points processed
+Progress: 4600000 data points processed
+Progress: 4650000 data points processed
+Progress: 4700000 data points processed
+Progress: 4750000 data points processed
+Progress: 4800000 data points processed
+Progress: 4850000 data points processed
+Progress: 4900000 data points processed
+Progress: 4950000 data points processed
+Progress: 5000000 data points processed
+Progress: 5050000 data points processed
+Progress: 5100000 data points processed
+Progress: 5150000 data points processed
+Progress: 5200000 data points processed
+Progress: 5250000 data points processed
+Progress: 5300000 data points processed
+Progress: 5350000 data points processed
+Progress: 5400000 data points processed
+Progress: 5450000 data points processed
+Progress: 5500000 data points processed
+Progress: 5550000 data points processed
+Progress: 5600000 data points processed
+Progress: 5650000 data points processed
+Progress: 5700000 data points processed
+Progress: 5750000 data points processed
+Progress: 5800000 data points processed
+Progress: 5850000 data points processed
+Progress: 5900000 data points processed
+Progress: 5950000 data points processed
+Progress: 6000000 data points processed
+Progress: 6050000 data points processed
+Progress: 6100000 data points processed
+Progress: 6150000 data points processed
+Progress: 6200000 data points processed
+Progress: 6250000 data points processed
+Progress: 6300000 data points processed
+Progress: 6350000 data points processed
+Progress: 6400000 data points processed
+Progress: 6450000 data points processed
+Progress: 6500000 data points processed
+Progress: 6550000 data points processed
+Progress: 6600000 data points processed
+Progress: 6650000 data points processed
+Progress: 6700000 data points processed
+Progress: 6750000 data points processed
+Progress: 6800000 data points processed
+Progress: 6850000 data points processed
+Progress: 6900000 data points processed
+Progress: 6950000 data points processed
+Progress: 7000000 data points processed
+HH(0.0002|894557531):
+        EXACT_HH:294
+        CMG-e0.000100: prec = 294/472 = 0.622881, recall = 294/294 = 1
+        TMG-e0.000200: prec = 294/2739 = 0.107338, recall = 294/294 = 1
+        TMG-e0.000100: prec = 294/703 = 0.418208, recall = 294/294 = 1
+        TMG-e0.000050: prec = 294/415 = 0.708434, recall = 294/294 = 1
+HH(0.0002|894634656):
+        EXACT_HH:185
+        CMG-e0.000100: prec = 185/251 = 0.737052, recall = 185/185 = 1
+        TMG-e0.000200: prec = 185/1012 = 0.182806, recall = 185/185 = 1
+        TMG-e0.000100: prec = 185/384 = 0.481771, recall = 185/185 = 1
+        TMG-e0.000050: prec = 185/252 = 0.734127, recall = 185/185 = 1
+HH(0.0002|894726621):
+        EXACT_HH:159
+        CMG-e0.000100: prec = 159/203 = 0.783251, recall = 159/159 = 1
+        TMG-e0.000200: prec = 159/624 = 0.254808, recall = 159/159 = 1
+        TMG-e0.000100: prec = 159/293 = 0.542662, recall = 159/159 = 1
+        TMG-e0.000050: prec = 159/223 = 0.713004, recall = 159/159 = 1
+HH(0.0002|894856213):
+        EXACT_HH:155
+        CMG-e0.000100: prec = 155/180 = 0.861111, recall = 155/155 = 1
+        TMG-e0.000200: prec = 155/450 = 0.344444, recall = 155/155 = 1
+        TMG-e0.000100: prec = 155/259 = 0.598456, recall = 155/155 = 1
+        TMG-e0.000050: prec = 155/206 = 0.752427, recall = 155/155 = 1
+HH(0.0002|894918950):
+        EXACT_HH:147
+        CMG-e0.000100: prec = 147/165 = 0.890909, recall = 147/147 = 1
+        TMG-e0.000200: prec = 147/376 = 0.390957, recall = 147/147 = 1
+        TMG-e0.000100: prec = 147/237 = 0.620253, recall = 147/147 = 1
+        TMG-e0.000050: prec = 147/188 = 0.781915, recall = 147/147 = 1
+HH(0.0002|894918952):
+        EXACT_HH:147
+        CMG-e0.000100: prec = 147/165 = 0.890909, recall = 147/147 = 1
+        TMG-e0.000200: prec = 147/447 = 0.328859, recall = 147/147 = 1
+        TMG-e0.000100: prec = 147/255 = 0.576471, recall = 147/147 = 1
+        TMG-e0.000050: prec = 147/199 = 0.738693, recall = 147/147 = 1
+HH(0.0002|900000000):
+        EXACT_HH:147
+        CMG-e0.000100: prec = 147/165 = 0.890909, recall = 147/147 = 1
+        TMG-e0.000200: prec = 147/447 = 0.328859, recall = 147/147 = 1
+        TMG-e0.000100: prec = 147/255 = 0.576471, recall = 147/147 = 1
+        TMG-e0.000050: prec = 147/199 = 0.738693, recall = 147/147 = 1
+
+=============  Memory Usage  =============
+        EXACT_HH: 108171912 B = 103.160 MB
+        CMG-e0.000100: 8274296 B = 7.890 MB
+        TMG-e0.000200: 41750232 B = 39.816 MB
+        TMG-e0.000100: 74359536 B = 70.914 MB
+        TMG-e0.000050: 125665536 B = 119.843 MB
+=============  Time stats    =============
+Update timers:
+        EXACT_HH: tot = 3000 ms = 3 s (avg 0 us = 0 ms)
+        CMG-e0.000100: tot = 9704 ms = 9 s (avg 1 us = 0 ms)
+        TMG-e0.000200: tot = 59622 ms = 59 s (avg 8 us = 0 ms)
+        TMG-e0.000100: tot = 189390 ms = 189 s (avg 27 us = 0 ms)
+        TMG-e0.000050: tot = 514509 ms = 514 s (avg 73 us = 0 ms)
+Query timers:
+        EXACT_HH: tot = 146 ms = 0 s (avg 20935 us = 20 ms)
+        CMG-e0.000100: tot = 12 ms = 0 s (avg 1822 us = 1 ms)
+        TMG-e0.000200: tot = 29 ms = 0 s (avg 4215 us = 4 ms)
+        TMG-e0.000100: tot = 49 ms = 0 s (avg 7132 us = 7 ms)
+        TMG-e0.000050: tot = 82 ms = 0 s (avg 11740 us = 11 ms)

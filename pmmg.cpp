@@ -1037,6 +1037,9 @@ TreeMisraGries::estimate_heavy_hitters(
             mg->merge(m_tree[level]->m_mg);
         }
     }
+    // threshold = frac_threshold 
+    //             - eps/3 (m_epsilon_prime) 
+    //             - eps/3 (in misra gries)
     auto ret = mg->estimate_heavy_hitters(
             frac_threshold - m_epsilon_prime, est_tot_cnt);
 
