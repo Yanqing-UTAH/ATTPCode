@@ -1325,6 +1325,7 @@ TreeMisraGriesBITP::merge_cur_sketch()
     tn->m_mg = m_cur_sketch;
     tn->m_left = nullptr;
     tn->m_right = nullptr;
+    tn->m_parent = nullptr;
 
     m_size_counter += sizeof(TreeNode) + tn->m_mg->memory_usage();
     
@@ -1336,6 +1337,9 @@ TreeMisraGriesBITP::merge_cur_sketch()
         tn_merged->m_tot_cnt = m_tot_cnt;
         tn_merged->m_left = m_tree[level];
         tn_merged->m_right = tn;
+        tn_merged->m_parent = nullptr;
+        m_tree[level]->m_parent = tn_merged;
+        tn->m_parent = tn_merged;
     
         m_size_counter -= m_tree[level]->m_mg->memory_usage();
         tn_merged->m_mg = m_tree[level]->m_mg;
@@ -1357,7 +1361,11 @@ TreeMisraGriesBITP::merge_cur_sketch()
 
             assert(!n->m_mg);
             assert(n2->m_mg);
+            assert(!n->m_left && !n->m_right);
+            assert(!n2->m_left && !n2->m_right);
             m_size_counter -= n2->m_mg->memory_usage() + 2 * sizeof(TreeNode);
+            n->m_parent->m_left = nullptr;
+            n2->m_parent->m_right = nullptr;
             delete n2->m_mg;
             delete n;
             delete n2;

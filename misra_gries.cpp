@@ -179,8 +179,8 @@ void
 MisraGries::merge(
     MisraGries *mg2)
 {
-    reset_delta();
-    mg2->reset_delta();
+    if (m_delta != 0) reset_delta();
+    if (mg2->m_delta != 0) mg2->reset_delta();
     
     for (const auto &p: mg2->m_cnt)
     {

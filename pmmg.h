@@ -377,7 +377,9 @@ private:
 
         MisraGries          *m_mg;
 
-        TreeNode            *m_left,
+        TreeNode            *m_parent, 
+
+                            *m_left,
 
                             *m_right, // right child
                             
