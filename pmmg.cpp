@@ -1265,6 +1265,7 @@ TreeMisraGriesBITP::estimate_heavy_hitters_bitp(
             if (tn->m_ts > ts_s)
             {
                 // the entire tree is in the range
+                ++level;
                 break;
             }
             else
@@ -1289,7 +1290,6 @@ TreeMisraGriesBITP::estimate_heavy_hitters_bitp(
 
                 if (does_intersect)
                 {
-                    --level;
                     break;
                 }
                 else
@@ -1312,6 +1312,8 @@ TreeMisraGriesBITP::estimate_heavy_hitters_bitp(
 
     auto ret = mg->estimate_heavy_hitters(
             frac_threshold - m_epsilon_prime, m_tot_cnt - est_excluded_cnt);
+
+    //std::cout << m_tot_cnt << ' ' << est_excluded_cnt << std::endl;
     delete mg;
     return ret;
 }
