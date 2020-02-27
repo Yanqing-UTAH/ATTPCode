@@ -27,5 +27,6 @@ DEFINE_SKETCH_TYPE(EXACT_HH, ExactHeavyHitters, exact_heavy_hitters)
 DEFINE_SKETCH_TYPE(CMG, ChainMisraGries, chain_misra_gries)
 DEFINE_SKETCH_TYPE(TMG, TreeMisraGries, tree_misra_gries)
 DEFINE_SKETCH_TYPE(DUMMY_PMG, DummyPersistentMisraGries, dummy_persistent_misra_gries)
+DEFINE_SKETCH_TYPE(TMG_BITP, TreeMisraGriesBITP, tree_misra_gries_bitp)
 #endif
 

@@ -298,7 +298,7 @@ private:
     
 public:
     TreeMisraGries(
-        double epsilon);
+        double  epsilon);
 
     virtual
     ~TreeMisraGries();
@@ -310,18 +310,18 @@ public:
     memory_usage() const override;
 
     std::string
-    get_short_description() const;
+    get_short_description() const override;
 
     void
     update(
         TIMESTAMP ts,
         uint32_t value,
-        int c);
+        int c) override;
 
-    std::vector<HeavyHitter>
+    std::vector<IPersistentHeavyHitterSketch::HeavyHitter>
     estimate_heavy_hitters(
         TIMESTAMP ts_e,
-        double frac_threshold) const;
+        double frac_threshold) const override;
 
 private:
     void
@@ -333,11 +333,9 @@ private:
 
     double                  m_epsilon,
 
-                            m_epsilon_prime; // epsilon / 2.0
+                            m_epsilon_prime; // epsilon / 3.0
 
     uint32_t                m_k;
-
-    //bool                    m_enable_map_pruning;
 
     TIMESTAMP               m_last_ts;
     
@@ -368,16 +366,96 @@ public:
     create_from_config(int idx);
 };
 
-/*class TreeMisraGriesBITP:
+class TreeMisraGriesBITP:
     public IPersistentHeavyHitterSketchBITP
 {
-    
-}; */
+private:
+    struct TreeNode {
+        TIMESTAMP           m_ts;
 
-}
+        uint64_t            m_tot_cnt;
+
+        MisraGries          *m_mg;
+
+        TreeNode            *m_left,
+
+                            *m_right, // right child
+                            
+                            *m_next; // right sibling
+                                     // TreeNodes are linked as a circular list
+                                     // in each level through the m_next field.
+    };
+    
+public:
+    TreeMisraGriesBITP(
+        double epsilon);
+
+    virtual
+    ~TreeMisraGriesBITP();
+
+    void
+    clear() override;
+
+    size_t
+    memory_usage() const override;
+
+    std::string
+    get_short_description() const override;
+    
+    void
+    update(
+        TIMESTAMP ts,
+        uint32_t value,
+        int c) override;
+
+    std::vector<IPersistentHeavyHitterSketchBITP::HeavyHitter>
+    estimate_heavy_hitters_bitp(
+        TIMESTAMP ts_e,
+        double frac_threshold) const override;
+
+private:
+    void
+    merge_cur_sketch();
+
+    double                  m_epsilon,
+
+                            m_epsilon_prime; // epsilon / 2.0
+
+    uint32_t                m_k;
+
+    TIMESTAMP               m_last_ts;
+
+    uint64_t                m_tot_cnt;
+
+    std::vector<TreeNode*>  m_tree;
+
+    std::vector<TreeNode*>  m_right_most_nodes;
+
+    uint32_t                m_level; // the lowest incomplete level
+
+    uint32_t                m_remaining_nodes_at_cur_level;
+
+    MisraGries              *m_cur_sketch;
+
+    size_t                  m_size_counter;
+
+public:
+    static int
+    num_configs_defined();
+
+    static TreeMisraGriesBITP*
+    get_test_instance();
+
+    static TreeMisraGriesBITP*
+    create_from_config(
+        int idx);
+};
+
+} // namespace MisraGriesSketches
 
 using MisraGriesSketches::ChainMisraGries;
 using MisraGriesSketches::TreeMisraGries;
+using MisraGriesSketches::TreeMisraGriesBITP;
 
 #endif // PMMG_H
 

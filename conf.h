@@ -39,26 +39,62 @@ public:
     get_boolean(
         const std::string &key,
         int idx = -1) const;
+    
+    void
+    set_boolean(
+        const std::string &key,
+        bool new_value,
+        int idx = -1);
 
     std::optional<uint32_t>
     get_u32(
         const std::string &key,
         int idx = -1) const;
 
+    void
+    set_u32(
+        const std::string &key,
+        uint32_t new_value,
+        int idx = -1);
+
     std::optional<int64_t>
     get_i64(
         const std::string &key,
         int idx = -1) const;
 
+    void
+    set_i64(
+        const std::string &key,
+        int64_t new_value,
+        int idx = -1);
+
     std::optional<uint64_t>
     get_u64(
         const std::string &key,
         int idx = -1) const;
+
+    void
+    set_u64(
+        const std::string &key,
+        uint64_t new_value,
+        int idx = -1);
     
     std::optional<double>
     get_double(
         const std::string &key,
         int idx = -1) const;
+
+    void
+    set_double(
+        const std::string &key,
+        double new_value,
+        int idx = -1);
+
+    void
+    set_string(
+        const std::string &key,
+        std::string new_value,
+        int idx = -1);
     
     bool
     parse_file(

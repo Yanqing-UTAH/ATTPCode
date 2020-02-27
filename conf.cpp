@@ -162,7 +162,7 @@ bool
 Config::is_assigned(
     const std::string &key) const
 {
-    return list_length(key) != -2;
+    return list_length(key) > -2;
 }
 
 int
@@ -262,6 +262,46 @@ Config::CONCAT(get_, name)( \
     return entry->m_is_list ? \
         std::optional<typ>(std::get<CVT_LIST(name)>(entry->m_value)[idx]) : \
         std::optional<typ>(std::get<CVT(name)>(entry->m_value)); \
+}
+#include "config_list.h"
+#undef CONFIG_VALUE_TYPE
+
+#define CONFIG_VALUE_TYPE(name, typ) \
+void \
+Config::CONCAT(set_, name)( \
+    const std::string &key, \
+    typ new_value, \
+    int idx) \
+{ \
+    auto iter = m_entry_map.find(key); \
+    if (iter == m_entry_map.end()) \
+    { \
+        return ; \
+    } \
+    ConfigEntry *entry = *iter; \
+    if (entry->m_is_list || idx != -1) \
+    { \
+        assert(false); /* list not supported */ \
+    } \
+    else \
+    { \
+        if (entry->m_has_min && ( \
+            entry->m_min_inclusive ? \
+            std::get<CVT(name)>(entry->m_min) > new_value : \
+            std::get<CVT(name)>(entry->m_min) >= new_value)) \
+        { \
+            return ; \
+        } \
+        if (entry->m_has_max && ( \
+            entry->m_max_inclusive ? \
+            std::get<CVT(name)>(entry->m_max) < new_value : \
+            std::get<CVT(name)>(entry->m_max) <= new_value)) \
+        { \
+            return ; \
+        } \
+        entry->m_is_assigned = true; \
+        std::get<CVT(name)>(entry->m_value) = new_value; \
+    } \
 }
 #include "config_list.h"
 #undef CONFIG_VALUE_TYPE

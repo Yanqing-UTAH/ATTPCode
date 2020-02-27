@@ -38,6 +38,8 @@ DEFINE_CONFIG_ENTRY(TMG.enabled, boolean, true, false, false)
 DEFINE_CONFIG_ENTRY(TMG.epsilon, double, TMG.enabled, true, , false, 0, false, 1)
 DEFINE_CONFIG_ENTRY(DUMMY_PMG.enabled, boolean, true, false, false)
 DEFINE_CONFIG_ENTRY(DUMMY_PMG.epsilon, double, DUMMY_PMG.enabled, true, , false, 0, false, 1)
+DEFINE_CONFIG_ENTRY(TMG_BITP.enabled, boolean, true, false, false)
+DEFINE_CONFIG_ENTRY(TMG_BITP.epsilon, double, TMG_BITP.enabled, true, , false, 0, false, 1)
 
 DEFINE_CONFIG_ENTRY(perf.measure_time, boolean, false, false, false)
 
