@@ -1166,7 +1166,7 @@ TreeMisraGries::create_from_config(
 TreeMisraGriesBITP::TreeMisraGriesBITP(
     double  epsilon):
     m_epsilon(epsilon),
-    m_epsilon_prime(epsilon / 2.0),
+    m_epsilon_prime(epsilon / 3.0),
     m_k((uint32_t) std::ceil(1 / m_epsilon_prime)),
     m_last_ts(0),
     m_tot_cnt(0),
@@ -1350,6 +1350,7 @@ TreeMisraGriesBITP::merge_cur_sketch()
         m_size_counter += sizeof(TreeNode) + tn_merged->m_mg->memory_usage();
         
         tn->m_next = m_right_most_nodes[level]->m_next;
+        tn->m_prev = m_right_most_nodes[level];
         m_right_most_nodes[level]->m_next = tn;
         m_right_most_nodes[level] = tn;
         m_tree[level] = nullptr;
@@ -1359,18 +1360,49 @@ TreeMisraGriesBITP::merge_cur_sketch()
             // remove the left most 2 nodes at this level
             TreeNode *n = m_right_most_nodes[level]->m_next;
             TreeNode *n2 = n->m_next;
+            TreeNode *p = n->m_parent;
             m_right_most_nodes[level]->m_next = n2->m_next;
-
+    
+            assert(p == n2->m_parent);
             assert(!n->m_mg);
             assert(n2->m_mg);
             assert(!n->m_left && !n->m_right);
             assert(!n2->m_left && !n2->m_right);
+
             m_size_counter -= n2->m_mg->memory_usage() + 2 * sizeof(TreeNode);
-            n->m_parent->m_left = nullptr;
-            n2->m_parent->m_right = nullptr;
+            p->m_left = p->m_right = nullptr;
             delete n2->m_mg;
             delete n;
             delete n2;
+
+            // compress p
+            if (p->m_mg)
+            {
+                uint64_t tot_cnt = m_tot_cnt - p->m_prev->m_tot_cnt;
+                uint64_t threshold = (uint64_t) std::floor(tot_cnt * m_epsilon_prime);
+
+                m_size_counter -= p->m_mg->memory_usage();
+                
+                if (MGA::delta(p->m_mg) != 0)
+                {
+                    MGA::reset_delta(p->m_mg);
+                }
+                cnt_map_t& cnt_map = MGA::cnt_map(p->m_mg);
+                for (auto iter = cnt_map.begin();
+                        iter != cnt_map.end();)
+                {
+                    if (iter->second <= threshold)
+                    {
+                        iter = cnt_map.erase(iter);
+                    }
+                    else
+                    {
+                        ++iter;
+                    }
+                }
+
+                m_size_counter += p->m_mg->memory_usage();
+            }
         }
         
         tn = tn_merged;
@@ -1387,10 +1419,12 @@ TreeMisraGriesBITP::merge_cur_sketch()
         // first node at this level
         m_right_most_nodes[level] = tn;
         tn->m_next = tn;
+        tn->m_prev = nullptr; // prev list is not circular
     }
     else
     {
         tn->m_next = m_right_most_nodes[level]->m_next;
+        tn->m_prev = m_right_most_nodes[level];
         m_right_most_nodes[level]->m_next = tn;
         m_right_most_nodes[level] = tn;
     }

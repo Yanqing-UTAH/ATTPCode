@@ -157,7 +157,7 @@ int run_new_heavy_hitter()
 
     std::string line;
     size_t n_data = 0;
-    size_t dbg_break_point = ~0ull;
+    //size_t dbg_break_point = ~0ull;
     while (std::getline(infile, line))
     {
         if (line[0] == '?')
@@ -280,11 +280,11 @@ int run_new_heavy_hitter()
 
             for (auto i = 0u; i < sketches.size(); ++i)
             {
-                if (n_data == dbg_break_point)
+                /*if (n_data == dbg_break_point)
                 {
                     sketches[i].get()->update(ts, value);
                     continue;
-                }
+                } */
                 PERF_TIMER_TIMEIT(&update_timers[i],
                 {
                     sketches[i].get()->update(ts, value);
@@ -410,6 +410,15 @@ int run_new_heavy_hitter_bitp()
             }
         }
     }
+
+    std::vector<PerfTimer> update_timers;
+    std::vector<PerfTimer> query_timers;
+    bool do_measure_time = g_config->get_boolean("perf.measure_time").value();
+    if (do_measure_time)
+    {
+        update_timers.resize(sketches.size());
+        query_timers.resize(sketches.size());
+    }
     
     std::string infile_name = g_config->get("infile").value();
     std::optional<std::string> outfile_name_opt = g_config->get("outfile");
@@ -449,9 +458,12 @@ int run_new_heavy_hitter_bitp()
             std::unordered_set<uint32_t> exact_answer_set;
             if (exact_pos != -1)
             {
-                exact_answer = 
-                    sketches[exact_pos].get()->estimate_heavy_hitters_bitp(
-                        ts_e, fraction);
+                PERF_TIMER_TIMEIT(&query_timers[exact_pos],
+                {
+                    exact_answer = 
+                        sketches[exact_pos].get()->estimate_heavy_hitters_bitp(
+                            ts_e, fraction);
+                });
                 std::transform(exact_answer.begin(), exact_answer.end(),
                         std::inserter(exact_answer_set, exact_answer_set.end()),
                         [](const auto &hh) -> uint32_t {
@@ -467,9 +479,12 @@ int run_new_heavy_hitter_bitp()
 
                 if (i != exact_pos)
                 {
-                    answer =
-                        sketches[i].get()->estimate_heavy_hitters_bitp(
-                            ts_e, fraction);
+                    PERF_TIMER_TIMEIT(&query_timers[i],
+                    {
+                        answer =
+                            sketches[i].get()->estimate_heavy_hitters_bitp(
+                                ts_e, fraction);
+                    });
                     
                     if (exact_pos != -1)
                     {
@@ -549,9 +564,12 @@ int run_new_heavy_hitter_bitp()
             {
                 sscanf(line.c_str(), "%llu %u", &ts, &value);
             }
-            for (auto &rg_ipph: sketches)
+            for (size_t i = 0; i != sketches.size(); ++i)
             {
-                rg_ipph.get()->update(ts, value);
+                PERF_TIMER_TIMEIT(&update_timers[i],
+                {
+                    sketches[i].get()->update(ts, value);
+                });
             }
 
             ++n_data;
@@ -563,7 +581,8 @@ int run_new_heavy_hitter_bitp()
         }
     }
     
-    std::cout << "memory_usage() = " << std::endl;
+    std::cout << std::endl;
+    std::cout << "=============  Memory Usage  =============" << std::endl;
     for (auto &rg_ipph: sketches)
     {
         size_t mm_b = rg_ipph.get()->memory_usage();
@@ -580,6 +599,36 @@ int run_new_heavy_hitter_bitp()
              << std::setfill(saved_fill)
              << " MB"
              << std::endl;
+    }
+
+    if (do_measure_time)
+    {
+        std::cout << "=============  Time stats    =============" << std::endl;
+
+        std::cout << "Update timers:" << std::endl;
+        for (auto i = 0u; i < sketches.size(); ++i)
+        {
+            std::cout << '\t'
+                << sketches[i].get()->get_short_description()
+                << ": tot = "
+                << update_timers[i].get_elapsed_ms() << " ms = "
+                << update_timers[i].get_elapsed_s() << " s (avg "
+                << update_timers[i].get_avg_elapsed_us() << " us = "
+                << update_timers[i].get_avg_elapsed_ms() << " ms)"
+                << std::endl;
+        }
+        std::cout << "Query timers:" << std::endl;
+        for (auto i = 0u; i < sketches.size(); ++i)
+        {
+            std::cout << '\t'
+                << sketches[i].get()->get_short_description()
+                << ": tot = "
+                << query_timers[i].get_elapsed_ms() << " ms = "
+                << query_timers[i].get_elapsed_s() << " s (avg "
+                << query_timers[i].get_avg_elapsed_us() << " us = "
+                << query_timers[i].get_avg_elapsed_ms() << " ms)"
+                << std::endl;
+        }
     }
 
     return 0;

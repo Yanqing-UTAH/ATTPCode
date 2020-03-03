@@ -383,9 +383,13 @@ private:
 
                             *m_right, // right child
                             
-                            *m_next; // right sibling
+                            *m_next, // right sibling
                                      // TreeNodes are linked as a circular list
                                      // in each level through the m_next field.
+                            
+                            *m_prev; // left sibling
+                                     // TreeNodes are also linked as a **regular**
+                                     // list in each level through the m_prev field
     };
     
 public:
