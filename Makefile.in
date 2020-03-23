@@ -1,11 +1,11 @@
-CXX = CXX="g++ -std=gnu++17" ./bin/g++-less
+CXX = CXX="@CXX@" ./bin/g++-less
 LINK.o = $(LINK.cc)
-CXXFLAGS =  -O2 -Wall
-CPPFLAGS =  -DNDEBUG
-LDFLAGS =  -llapacke 
+CXXFLAGS = @CXXFLAGS@ -Wall
+CPPFLAGS = @CPPFLAGS@
+LDFLAGS = @LDFLAGS@ @LIBS@
 
 # TODO honor top_srcdir across all rules
-top_srcdir = .
+top_srcdir = @top_srcdir@
 
 EXES=test_hh driver
 OBJS=test_pla.o driver.o sketch.o old_driver.o test_conf.o misra_gries.o test_hh.o pmmg.o perf_timer.o pcm.o test_pams.o pams.o exact_query.o MurmurHash3.o conf.o sampling.o pla.o heavyhitters.o test_pcm.o 

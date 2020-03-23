@@ -8,3 +8,9 @@ deps
 Makefile.old
 data/
 output/
+autom4te.cache
+config.status
+config.log
+stamp-h
+config.h
+Makefile.in.old
