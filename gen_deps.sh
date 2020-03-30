@@ -32,7 +32,7 @@ echo "" >> "$BASEDIR/deps/all_deps.d"
 
 OBJS=$(grep '^.*[.]o:' "$BASEDIR/deps/all_deps.d" | sed 's,:.*,,' | tr '\n' ' ')
 
-mv Makefile Makefile.old
+mv Makefile.in Makefile.in.old
 
 sed '
     /# objs/,/# end of objs/{
@@ -41,8 +41,8 @@ sed '
             N
         }
         /^#/!d
-    }' Makefile.old |\
-sed "s/^OBJS=."'*'"/OBJS=${OBJS}/" > Makefile
+    }' Makefile.in.old |\
+sed "s/^OBJS=."'*'"/OBJS=${OBJS}/" > Makefile.in
 
-rm -f Makefile.old
+rm -f Makefile.in.old
 

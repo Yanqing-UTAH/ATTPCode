@@ -152,6 +152,19 @@ check_query_type(
             }
         }
     }
+    else if (!strcmp(query_type, "matrix_skecth"))
+    {
+        for (SKETCH_TYPE st = 0; st < NUM_SKETCH_TYPES; ++st)
+        {
+            IPersistentMatrixSketch *ipms =
+                dynamic_cast<IPersistentMatrixSketch*>(
+                    test_instances[st].get());
+            if (ipms)
+            {
+                ret.push_back(st);
+            }
+        }
+    }
     else if (help_str)
     {
         snprintf(help_str_buffer, help_str_bufsize,

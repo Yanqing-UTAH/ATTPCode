@@ -16,11 +16,14 @@
 // SomeSketch::num_configs_defined() // returns -1 if it's not a list
 #endif
 
+// exact queries need to be first if available
+DEFINE_SKETCH_TYPE(EXACT_HH, ExactHeavyHitters, exact_heavy_hitters)
+
+// other sketches
 DEFINE_SKETCH_TYPE(PCM, PCMSketch, persistent_count_min)
 DEFINE_SKETCH_TYPE(PAMS, PAMSketch, persistent_AMS_sketch)
 DEFINE_SKETCH_TYPE(SAMPLING, SamplingSketch, persistent_sampling_sketch)
 DEFINE_SKETCH_TYPE(PCM_HH, HeavyHitters, PCM_based_heavy_hitters)
-DEFINE_SKETCH_TYPE(EXACT_HH, ExactHeavyHitters, exact_heavy_hitters)
 
 // new sketches will not have create factory method
 #ifndef ST_REQUIRE_CREATE

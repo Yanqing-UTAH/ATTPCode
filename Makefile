@@ -1,4 +1,4 @@
-CXX = CXX="g++ -std=gnu++17" ./bin/g++-less
+CXX = CXX='g++ -std=gnu++17' ./bin/g++-less
 LINK.o = $(LINK.cc)
 CXXFLAGS =  -O2 -Wall
 CPPFLAGS =  -DNDEBUG
@@ -30,8 +30,8 @@ driver: driver.o pla.o pcm.o pams.o sampling.o heavyhitters.o sketch.o exact_que
 
 test_pla.o: test_pla.cpp pla.h
 
-driver.o: driver.cpp sketch.h util.h conf.h hashtable.h misra_gries.h \
- perf_timer.h
+driver.o: driver.cpp conf.h hashtable.h misra_gries.h sketch.h util.h \
+ query.h perf_timer.h
 
 sketch.o: sketch.cpp sketch.h util.h pcm.h pla.h MurmurHash3.h pams.h \
  sampling.h heavyhitters.h exact_query.h pmmg.h misra_gries.h hashtable.h \
@@ -80,7 +80,7 @@ test_pcm.o: test_pcm.cpp pcm.h pla.h util.h sketch.h MurmurHash3.h
 # do not remove this line
 
 depend:
-	./gen_deps.sh $(CXX) $(CXXFLAGS) $(CPPFLAGS)
+	CXX='g++ -std=gnu++17' ./gen_deps.sh ./bin/g++-less $(CXXFLAGS) $(CPPFLAGS)
 
 clean:
 	rm -f $(OBJS) $(EXES)

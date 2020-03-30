@@ -47,6 +47,16 @@ struct IPersistentSketch_u32:
     update(TIMESTAMP ts, uint32_t value, int c = 1) = 0;
 };
 
+struct IPersistentSketch_dvec:
+    virtual public IPersistentSketch
+{
+    // ts: timestamp
+    // vec: n-dim 0-based array of doubles
+    // n: dimension of the vector
+    virtual void
+    update(TIMESTAMP ts, double *vec, int n) = 0;
+};
+
 struct IPersistentPointQueryable:
     virtual public IPersistentSketch_str
 {
@@ -89,6 +99,7 @@ struct IPersistentHeavyHitterSketch:
     virtual public IPersistentSketch_u32
 {
     typedef HeavyHitter_u32 HeavyHitter;
+    static constexpr const char *query_type = "heavy_hitter";
 
     virtual std::vector<HeavyHitter>
     estimate_heavy_hitters(
@@ -100,11 +111,25 @@ struct IPersistentHeavyHitterSketchBITP:
     virtual public IPersistentSketch_u32
 {
     typedef HeavyHitter_u32 HeavyHitter;
+    static constexpr const char *query_type = "heavy_hitter_bitp";
 
     virtual std::vector<HeavyHitter>
     estimate_heavy_hitters_bitp(
         TIMESTAMP ts_s,
         double frac_threshold) const = 0;
+};
+
+struct IPersistentMatrixSketch:
+    virtual public IPersistentSketch_dvec
+{
+    // ts_e: end of the query period (inclusive)
+    // exact_covariance_matrix: the ground truth
+    // n: dimension of the covariance matrix (n * n)
+    virtual double
+    compute_exact_relative_error(
+        TIMESTAMP ts_e,
+        double *exact_covariance_matrix,
+        int n) const = 0;
 };
 
 void setup_sketch_lib();
