@@ -1,14 +1,16 @@
-CXX = CXX='g++ -std=gnu++17' ./bin/g++-less
+CC = COMPILER='gcc' ./bin/compile
+CXX = COMPILER='g++ -std=gnu++17' ./bin/compile
 LINK.o = $(LINK.cc)
-CXXFLAGS =  -O2 -Wall
-CPPFLAGS =  -DNDEBUG
-LDFLAGS =  -llapacke 
+CXXFLAGS =  -O0 -g -fkeep-inline-functions -Wall
+CPPFLAGS = 
+LDFLAGS = 
+LDLIBS = -llapacke -llapack -lcblas 
 
 # TODO honor top_srcdir across all rules
 top_srcdir = .
 
 EXES=test_hh driver
-OBJS=test_pla.o driver.o sketch.o old_driver.o test_conf.o misra_gries.o test_hh.o pmmg.o perf_timer.o pcm.o test_pams.o pams.o exact_query.o MurmurHash3.o conf.o sampling.o pla.o heavyhitters.o test_pcm.o 
+OBJS=test_pla.o driver.o sketch.o old_driver.o test_conf.o svd_sample.o misra_gries.o test_hh.o pmmg.o perf_timer.o pcm.o test_pams.o pams.o lapack_wrapper.o exact_query.o MurmurHash3.o query.o conf.o sampling.o pla.o heavyhitters.o test_pcm.o 
 
 .PHONY: all clean depend
 
@@ -24,11 +26,12 @@ test_pams: test_pams.o pams.o conf.o MurmurHash3.o
 
 test_hh: test_hh.o heavyhitters.o pcm.o pla.o conf.o MurmurHash3.o
 
-driver: driver.o pla.o pcm.o pams.o sampling.o heavyhitters.o sketch.o exact_query.o conf.o misra_gries.o pmmg.o MurmurHash3.o old_driver.cpp perf_timer.o
+driver: driver.o pla.o pcm.o pams.o sampling.o heavyhitters.o sketch.o exact_query.o conf.o misra_gries.o pmmg.o MurmurHash3.o old_driver.cpp perf_timer.o query.o lapack_wrapper.o
 
 # objs
 
 test_pla.o: test_pla.cpp pla.h
+
 
 driver.o: driver.cpp conf.h hashtable.h misra_gries.h sketch.h util.h \
  query.h perf_timer.h
@@ -41,6 +44,8 @@ sketch.o: sketch.cpp sketch.h util.h pcm.h pla.h MurmurHash3.h pams.h \
 old_driver.o: old_driver.cpp sketch.h util.h
 
 test_conf.o: test_conf.cpp conf.h hashtable.h
+
+svd_sample.o: svd_sample.cpp
 
 misra_gries.o: misra_gries.cpp misra_gries.h hashtable.h sketch.h util.h
 
@@ -59,10 +64,15 @@ test_pams.o: test_pams.cpp pams.h util.h sketch.h MurmurHash3.h
 
 pams.o: pams.cpp pams.h util.h sketch.h MurmurHash3.h conf.h hashtable.h
 
+lapack_wrapper.o: lapack_wrapper.c
+
 exact_query.o: exact_query.cpp exact_query.h sketch.h util.h conf.h \
  hashtable.h
 
 MurmurHash3.o: MurmurHash3.cpp MurmurHash3.h
+
+query.o: query.cpp lapack_wrapper.h query.h util.h conf.h hashtable.h \
+ sketch.h perf_timer.h
 
 conf.o: conf.cpp conf.h hashtable.h util.h config_list.h
 
@@ -80,7 +90,7 @@ test_pcm.o: test_pcm.cpp pcm.h pla.h util.h sketch.h MurmurHash3.h
 # do not remove this line
 
 depend:
-	CXX='g++ -std=gnu++17' ./gen_deps.sh ./bin/g++-less $(CXXFLAGS) $(CPPFLAGS)
+	CXX='g++ -std=gnu++17' CC='gcc' ./gen_deps.sh ./bin/compile $(CXXFLAGS) $(CPPFLAGS)
 
 clean:
 	rm -f $(OBJS) $(EXES)

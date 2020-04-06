@@ -54,7 +54,7 @@ struct IPersistentSketch_dvec:
     // vec: n-dim 0-based array of doubles
     // n: dimension of the vector
     virtual void
-    update(TIMESTAMP ts, double *vec, int n) = 0;
+    update(TIMESTAMP ts, double *dvec, int n) = 0;
 };
 
 struct IPersistentPointQueryable:
@@ -123,13 +123,15 @@ struct IPersistentMatrixSketch:
     virtual public IPersistentSketch_dvec
 {
     // ts_e: end of the query period (inclusive)
-    // exact_covariance_matrix: the ground truth
-    // n: dimension of the covariance matrix (n * n)
-    virtual double
-    compute_exact_relative_error(
+    // A: The space where the covariance matrix is supposed to be stored.  Its
+    // size should be at least n * (n + 1) / 2 if the sketch is configured to
+    // accept vectors of size n.  The upper triangle will be stored in A in the
+    // column major format.  For example, let M be the matrix, A[0] will be
+    // M[0][0], A[1] will be M[0][1] and A[2] will be M[1][1] and so on.
+    virtual void
+    get_covariance_matrix(
         TIMESTAMP ts_e,
-        double *exact_covariance_matrix,
-        int n) const = 0;
+        double *A) const = 0;
 };
 
 void setup_sketch_lib();

@@ -142,19 +142,16 @@ def old():
 def generate(suffix, T, n, d, loc, scale, random_state=None):
     tsm = uniform_normal_tsm(T, n, d, loc, scale,
                              random_state=random_state)
-    open(f'X_{suffix}.csv', "w").close()
-    open(f't_{suffix}.csv', "w").close()
-    fX = open(f'X_{suffix}.csv', 'ab')
-    ft = open(f't_{suffix}.csv', 'ab')
+    f = open(f'X_{suffix}.csv', 'w')
     for i in range(math.ceil(n/1000)):
         X, t = tsm.nextVectors(1000)
-        np.savetxt(ft, t, fmt='%.2f')
-        np.savetxt(fX, X, fmt='%.5f')
-        ft.write(b"\n")
-        fX.write(b"\n")
-    fX.close()
-    ft.close()
-
+        n = X.shape[0]
+        for i in range(n):
+            f.write(str(int(math.floor(t[i]))))
+            for j in range(X.shape[1]):
+                f.write(' %.5f' % X[i][j])
+            f.write("\n")
+    f.close()
 
 def small():
     generate('s', 100, 1000, 100, 80, 7.5, random_state=0)
@@ -169,5 +166,4 @@ def big():
 
 
 if __name__ == '__main__':
-    pass
-    #big()
+    small()

@@ -21,15 +21,32 @@ AC_CONFIG_HEADERS([config.h:config.h.in])
 AH_BOTTOM([
     #endif // CONFIG_H])
 
-# Checks for programs.
+# C compiler and c libraries
+AC_PROG_CC
+AC_LANG([C])
+
+# Checks for header files.
+AC_CHECK_HEADERS([lapacke.h])
+AC_CHECK_HEADERS([lapacke_utils.h])
+AC_CHECK_HEADERS([cblas.h])
+
+# check cblas with the c compiler
+AC_SEARCH_LIBS([cblas_ddot], [cblas])
+
+LAPACK_dlange_name="`echo '
+#include <lapacke.h>
+LAPACK_dlange
+' | gcc -E - | tail -n 1`"
+AC_SEARCH_LIBS([$LAPACK_dlange_name], [lapack])
+
+
+# C++ compiler and c++ libraries
 AC_PROG_CXX
 AC_LANG([C++])
 
 # Checks for libraries.
 AC_SEARCH_LIBS([LAPACKE_dgesv], [lapacke])
 
-# Checks for header files.
-AC_CHECK_HEADERS([lapacke.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
 AX_CXX_COMPILE_STDCXX([17],[ext],[mandatory])

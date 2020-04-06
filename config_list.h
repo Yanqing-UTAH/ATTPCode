@@ -21,9 +21,9 @@ DEFINE_CONFIG_ENTRY(outfile, string, true)
 DEFINE_CONFIG_ENTRY(out_limit, u64, true, false, 0) // 0 for unlimited
 DEFINE_CONFIG_ENTRY(test_name, string, false)
 // Valid values: "IP", "uint32"
-DEFINE_CONFIG_ENTRY(HH.input_type, string, false, false, "IP")
+DEFINE_CONFIG_ENTRY(HH.input_type, string, true, false, "IP")
 DEFINE_CONFIG_ENTRY(SAMPLING.enabled, boolean, true, false, false)
-DEFINE_CONFIG_ENTRY(SAMPLING.sample_size, u32, sampling.enabled, true, , true, 1u)
+DEFINE_CONFIG_ENTRY(SAMPLING.sample_size, u32, SAMPLING.enabled, true, , true, 1u)
 DEFINE_CONFIG_ENTRY(SAMPLING.seed, u32, true, false, 19950810u)
 DEFINE_CONFIG_ENTRY(PCM_HH.enabled, boolean, true, false, false)
 DEFINE_CONFIG_ENTRY(PCM_HH.log_universe_size, u32, PCM_HH.enabled, true, , true, 1u, true, 32u)
@@ -40,6 +40,9 @@ DEFINE_CONFIG_ENTRY(DUMMY_PMG.enabled, boolean, true, false, false)
 DEFINE_CONFIG_ENTRY(DUMMY_PMG.epsilon, double, DUMMY_PMG.enabled, true, , false, 0, false, 1)
 DEFINE_CONFIG_ENTRY(TMG_BITP.enabled, boolean, true, false, false)
 DEFINE_CONFIG_ENTRY(TMG_BITP.epsilon, double, TMG_BITP.enabled, true, , false, 0, false, 1)
+
+DEFINE_CONFIG_ENTRY(MS.dimension, u32, true, false, , true, 1)
+DEFINE_CONFIG_ENTRY(EXACT_MS.enabled, boolean, true, false, false)
 
 DEFINE_CONFIG_ENTRY(perf.measure_time, boolean, false, false, false)
 

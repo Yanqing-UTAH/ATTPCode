@@ -1,0 +1,7 @@
+#!/bin/bash
+
+COMPILER=${COMPILER-g++}
+
+${COMPILER} -fdiagnostics-color=always $@ 2>&1 | less -R -F -X
+exit ${PIPESTATUS[0]}
+

@@ -86,6 +86,10 @@ main(int argc, char *argv[])
         {
             return run_query<QueryHeavyHitterBITP>();
         }
+        else if (query_type == "matrix_sketch")
+        {
+            return run_query<QueryMatrixSketch>();
+        }
         else
         {
             std::cerr << "[ERROR] Invalid query type " << query_type << std::endl;
@@ -103,6 +107,10 @@ main(int argc, char *argv[])
         else if (!strcmp(query_type, "heavy_hitter_bitp"))
         {
             std::cerr << "Query heavy_hitter_bitp" << std::endl;
+        }
+        else if (!strcmp(query_type, "matrix_sketch"))
+        {
+            std::cerr << "Query matrix_sketch" << std::endl;
         }
         else
         {

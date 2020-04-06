@@ -10,13 +10,19 @@ if [ ! -d deps ]; then
     fi
 fi
 
-FILE_LIST="`find . -maxdepth 1 -name '*.cpp'`"
+FILE_LIST="`find . -maxdepth 1 -a \( -name '*.cpp' -or -name '*.c' \) `"
 
 for src_file in $FILE_LIST; do
     dirname=`dirname "$src_file"`
-    basename=`basename "$src_file" | sed 's/[.]cpp//'`
+    basename=`basename "$src_file" | sed 's/[.]\(cpp\|c\)//'`
     dep_filebase="$BASEDIR/deps/src/${dirname}/${basename}"
-    $@ -MMD -MF "${dep_filebase}.d.raw" -E "$BASEDIR/${src_file}" > /dev/null
+    suffix=`basename "$src_file" | sed 's/^.*[.]\(cpp\|c\)$/\1/'`
+    if [ x'$suffix' = xc ]; then
+        export COMPILER="$CC"
+    else
+        export COMPILER="$CXX"
+    fi
+    $@ -MMD -MF "${dep_filebase}.d.raw" -E "$BASEDIR/${src_file}" -o /dev/null || exit 1
     sed "s,$BASEDIR/,,g" "${dep_filebase}.d.raw" > "${dep_filebase}.d"
     echo -e '' >> "${dep_filebase}.d"
 done

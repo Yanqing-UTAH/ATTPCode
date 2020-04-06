@@ -29,6 +29,9 @@ protected:
         m_out(std::cout)
     {}
 
+    int
+    early_setup() { return 0; }
+
     typedef ISketchT            ISketch; 
 
     std::vector<ResourceGuard<ISketch>>
@@ -74,6 +77,12 @@ public:
               << " at "
               << text_tt
               << std::endl;
+        
+        int ret;
+        if ((ret = QueryImpl::early_setup()))
+        {
+            return ret; 
+        }
 
         std::vector<SKETCH_TYPE> supported_sketch_types =
             check_query_type(QueryImpl::get_name(), nullptr);
@@ -315,6 +324,10 @@ private:
     uint64_t                    m_out_limit;
 };
 
+////////////////////////////////////////
+// Heavy hitter query implementation  //
+////////////////////////////////////////
+
 template<class IHHSketch>
 struct HHSketchQueryHelper
 {};
@@ -378,7 +391,7 @@ protected:
             return 1;
         }
 
-        if (g_config->get_boolean("EXACT_HH.enabled").value_or(false))
+        if (g_config->get_boolean("EXACT_HH.enabled").value())
         {
             m_exact_enabled = true; 
             if (m_sketches.size() == 0 ||
@@ -554,6 +567,83 @@ private:
 using QueryHeavyHitter = Query<QueryHeavyHitterImpl<IPersistentHeavyHitterSketch>>;
 using QueryHeavyHitterBITP = Query<QueryHeavyHitterImpl<IPersistentHeavyHitterSketchBITP>>;
 
+////////////////////////////////////////
+// Matrix sketch query implementation //
+////////////////////////////////////////
+class QueryMatrixSketchImpl:
+    public QueryBase<IPersistentMatrixSketch>
+{
+protected:
+    QueryMatrixSketchImpl();
+
+    ~QueryMatrixSketchImpl();
+
+    constexpr const char *
+    get_name() const
+    { return "matrix_sketch"; }
+
+    int
+    early_setup();
+
+    int
+    additional_setup();
+    
+    int
+    parse_query_arg(
+        TIMESTAMP ts,
+        const char *str);
+
+    void
+    query(
+        IPersistentMatrixSketch *sketch,
+        TIMESTAMP ts);
+
+    void
+    print_query_summary(
+        IPersistentMatrixSketch *sketch);
+
+    void
+    dump_query_result(
+        IPersistentMatrixSketch *sketch,
+        std::ostream &out,
+        TIMESTAMP ts,
+        uint64_t out_limit);
+
+    int
+    parse_update_arg(
+        const char *str);
+
+    void
+    update(
+        IPersistentMatrixSketch *sketch,
+        TIMESTAMP ts);
+
+private:
+    inline
+    size_t
+    matrix_size() const
+    {
+        return (size_t) m_n * ((size_t) m_n + 1) / 2;
+    }
+
+    bool                        m_exact_enabled;
+
+    int                         m_n;
+
+    double                      *m_dvec; // next input vec
+
+    double                      *m_last_answer; // upper triangle matrix
+
+    double                      *m_exact_covariance_matrix; // upper triangle matrix
+
+    double                      *m_work; // of size m_n * m_n
+
+    double                      *m_singular_values;
+
+    double                      m_exact_fnorm;
+};
+
+using QueryMatrixSketch = Query<QueryMatrixSketchImpl>;
 
 #endif // QUEYR_H
 

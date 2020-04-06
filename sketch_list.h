@@ -19,6 +19,10 @@
 // exact queries need to be first if available
 DEFINE_SKETCH_TYPE(EXACT_HH, ExactHeavyHitters, exact_heavy_hitters)
 
+#ifndef ST_REQUIRE_CREATE
+DEFINE_SKETCH_TYPE(EXACT_MS, ExactMatrix, exact_matrix)
+#endif
+
 // other sketches
 DEFINE_SKETCH_TYPE(PCM, PCMSketch, persistent_count_min)
 DEFINE_SKETCH_TYPE(PAMS, PAMSketch, persistent_AMS_sketch)

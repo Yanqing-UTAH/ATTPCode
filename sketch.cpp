@@ -152,7 +152,7 @@ check_query_type(
             }
         }
     }
-    else if (!strcmp(query_type, "matrix_skecth"))
+    else if (!strcmp(query_type, "matrix_sketch"))
     {
         for (SKETCH_TYPE st = 0; st < NUM_SKETCH_TYPES; ++st)
         {

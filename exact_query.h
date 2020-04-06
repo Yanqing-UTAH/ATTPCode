@@ -55,3 +55,55 @@ public:
     static ExactHeavyHitters *create_from_config(int idx = -1);
 };
 
+class ExactMatrix:
+    public IPersistentMatrixSketch
+{
+public:
+    ExactMatrix(int n);
+
+    virtual
+    ~ExactMatrix();
+
+    void
+    clear() override;
+
+    size_t
+    memory_usage() const override;
+
+    std::string
+    get_short_description() const override;
+
+    void
+    update(
+        TIMESTAMP   ts,
+        double      *dvec, 
+        int         n) override;
+    
+    void
+    get_covariance_matrix(
+        TIMESTAMP   ts_e,
+        double      *A) const override;
+
+private:
+
+    inline size_t
+    matrix_size() const
+    {
+        return m_n * (m_n + 1) / 2;
+    }
+
+    int                                 m_n;
+
+    TIMESTAMP                           m_last_ts;
+
+    double                              *m_cur_matrix;
+
+    std::vector<std::pair<TIMESTAMP, double*>>
+                                        m_matrices;
+
+public:
+    static ExactMatrix *get_test_instance();
+
+    static ExactMatrix *create_from_config(int idx = -1);
+};
+
