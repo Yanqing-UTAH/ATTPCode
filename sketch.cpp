@@ -7,6 +7,7 @@
 #include "exact_query.h"
 #include "pmmg.h"
 #include "dummy_persistent_misra_gries.h"
+#include "norm_sampling.h"
 #include <unordered_map>
 #include <cassert>
 #include <utility>

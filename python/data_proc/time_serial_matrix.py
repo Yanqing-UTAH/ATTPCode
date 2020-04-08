@@ -147,7 +147,7 @@ def generate(suffix, T, n, d, loc, scale, random_state=None):
         X, t = tsm.nextVectors(1000)
         n = X.shape[0]
         for i in range(n):
-            f.write(str(int(math.floor(t[i]))))
+            f.write(str(int(math.floor(t[i] + 1)))) # we require timestamp to start from 1
             for j in range(X.shape[1]):
                 f.write(' %.5f' % X[i][j])
             f.write("\n")

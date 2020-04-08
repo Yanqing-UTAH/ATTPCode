@@ -51,10 +51,11 @@ struct IPersistentSketch_dvec:
     virtual public IPersistentSketch
 {
     // ts: timestamp
-    // vec: n-dim 0-based array of doubles
-    // n: dimension of the vector
+    // dvec: n-dim 0-based array of doubles, where n is
+    //       pre-specified in the constructor of the underlying
+    //       sketch
     virtual void
-    update(TIMESTAMP ts, double *dvec, int n) = 0;
+    update(TIMESTAMP ts, double *dvec) = 0;
 };
 
 struct IPersistentPointQueryable:

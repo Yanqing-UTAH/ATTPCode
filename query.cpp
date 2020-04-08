@@ -137,7 +137,7 @@ QueryMatrixSketchImpl::print_query_summary(
         int k = 0;
         for (int j = 0; j < m_n; ++j)
         {
-            for (int i = 0; i < j; ++j)
+            for (int i = 0; i < j; ++i)
             {
                 m_work[i * m_n + j] = 
                 m_work[j * m_n + i] = m_last_answer[k] - m_exact_covariance_matrix[k];
@@ -157,14 +157,14 @@ QueryMatrixSketchImpl::print_query_summary(
             m_n,
             m_singular_values,
             nullptr,
-            0,
+            1,
             nullptr,
-            0);
+            1);
 
         m_out << '\t'
             << sketch->get_short_description()
             << ": "
-            << "||ATA-BTB||_2 / ||A||_F = "
+            << "||ATA-BTB||_2 / ||A||_F^2 = "
             << m_singular_values[0] / (m_exact_fnorm * m_exact_fnorm)
             << std::endl;
     }
@@ -201,6 +201,6 @@ QueryMatrixSketchImpl::update(
     IPersistentMatrixSketch *sketch,
     TIMESTAMP ts)
 {
-    sketch->update(ts, m_dvec, m_n);
+    sketch->update(ts, m_dvec);
 }
 

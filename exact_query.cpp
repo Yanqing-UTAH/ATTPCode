@@ -231,11 +231,8 @@ ExactMatrix::get_short_description() const
 void
 ExactMatrix::update(
     TIMESTAMP       ts,
-    double          *dvec,
-    int             n)
+    double          *dvec)
 {
-    if (n != m_n) return;
-
     if (m_last_ts != 0 && ts != m_last_ts)
     {
         double *m = new double[matrix_size()];

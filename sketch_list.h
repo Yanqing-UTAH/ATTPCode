@@ -35,5 +35,7 @@ DEFINE_SKETCH_TYPE(CMG, ChainMisraGries, chain_misra_gries)
 DEFINE_SKETCH_TYPE(TMG, TreeMisraGries, tree_misra_gries)
 DEFINE_SKETCH_TYPE(DUMMY_PMG, DummyPersistentMisraGries, dummy_persistent_misra_gries)
 DEFINE_SKETCH_TYPE(TMG_BITP, TreeMisraGriesBITP, tree_misra_gries_bitp)
+
+DEFINE_SKETCH_TYPE(NORM_SAMPLING, NormSamplingSketch, persistent_norm_sampling_sketch)
 #endif
 

@@ -43,6 +43,9 @@ DEFINE_CONFIG_ENTRY(TMG_BITP.epsilon, double, TMG_BITP.enabled, true, , false, 0
 
 DEFINE_CONFIG_ENTRY(MS.dimension, u32, true, false, , true, 1)
 DEFINE_CONFIG_ENTRY(EXACT_MS.enabled, boolean, true, false, false)
+DEFINE_CONFIG_ENTRY(NORM_SAMPLING.enabled, boolean, true, false, false)
+DEFINE_CONFIG_ENTRY(NORM_SAMPLING.sample_size, u32, NORM_SAMPLING.enabled, true, , true, 1u)
+DEFINE_CONFIG_ENTRY(NORM_SAMPLING.seed, u32, true, false, 19950810u)
 
 DEFINE_CONFIG_ENTRY(perf.measure_time, boolean, false, false, false)
 

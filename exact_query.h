@@ -76,8 +76,7 @@ public:
     void
     update(
         TIMESTAMP   ts,
-        double      *dvec, 
-        int         n) override;
+        double      *dvec) override;
     
     void
     get_covariance_matrix(

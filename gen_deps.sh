@@ -8,6 +8,8 @@ if [ ! -d deps ]; then
     if [ ! -d deps/src ]; then
         mkdir deps/src
     fi
+else
+    rm -f deps/src/*
 fi
 
 FILE_LIST="`find . -maxdepth 1 -a \( -name '*.cpp' -or -name '*.c' \) `"
@@ -37,6 +39,8 @@ echo "" >> "$BASEDIR/deps/all_deps.d"
 
 
 OBJS=$(grep '^.*[.]o:' "$BASEDIR/deps/all_deps.d" | sed 's,:.*,,' | tr '\n' ' ')
+DRIVER_OBJS=$(grep '^.*[.]o:' "$BASEDIR/deps/all_deps.d" | \
+    grep -v '^test_' | sed 's,:.*,,' | tr '\n' ' ')
 
 mv Makefile.in Makefile.in.old
 
@@ -48,7 +52,8 @@ sed '
         }
         /^#/!d
     }' Makefile.in.old |\
-sed "s/^OBJS=."'*'"/OBJS=${OBJS}/" > Makefile.in
+sed "s/^OBJS=."'*'"/OBJS=${OBJS}/" |\
+sed "s/^DRIVER_OBJS=."'*'"/DRIVER_OBJS=${DRIVER_OBJS}/" > Makefile.in
 
-rm -f Makefile.in.old
+#rm -f Makefile.in.old
 
