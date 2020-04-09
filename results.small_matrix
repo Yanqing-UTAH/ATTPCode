@@ -1,0 +1,38 @@
+Running query matrix_sketch at 2020/04/08 21:53:26
+MS(3):
+	F-norm = 27.8489
+	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 0.00781708
+	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 0
+	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 0
+MS(50):
+	F-norm = 258.203
+	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 0.00145431
+	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 0.00139581
+	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 0.00134358
+MS(105):
+	F-norm = 752.588
+	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 0.000608032
+	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 0.000603284
+	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 0.000599037
+MS(120):
+	F-norm = 753.465
+	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 0.0006084
+	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 0.000603673
+	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 0.000599449
+
+=============  Memory Usage  =============
+	EXACT_MS: 552546 B = 0.526 MB
+	NORM_SAMPLING-ss10: 45536 B = 0.43 MB
+	NORM_SAMPLING-ss20: 84416 B = 0.80 MB
+	NORM_SAMPLING-ss30: 106496 B = 0.101 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 7 ms = 0 s (avg 7 us = 0 ms)
+	NORM_SAMPLING-ss10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING-ss20: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING-ss30: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 8 us = 0 ms)
+	NORM_SAMPLING-ss10: tot = 0 ms = 0 s (avg 62 us = 0 ms)
+	NORM_SAMPLING-ss20: tot = 0 ms = 0 s (avg 99 us = 0 ms)
+	NORM_SAMPLING-ss30: tot = 0 ms = 0 s (avg 140 us = 0 ms)

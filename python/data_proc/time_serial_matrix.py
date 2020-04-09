@@ -166,4 +166,6 @@ def big():
 
 
 if __name__ == '__main__':
-    small()
+    #small()
+    medium()
+    big()

@@ -1,7 +1,9 @@
 #include <iostream>
+#include <cstring>
+#include <vector>
 #include "conf.h"
 #include "misra_gries.h"
-#include "sketch.h"
+#include "sketch_lib.h"
 #include "query.h"
 
 //using namespace std;
@@ -10,19 +12,6 @@
 int old_main(int argc, char *argv[]);
 
 /* new impl. */
-
-template<class Q>
-int run_query()
-{
-    Q query;
-    int ret;
-
-    if ((ret = query.setup())) return ret;
-    if ((ret = query.run())) return ret;
-    if ((ret = query.print_stats())) return ret;
-
-    return 0;
-}
 
 void print_new_help(const char *progname)
 {
@@ -77,40 +66,21 @@ main(int argc, char *argv[])
         }
         
         std::string query_type = g_config->get("test_name").value();
-        if (query_type == "heavy_hitter")
-        {
-            return run_query<QueryHeavyHitter>();
-            //return run_new_heavy_hitter();
-        }
-        else if (query_type == "heavy_hitter_bitp")
-        {
-            return run_query<QueryHeavyHitterBITP>();
-        }
-        else if (query_type == "matrix_sketch")
-        {
-            return run_query<QueryMatrixSketch>();
-        }
-        else
+        if (!is_supported_query_type(query_type))
         {
             std::cerr << "[ERROR] Invalid query type " << query_type << std::endl;
             print_new_help(nullptr);
             return 1;
         }
+
+        return run_query(query_type);
     }
     else if (!strcmp(command, "help"))
     {
         const char *query_type = argv[argi++];
-        if (!strcmp(query_type, "heavy_hitter"))
+        if (is_supported_query_type(std::string(query_type)))
         {
-            std::cerr << "Query heavy_hitter" << std::endl; 
-        }
-        else if (!strcmp(query_type, "heavy_hitter_bitp"))
-        {
-            std::cerr << "Query heavy_hitter_bitp" << std::endl;
-        }
-        else if (!strcmp(query_type, "matrix_sketch"))
-        {
-            std::cerr << "Query matrix_sketch" << std::endl;
+            std::cerr << "Query " << query_type << std::endl;
         }
         else
         {

@@ -1,0 +1,53 @@
+Running query matrix_sketch at 2020/04/08 20:53:00
+MS(3):
+	F-norm = 78.9075
+	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 0.00350985
+	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 0
+	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 0
+MS(200):
+	F-norm = 1239.33
+	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 0.000109285
+	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 0.000108724
+	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 0.00010756
+MS(400):
+	F-norm = 2240.37
+	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 5.86786e-05
+	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 5.84514e-05
+	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 5.82329e-05
+MS(600):
+	F-norm = 3234.81
+	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 4.10195e-05
+	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 4.09074e-05
+	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 4.07823e-05
+MS(800):
+	F-norm = 5247.13
+	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 3.50766e-05
+	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 3.50638e-05
+	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 3.50516e-05
+MS(1000):
+	F-norm = 7818.66
+	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 3.01103e-05
+	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 3.00937e-05
+	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 3.00912e-05
+MS(1200):
+	F-norm = 7829.17
+	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 3.01116e-05
+	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 3.00951e-05
+	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 3.00925e-05
+
+=============  Memory Usage  =============
+	EXACT_MS: 510025932 B = 486.398 MB
+	NORM_SAMPLING-ss10: 495936 B = 0.472 MB
+	NORM_SAMPLING-ss20: 994816 B = 0.948 MB
+	NORM_SAMPLING-ss30: 1333696 B = 1.271 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 7619 ms = 7 s (avg 761 us = 0 ms)
+	NORM_SAMPLING-ss10: tot = 85 ms = 0 s (avg 8 us = 0 ms)
+	NORM_SAMPLING-ss20: tot = 17 ms = 0 s (avg 1 us = 0 ms)
+	NORM_SAMPLING-ss30: tot = 18 ms = 0 s (avg 1 us = 0 ms)
+Query timers:
+	EXACT_MS: tot = 20 ms = 0 s (avg 2895 us = 2 ms)
+	NORM_SAMPLING-ss10: tot = 46 ms = 0 s (avg 6656 us = 6 ms)
+	NORM_SAMPLING-ss20: tot = 74 ms = 0 s (avg 10618 us = 10 ms)
+	NORM_SAMPLING-ss30: tot = 107 ms = 0 s (avg 15406 us = 15 ms)

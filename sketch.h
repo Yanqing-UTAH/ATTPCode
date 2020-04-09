@@ -1,11 +1,17 @@
 #ifndef SKETCH_H
 #define SKETCH_H
 
+// sketch.h is now decomposed into two files:
+//  - The new sketch.h now includes all sketch interfaces and functions
+//  - sketch_lib.h is a thin interface that driver depends on without including all
+//    the implementation details.
+
 #include <cmath>
 #include <vector>
 #include <cstdint>
 #include <string>
 #include "util.h"
+#include "sketch_lib.h"
 
 typedef unsigned long long TIMESTAMP;
 using std::uint32_t;
@@ -135,25 +141,12 @@ struct IPersistentMatrixSketch:
         double *A) const = 0;
 };
 
-void setup_sketch_lib();
-
-typedef int SKETCH_TYPE;
-#define ST_INVALID -1
-SKETCH_TYPE sketch_name_to_sketch_type(const char *sketch_name);
-const char *sketch_type_to_sketch_name(SKETCH_TYPE st);
-const char *sketch_type_to_altname(SKETCH_TYPE st);
-
 IPersistentSketch*
 create_persistent_sketch(
     SKETCH_TYPE st,
     int &argi,
     int argc,
     char *argv[],
-    const char **help_str);
-
-std::vector<SKETCH_TYPE>
-check_query_type(
-    const char *query_type,
     const char **help_str);
 
 std::vector<IPersistentSketch*>
