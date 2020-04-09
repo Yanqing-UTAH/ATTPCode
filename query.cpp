@@ -211,7 +211,11 @@ public:
                             m_out_limit);
                     }
                 }
-
+                
+                if (m_stderr_is_a_tty)
+                {
+                    m_out << std::endl;
+                }
                 continue_progress_bar();
             }
             else if (line[0] != '#')
