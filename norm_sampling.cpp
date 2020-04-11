@@ -94,7 +94,8 @@ NormSamplingSketch::NormSamplingSketch(
     m_reservoir(new List[sample_size]),
     m_weight_min_heap(new List*[sample_size]),
     m_rng(seed),
-    m_unif_m1_0(-1.0, 0)
+    m_unif_m1_0(-1.0, 0),
+    m_ts_2_cnt()
 {    
     for (uint32_t i = 0; i < m_sample_size; ++i)
     {
@@ -131,6 +132,8 @@ NormSamplingSketch::memory_usage() const
     }
     res += sizeof(List*) * m_sample_size; // m_weight_min_heap
     res += m_n_dvec_stored * sizeof(double) * m_n;
+    res += sizeof(m_ts_2_cnt) * sizeof(std::pair<TIMESTAMP, uint64_t>) *
+        m_ts_2_cnt.capacity();
     return res;
 }
 
@@ -180,6 +183,16 @@ NormSamplingSketch::update(
                 m_sample_size,
                 [](List *l) -> double { return l->get_weight(); });
         }
+        ++m_seen;
+    }
+
+    if (m_ts_2_cnt.empty() || m_ts_2_cnt.back().first != ts)
+    {
+        m_ts_2_cnt.emplace_back(std::make_pair(ts, m_seen));
+    }
+    else
+    {
+        m_ts_2_cnt.back().second = m_seen;
     }
 }
 
@@ -190,11 +203,13 @@ NormSamplingSketch::get_covariance_matrix(
 {
     memset(A, 0, m_n * (m_n + 1) / 2 * sizeof(double));
     
+    uint32_t c = 0;
     for (uint32_t i = 0; i < m_sample_size ; ++i)
     {
         Item *item = m_reservoir[i].last_of(ts_e); 
         if (!item) continue;
     
+        ++c;
         cblas_dspr(
             CblasColMajor,
             CblasUpper,
@@ -203,6 +218,20 @@ NormSamplingSketch::get_covariance_matrix(
             item->m_dvec,
             1,
             A);
+    }
+
+    if (c == 0) return;
+
+    auto iter = std::upper_bound(m_ts_2_cnt.begin(), m_ts_2_cnt.end(), ts_e,
+        [](TIMESTAMP ts, const auto &p) -> bool
+        {
+            return ts < p.first;
+        });
+    auto n = (iter-1)->second;
+
+    for (uint32_t i = 0, hi = (uint32_t) m_n * (m_n + 1) / 2; i < hi; ++i)
+    {
+        A[i] = (double) n / c * A[i];
     }
 }
 

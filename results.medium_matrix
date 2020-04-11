@@ -1,53 +1,144 @@
-Running query matrix_sketch at 2020/04/08 20:53:00
+Running query matrix_sketch at 2020/04/10 13:34:25
 MS(3):
 	F-norm = 78.9075
-	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 0.00350985
+	NORM_SAMPLING-ss1: ||ATA-BTB||_2 / ||A||_F^2 = 0.037318
+	NORM_SAMPLING-ss3: ||ATA-BTB||_2 / ||A||_F^2 = 0.0110555
+	NORM_SAMPLING-ss5: ||ATA-BTB||_2 / ||A||_F^2 = 0.00522311
+	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 0.00350693
 	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 0
 	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 0
+
 MS(200):
 	F-norm = 1239.33
-	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 0.000109285
-	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 0.000108724
-	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 0.00010756
+	NORM_SAMPLING-ss1: ||ATA-BTB||_2 / ||A||_F^2 = 0.0147858
+	NORM_SAMPLING-ss3: ||ATA-BTB||_2 / ||A||_F^2 = 0.00570175
+	NORM_SAMPLING-ss5: ||ATA-BTB||_2 / ||A||_F^2 = 0.00340926
+	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 0.00178687
+	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 0.000980698
+	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 0.000711743
+
 MS(400):
 	F-norm = 2240.37
-	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 5.86786e-05
-	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 5.84514e-05
-	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 5.82329e-05
+	NORM_SAMPLING-ss1: ||ATA-BTB||_2 / ||A||_F^2 = 0.00902154
+	NORM_SAMPLING-ss3: ||ATA-BTB||_2 / ||A||_F^2 = 0.00348237
+	NORM_SAMPLING-ss5: ||ATA-BTB||_2 / ||A||_F^2 = 0.00208367
+	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 0.00107776
+	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 0.000635108
+	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 0.000447235
+
 MS(600):
 	F-norm = 3234.81
-	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 4.10195e-05
-	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 4.09074e-05
-	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 4.07823e-05
+	NORM_SAMPLING-ss1: ||ATA-BTB||_2 / ||A||_F^2 = 0.00651955
+	NORM_SAMPLING-ss3: ||ATA-BTB||_2 / ||A||_F^2 = 0.00235827
+	NORM_SAMPLING-ss5: ||ATA-BTB||_2 / ||A||_F^2 = 0.00158094
+	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 0.000816383
+	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 0.000483156
+	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 0.000331178
+
+MS(770):
+	F-norm = 4714.54
+	NORM_SAMPLING-ss1: ||ATA-BTB||_2 / ||A||_F^2 = 0.00199581
+	NORM_SAMPLING-ss3: ||ATA-BTB||_2 / ||A||_F^2 = 0.00206148
+	NORM_SAMPLING-ss5: ||ATA-BTB||_2 / ||A||_F^2 = 0.00139185
+	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 0.000717875
+	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 0.000405007
+	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 0.000289625
+
+MS(780):
+	F-norm = 4877.4
+	NORM_SAMPLING-ss1: ||ATA-BTB||_2 / ||A||_F^2 = 0.00195473
+	NORM_SAMPLING-ss3: ||ATA-BTB||_2 / ||A||_F^2 = 0.00201992
+	NORM_SAMPLING-ss5: ||ATA-BTB||_2 / ||A||_F^2 = 0.00136388
+	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 0.000703559
+	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 0.000397043
+	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 0.000284033
+
+MS(790):
+	F-norm = 5057.17
+	NORM_SAMPLING-ss1: ||ATA-BTB||_2 / ||A||_F^2 = 0.00191096
+	NORM_SAMPLING-ss3: ||ATA-BTB||_2 / ||A||_F^2 = 0.00197583
+	NORM_SAMPLING-ss5: ||ATA-BTB||_2 / ||A||_F^2 = 0.00126611
+	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 0.000707926
+	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 0.000387423
+	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 0.000276037
+
 MS(800):
 	F-norm = 5247.13
-	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 3.50766e-05
-	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 3.50638e-05
-	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 3.50516e-05
+	NORM_SAMPLING-ss1: ||ATA-BTB||_2 / ||A||_F^2 = 0.0018598
+	NORM_SAMPLING-ss3: ||ATA-BTB||_2 / ||A||_F^2 = 0.00192392
+	NORM_SAMPLING-ss5: ||ATA-BTB||_2 / ||A||_F^2 = 0.00123294
+	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 0.00068947
+	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 0.000377428
+	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 0.000268981
+
+MS(810):
+	F-norm = 5438.38
+	NORM_SAMPLING-ss1: ||ATA-BTB||_2 / ||A||_F^2 = 0.00180725
+	NORM_SAMPLING-ss3: ||ATA-BTB||_2 / ||A||_F^2 = 0.00187038
+	NORM_SAMPLING-ss5: ||ATA-BTB||_2 / ||A||_F^2 = 0.00119872
+	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 0.000670439
+	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 0.000367105
+	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 0.000261682
+
+MS(820):
+	F-norm = 5645.39
+	NORM_SAMPLING-ss1: ||ATA-BTB||_2 / ||A||_F^2 = 0.00175307
+	NORM_SAMPLING-ss3: ||ATA-BTB||_2 / ||A||_F^2 = 0.00181483
+	NORM_SAMPLING-ss5: ||ATA-BTB||_2 / ||A||_F^2 = 0.00116317
+	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 0.000662468
+	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 0.000335556
+	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 0.000249363
+
+MS(830):
+	F-norm = 5853.48
+	NORM_SAMPLING-ss1: ||ATA-BTB||_2 / ||A||_F^2 = 0.00170072
+	NORM_SAMPLING-ss3: ||ATA-BTB||_2 / ||A||_F^2 = 0.00176119
+	NORM_SAMPLING-ss5: ||ATA-BTB||_2 / ||A||_F^2 = 0.00112884
+	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 0.000642986
+	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 0.000325777
+	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 0.000239203
+
 MS(1000):
 	F-norm = 7818.66
-	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 3.01103e-05
-	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 3.00937e-05
-	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 3.00912e-05
+	NORM_SAMPLING-ss1: ||ATA-BTB||_2 / ||A||_F^2 = 0.00129531
+	NORM_SAMPLING-ss3: ||ATA-BTB||_2 / ||A||_F^2 = 0.00134016
+	NORM_SAMPLING-ss5: ||ATA-BTB||_2 / ||A||_F^2 = 0.000860669
+	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 0.000486828
+	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 0.00025156
+	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 0.000183597
+
 MS(1200):
 	F-norm = 7829.17
-	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 3.01116e-05
-	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 3.00951e-05
-	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 3.00925e-05
+	NORM_SAMPLING-ss1: ||ATA-BTB||_2 / ||A||_F^2 = 0.00129376
+	NORM_SAMPLING-ss3: ||ATA-BTB||_2 / ||A||_F^2 = 0.00133858
+	NORM_SAMPLING-ss5: ||ATA-BTB||_2 / ||A||_F^2 = 0.000859654
+	NORM_SAMPLING-ss10: ||ATA-BTB||_2 / ||A||_F^2 = 0.000486258
+	NORM_SAMPLING-ss20: ||ATA-BTB||_2 / ||A||_F^2 = 0.000251267
+	NORM_SAMPLING-ss30: ||ATA-BTB||_2 / ||A||_F^2 = 0.000183383
+
 
 =============  Memory Usage  =============
 	EXACT_MS: 510025932 B = 486.398 MB
-	NORM_SAMPLING-ss10: 495936 B = 0.472 MB
-	NORM_SAMPLING-ss20: 994816 B = 0.948 MB
-	NORM_SAMPLING-ss30: 1333696 B = 1.271 MB
+	NORM_SAMPLING-ss1: 478560 B = 0.456 MB
+	NORM_SAMPLING-ss3: 607136 B = 0.579 MB
+	NORM_SAMPLING-ss5: 695712 B = 0.663 MB
+	NORM_SAMPLING-ss10: 889152 B = 0.847 MB
+	NORM_SAMPLING-ss20: 1388032 B = 1.323 MB
+	NORM_SAMPLING-ss30: 1726912 B = 1.646 MB
 =============  Time stats    =============
 Update timers:
-	EXACT_MS: tot = 7619 ms = 7 s (avg 761 us = 0 ms)
-	NORM_SAMPLING-ss10: tot = 85 ms = 0 s (avg 8 us = 0 ms)
-	NORM_SAMPLING-ss20: tot = 17 ms = 0 s (avg 1 us = 0 ms)
-	NORM_SAMPLING-ss30: tot = 18 ms = 0 s (avg 1 us = 0 ms)
+	EXACT_MS: tot = 8419 ms = 8 s (avg 841 us = 0 ms)
+	NORM_SAMPLING-ss1: tot = 28 ms = 0 s (avg 2 us = 0 ms)
+	NORM_SAMPLING-ss3: tot = 19 ms = 0 s (avg 1 us = 0 ms)
+	NORM_SAMPLING-ss5: tot = 17 ms = 0 s (avg 1 us = 0 ms)
+	NORM_SAMPLING-ss10: tot = 19 ms = 0 s (avg 1 us = 0 ms)
+	NORM_SAMPLING-ss20: tot = 20 ms = 0 s (avg 2 us = 0 ms)
+	NORM_SAMPLING-ss30: tot = 19 ms = 0 s (avg 1 us = 0 ms)
 Query timers:
-	EXACT_MS: tot = 20 ms = 0 s (avg 2895 us = 2 ms)
-	NORM_SAMPLING-ss10: tot = 46 ms = 0 s (avg 6656 us = 6 ms)
-	NORM_SAMPLING-ss20: tot = 74 ms = 0 s (avg 10618 us = 10 ms)
-	NORM_SAMPLING-ss30: tot = 107 ms = 0 s (avg 15406 us = 15 ms)
+	EXACT_MS: tot = 29 ms = 0 s (avg 2240 us = 2 ms)
+	NORM_SAMPLING-ss1: tot = 27 ms = 0 s (avg 2128 us = 2 ms)
+	NORM_SAMPLING-ss3: tot = 41 ms = 0 s (avg 3205 us = 3 ms)
+	NORM_SAMPLING-ss5: tot = 62 ms = 0 s (avg 4829 us = 4 ms)
+	NORM_SAMPLING-ss10: tot = 104 ms = 0 s (avg 8004 us = 8 ms)
+	NORM_SAMPLING-ss20: tot = 187 ms = 0 s (avg 14438 us = 14 ms)
+	NORM_SAMPLING-ss30: tot = 270 ms = 0 s (avg 20801 us = 20 ms)

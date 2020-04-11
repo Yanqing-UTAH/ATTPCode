@@ -21,6 +21,7 @@ DEFINE_SKETCH_TYPE(EXACT_HH, ExactHeavyHitters, exact_heavy_hitters)
 
 #ifndef ST_REQUIRE_CREATE
 DEFINE_SKETCH_TYPE(EXACT_MS, ExactMatrix, exact_matrix)
+//DEFINE_SKETCH_TYPE(PFD, <class-name>, persistent_frequent_direction)
 #endif
 
 // other sketches

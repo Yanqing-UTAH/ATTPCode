@@ -3,6 +3,7 @@
 
 #include "fenwick_tree.h"
 #include "sketch.h"
+#include <unordered_map>
 #include <random>
 
 class NormSamplingSketch:
@@ -100,6 +101,9 @@ private:
 
     std::uniform_real_distribution<double>
                                 m_unif_m1_0; // [-1, 0)
+
+    std::vector<std::pair<TIMESTAMP, uint64_t>>
+                                m_ts_2_cnt;
 
 public:
     static NormSamplingSketch*

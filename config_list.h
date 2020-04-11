@@ -16,37 +16,64 @@
 //        max_value /* rquired if max_inclusive set */ )
 #endif
 
+// Test configs
 DEFINE_CONFIG_ENTRY(infile, string, false)
 DEFINE_CONFIG_ENTRY(outfile, string, true)
 DEFINE_CONFIG_ENTRY(out_limit, u64, true, false, 0) // 0 for unlimited
 DEFINE_CONFIG_ENTRY(test_name, string, false)
+
+// Test heavy hitters (ATTP/BITP)
 // Valid values: "IP", "uint32"
 DEFINE_CONFIG_ENTRY(HH.input_type, string, true, false, "IP")
+
+// exact heavy hitter
+DEFINE_CONFIG_ENTRY(EXACT_HH.enabled, boolean, true, false, false)
+
+// uniform sampling sketch
 DEFINE_CONFIG_ENTRY(SAMPLING.enabled, boolean, true, false, false)
 DEFINE_CONFIG_ENTRY(SAMPLING.sample_size, u32, SAMPLING.enabled, true, , true, 1u)
 DEFINE_CONFIG_ENTRY(SAMPLING.seed, u32, true, false, 19950810u)
+
+// persistent count-min
 DEFINE_CONFIG_ENTRY(PCM_HH.enabled, boolean, true, false, false)
 DEFINE_CONFIG_ENTRY(PCM_HH.log_universe_size, u32, PCM_HH.enabled, true, , true, 1u, true, 32u)
 DEFINE_CONFIG_ENTRY(PCM_HH.epsilon, double, PCM_HH.enabled, true, , false, 0, false, 1)
 DEFINE_CONFIG_ENTRY(PCM_HH.delta, double, PCM_HH.enabled, true, , false, 0, false, 1)
 DEFINE_CONFIG_ENTRY(PCM_HH.Delta, double, PCM_HH.enabled, true, , false, 0)
-DEFINE_CONFIG_ENTRY(EXACT_HH.enabled, boolean, true, false, false)
+
+// Chain Misra Gries
 DEFINE_CONFIG_ENTRY(CMG.enabled, boolean, true, false, false)
 DEFINE_CONFIG_ENTRY(CMG.epsilon, double, CMG.enabled, true, , false, 0, false, 1)
 DEFINE_CONFIG_ENTRY(CMG.use_update_new, boolean, CMG.enabled, true, true)
+
+// Tree Misra Gries
 DEFINE_CONFIG_ENTRY(TMG.enabled, boolean, true, false, false)
 DEFINE_CONFIG_ENTRY(TMG.epsilon, double, TMG.enabled, true, , false, 0, false, 1)
+
+// Don't use, for debugging only
 DEFINE_CONFIG_ENTRY(DUMMY_PMG.enabled, boolean, true, false, false)
 DEFINE_CONFIG_ENTRY(DUMMY_PMG.epsilon, double, DUMMY_PMG.enabled, true, , false, 0, false, 1)
+
+// Tree Misra Gries (BITP)
 DEFINE_CONFIG_ENTRY(TMG_BITP.enabled, boolean, true, false, false)
 DEFINE_CONFIG_ENTRY(TMG_BITP.epsilon, double, TMG_BITP.enabled, true, , false, 0, false, 1)
 
+// Test matrix sketch (ATTP)
 DEFINE_CONFIG_ENTRY(MS.dimension, u32, true, false, , true, 1)
+
+// exact covariance matrix
 DEFINE_CONFIG_ENTRY(EXACT_MS.enabled, boolean, true, false, false)
+
+// norm sampling
 DEFINE_CONFIG_ENTRY(NORM_SAMPLING.enabled, boolean, true, false, false)
 DEFINE_CONFIG_ENTRY(NORM_SAMPLING.sample_size, u32, NORM_SAMPLING.enabled, true, , true, 1u)
 DEFINE_CONFIG_ENTRY(NORM_SAMPLING.seed, u32, true, false, 19950810u)
 
+// TODO reserved for ATTP FD
+DEFINE_CONFIG_ENTRY(PFD.enabled, boolean, true, false, false)
+DEFINE_CONFIG_ENTRY(PFD.sketch_size, u32, PFD.enabled, true, , true, 1)
+
+// misc settings
 DEFINE_CONFIG_ENTRY(perf.measure_time, boolean, false, false, false)
 
 #ifdef HAS_DEFINE_CONFIG_ENTRY_STUB

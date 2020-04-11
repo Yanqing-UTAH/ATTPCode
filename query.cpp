@@ -273,8 +273,10 @@ public:
                  << " B = "
                  << (size_t) std::floor(mm_mb) << '.'
                  << std::setfill('0')
+                 << std::setw(3)
                  << ((size_t)(std::floor(mm_mb * 1000))) % 1000
                  << std::setfill(saved_fill)
+                 << std::setw(0)
                  << " MB"
                  << std::endl;
         }
@@ -961,6 +963,8 @@ QueryMatrixSketchImpl::print_query_summary(
             << ": "
             << "||ATA-BTB||_2 / ||A||_F^2 = "
             << m_singular_values[0] / (m_exact_fnorm * m_exact_fnorm)
+            //<< ' '
+            //<< m_singular_values[0]
             << std::endl;
     }
 }
