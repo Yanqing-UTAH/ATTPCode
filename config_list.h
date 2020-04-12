@@ -71,7 +71,7 @@ DEFINE_CONFIG_ENTRY(NORM_SAMPLING.seed, u32, true, false, 19950810u)
 
 // TODO reserved for ATTP FD
 DEFINE_CONFIG_ENTRY(PFD.enabled, boolean, true, false, false)
-DEFINE_CONFIG_ENTRY(PFD.sketch_size, u32, PFD.enabled, true, , true, 1)
+DEFINE_CONFIG_ENTRY(PFD.half_sketch_size, u32, PFD.enabled, true, , true, 1)
 
 // misc settings
 DEFINE_CONFIG_ENTRY(perf.measure_time, boolean, false, false, false)

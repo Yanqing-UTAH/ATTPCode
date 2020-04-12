@@ -1,8 +1,8 @@
 CC = COMPILER='gcc' ./bin/compile
 CXX = COMPILER='g++ -std=gnu++17' ./bin/compile
 LINK.o = $(LINK.cc)
-CXXFLAGS =  -O2 -Wall
-CPPFLAGS =  -DNDEBUG
+CXXFLAGS =  -O0 -g -fkeep-inline-functions -Wall
+CPPFLAGS = 
 LDFLAGS = 
 LDLIBS = -llapacke -llapack -lcblas  -pthread
 
@@ -10,8 +10,8 @@ LDLIBS = -llapacke -llapack -lcblas  -pthread
 top_srcdir = .
 
 EXES=driver
-OBJS=test_pla.o driver.o sketch.o old_driver.o test_conf.o misra_gries.o test_hh.o norm_sampling.o pmmg.o perf_timer.o pcm.o test_pams.o pams.o lapack_wrapper.o exact_query.o MurmurHash3.o query.o conf.o sampling.o pla.o heavyhitters.o test_pcm.o 
-DRIVER_OBJS=driver.o sketch.o old_driver.o misra_gries.o norm_sampling.o pmmg.o perf_timer.o pcm.o pams.o lapack_wrapper.o exact_query.o MurmurHash3.o query.o conf.o sampling.o pla.o heavyhitters.o 
+OBJS=test_pla.o driver.o sketch.o old_driver.o test_conf.o misra_gries.o test_hh.o norm_sampling.o fd.o pmmg.o perf_timer.o pcm.o test_pams.o pams.o lapack_wrapper.o exact_query.o MurmurHash3.o query.o conf.o sampling.o pla.o heavyhitters.o test_pcm.o 
+DRIVER_OBJS=driver.o sketch.o old_driver.o misra_gries.o norm_sampling.o fd.o pmmg.o perf_timer.o pcm.o pams.o lapack_wrapper.o exact_query.o MurmurHash3.o query.o conf.o sampling.o pla.o heavyhitters.o 
 
 .PHONY: all clean depend
 
@@ -54,6 +54,8 @@ test_hh.o: test_hh.cpp heavyhitters.h pcm.h pla.h util.h sketch.h \
 
 norm_sampling.o: norm_sampling.cpp norm_sampling.h fenwick_tree.h \
  sketch.h util.h sketch_lib.h min_heap.h basic_defs.h conf.h hashtable.h
+
+fd.o: fd.cpp
 
 pmmg.o: pmmg.cpp pmmg.h util.h misra_gries.h hashtable.h sketch.h \
  sketch_lib.h min_heap.h basic_defs.h conf.h
