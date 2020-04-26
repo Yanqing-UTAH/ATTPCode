@@ -117,6 +117,8 @@ public:
                 }
             }
         }
+
+        m_suppress_progress_bar = g_config->get_boolean("misc.suppress_progress_bar").value();
         
         m_measure_time = g_config->get_boolean("perf.measure_time").value();
         if (m_measure_time)
@@ -269,7 +271,7 @@ public:
             m_out << '\t'
                  << sketch.get()->get_short_description()
                  << ": "
-                 << sketch.get()->memory_usage()
+                 << mm_b
                  << " B = "
                  << (size_t) std::floor(mm_mb) << '.'
                  << std::setfill('0')
@@ -402,6 +404,7 @@ private:
     void
     start_progress_bar()
     {
+        if (m_suppress_progress_bar) return;
         fprintf(stderr, "\n");
         m_progress_bar_stopped = false;
         m_progress_bar_thread = std::thread(&Query<QueryImpl>::show_progress_bar, this);
@@ -410,6 +413,8 @@ private:
     void
     pause_progress_bar()
     {
+        if (m_suppress_progress_bar) return;
+
         ProgressBarStatus s = PBS_WAITING;
         while (!m_progress_bar_status.compare_exchange_strong(
                     s, PBS_PAUSED, std::memory_order_relaxed))
@@ -423,6 +428,8 @@ private:
     void
     continue_progress_bar()
     {
+        if (m_suppress_progress_bar) return;
+
         fprintf(stderr, "\n");
         ProgressBarStatus s = PBS_PAUSED;
         (void) m_progress_bar_status.compare_exchange_strong(
@@ -433,6 +440,8 @@ private:
     void
     stop_progress_bar()
     {
+        if (m_suppress_progress_bar) return;
+
         m_progress_bar_stopped = true;
         m_progress_bar_thread.join();
         print_progress_bar_content();
@@ -442,7 +451,9 @@ private:
                                 
                                 m_has_outfile,
 
-                                m_stderr_is_a_tty;
+                                m_stderr_is_a_tty,
+
+                                m_suppress_progress_bar;
 
     std::vector<PerfTimer>      m_update_timers;
 

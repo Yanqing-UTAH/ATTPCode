@@ -41,6 +41,8 @@ struct IPersistentSketch
 struct IPersistentSketch_str:
     virtual public IPersistentSketch
 {
+    // XXX the count c is not honored everywhere; fix the sketches
+    // if it's needed in the test
     virtual void
     update(TIMESTAMP ts, const char *str, int c = 1) = 0;
 
@@ -49,6 +51,8 @@ struct IPersistentSketch_str:
 struct IPersistentSketch_u32:
     virtual public IPersistentSketch
 {
+    // XXX the count c is not honored everywhere; fix the sketches
+    // if it's needed in the test
     virtual void
     update(TIMESTAMP ts, uint32_t value, int c = 1) = 0;
 };

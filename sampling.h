@@ -3,71 +3,20 @@
 
 #include "sketch.h"
 #include <random>
+#include "avl.h"
 
 #define MAX_SAMPLE_SIZE 0x7fffffffu
+
+// defined in sampling.cpp
+namespace SamplingSketchInternals {
+    struct Item;
+    struct List;
+} // namespace SamplingSketchInternals
 
 class SamplingSketch:
     public AbstractPersistentPointQueryable, // str
     public IPersistentHeavyHitterSketch // u32
 {
-    struct Item {
-        unsigned long long  m_ts;
-        union {
-            ptrdiff_t           m_str_off;
-            uint32_t            m_u32;
-        }                   m_value;
-    }
-    ;
-    struct List {
-    public:
-        List();
-
-        ~List();
-
-        void
-        reset();
-
-        void
-        append(
-            TIMESTAMP ts,
-            const char *str);
-
-        void
-        append(
-            TIMESTAMP ts,
-            uint32_t value);
-
-        size_t
-        memory_usage() const;
-
-        Item*
-        last_of(unsigned long long ts) const;
-
-        const char*
-        get_str(const Item &item) const
-        {
-            return m_content + item.m_value.m_str_off;
-        }
-
-    private: 
-        void ensure_item_capacity(unsigned desired_length);
-
-        void ensure_content_capacity(size_t desired_length);
-
-        // 32 bits should be enough for length which grows in logarithm
-        unsigned            m_length,
-
-                            m_capacity;
-
-        Item                *m_items;
-
-        size_t              m_end_of_content,
-
-                            m_capacity_of_content;
-
-        char                *m_content;
-    };
-
 public:
     SamplingSketch(
         unsigned sample_size,
@@ -111,7 +60,8 @@ private:
 
     unsigned long long  m_seen;
     
-    List                *m_reservoir;
+    SamplingSketchInternals::List
+                        *m_reservoir;
 
     std::mt19937        m_rng;
 
@@ -123,6 +73,120 @@ public:
     get_test_instance();
 
     static SamplingSketch*
+    create_from_config(int idx = -1);
+
+    static int
+    num_configs_defined();
+};
+
+class SamplingSketchBITP:
+    public IPersistentHeavyHitterSketchBITP
+{
+private:
+    struct MinWeightListNode
+    {
+        double              m_weight;
+
+        MinWeightListNode
+                            *m_next;
+    };
+
+    struct Item
+    {
+        TIMESTAMP           m_ts;
+
+        uint32_t            m_value;
+        
+        MinWeightListNode   m_min_weight_list;
+
+        double              m_my_weight; // TODO can we somehow drop this field?
+
+        // XXX this assumes 8-byte pointers and 4-byte ints
+        // XXX and the alignment requirement for pointers and ints are 8 and 4
+        uint64_t            : 0;
+
+        char                m_payload[sizeof(Item*) * 6 + sizeof(int) * 2];
+    };
+
+    static const dsimpl::AVLNodeDesc<TIMESTAMP>
+                            m_ts_map_node_desc;
+
+    static const dsimpl::AVLNodeDesc<double>
+                            m_weight_map_node_desc;
+
+public:
+    SamplingSketchBITP(
+        uint32_t            sample_size,
+        uint32_t            seed = 19950810u);
+
+    ~SamplingSketchBITP();
+    
+    void
+    clear() override;
+
+    size_t
+    memory_usage() const override;
+
+    std::string
+    get_short_description() const override;
+    
+    void
+    update(
+        TIMESTAMP           ts,
+        uint32_t            value,
+        int                 c = 1) override;
+
+    std::vector<HeavyHitter>
+    estimate_heavy_hitters_bitp(
+        TIMESTAMP           ts_s,
+        double              frac_threshold) const override;
+
+private:
+    
+    Item*&
+    ith_most_recent_item(ptrdiff_t i) const
+    {
+        ptrdiff_t i2;
+        if (m_most_recent_items_start < i)
+        {
+            i2 = m_most_recent_items_start + m_sample_size - i;
+        }
+        else
+        {
+            i2 = m_most_recent_items_start - i;
+        }
+        return m_most_recent_items[i2];
+    }
+
+    uint32_t                m_sample_size;
+    
+    dsimpl::AVL<Item, TIMESTAMP>
+                            m_ts_map;
+
+    dsimpl::AVL<Item, double>
+                            m_min_weight_map;
+    
+    dsimpl::AVL<Item, double>
+                            m_most_recent_items_weight_map;
+
+    Item                    **m_most_recent_items;
+
+    ptrdiff_t               m_most_recent_items_start;
+
+    std::mt19937            m_rng;
+
+    std::uniform_real_distribution<double>
+                            m_unif_0_1;
+
+    uint64_t                m_num_items_alloced;
+
+    uint64_t                m_num_mwlistnodes_alloced;
+
+public:
+    static SamplingSketchBITP*
+    get_test_instance();
+
+    static SamplingSketchBITP*
     create_from_config(int idx = -1);
 
     static int

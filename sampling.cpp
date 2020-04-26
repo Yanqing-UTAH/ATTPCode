@@ -7,8 +7,79 @@
 #include "util.h"
 #include "conf.h"
 #include <sstream>
+#include "min_heap.h"
 
-SamplingSketch::List::List():
+//#ifdef NDEBUG
+//#undef NDEBUG
+//#endif
+
+#include <cassert>
+#include <iostream>
+
+// internal structs
+namespace SamplingSketchInternals {
+struct Item {
+    unsigned long long      m_ts;
+    union {
+        // XXX the str interface is kept for the old tests
+        ptrdiff_t           m_str_off;
+
+        uint32_t            m_u32;
+
+    }                       m_value;
+};
+
+struct List {
+public:
+    List();
+
+    ~List();
+
+    void
+    reset();
+
+    void
+    append(
+        TIMESTAMP ts,
+        const char *str);
+
+    void
+    append(
+        TIMESTAMP ts,
+        uint32_t value);
+
+    size_t
+    memory_usage() const;
+
+    Item*
+    last_of(unsigned long long ts) const;
+
+    const char*
+    get_str(const Item &item) const
+    {
+        return m_content + item.m_value.m_str_off;
+    }
+
+private: 
+    void ensure_item_capacity(unsigned desired_length);
+
+    void ensure_content_capacity(size_t desired_length);
+
+    // 32 bits should be enough for length which grows in logarithm
+    unsigned            m_length,
+
+                        m_capacity;
+
+    Item                *m_items;
+
+    size_t              m_end_of_content,
+
+                        m_capacity_of_content;
+
+    char                *m_content;
+};
+
+List::List():
     m_length(0u),
     m_capacity(0u),
     m_items(nullptr),
@@ -18,13 +89,13 @@ SamplingSketch::List::List():
 {
 }
 
-SamplingSketch::List::~List()
+List::~List()
 {
     reset();
 }
 
 void
-SamplingSketch::List::reset()
+List::reset()
 {
     delete[] m_items;
     m_length = m_capacity = 0;
@@ -33,7 +104,7 @@ SamplingSketch::List::reset()
 }
 
 void
-SamplingSketch::List::append(
+List::append(
     unsigned long long ts,
     const char *str)
 {
@@ -50,7 +121,7 @@ SamplingSketch::List::append(
 }
 
 void
-SamplingSketch::List::append(
+List::append(
     TIMESTAMP ts,
     uint32_t value)
 {
@@ -61,13 +132,13 @@ SamplingSketch::List::append(
 }
 
 size_t
-SamplingSketch::List::memory_usage() const
+List::memory_usage() const
 {
     return m_capacity * sizeof(Item) + m_capacity_of_content;
 }
 
-SamplingSketch::Item*
-SamplingSketch::List::last_of(unsigned long long ts) const
+Item*
+List::last_of(unsigned long long ts) const
 {
     Item * item = std::upper_bound(m_items, m_items + m_length, ts,
         [](unsigned long long ts, const Item& i) -> bool {
@@ -77,7 +148,7 @@ SamplingSketch::List::last_of(unsigned long long ts) const
 }
 
 void
-SamplingSketch::List::ensure_item_capacity(unsigned desired_length)
+List::ensure_item_capacity(unsigned desired_length)
 {
     if (desired_length > m_capacity)
     {
@@ -98,7 +169,7 @@ SamplingSketch::List::ensure_item_capacity(unsigned desired_length)
 }
 
 void
-SamplingSketch::List::ensure_content_capacity(size_t desired_length)
+List::ensure_content_capacity(size_t desired_length)
 {
     if (desired_length > m_capacity_of_content)
     {
@@ -118,6 +189,15 @@ SamplingSketch::List::ensure_content_capacity(size_t desired_length)
         m_content = new_content;
     }
 }
+
+} // namespace SamplingSketchInternals
+
+
+//////////////////////////////////////
+//  Sampling sketch ATTP impl.      //
+//////////////////////////////////////
+
+using namespace SamplingSketchInternals;
 
 SamplingSketch::SamplingSketch(
     unsigned sample_size,
@@ -331,6 +411,346 @@ SamplingSketch::num_configs_defined()
     if (g_config->is_list("SAMPLING.sample_size"))
     {
         return g_config->list_length("SAMPLING.sample_size");   
+    }
+
+    return -1;
+}
+
+//////////////////////////////////////
+//  Sampling sketch BITP impl.      //
+//////////////////////////////////////
+
+#define SSBITP_ITEM_OFFSET_OF(member) \
+    (dsimpl::PayloadOffset) offsetof(SamplingSketchBITP::Item, member) - \
+    (dsimpl::PayloadOffset) offsetof(SamplingSketchBITP::Item, m_payload)
+
+const dsimpl::AVLNodeDesc<TIMESTAMP>
+SamplingSketchBITP::m_ts_map_node_desc(
+    SSBITP_ITEM_OFFSET_OF(m_ts),
+    SSBITP_ITEM_OFFSET_OF(m_payload) + 0,
+    SSBITP_ITEM_OFFSET_OF(m_payload) + sizeof(Item*),
+    SSBITP_ITEM_OFFSET_OF(m_payload) + 2 * sizeof(Item*),
+    SSBITP_ITEM_OFFSET_OF(m_payload) + 6 * sizeof(Item*));
+
+const dsimpl::AVLNodeDesc<double>
+SamplingSketchBITP::m_weight_map_node_desc(
+    SSBITP_ITEM_OFFSET_OF(m_min_weight_list.m_weight),
+    SSBITP_ITEM_OFFSET_OF(m_payload) + 3 * sizeof(Item*),
+    SSBITP_ITEM_OFFSET_OF(m_payload) + 4 * sizeof(Item*),
+    SSBITP_ITEM_OFFSET_OF(m_payload) + 5 * sizeof(Item*),
+    SSBITP_ITEM_OFFSET_OF(m_payload) + 6 * sizeof(Item*) + sizeof(int));
+
+SamplingSketchBITP::SamplingSketchBITP(
+    uint32_t sample_size,
+    uint32_t seed):
+    m_sample_size(sample_size),
+    m_ts_map(&m_ts_map_node_desc),
+    m_min_weight_map(&m_weight_map_node_desc),
+    m_most_recent_items_weight_map(&m_weight_map_node_desc),
+    m_most_recent_items(new Item*[m_sample_size]),
+    m_most_recent_items_start(0),
+    m_rng(seed),
+    m_unif_0_1(0.0, 1.0),
+    m_num_items_alloced(0),
+    m_num_mwlistnodes_alloced(0)
+{
+    std::memset(m_most_recent_items, 0, sizeof(Item*) * m_sample_size);
+}
+
+SamplingSketchBITP::~SamplingSketchBITP()
+{
+    clear();
+    delete[] m_most_recent_items;
+}
+
+void
+SamplingSketchBITP::clear()
+{
+    for (auto iter = m_ts_map.begin();
+            iter != m_ts_map.end();)
+    {
+        Item *item = iter.get_node();
+        ++iter;
+        MinWeightListNode *n = item->m_min_weight_list.m_next;
+        while (n)
+        {
+            auto n2 = n;
+            n = n->m_next;
+            assert(m_num_mwlistnodes_alloced);
+            --m_num_mwlistnodes_alloced;
+            delete n2;
+        }
+        assert(m_num_items_alloced);
+        --m_num_items_alloced;
+        delete item;
+    }
+    m_ts_map.clear();
+    m_min_weight_map.clear();
+    m_most_recent_items_weight_map.clear();
+    for (uint32_t i = 0; i < m_sample_size; ++i)
+    {
+        if (m_most_recent_items[i])
+        {
+            assert(!m_most_recent_items[i]->m_min_weight_list.m_next);
+            assert(m_num_items_alloced);
+            --m_num_items_alloced;
+            delete m_most_recent_items[i]; 
+            m_most_recent_items[i] = nullptr;
+        }
+    }
+    
+    assert(m_num_items_alloced == 0);
+    assert(m_num_mwlistnodes_alloced == 0);
+
+    //m_num_items_alloced = 0;
+    //m_num_mwlistnodes_alloced = 0;
+}
+
+size_t
+SamplingSketchBITP::memory_usage() const
+{
+    std::cout << get_short_description() << ": "
+        << m_num_items_alloced << ' ' << m_num_mwlistnodes_alloced << std::endl;
+    return 8 // m_sample_size and alignment
+        + sizeof(m_ts_map)
+        + sizeof(m_min_weight_map)
+        + sizeof(m_most_recent_items_weight_map)
+        + 16 + m_sample_size * sizeof(Item*) // m_most_recent_items and its start
+        + sizeof(m_rng)
+        + sizeof(m_unif_0_1)
+        + 16 // m_num_items_alloced and m_num_mwlistnodes_alloced
+        + sizeof(Item) * m_num_items_alloced
+        + sizeof(MinWeightListNode) * m_num_mwlistnodes_alloced;
+}
+
+std::string
+SamplingSketchBITP::get_short_description() const
+{
+    return std::string("SAMPLING_BITP-ss") + std::to_string(m_sample_size);
+}
+
+void
+SamplingSketchBITP::update(
+    TIMESTAMP ts,
+    uint32_t value,
+    int c)
+{
+update_loop:
+    double weight = m_unif_0_1(m_rng);
+
+    Item *item = new Item;
+    item->m_ts = ts;
+    item->m_value = value;
+    item->m_my_weight = weight;
+    item->m_min_weight_list.m_weight = weight;
+    item->m_min_weight_list.m_next = nullptr;
+    ++m_num_items_alloced;
+    
+    bool is_first_m_sample_size_items = !ith_most_recent_item(m_sample_size - 1);
+    if (!is_first_m_sample_size_items)
+    {
+        Item *purgeable_item = ith_most_recent_item(m_sample_size - 1);
+        m_most_recent_items_weight_map.erase(purgeable_item);
+
+        auto iter = m_most_recent_items_weight_map.begin();
+        if (iter != m_most_recent_items_weight_map.end() &&
+            iter->m_min_weight_list.m_weight < purgeable_item->m_min_weight_list.m_weight)
+        {
+            // construct the mwlist for the purgeable_item
+            double original_weight = purgeable_item->m_min_weight_list.m_weight;
+            purgeable_item->m_min_weight_list.m_weight = iter->m_min_weight_list.m_weight;
+
+            MinWeightListNode **p_tail = &purgeable_item->m_min_weight_list.m_next;
+            for (++iter; iter != m_most_recent_items_weight_map.end() &&
+                    iter->m_min_weight_list.m_weight < original_weight; ++iter)
+            {
+                MinWeightListNode *p2 = new MinWeightListNode;
+                p2->m_weight = iter->m_min_weight_list.m_weight;
+                *p_tail = p2;
+                p_tail = &p2->m_next;
+                ++m_num_mwlistnodes_alloced;
+            }
+            
+            MinWeightListNode *p2 = new MinWeightListNode;
+            p2->m_weight = original_weight;
+            p2->m_next = nullptr;
+            *p_tail = p2;
+            ++m_num_mwlistnodes_alloced;
+            
+            m_min_weight_map.insert(purgeable_item);
+            m_ts_map.insert(purgeable_item);
+        }
+        else
+        {
+            if (purgeable_item->m_min_weight_list.m_weight < weight)
+            {
+                // this item is going to be purged in this update
+                // don't bother add it to the min_weight_map
+                delete purgeable_item;
+                --m_num_items_alloced;
+            }
+            else
+            {
+                m_min_weight_map.insert(purgeable_item);
+                m_ts_map.insert(purgeable_item);
+            }
+        }
+    }
+
+    // purge any item in the min_weight_map that
+    // 1. does not have anything in the min weight list other than itself; and
+    // 2. has a smaller weight than this item's weight
+    //
+    // or the head of the min weight list that is not the item itself
+    // and has a weight smaller than this item's weight
+    for (auto iter2 = m_min_weight_map.begin();
+            iter2 != m_min_weight_map.end() &&
+            iter2->m_min_weight_list.m_weight < weight;)
+    {
+        Item *purged_item = iter2.get_node();
+        if (purged_item->m_min_weight_list.m_next)
+        {
+            MinWeightListNode *p = purged_item->m_min_weight_list.m_next;
+            purged_item->m_min_weight_list.m_weight = p->m_weight;
+            purged_item->m_min_weight_list.m_next = p->m_next;
+            delete p;
+            assert(m_num_mwlistnodes_alloced > 0);
+            --m_num_mwlistnodes_alloced;
+
+            if (weight < purged_item->m_my_weight)
+            {
+                if (weight < purged_item->m_min_weight_list.m_weight)
+                {
+                    p = new MinWeightListNode;
+                    p->m_weight = purged_item->m_min_weight_list.m_weight;
+                    p->m_next = purged_item->m_min_weight_list.m_next;
+                    purged_item->m_min_weight_list.m_next = p;
+                    purged_item->m_min_weight_list.m_weight = weight;
+                }
+                else
+                {
+                    MinWeightListNode **pp = &purged_item->m_min_weight_list.m_next;
+                    while ((*pp)->m_weight < weight)
+                    {
+                        pp = &(*pp)->m_next;
+                    }
+                    p = new MinWeightListNode;
+                    p->m_weight = weight;
+                    p->m_next = *pp;
+                    *pp = p;
+                }
+            }
+
+            ++iter2;
+        }
+        else
+        {
+            iter2 = m_min_weight_map.erase(iter2);
+            m_ts_map.erase(purged_item);
+            assert(m_num_items_alloced > 0);
+            delete purged_item;
+            --m_num_items_alloced;
+        }
+    }
+
+    // add this item to the most recent items
+    m_most_recent_items_start = (m_most_recent_items_start == m_sample_size - 1) ?
+        0 : (m_most_recent_items_start + 1);
+    m_most_recent_items[m_most_recent_items_start] = item;
+    m_most_recent_items_weight_map.insert(item);
+    assert(!item->m_min_weight_list.m_next);
+
+    if (--c) goto update_loop;
+}
+
+std::vector<IPersistentHeavyHitterSketchBITP::HeavyHitter>
+SamplingSketchBITP::estimate_heavy_hitters_bitp(
+    TIMESTAMP ts_s,
+    double frac_threshold) const
+{
+    std::vector<Item*> samples;
+    samples.reserve(m_sample_size);
+    
+    for (uint32_t i = 0; i < m_sample_size; ++i)
+    {
+        Item *item = ith_most_recent_item(i);
+        if (!item || item->m_ts <= ts_s)
+        {
+            break;
+        }
+        samples.push_back(item);
+    }
+    
+    if (samples.size() == m_sample_size)
+    {
+        // go through the tree
+        dsimpl::min_heap_make(samples, m_sample_size,
+            [](Item *item) -> double { return item->m_my_weight; });
+        
+        auto iter = m_ts_map.end();
+        auto begin = m_ts_map.begin();
+        while (iter != begin)
+        {
+            --iter;
+            if (iter->m_ts <= ts_s)
+            {
+                break;
+            }
+            
+            if (iter->m_my_weight > samples[0]->m_my_weight)
+            {
+                samples[0] = iter.get_node();
+                dsimpl::min_heap_push_down(samples, 0, m_sample_size,
+                    [](Item *item) -> double { return item->m_my_weight; });
+            }
+        }
+    }
+
+    std::unordered_map<uint32_t, uint32_t> cnt_map;
+    for (Item *item: samples)
+    {
+        ++cnt_map[item->m_value];
+    }
+    
+    std::vector<IPersistentHeavyHitterSketchBITP::HeavyHitter> ret;
+    uint32_t m = (uint32_t) samples.size();
+    auto sample_threshold = (uint32_t) std::ceil(frac_threshold * m);
+    for (const auto &p: cnt_map)
+    {
+        if (p.second > sample_threshold)
+        {
+            ret.emplace_back(IPersistentHeavyHitterSketchBITP::HeavyHitter{
+                p.first, (float) p.second / m}); 
+        }
+    }
+
+    return std::move(ret);
+}
+
+SamplingSketchBITP*
+SamplingSketchBITP::get_test_instance()
+{
+    return new SamplingSketchBITP(1);
+}
+
+SamplingSketchBITP*
+SamplingSketchBITP::create_from_config(
+    int idx)
+{
+    uint32_t sample_size, seed;
+
+    sample_size = g_config->get_u32("SAMPLING_BITP.sample_size", idx).value();
+    seed = g_config->get_u32("SAMPLING.seed", -1).value();
+
+    return new SamplingSketchBITP(sample_size, seed);
+}
+
+int
+SamplingSketchBITP::num_configs_defined()
+{
+    if (g_config->is_list("SAMPLING_BITP.sample_size"))
+    {
+        return g_config->list_length("SAMPLING_BITP.sample_size");
     }
 
     return -1;

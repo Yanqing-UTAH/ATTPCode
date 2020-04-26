@@ -10,6 +10,7 @@ extern "C"
 #include <cassert>
 #include <iostream>
 
+using dsimpl::UINT8;
 
 NormSamplingSketch::List::List():
     m_length(0u),

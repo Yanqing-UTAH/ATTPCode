@@ -6,6 +6,8 @@
 #include <iostream>
 #include <list>
 
+using dsimpl::UINT8;
+
 namespace MisraGriesSketches {
 
 struct MisraGriesAccessor {

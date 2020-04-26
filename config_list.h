@@ -34,6 +34,11 @@ DEFINE_CONFIG_ENTRY(SAMPLING.enabled, boolean, true, false, false)
 DEFINE_CONFIG_ENTRY(SAMPLING.sample_size, u32, SAMPLING.enabled, true, , true, 1u)
 DEFINE_CONFIG_ENTRY(SAMPLING.seed, u32, true, false, 19950810u)
 
+// uniform sampling sketch BITP
+DEFINE_CONFIG_ENTRY(SAMPLING_BITP.enabled, boolean, true, false, false)
+DEFINE_CONFIG_ENTRY(SAMPLING_BITP.sample_size, u32, SAMPLING_BITP.enabled, true, , true, 1u)
+DEFINE_CONFIG_ENTRY(SAMPLING_BITP.seed, u32, true, false, 19950810u)
+
 // persistent count-min
 DEFINE_CONFIG_ENTRY(PCM_HH.enabled, boolean, true, false, false)
 DEFINE_CONFIG_ENTRY(PCM_HH.log_universe_size, u32, PCM_HH.enabled, true, , true, 1u, true, 32u)
@@ -74,7 +79,8 @@ DEFINE_CONFIG_ENTRY(PFD.enabled, boolean, true, false, false)
 DEFINE_CONFIG_ENTRY(PFD.half_sketch_size, u32, PFD.enabled, true, , true, 1)
 
 // misc settings
-DEFINE_CONFIG_ENTRY(perf.measure_time, boolean, false, false, false)
+DEFINE_CONFIG_ENTRY(perf.measure_time, boolean, true, false, false)
+DEFINE_CONFIG_ENTRY(misc.suppress_progress_bar, boolean, true, false, false)
 
 #ifdef HAS_DEFINE_CONFIG_ENTRY_STUB
 #undef HAS_DEFINE_CONFIG_ENTRY_STUB

@@ -1,7 +1,7 @@
 CC = COMPILER='@CC@' ./bin/compile
 CXX = COMPILER='@CXX@' ./bin/compile
 LINK.o = $(LINK.cc)
-CXXFLAGS = @CXXFLAGS@ -Wall
+CXXFLAGS = @CXXFLAGS@ -Wall -Wno-comment
 CPPFLAGS = @CPPFLAGS@
 LDFLAGS = @LDFLAGS@
 LDLIBS = @LIBS@ -pthread
@@ -40,7 +40,7 @@ sketch.o: sketch.cpp sketch.h util.h sketch_lib.h pcm.h pla.h \
  MurmurHash3.h pams.h sampling.h heavyhitters.h exact_query.h pmmg.h \
  misra_gries.h hashtable.h min_heap.h basic_defs.h \
  dummy_persistent_misra_gries.h conf.h norm_sampling.h fenwick_tree.h \
- sketch_list.h
+ fd.h sketch_list.h
 
 old_driver.o: old_driver.cpp sketch.h util.h sketch_lib.h
 
@@ -55,7 +55,7 @@ test_hh.o: test_hh.cpp heavyhitters.h pcm.h pla.h util.h sketch.h \
 norm_sampling.o: norm_sampling.cpp norm_sampling.h fenwick_tree.h \
  sketch.h util.h sketch_lib.h min_heap.h basic_defs.h conf.h hashtable.h
 
-fd.o: fd.cpp
+fd.o: fd.cpp fd.h sketch.h util.h sketch_lib.h conf.h hashtable.h
 
 pmmg.o: pmmg.cpp pmmg.h util.h misra_gries.h hashtable.h sketch.h \
  sketch_lib.h min_heap.h basic_defs.h conf.h
@@ -84,7 +84,7 @@ query.o: query.cpp util.h conf.h hashtable.h sketch.h sketch_lib.h \
 conf.o: conf.cpp conf.h hashtable.h util.h config_list.h
 
 sampling.o: sampling.cpp sampling.h sketch.h util.h sketch_lib.h conf.h \
- hashtable.h
+ hashtable.h avl.h basic_defs.h min_heap.h
 
 pla.o: pla.cpp pla.h
 
