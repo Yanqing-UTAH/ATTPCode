@@ -15,3 +15,5 @@ or to configure it with -O0 -g flags, run
 
     make depend
 
+
+Note: avl.h, min_heap.h and basic_defs.h are hard links on ravenserv1.

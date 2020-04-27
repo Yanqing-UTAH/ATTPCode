@@ -424,7 +424,7 @@ SamplingSketch::num_configs_defined()
     (dsimpl::PayloadOffset) offsetof(SamplingSketchBITP::Item, member) - \
     (dsimpl::PayloadOffset) offsetof(SamplingSketchBITP::Item, m_payload)
 
-const dsimpl::AVLNodeDesc<TIMESTAMP>
+const dsimpl::AVLNodeDescByOffset<SamplingSketchBITP::Item, TIMESTAMP>
 SamplingSketchBITP::m_ts_map_node_desc(
     SSBITP_ITEM_OFFSET_OF(m_ts),
     SSBITP_ITEM_OFFSET_OF(m_payload) + 0,
@@ -432,7 +432,7 @@ SamplingSketchBITP::m_ts_map_node_desc(
     SSBITP_ITEM_OFFSET_OF(m_payload) + 2 * sizeof(Item*),
     SSBITP_ITEM_OFFSET_OF(m_payload) + 6 * sizeof(Item*));
 
-const dsimpl::AVLNodeDesc<double>
+const dsimpl::AVLNodeDescByOffset<SamplingSketchBITP::Item, double>
 SamplingSketchBITP::m_weight_map_node_desc(
     SSBITP_ITEM_OFFSET_OF(m_min_weight_list.m_weight),
     SSBITP_ITEM_OFFSET_OF(m_payload) + 3 * sizeof(Item*),
@@ -444,9 +444,9 @@ SamplingSketchBITP::SamplingSketchBITP(
     uint32_t sample_size,
     uint32_t seed):
     m_sample_size(sample_size),
-    m_ts_map(&m_ts_map_node_desc),
-    m_min_weight_map(&m_weight_map_node_desc),
-    m_most_recent_items_weight_map(&m_weight_map_node_desc),
+    m_ts_map(m_ts_map_node_desc),
+    m_min_weight_map(m_weight_map_node_desc),
+    m_most_recent_items_weight_map(m_weight_map_node_desc),
     m_most_recent_items(new Item*[m_sample_size]),
     m_most_recent_items_start(0),
     m_rng(seed),

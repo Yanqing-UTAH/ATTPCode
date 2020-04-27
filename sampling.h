@@ -108,10 +108,10 @@ private:
         char                m_payload[sizeof(Item*) * 6 + sizeof(int) * 2];
     };
 
-    static const dsimpl::AVLNodeDesc<TIMESTAMP>
+    static const dsimpl::AVLNodeDescByOffset<Item, TIMESTAMP>
                             m_ts_map_node_desc;
 
-    static const dsimpl::AVLNodeDesc<double>
+    static const dsimpl::AVLNodeDescByOffset<Item, double>
                             m_weight_map_node_desc;
 
 public:
@@ -160,13 +160,13 @@ private:
 
     uint32_t                m_sample_size;
     
-    dsimpl::AVL<Item, TIMESTAMP>
+    dsimpl::avl_t<decltype(m_ts_map_node_desc)>
                             m_ts_map;
 
-    dsimpl::AVL<Item, double>
+    dsimpl::avl_t<decltype(m_weight_map_node_desc)>
                             m_min_weight_map;
     
-    dsimpl::AVL<Item, double>
+    dsimpl::avl_t<decltype(m_weight_map_node_desc)>
                             m_most_recent_items_weight_map;
 
     Item                    **m_most_recent_items;
