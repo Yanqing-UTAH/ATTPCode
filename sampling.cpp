@@ -440,87 +440,562 @@ SamplingSketchBITP::m_weight_map_node_desc(
     SSBITP_ITEM_OFFSET_OF(m_payload) + 5 * sizeof(Item*),
     SSBITP_ITEM_OFFSET_OF(m_payload) + 6 * sizeof(Item*) + sizeof(int));
 
+#define SSBITP_ITEMNEW_OFFSET_OF(member) \
+    (dsimpl::PayloadOffset) offsetof(SamplingSketchBITP::ItemNew, member) - \
+    (dsimpl::PayloadOffset) offsetof(SamplingSketchBITP::ItemNew, m_payload)
+SamplingSketchBITP::ItemNewNodeDesc::ItemNewNodeDesc(
+    uint32_t sample_size):
+    dsimpl::AVLNodeDescByOffset<SamplingSketchBITP::ItemNew, TIMESTAMP>(
+        SSBITP_ITEMNEW_OFFSET_OF(m_ts),
+        SSBITP_ITEMNEW_OFFSET_OF(m_tree_left),
+        SSBITP_ITEMNEW_OFFSET_OF(m_tree_right),
+        SSBITP_ITEMNEW_OFFSET_OF(m_tree_parent),
+        SSBITP_ITEMNEW_OFFSET_OF(m_tree_hdiff)),
+    m_sample_size(sample_size),
+    m_tot_num_samples(0)
+{
+}
+
+void
+SamplingSketchBITP::ItemNewNodeDesc::_fix_agg(
+    ItemNew *item,
+    void *info,
+    dsimpl::Type2AggregateOps op)
+{
+    
+    ItemNew *item2;
+
+    switch (op) {
+    case dsimpl::T2AGGOPS_INSERTION:
+        item2 = (ItemNew*) info;
+        if (item->m_samples->size() < m_sample_size)
+        {
+            item->m_samples->insert(item2); 
+            ++m_tot_num_samples;
+        } else {
+            auto smallest_item_iter = find_smallest_item(item);
+            if (itemnew_total_order_comp_func(*smallest_item_iter, item2))
+            {
+                item->m_samples->erase(smallest_item_iter);
+                item->m_samples->insert(item2);
+            }
+        }
+        break;
+
+    case dsimpl::T2AGGOPS_DELETION:
+        item2 = (ItemNew*) info;
+        {
+            auto iter = item->m_samples->lower_bound(item2);
+            if (iter != item->m_samples->end() && (*iter)->m_weight == item2->m_weight)
+            {
+                // Highly unlikely but we need to search for the actual item2 if
+                // there're duplciate weights. Since it should be very rare,
+                // we don't bother optimize for that by enforcing the strict total
+                // order among items in the m_samples tree.
+                if (*iter != item2)
+                {
+                    do {
+                        ++iter;
+                        if (iter == item->m_samples->end() ||
+                            (*iter)->m_weight != item2->m_weight)
+                        {
+                            goto T2AGGOPS_DELETION_done;
+                        }
+                    } while (*iter != item2);
+                }
+                
+                item->m_samples->erase(iter);
+
+                if ((_left(item) ? _left(item)->m_samples->size() : 0) +
+                    (_right(item) ? _right(item)->m_samples->size() : 0) +
+                     1 == item->m_samples->size())
+                {
+                    --m_tot_num_samples;
+                    goto T2AGGOPS_DELETION_done; 
+                }
+
+                // now we need to replace item2 with other items in the
+                // subtree if available
+                
+                // iter is the one with the smallest weight, but again, we need
+                // to check if there's one that comes later with the same
+                // weight.
+                iter = item->m_samples->begin();
+                auto iter2 = iter;
+                while (++iter2 != item->m_samples->end() &&
+                        (*iter2)->m_weight == (*iter)->m_weight)
+                {
+                    if ((*iter2)->m_seq_no > (*iter)->m_seq_no)
+                    {
+                        iter = iter2;
+                    }
+                }
+                
+                ItemNew *smallest_item = *iter;
+                ItemNew *candidate = nullptr;
+        
+                auto check_subtree_for_candidate = [&smallest_item]
+                (ItemNew *node) -> ItemNew*
+                {
+                    ItemNew *candidate2 = nullptr;
+                    auto iter = node->m_samples->lower_bound(smallest_item->m_weight);
+                    if (iter != node->m_samples->end() &&
+                        (*iter)->m_weight == smallest_item->m_weight)
+                    {
+                        auto iter2 = iter;
+                        // check for duplicate weights
+                        do
+                        {
+                            if ((*iter)->m_seq_no > smallest_item->m_seq_no)
+                            {
+                                if (!candidate2 ||
+                                    (*iter)->m_seq_no < candidate2->m_seq_no)
+                                {
+                                    candidate2 = *iter;
+                                }
+                            }
+                            ++iter;
+                        } while (iter != node->m_samples->end()
+                            && (*iter)->m_weight == smallest_item->m_weight);
+                        if (candidate2)
+                        {
+                            return candidate2;
+                        }
+                        iter = iter2;
+                    }
+                    
+                    // riter points to one position prior to iter
+                    auto riter = decltype(node->m_samples->rbegin())(iter);
+                    if (riter == node->m_samples->rend())
+                    {
+                        // This is specific to dsimpl::avl_container where one position
+                        // prior to its begin() is end().
+                        return nullptr; 
+                    }
+                    candidate2 = *riter;
+                    while (++riter != node->m_samples->rend() &&
+                            (*riter)->m_weight == candidate2->m_weight)
+                    {
+                        // check for duplicate weights
+                        if ((*riter)->m_seq_no < candidate2->m_seq_no)
+                        {
+                            candidate2 = *riter;
+                        }
+                    }
+                    return candidate2;    
+                };
+
+                // the first candidate: the upper bound of weight on the left
+                if (_left(item))
+                {
+                    candidate = check_subtree_for_candidate(_left(item));
+                    if (candidate->m_weight == smallest_item->m_weight)
+                    {
+                        goto T2AGGOPS_DELETION_candidate_found;
+                    }
+                }
+
+                // the second candidate: subtree root
+                if (itemnew_total_order_comp_func(item, smallest_item))
+                {
+                    if (itemnew_total_order_comp_func(candidate, item))
+                    {
+                        candidate = item;
+                        if (candidate->m_weight == smallest_item->m_weight)
+                        {
+                            goto T2AGGOPS_DELETION_candidate_found;
+                        }
+                    }
+                } // otherwise it should be already in the sample
+
+                // the third candidate: the upper bound of weight on the right hand side
+                if (_right(item))
+                {
+                    auto candidate2 = check_subtree_for_candidate(_right(item));
+                    if (!candidate ||
+                        itemnew_total_order_comp_func(candidate, candidate2))
+                    {
+                        candidate = candidate2;
+                    }
+                }
+
+T2AGGOPS_DELETION_candidate_found:
+                assert(candidate);
+                item->m_samples->insert(candidate);
+            }
+        }
+T2AGGOPS_DELETION_done:
+        break;
+
+    case dsimpl::T2AGGOPS_DUPLICATE:
+        item2 = (ItemNew*) info;
+        std::swap(item->m_samples, item2->m_samples);
+        break;
+
+    case dsimpl::T2AGGOPS_RECONSTRUCT:
+        if (!_left(item))
+        {
+            if (!_right(item))
+            {
+                item->m_samples->insert(item);
+            }
+            else
+            {
+                reconstruct_samples_one_side(item, _right(item));
+            }
+        }
+        else
+        {
+            if (!_right(item))
+            {
+                reconstruct_samples_one_side(item, _left(item));
+            }
+            else
+            {
+                reconstruct_samples_two_sides(item);
+            }
+        }
+
+        break;
+
+    case dsimpl::T2AGGOPS_APPLY_DELTA:
+        assert(false); // unreacheable in our impl.
+        break;
+    }
+}
+
+SamplingSketchBITP::ItemNewNodeDesc::sample_iterator
+SamplingSketchBITP::ItemNewNodeDesc::find_smallest_item(
+    ItemNew *root)
+{
+    auto iter = root->m_samples->begin();
+    auto smallest_item_iter = iter;
+    while (++iter != root->m_samples->end() &&
+        (*iter)->m_weight == (*smallest_item_iter)->m_weight)
+    {
+        if ((*iter)->m_seq_no > (*smallest_item_iter)->m_seq_no)
+        {
+            smallest_item_iter = iter;
+        }
+    }
+    return smallest_item_iter;
+}
+
+void
+SamplingSketchBITP::ItemNewNodeDesc::reconstruct_samples_one_side(
+    ItemNew *root,
+    ItemNew *subtree)
+{
+    m_tot_num_samples -= root->m_samples->size();
+    root->m_samples->clear();
+    auto riter = subtree->m_samples->rbegin();
+    double last_weight;
+    while (riter != subtree->m_samples->rend())
+    {
+        if (root->m_samples->size() < m_sample_size)
+        {
+            last_weight = (*riter)->m_weight;
+            root->m_samples->insert(*riter);
+        }
+        else
+        {
+            if ((*riter)->m_weight < last_weight)
+            {
+                break;
+            }
+            assert((*riter)->m_weight == last_weight);
+            auto smallest_item_iter = find_smallest_item(root);
+            if ((*riter)->m_seq_no < (*smallest_item_iter)->m_seq_no)
+            {
+                root->m_samples->erase(smallest_item_iter);
+                root->m_samples->insert(*riter);
+            }
+        }
+        ++riter;
+    }
+    
+    if (root->m_samples->size() < m_sample_size)
+    {
+        root->m_samples->insert(root);
+    }
+    else if (root->m_weight >= last_weight)
+    {
+        auto smallest_item_iter = find_smallest_item(root);
+        if (itemnew_total_order_comp_func(*smallest_item_iter, root))
+        {
+            root->m_samples->erase(smallest_item_iter);
+            root->m_samples->insert(root);
+        }
+    }
+
+    m_tot_num_samples += root->m_samples->size();
+}
+
+void
+SamplingSketchBITP::ItemNewNodeDesc::reconstruct_samples_two_sides(
+    ItemNew *root)
+{
+    m_tot_num_samples -= root->m_samples->size();
+    root->m_samples->clear();
+
+    auto left = _left(root);
+    auto right = _right(root);
+    auto iter_l = left->m_samples->rbegin();
+    auto iter_r = right->m_samples->rbegin();
+    while (iter_l != left->m_samples->rend() &&
+            iter_r != right->m_samples->rend())
+    {
+        if ((*iter_l)->m_weight > (*iter_r)->m_weight)
+        {
+            root->m_samples->insert(*iter_l);
+            ++iter_l;
+            if (root->m_samples->size() == m_sample_size)
+            {
+                break;
+            }
+        }
+        else
+        {
+            root->m_samples->insert(*iter_r);
+            ++iter_r;
+            if (root->m_samples->size() == m_sample_size)
+            {
+                break;
+            }
+        }
+    }
+    
+    while (iter_l != left->m_samples->rend())
+    {
+        if (root->m_samples->size() < m_sample_size)
+        {
+            root->m_samples->insert(*iter_l);
+        }
+        else
+        {
+            auto smallest_item_iter = find_smallest_item(root); 
+            if ((*smallest_item_iter)->m_weight == (*iter_l)->m_weight)
+            {
+                if ((*smallest_item_iter)->m_seq_no > (*iter_l)->m_seq_no)
+                {
+                    root->m_samples->erase(smallest_item_iter);
+                    root->m_samples->insert(*iter_l);
+                }
+            }
+            else
+            {
+                assert((*smallest_item_iter)->m_weight > (*iter_l)->m_weight);
+                break;
+            }
+        }
+        ++iter_l;
+    }
+
+    while (iter_r != right->m_samples->rend())
+    {
+        if (root->m_samples->size() < m_sample_size)
+        {
+            root->m_samples->insert(*iter_r);
+        }
+        else
+        {
+            auto smallest_item_iter = find_smallest_item(root);
+            if ((*smallest_item_iter)->m_weight == (*iter_r)->m_weight)
+            {
+                if ((*smallest_item_iter)->m_seq_no > (*iter_r)->m_seq_no)
+                {
+                    root->m_samples->erase(smallest_item_iter);
+                    root->m_samples->insert(*iter_r);
+                }
+            }
+            else
+            {
+                assert((*smallest_item_iter)->m_weight > (*iter_r)->m_weight);
+                break;
+            }
+        }
+        ++iter_r;
+    }
+    
+    {
+        auto smallest_item_iter = find_smallest_item(root);
+        if (itemnew_total_order_comp_func(*smallest_item_iter, root))
+        {
+            root->m_samples->erase(smallest_item_iter);
+            root->m_samples->insert(root);
+        }
+    }
+
+    m_tot_num_samples += root->m_samples->size();
+}
+
+SamplingSketchBITP::ItemNewNodeDesc2::ItemNewNodeDesc2():
+    dsimpl::AVLNodeDescByOffset<SamplingSketchBITP::ItemNew, double>(
+        SSBITP_ITEMNEW_OFFSET_OF(m_ts),
+        SSBITP_ITEMNEW_OFFSET_OF(m_tree_left),
+        SSBITP_ITEMNEW_OFFSET_OF(m_tree_right),
+        SSBITP_ITEMNEW_OFFSET_OF(m_tree_parent),
+        SSBITP_ITEMNEW_OFFSET_OF(m_tree_hdiff)) {
+}
+
+void
+SamplingSketchBITP::ItemNewNodeDesc2::_fix_agg(ItemNew *item) const {
+    item->m_cnt_field = 1;
+    if (_left(item)) item->m_cnt_field += _left(item)->m_cnt_field;
+    if (_right(item)) item->m_cnt_field += _right(item)->m_cnt_field;
+}
+
+const dsimpl::AVLNodeDescByOffset<SamplingSketchBITP::ItemNew, double>
+SamplingSketchBITP::m_itemnew_node_desc3(
+    SSBITP_ITEMNEW_OFFSET_OF(m_min_weight),
+    SSBITP_ITEMNEW_OFFSET_OF(m_tree_left2),
+    SSBITP_ITEMNEW_OFFSET_OF(m_tree_right2),
+    SSBITP_ITEMNEW_OFFSET_OF(m_tree_parent2),
+    SSBITP_ITEMNEW_OFFSET_OF(m_tree_hdiff2));
+
 SamplingSketchBITP::SamplingSketchBITP(
     uint32_t sample_size,
-    uint32_t seed):
+    uint32_t seed,
+    bool use_new_impl):
     m_sample_size(sample_size),
+    m_use_new_impl(use_new_impl),
     m_ts_map(m_ts_map_node_desc),
     m_min_weight_map(m_weight_map_node_desc),
     m_most_recent_items_weight_map(m_weight_map_node_desc),
-    m_most_recent_items(new Item*[m_sample_size]),
+    m_most_recent_items(use_new_impl ? nullptr: new Item*[m_sample_size]),
     m_most_recent_items_start(0),
     m_rng(seed),
     m_unif_0_1(0.0, 1.0),
     m_num_items_alloced(0),
-    m_num_mwlistnodes_alloced(0)
+    m_num_mwlistnodes_alloced(0),
+    // new impl below
+    m_recent_items_new(use_new_impl ? new ItemNew*[m_sample_size]: nullptr),
+    m_recent_items_start_new(0),
+    m_ts_map_new(ItemNewNodeDesc(
+        m_sample_size)),
+    m_recent_items_weight_map(ItemNewNodeDesc2()),
+    m_min_weight_map_new(m_itemnew_node_desc3),
+    m_next_seq_no(0),
+    m_num_itemnew_alloced(0)
 {
-    std::memset(m_most_recent_items, 0, sizeof(Item*) * m_sample_size);
+    if (m_use_new_impl)
+    {
+        std::memset(m_recent_items_new, 0, sizeof(ItemNew*) * m_sample_size);
+    }
+    else
+    {
+        std::memset(m_most_recent_items, 0, sizeof(Item*) * m_sample_size);
+    }
 }
 
 SamplingSketchBITP::~SamplingSketchBITP()
 {
     clear();
     delete[] m_most_recent_items;
+    delete[] m_recent_items_new;
 }
 
 void
 SamplingSketchBITP::clear()
 {
-    for (auto iter = m_ts_map.begin();
-            iter != m_ts_map.end();)
+    if (!m_use_new_impl)
     {
-        Item *item = iter.get_node();
-        ++iter;
-        MinWeightListNode *n = item->m_min_weight_list.m_next;
-        while (n)
+        for (auto iter = m_ts_map.begin();
+                iter != m_ts_map.end();)
         {
-            auto n2 = n;
-            n = n->m_next;
-            assert(m_num_mwlistnodes_alloced);
-            --m_num_mwlistnodes_alloced;
-            delete n2;
-        }
-        assert(m_num_items_alloced);
-        --m_num_items_alloced;
-        delete item;
-    }
-    m_ts_map.clear();
-    m_min_weight_map.clear();
-    m_most_recent_items_weight_map.clear();
-    for (uint32_t i = 0; i < m_sample_size; ++i)
-    {
-        if (m_most_recent_items[i])
-        {
-            assert(!m_most_recent_items[i]->m_min_weight_list.m_next);
+            Item *item = iter.get_node();
+            ++iter;
+            MinWeightListNode *n = item->m_min_weight_list.m_next;
+            while (n)
+            {
+                auto n2 = n;
+                n = n->m_next;
+                assert(m_num_mwlistnodes_alloced);
+                //--m_num_mwlistnodes_alloced;
+                delete n2;
+            }
             assert(m_num_items_alloced);
-            --m_num_items_alloced;
-            delete m_most_recent_items[i]; 
-            m_most_recent_items[i] = nullptr;
+            //--m_num_items_alloced;
+            delete item;
         }
-    }
-    
-    assert(m_num_items_alloced == 0);
-    assert(m_num_mwlistnodes_alloced == 0);
+        m_ts_map.clear();
+        m_min_weight_map.clear();
+        m_most_recent_items_weight_map.clear();
+        for (uint32_t i = 0; i < m_sample_size; ++i)
+        {
+            if (m_most_recent_items[i])
+            {
+                assert(!m_most_recent_items[i]->m_min_weight_list.m_next);
+                assert(m_num_items_alloced);
+                //--m_num_items_alloced;
+                delete m_most_recent_items[i]; 
+                m_most_recent_items[i] = nullptr;
+            }
+        }
+        
+        //assert(m_num_items_alloced == 0);
+        //assert(m_num_mwlistnodes_alloced == 0);
 
-    //m_num_items_alloced = 0;
-    //m_num_mwlistnodes_alloced = 0;
+        m_num_items_alloced = 0;
+        m_num_mwlistnodes_alloced = 0;
+    }
+    else
+    {
+        for (uint32_t i = 0; i < m_sample_size; ++i)
+        {
+            if (m_recent_items_new[i])
+            {
+                delete m_recent_items_new[i];
+                m_recent_items_new[i] = nullptr;
+            }
+        }
+        m_recent_items_start_new = 0;
+
+        m_recent_items_weight_map.clear();
+        m_min_weight_map_new.clear();
+        m_ts_map_new.delete_tree(
+            [this](ItemNew *item) {
+                delete item->m_samples;
+                delete item;
+            });
+
+        m_next_seq_no = 0;
+        m_num_itemnew_alloced = 0;
+        m_ts_map_new.m_tot_num_samples = 0;
+    }
 }
 
 size_t
 SamplingSketchBITP::memory_usage() const
 {
-    std::cout << get_short_description() << ": "
-        << m_num_items_alloced << ' ' << m_num_mwlistnodes_alloced << std::endl;
-    return 8 // m_sample_size and alignment
-        + sizeof(m_ts_map)
-        + sizeof(m_min_weight_map)
-        + sizeof(m_most_recent_items_weight_map)
-        + 16 + m_sample_size * sizeof(Item*) // m_most_recent_items and its start
-        + sizeof(m_rng)
-        + sizeof(m_unif_0_1)
-        + 16 // m_num_items_alloced and m_num_mwlistnodes_alloced
-        + sizeof(Item) * m_num_items_alloced
-        + sizeof(MinWeightListNode) * m_num_mwlistnodes_alloced;
+    if (m_use_new_impl)
+    {
+        return 8 // m_sample_size, m_use_new_impl, m_itemnew_alloc and alignment
+            + sizeof(m_rng)
+            + sizeof(m_unif_0_1)
+            + sizeof(ItemNew**) + m_sample_size * sizeof(ItemNew*) // m_recent_items_new
+            + sizeof(ptrdiff_t)
+            + sizeof(m_ts_map_new)
+            + sizeof(m_recent_items_weight_map)
+            + sizeof(m_min_weight_map_new)
+            + sizeof(uint64_t) * 2 // m_next_seq_no and m_num_itemnew_alloced
+            + m_num_itemnew_alloced * sizeof(ItemNew)
+            + m_ts_map_new.m_tot_num_samples *
+                sizeof(dsimpl::avl_container_impl::Node<ItemNew*, void>);
+    }
+    else
+    {
+        return 8 // m_sample_size and alignment
+            + sizeof(m_ts_map)
+            + sizeof(m_min_weight_map)
+            + sizeof(m_most_recent_items_weight_map)
+            + 16 + m_sample_size * sizeof(Item*) // m_most_recent_items and its start
+            + sizeof(m_rng)
+            + sizeof(m_unif_0_1)
+            + 16 // m_num_items_alloced and m_num_mwlistnodes_alloced
+            + sizeof(Item) * m_num_items_alloced
+            + sizeof(MinWeightListNode) * m_num_mwlistnodes_alloced;
+    }
 }
 
 std::string
@@ -531,6 +1006,396 @@ SamplingSketchBITP::get_short_description() const
 
 void
 SamplingSketchBITP::update(
+    TIMESTAMP ts,
+    uint32_t value,
+    int c)
+{
+    if (m_use_new_impl)
+    {
+        update_new(ts, value, c);
+    }
+    else
+    {
+        update_old(ts, value, c);
+    }
+}
+
+std::vector<IPersistentHeavyHitterSketchBITP::HeavyHitter>
+SamplingSketchBITP::estimate_heavy_hitters_bitp(
+    TIMESTAMP ts_s,
+    double frac_threshold) const
+{
+    if (m_use_new_impl)
+    {
+        return estimate_heavy_hitters_bitp_new(ts_s, frac_threshold);
+    }
+    else
+    {
+        return estimate_heavy_hitters_bitp_old(ts_s, frac_threshold);
+    }
+}
+
+void
+SamplingSketchBITP::update_new(
+    TIMESTAMP ts,
+    uint32_t value,
+    int c)
+{
+update_loop:
+    double weight = m_unif_0_1(m_rng);
+    
+    // items are totally ordered by the pair (m_weight, m_seq_no),
+    // in increasing m_weight and decreasing m_seq_no number
+    ItemNew *item = new ItemNew;
+    item->m_ts = ts;
+    item->m_value = value;
+    item->m_weight = weight;
+    // item->m_samples is not constructed nor is item->m_seq_no assigned until
+    // the new item is added to the m_ts_map_new
+    item->m_samples = nullptr;
+    ++m_num_itemnew_alloced;
+    
+    ItemNew *purgeable_item = nullptr; // the (m_sample_size + 1)^th most recent item
+    m_recent_items_start_new = (m_sample_size == m_recent_items_start_new - 1) ?
+            0 : (m_recent_items_start_new + 1);
+    if (m_recent_items_new[m_sample_size - 1])
+    {
+        purgeable_item = m_recent_items_new[m_recent_items_start_new];
+        m_recent_items_weight_map.erase(purgeable_item);
+    }
+    m_recent_items_new[m_recent_items_start_new] = item;
+
+    // now determine if purgeable_item can be safely purged
+    if (purgeable_item)
+    {
+        // purgeable_item->m_cnt_field = # of the recent items with weight <= its weight
+        purgeable_item->m_cnt_field = (decltype(purgeable_item->m_cnt_field))
+            m_recent_items_weight_map.get_sum_left<true>(
+                purgeable_item->m_weight, SSBITP_ITEMNEW_OFFSET_OF(m_cnt_field));
+        if (purgeable_item->m_cnt_field == 0 &&
+            item->m_weight > purgeable_item->m_weight)
+        {
+            delete purgeable_item;
+            --m_num_itemnew_alloced;
+        }
+        else
+        {
+            auto lm = m_recent_items_weight_map.begin_node();
+            purgeable_item->m_min_weight = lm->m_weight;
+            purgeable_item->m_seq_no = m_next_seq_no++;
+            purgeable_item->m_samples =
+                new dsimpl::avl_container<ItemNew*, double (*)(ItemNew*)>{
+                    itemnew_weight_key_func 
+                };
+            m_ts_map_new.insert(purgeable_item);
+            m_min_weight_map_new.insert(purgeable_item);
+
+            // The min_weight is adjusted in the next loop if item->m_weight >
+            // lm->m_weight
+        }
+
+    }
+    m_recent_items_weight_map.insert(item);
+    
+    // purge earlier items
+    {
+        auto iter = m_min_weight_map_new.begin();
+        ItemNew *reinsertion_list = nullptr;
+        ItemNew **reinsertion_list_tail_ptr = &reinsertion_list;
+        while (iter != m_min_weight_map_new.end() && iter->m_min_weight < item->m_weight)
+        {
+            ItemNew *purgeable_item = iter.get_node();
+            iter = m_min_weight_map_new.erase(iter);
+            if (purgeable_item->m_cnt_field == 0)
+            {
+                // this item can be safely dicarded             
+                m_ts_map_new.erase(purgeable_item);
+                m_ts_map_new.m_tot_num_samples -= purgeable_item->m_samples->size();
+                delete purgeable_item->m_samples;
+                delete purgeable_item;
+                --m_num_itemnew_alloced;
+            }
+            else
+            {
+                recompute_min_weight(purgeable_item, item);
+                *reinsertion_list_tail_ptr = purgeable_item;
+                // we borrow the parent field in m_min_weight_map_new
+                // as the next ptr in the reinsertion list
+                m_min_weight_map_new._parent(purgeable_item) = nullptr;
+                reinsertion_list_tail_ptr =
+                    &m_min_weight_map_new._parent(purgeable_item);
+            }
+        }
+
+        while (reinsertion_list)
+        {
+            ItemNew *item = reinsertion_list;
+            reinsertion_list = m_min_weight_map_new._parent(reinsertion_list);
+            m_min_weight_map_new.insert(item);
+        }
+    }
+
+    if (--c) goto update_loop;
+}
+
+template<bool has_nonnull_excluded>
+void
+SamplingSketchBITP::find_sample_set_exclude_impl(
+    SampleSet *sset,
+    ItemNew *excluded)
+{
+    assert(sset->m_pending_combined);
+
+    auto combined = sset->m_pending_combined;
+    sset->m_pending_combined = nullptr;
+    auto combined_iter = combined->m_samples->rbegin();
+    decltype(combined_iter) excluded_iter;
+    if constexpr (has_nonnull_excluded)
+    {
+        excluded_iter = excluded->m_samples->rbegin();
+    }
+
+    auto find_next_included_item = [&]() -> ItemNew* {
+        if constexpr (has_nonnull_excluded)
+        {
+            while (combined_iter != combined->m_samples->rend())
+            {
+                while (excluded_iter != excluded->m_samples->rend() &&
+                    (*excluded_iter)->m_weight > (*combined_iter)->m_weight)
+                {
+                    ++excluded_iter;        
+                }
+
+                auto item = *combined_iter;
+                ++combined_iter; // combined_iter incremented here for the loop
+                if (excluded_iter != excluded->m_samples->rend() &&
+                    (*excluded_iter)->m_weight == item->m_weight) {
+                
+                    // highly unlikely but it might be duplicate weights but different
+                    // nodes
+                    auto excluded_iter2 = excluded_iter;
+                    while (*excluded_iter2 != item) {
+                        ++excluded_iter2;
+                        if (excluded_iter2 == excluded->m_samples->rend() ||
+                            (*excluded_iter2)->m_weight < item->m_weight)
+                        {
+                            // item is not actually in the subtree at excluded,
+                            // which makes item a valid one to be included
+                            return item;
+                        }
+                    }
+                    // finishing the above while loop means we have found item
+                    // in the exclusion list
+                }
+                else
+                {
+                    // no match, item is included
+                    return item;
+                }
+            }
+        }
+        else
+        {
+            if (combined_iter != combined->m_samples->rend())
+            {
+                auto item = *combined_iter;
+                ++combined_iter;
+                return item;
+            }
+        }
+    
+        // we've reached the end of the combined list
+        return nullptr;
+    };
+    
+    ItemNew *item = find_next_included_item();
+    while (sset->m_cur_size < sset->m_sample_size)
+    {
+        if (!item) return ;
+        sset->m_min_heap[sset->m_cur_size] = item;
+        if (++sset->m_cur_size == sset->m_sample_size) {
+            // we don't have to make the min heap until we have m_sample_size items
+            dsimpl::min_heap_make(
+                sset->m_min_heap,
+                sset->m_sample_size,
+                itemnew_id_key_func,
+                itemnew_total_order_comp_func);
+        }
+        item = find_next_included_item();
+    }
+    
+    while (item)
+    {
+        if (itemnew_total_order_comp_func(sset->m_min_heap[0], item)) {
+            sset->m_min_heap[0] = item;
+            dsimpl::min_heap_push_down(
+                sset->m_min_heap,
+                0,
+                sset->m_sample_size,
+                itemnew_id_key_func,
+                itemnew_total_order_comp_func);
+            item = find_next_included_item();
+        }
+        else
+        {
+            break;
+        }
+    }
+}
+
+SamplingSketchBITP::SampleSet *
+SamplingSketchBITP::find_sample_set(
+    ItemNew *item) const
+{
+    
+    auto sset = (SampleSet *) new char[
+        sizeof(SampleSet) + sizeof(ItemNew*) * m_sample_size];
+    sset->m_cur_size = 0;
+    sset->m_sample_size = m_sample_size;
+    sset->m_pending_combined = nullptr;
+
+    m_ts_map_new.get_sum_left<true>(
+        item,
+        sset,
+        find_sample_set_combine,
+        find_sample_set_exclude);
+
+    if (sset->m_pending_combined)
+    {
+        find_sample_set_exclude_impl<false>(sset, nullptr);
+    }
+
+    auto iter = m_recent_items_weight_map.rbegin();
+    if (sset->m_cur_size < m_sample_size)
+    {
+        do
+        {
+            if (iter == m_recent_items_weight_map.rend()) return sset;
+            sset->m_min_heap[sset->m_cur_size++] = iter.get_node();
+            ++iter;
+        } while (sset->m_cur_size < m_sample_size);
+
+        if (iter == m_recent_items_weight_map.rend()) return sset;
+        dsimpl::min_heap_make(
+            sset->m_min_heap,
+            m_sample_size,
+            itemnew_id_key_func,
+            itemnew_total_order_comp_func);
+    }
+
+    while (iter != m_recent_items_weight_map.rend() &&
+            itemnew_total_order_comp_func(sset->m_min_heap[0], iter.get_node()))
+    {
+        sset->m_min_heap[0] = iter.get_node();
+        dsimpl::min_heap_push_down(
+            sset->m_min_heap,
+            0,
+            m_sample_size,
+            itemnew_id_key_func,
+            itemnew_total_order_comp_func);
+    }
+
+    return sset;
+}
+
+void
+SamplingSketchBITP::find_sample_set_combine(
+    SampleSet *sset,
+    ItemNew *item)
+{
+    // In the current AVL implementation, a combine may or may not be followed
+    // by an exclude. In the case it is followed by an exclude, we defer that
+    // until find_sample_set_exclude is callled with some non-null item.
+    // Otherwise, we apply that pending combined item and defer the current
+    // combined item.
+    if (sset->m_pending_combined)
+    {
+        find_sample_set_exclude_impl<false>(sset, nullptr);
+    }
+    assert(!sset->m_pending_combined);
+    sset->m_pending_combined = item;
+}
+
+void
+SamplingSketchBITP::find_sample_set_exclude(
+    SampleSet *sset,
+    ItemNew *item)
+{
+    assert(sset->m_pending_combined);
+    assert(item);
+    find_sample_set_exclude_impl<true>(sset, item);
+}
+
+void
+SamplingSketchBITP::destroy_sample_set(
+    SampleSet *sset)
+{
+    delete[] (char*) sset;
+}
+
+void
+SamplingSketchBITP::recompute_min_weight(
+    ItemNew *item,
+    ItemNew *inserted_item) const {
+    
+    SampleSet *sset = find_sample_set(item);
+
+    // we won't call recompute_min_weight() on the most recent items
+    assert(sset->m_cur_size == m_sample_size); 
+   
+    item->m_min_weight = sset->m_min_heap[0]->m_weight;
+    if (item->m_weight < inserted_item->m_weight)
+    {
+        --item->m_cnt_field;
+    }
+
+#if !defined(NDEBUG)
+    uint32_t recomputed_cnt_field = 0;
+    for (uint32_t i = 0; i < sset->m_cur_size; ++i) {
+        if (itemnew_total_order_comp_func(sset->m_min_heap[i], item))
+        {
+            ++recomputed_cnt_field;
+        }
+    }
+    assert(recomputed_cnt_field == item->m_cnt_field);
+#endif
+
+    destroy_sample_set(sset);
+}
+
+std::vector<IPersistentHeavyHitterSketchBITP::HeavyHitter>
+SamplingSketchBITP::estimate_heavy_hitters_bitp_new(
+    TIMESTAMP ts_s,
+    double frac_threshold) const
+{
+    auto iter = m_ts_map_new.lower_bound(ts_s);
+    auto item = iter.get_node();
+    SampleSet *sset = find_sample_set(item);
+
+    std::unordered_map<uint32_t, uint32_t> cnt_map;
+    for (uint32_t i = 0; i < sset->m_cur_size; ++i)
+    {
+        ++cnt_map[sset->m_min_heap[i]->m_value];
+    }
+
+    std::vector<HeavyHitter> ret;
+    uint32_t m = sset->m_cur_size;
+    auto sample_threshold = (uint32_t) std::floor(frac_threshold * m);
+    for (const auto &p: cnt_map)
+    {
+        if (p.second > sample_threshold)
+        {
+            ret.emplace_back(HeavyHitter{p.first, (float) p.second / m});
+        }
+    }
+
+    destroy_sample_set(sset);
+
+    return std::move(ret);
+}
+
+void
+SamplingSketchBITP::update_old(
     TIMESTAMP ts,
     uint32_t value,
     int c)
@@ -664,7 +1529,7 @@ update_loop:
 }
 
 std::vector<IPersistentHeavyHitterSketchBITP::HeavyHitter>
-SamplingSketchBITP::estimate_heavy_hitters_bitp(
+SamplingSketchBITP::estimate_heavy_hitters_bitp_old(
     TIMESTAMP ts_s,
     double frac_threshold) const
 {
@@ -714,7 +1579,7 @@ SamplingSketchBITP::estimate_heavy_hitters_bitp(
     
     std::vector<IPersistentHeavyHitterSketchBITP::HeavyHitter> ret;
     uint32_t m = (uint32_t) samples.size();
-    auto sample_threshold = (uint32_t) std::ceil(frac_threshold * m);
+    auto sample_threshold = (uint32_t) std::floor(frac_threshold * m);
     for (const auto &p: cnt_map)
     {
         if (p.second > sample_threshold)
@@ -742,7 +1607,17 @@ SamplingSketchBITP::create_from_config(
     sample_size = g_config->get_u32("SAMPLING_BITP.sample_size", idx).value();
     seed = g_config->get_u32("SAMPLING.seed", -1).value();
 
-    return new SamplingSketchBITP(sample_size, seed);
+    bool use_new_impl;
+    if (!g_config->is_list("SAMPLING_BITP.use_new_impl"))
+    {
+        use_new_impl = g_config->get_boolean("SAMPLING_BITP.use_new_impl").value();
+    }
+    else
+    {
+        use_new_impl = g_config->get_boolean("SAMPLING_BITP.use_new_impl", idx).value();
+    }
+
+    return new SamplingSketchBITP(sample_size, seed, use_new_impl);
 }
 
 int

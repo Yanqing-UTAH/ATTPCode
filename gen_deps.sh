@@ -55,5 +55,5 @@ sed '
 sed "s/^OBJS=."'*'"/OBJS=${OBJS}/" |\
 sed "s/^DRIVER_OBJS=."'*'"/DRIVER_OBJS=${DRIVER_OBJS}/" > Makefile.in
 
-#rm -f Makefile.in.old
+rm -f Makefile.in.old
 

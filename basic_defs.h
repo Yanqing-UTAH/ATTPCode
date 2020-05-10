@@ -24,6 +24,7 @@ using std::ptrdiff_t;
 typedef ptrdiff_t PayloadOffset;
 
 typedef UINT8 WEIGHT;
+typedef INT8 WEIGHT_DIFF;
 
 }
 
