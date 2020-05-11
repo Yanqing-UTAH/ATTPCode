@@ -1491,6 +1491,7 @@ update_loop:
                     p->m_next = purged_item->m_min_weight_list.m_next;
                     purged_item->m_min_weight_list.m_next = p;
                     purged_item->m_min_weight_list.m_weight = weight;
+                    ++m_num_mwlistnodes_alloced;
                 }
                 else
                 {
@@ -1503,6 +1504,7 @@ update_loop:
                     p->m_weight = weight;
                     p->m_next = *pp;
                     *pp = p;
+                    ++m_num_mwlistnodes_alloced;
                 }
             }
 
