@@ -1322,19 +1322,34 @@ public:
     }
 
 #if defined(IN_TEST_AVL) || !defined(NDEBUG)
-    void print(std::ostream &out) const {
-        if (m_root) print(out, m_root);     
+    void print(
+        std::function<void(std::ostream&, node_pointer)> node_printer =
+            std::function<void(std::ostream&, node_pointer)>()) const {
+        print(std::cout, node_printer);
+    }
+
+    void print(
+        std::ostream &out,
+        std::function<void(std::ostream&, node_pointer)> node_printer = 
+            std::function<void(std::ostream&, node_pointer)>()) const {
+        if (m_root) print(out, node_printer, m_root);     
         else out << "empty tree" << std::endl;
     }
 
-    void print(std::ostream &out, node_pointer node) const {
+    void print(
+        std::ostream &out,
+        std::function<void(std::ostream&, node_pointer)> node_printer,
+        node_pointer node) const {
         out << print_hex((uintptr_t) node) << ' '
             << print_hex((uintptr_t) _left(node)) << ' '
-            << print_hex((uintptr_t) _right(node)) << ' '
-            << _key(node)  << ' '
-            << _hdiff(node) << ' ' << std::endl;
-        if (_left(node)) print(out, _left(node));
-        if (_right(node)) print(out, _right(node));
+            << print_hex((uintptr_t) _right(node)) << ' ';
+        if (node_printer) {
+            node_printer(out, node);
+            out << ' ';
+        }
+        out << _hdiff(node) << ' ' << std::endl;
+        if (_left(node)) print(out, node_printer, _left(node));
+        if (_right(node)) print(out, node_printer, _right(node));
     }
 #endif
 
@@ -2591,6 +2606,167 @@ public:
             if (_right(cur) == node) {
                 combine_node(agg, cur);
                 if (_left(cur)) combine_subtree(agg, _left(cur));
+            }
+            node = cur;
+        }
+    }
+
+    template<bool inc>
+    WEIGHT get_sum_right(
+        const DATUM &key,
+        PayloadOffset offset_subtree_weight) const {
+
+        node_pointer cur = m_root;
+        WEIGHT agg = 0;
+        while (cur) {
+            if (inc ?
+                !m_less_fn(_key(cur), key) :
+                m_less_fn(key, _key(cur))) {
+            
+                agg += _weight(cur, offset_subtree_weight) -
+                    _weight(_left(cur), offset_subtree_weight);
+                cur = _left(cur);
+            } else {
+                cur = _right(cur);
+            }
+        }
+        return agg;
+    }
+
+    template<bool inc, typename A, class BinOp, class BinOp2>
+    void get_sum_right(
+        const DATUM &key,
+        A &agg,
+        BinOp combine,
+        BinOp2 exclude) const {
+    
+        bool combining = true;
+        node_pointer cur = m_root;
+        while (cur) {
+            if (inc ?
+                !m_less_fn(_key(cur), key) :
+                m_less_fn(key, _key(cur))) {
+                
+                if (combining) {
+                    combine(agg, cur);
+                    combining = false;
+                }
+                cur = _left(cur);
+            } else {
+                if (!combining) {
+                    exclude(agg, cur);
+                    combining = true;
+                }
+                cur = _right(cur); 
+            }
+        }
+    }
+
+    template<bool inc, typename A, class BinOp, class BinOp2>
+    void get_sum_right_with_combine_only(
+        const DATUM &key,
+        A &agg,
+        BinOp combine_node,
+        BinOp2 combine_subtree) const {
+    
+        node_pointer cur = m_root;
+        while (cur) {
+            if (inc ?
+                !m_less_fn(_key(cur), key) :
+                m_less_fn(key, _key(cur))) {
+                
+                combine_node(agg, cur);
+                if (_right(cur)) combine_subtree(agg, _right(cur));
+                cur = _left(cur);
+            } else {
+                cur = _right(cur);
+            }
+        }
+    }
+
+    template<bool inc>
+    WEIGHT get_sum_right(
+        node_pointer node,
+        PayloadOffset offset_subtree_weight) const {
+        
+        WEIGHT agg;
+        if constexpr (inc) {
+            agg = _weight_nochk(node, offset_subtree_weight) -
+                _weight(_left(node), offset_subtree_weight);
+        } else {
+            agg = _weight(_right(node), offset_subtree_weight);
+        }
+
+        node_pointer cur = _parent(node);
+        while (cur) {
+            if (node == _left(cur)) {
+                agg += _weight_nochk(cur, offset_subtree_weight)
+                    - _weight_nochk(node, offset_subtree_weight);
+            }
+
+            node = cur;
+            cur = _parent(node);
+        }
+
+        return agg;
+    }
+
+    template<bool inc, typename A, class BinOp, class BinOp2>
+    void get_sum_right(
+        node_pointer    node,
+        A               &agg,
+        BinOp           combine,
+        BinOp2          exclude) const {
+    
+        node_pointer cur;
+        if constexpr (inc) {
+            cur = node; 
+        } else {
+            cur = node;
+            while (_parent(cur) && cur == _right(_parent(cur))) {
+                cur = _parent(cur);
+            }
+            cur = _parent(cur);
+        }
+    
+        while (cur) {
+            node_pointer p = cur;
+            while (_parent(p) && p == _left(_parent(p))) {
+                p = _parent(p);
+            }
+            combine(agg, p);
+            if (_left(cur)) exclude(agg, _left(cur));
+
+            p = _parent(p);
+            if (!p) break;
+            while (_parent(p) && p == _right(_parent(p))) {
+                p = _parent(p);
+            }
+            cur = _parent(p);
+        }
+        
+        if constexpr (!inc) {
+            if (_right(node)) combine(agg, _right(node));
+        }
+    }
+
+    template<bool inc, typename A, class BinOp, class BinOp2>
+    void get_sum_right_with_combine_only(
+        node_pointer    node,
+        A               &agg,
+        BinOp           combine_node,
+        BinOp2          combine_subtree) const {
+        
+        if constexpr (inc) {
+            combine_node(agg, node);
+        }
+        if (_right(node)) combine_subtree(agg, _right(node)); 
+        
+        while (_parent(node)) {
+            node_pointer cur = _parent(node);
+            if (_left(cur) == node) {
+                combine_node(agg, cur);
+                if (_right(cur)) combine_subtree(agg, _right(cur));
             }
             node = cur;
         }

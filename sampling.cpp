@@ -589,7 +589,7 @@ SamplingSketchBITP::ItemNewNodeDesc::_fix_agg(
                 if (_left(item))
                 {
                     candidate = check_subtree_for_candidate(_left(item));
-                    if (candidate->m_weight == smallest_item->m_weight)
+                    if (candidate && candidate->m_weight == smallest_item->m_weight)
                     {
                         goto T2AGGOPS_DELETION_candidate_found;
                     }
@@ -598,7 +598,8 @@ SamplingSketchBITP::ItemNewNodeDesc::_fix_agg(
                 // the second candidate: subtree root
                 if (itemnew_total_order_comp_func(item, smallest_item))
                 {
-                    if (itemnew_total_order_comp_func(candidate, item))
+                    if (!candidate ||
+                        itemnew_total_order_comp_func(candidate, item))
                     {
                         candidate = item;
                         if (candidate->m_weight == smallest_item->m_weight)
@@ -620,8 +621,7 @@ SamplingSketchBITP::ItemNewNodeDesc::_fix_agg(
                 }
 
 T2AGGOPS_DELETION_candidate_found:
-                assert(candidate);
-                item->m_samples->insert(candidate);
+                if (candidate) item->m_samples->insert(candidate);
             }
         }
 T2AGGOPS_DELETION_done:
@@ -633,6 +633,8 @@ T2AGGOPS_DELETION_done:
         break;
 
     case dsimpl::T2AGGOPS_RECONSTRUCT:
+        m_tot_num_samples -= item->m_samples->size();
+        item->m_samples->clear();
         if (!_left(item))
         {
             if (!_right(item))
@@ -686,8 +688,7 @@ SamplingSketchBITP::ItemNewNodeDesc::reconstruct_samples_one_side(
     ItemNew *root,
     ItemNew *subtree)
 {
-    m_tot_num_samples -= root->m_samples->size();
-    root->m_samples->clear();
+    assert(root->m_samples->empty());
     auto riter = subtree->m_samples->rbegin();
     double last_weight;
     while (riter != subtree->m_samples->rend())
@@ -735,9 +736,7 @@ void
 SamplingSketchBITP::ItemNewNodeDesc::reconstruct_samples_two_sides(
     ItemNew *root)
 {
-    m_tot_num_samples -= root->m_samples->size();
-    root->m_samples->clear();
-
+    assert(root->m_samples->empty());
     auto left = _left(root);
     auto right = _right(root);
     auto iter_l = left->m_samples->rbegin();
@@ -817,6 +816,11 @@ SamplingSketchBITP::ItemNewNodeDesc::reconstruct_samples_two_sides(
         ++iter_r;
     }
     
+    if (root->m_samples->size() < m_sample_size)
+    {
+        root->m_samples->insert(root);
+    }
+    else
     {
         auto smallest_item_iter = find_smallest_item(root);
         if (itemnew_total_order_comp_func(*smallest_item_iter, root))
@@ -831,7 +835,7 @@ SamplingSketchBITP::ItemNewNodeDesc::reconstruct_samples_two_sides(
 
 SamplingSketchBITP::ItemNewNodeDesc2::ItemNewNodeDesc2():
     dsimpl::AVLNodeDescByOffset<SamplingSketchBITP::ItemNew, double>(
-        SSBITP_ITEMNEW_OFFSET_OF(m_ts),
+        SSBITP_ITEMNEW_OFFSET_OF(m_weight),
         SSBITP_ITEMNEW_OFFSET_OF(m_tree_left),
         SSBITP_ITEMNEW_OFFSET_OF(m_tree_right),
         SSBITP_ITEMNEW_OFFSET_OF(m_tree_parent),
@@ -870,7 +874,7 @@ SamplingSketchBITP::SamplingSketchBITP(
     m_num_mwlistnodes_alloced(0),
     // new impl below
     m_recent_items_new(use_new_impl ? new ItemNew*[m_sample_size]: nullptr),
-    m_recent_items_start_new(0),
+    m_recent_items_start_new(m_sample_size - 1),
     m_ts_map_new(ItemNewNodeDesc(
         m_sample_size)),
     m_recent_items_weight_map(ItemNewNodeDesc2()),
@@ -949,7 +953,7 @@ SamplingSketchBITP::clear()
                 m_recent_items_new[i] = nullptr;
             }
         }
-        m_recent_items_start_new = 0;
+        m_recent_items_start_new = m_sample_size - 1;
 
         m_recent_items_weight_map.clear();
         m_min_weight_map_new.clear();
@@ -1041,6 +1045,8 @@ SamplingSketchBITP::update_new(
     uint32_t value,
     int c)
 {
+    static uint64_t n_seen = 0;
+
 update_loop:
     double weight = m_unif_0_1(m_rng);
     
@@ -1053,10 +1059,15 @@ update_loop:
     // item->m_samples is not constructed nor is item->m_seq_no assigned until
     // the new item is added to the m_ts_map_new
     item->m_samples = nullptr;
+    // TODO remove the following line after debugging
+    item->m_seq_no = m_next_seq_no++;
     ++m_num_itemnew_alloced;
+
+    std::cout << "ItemNew " << n_seen++ << ": " << item->m_ts << ' ' << item->m_value
+        << ' ' << item->m_weight << std::endl;
     
     ItemNew *purgeable_item = nullptr; // the (m_sample_size + 1)^th most recent item
-    m_recent_items_start_new = (m_sample_size == m_recent_items_start_new - 1) ?
+    m_recent_items_start_new = (m_sample_size - 1 == m_recent_items_start_new) ?
             0 : (m_recent_items_start_new + 1);
     if (m_recent_items_new[m_sample_size - 1])
     {
@@ -1072,6 +1083,7 @@ update_loop:
         purgeable_item->m_cnt_field = (decltype(purgeable_item->m_cnt_field))
             m_recent_items_weight_map.get_sum_left<true>(
                 purgeable_item->m_weight, SSBITP_ITEMNEW_OFFSET_OF(m_cnt_field));
+        assert(purgeable_item->m_cnt_field < m_sample_size);
         if (purgeable_item->m_cnt_field == 0 &&
             item->m_weight > purgeable_item->m_weight)
         {
@@ -1082,7 +1094,8 @@ update_loop:
         {
             auto lm = m_recent_items_weight_map.begin_node();
             purgeable_item->m_min_weight = lm->m_weight;
-            purgeable_item->m_seq_no = m_next_seq_no++;
+            // TODO uncomment the following
+            //purgeable_item->m_seq_no = m_next_seq_no++;
             purgeable_item->m_samples =
                 new dsimpl::avl_container<ItemNew*, double (*)(ItemNew*)>{
                     itemnew_weight_key_func 
@@ -1247,6 +1260,9 @@ SamplingSketchBITP::SampleSet *
 SamplingSketchBITP::find_sample_set(
     ItemNew *item) const
 {
+    // XXX this is completely wrong
+    // TODO need to maintain accumulated left sample count + top m_sample_size
+    // samples in each node and query recursively
     
     auto sset = (SampleSet *) new char[
         sizeof(SampleSet) + sizeof(ItemNew*) * m_sample_size];
@@ -1254,7 +1270,7 @@ SamplingSketchBITP::find_sample_set(
     sset->m_sample_size = m_sample_size;
     sset->m_pending_combined = nullptr;
 
-    m_ts_map_new.get_sum_left<true>(
+    m_ts_map_new.get_sum_right<true>(
         item,
         sset,
         find_sample_set_combine,
@@ -1293,6 +1309,7 @@ SamplingSketchBITP::find_sample_set(
             m_sample_size,
             itemnew_id_key_func,
             itemnew_total_order_comp_func);
+        ++iter;
     }
 
     return sset;
@@ -1631,5 +1648,14 @@ SamplingSketchBITP::num_configs_defined()
     }
 
     return -1;
+}
+
+void
+__attribute__((unused,noinline))
+SamplingSketchBITP::print_tree(
+    dsimpl::avl_t<ItemNewNodeDesc, false> *avl) {
+    avl->print([](std::ostream &out, ItemNew *item) {
+        out << item->m_weight;         
+    });
 }
 

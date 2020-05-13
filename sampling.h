@@ -419,6 +419,10 @@ public:
 
     static int
     num_configs_defined();
+
+    static void
+    print_tree(
+        decltype(m_ts_map_new) *avl);
 };
 
 #endif // SAMPLING_H

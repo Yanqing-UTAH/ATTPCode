@@ -37,8 +37,8 @@ driver.o: driver.cpp conf.h hashtable.h misra_gries.h sketch.h util.h \
  sketch_lib.h query.h
 
 sketch.o: sketch.cpp sketch.h util.h sketch_lib.h pcm.h pla.h \
- MurmurHash3.h pams.h sampling.h heavyhitters.h exact_query.h pmmg.h \
- misra_gries.h hashtable.h min_heap.h basic_defs.h \
+ MurmurHash3.h pams.h sampling.h avl.h basic_defs.h avl_container.h \
+ heavyhitters.h exact_query.h pmmg.h misra_gries.h hashtable.h min_heap.h \
  dummy_persistent_misra_gries.h conf.h norm_sampling.h fenwick_tree.h \
  fd.h sketch_list.h
 
@@ -83,8 +83,8 @@ query.o: query.cpp util.h conf.h hashtable.h sketch.h sketch_lib.h \
 
 conf.o: conf.cpp conf.h hashtable.h util.h config_list.h
 
-sampling.o: sampling.cpp sampling.h sketch.h util.h sketch_lib.h conf.h \
- hashtable.h avl.h basic_defs.h min_heap.h
+sampling.o: sampling.cpp sampling.h sketch.h util.h sketch_lib.h avl.h \
+ basic_defs.h avl_container.h conf.h hashtable.h min_heap.h
 
 pla.o: pla.cpp pla.h
 

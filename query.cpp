@@ -936,6 +936,7 @@ QueryMatrixSketchImpl::print_query_summary(
     if (m_exact_enabled && sketch == m_sketches[0].get())
     {
         std::swap(m_last_answer, m_exact_covariance_matrix);
+        // XXX should compute ||A||_F^2 instead of ||ATA||_F^2
         m_exact_fnorm = lapack_wrapper_dlansp('f', 'u', m_n, m_exact_covariance_matrix);
         m_out << "\tF-norm = " << m_exact_fnorm << std::endl;
     }
