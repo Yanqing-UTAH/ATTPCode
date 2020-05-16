@@ -38,7 +38,7 @@ DEFINE_CONFIG_ENTRY(SAMPLING.seed, u32, true, false, 19950810u)
 DEFINE_CONFIG_ENTRY(SAMPLING_BITP.enabled, boolean, true, false, false)
 DEFINE_CONFIG_ENTRY(SAMPLING_BITP.sample_size, u32, SAMPLING_BITP.enabled, true, , true, 1u)
 DEFINE_CONFIG_ENTRY(SAMPLING_BITP.seed, u32, true, false, 19950810u)
-DEFINE_CONFIG_ENTRY(SAMPLING_BITP.use_new_impl, boolean, SAMPLING_BITP.enabled, true, false)
+DEFINE_CONFIG_ENTRY(SAMPLING_BITP.use_new_impl, u32, SAMPLING_BITP.enabled, true, 0)
 
 // persistent count-min
 DEFINE_CONFIG_ENTRY(PCM_HH.enabled, boolean, true, false, false)

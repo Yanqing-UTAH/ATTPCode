@@ -242,11 +242,22 @@ private:
     static const dsimpl::AVLNodeDescByOffset<ItemNew, double>
                             m_itemnew_node_desc3;
 
+    struct Item3
+    {
+        TIMESTAMP           m_ts;
+
+        uint32_t            m_value;
+
+        double              m_weight;
+
+        Item3               *m_next;
+    };
+
 public:
     SamplingSketchBITP(
         uint32_t            sample_size,
         uint32_t            seed = 19950810u,
-        bool                use_new_impl = false);
+        uint8_t             use_new_impl = 0);
 
     ~SamplingSketchBITP();
     
@@ -280,6 +291,12 @@ private:
 
     void
     update_new(
+        TIMESTAMP           ts,
+        uint32_t            value,
+        int                 c);
+
+    void
+    update_batched(
         TIMESTAMP           ts,
         uint32_t            value,
         int                 c);
@@ -332,6 +349,11 @@ private:
     estimate_heavy_hitters_bitp_new(
         TIMESTAMP           ts_s,
         double              frac_threshold) const;
+
+    std::vector<HeavyHitter>
+    estimate_heavy_hitters_bitp_batched(
+        TIMESTAMP           ts_s,
+        double              frac_threshold) const; 
     
     Item*&
     ith_most_recent_item(ptrdiff_t i) const
@@ -367,7 +389,9 @@ private:
 
     uint32_t                m_sample_size;
 
-    bool                    m_use_new_impl;
+    uint8_t                 m_use_new_impl;
+
+    // use_new_impl == 0 (old impl)
 
     dsimpl::avl_t<decltype(m_ts_map_node_desc)>
                             m_ts_map;
@@ -391,7 +415,7 @@ private:
 
     uint64_t                m_num_mwlistnodes_alloced;
 
-    // BELOW are for new_impl()
+    // use_new_impl == 1 (new impl)
     
     ItemNew                 **m_recent_items_new;
 
@@ -409,6 +433,15 @@ private:
     uint64_t                m_next_seq_no;
      
     uint64_t                m_num_itemnew_alloced;
+
+    // use_new_impl == 2 (batched impl)
+    Item3                   *m_item3_head;
+
+    uint64_t                m_num_item3_alloced;
+
+    uint64_t                m_num_item3_alloced_target;
+
+    uint64_t                m_tot_seen;
 
 public:
     static SamplingSketchBITP*

@@ -690,7 +690,7 @@ SamplingSketchBITP::ItemNewNodeDesc::reconstruct_samples_one_side(
 {
     assert(root->m_samples->empty());
     auto riter = subtree->m_samples->rbegin();
-    double last_weight;
+    double last_weight = 0;
     while (riter != subtree->m_samples->rend())
     {
         if (root->m_samples->size() < m_sample_size)
@@ -860,35 +860,46 @@ SamplingSketchBITP::m_itemnew_node_desc3(
 SamplingSketchBITP::SamplingSketchBITP(
     uint32_t sample_size,
     uint32_t seed,
-    bool use_new_impl):
+    uint8_t use_new_impl):
     m_sample_size(sample_size),
     m_use_new_impl(use_new_impl),
+    // use_new_impl == 0
     m_ts_map(m_ts_map_node_desc),
     m_min_weight_map(m_weight_map_node_desc),
     m_most_recent_items_weight_map(m_weight_map_node_desc),
-    m_most_recent_items(use_new_impl ? nullptr: new Item*[m_sample_size]),
+    m_most_recent_items((use_new_impl == 0) ? new Item*[m_sample_size] : nullptr),
     m_most_recent_items_start(0),
     m_rng(seed),
     m_unif_0_1(0.0, 1.0),
     m_num_items_alloced(0),
     m_num_mwlistnodes_alloced(0),
-    // new impl below
-    m_recent_items_new(use_new_impl ? new ItemNew*[m_sample_size]: nullptr),
+    // use_new_impl == 1
+    m_recent_items_new((use_new_impl == 1) ? new ItemNew*[m_sample_size]: nullptr),
     m_recent_items_start_new(m_sample_size - 1),
     m_ts_map_new(ItemNewNodeDesc(
         m_sample_size)),
     m_recent_items_weight_map(ItemNewNodeDesc2()),
     m_min_weight_map_new(m_itemnew_node_desc3),
     m_next_seq_no(0),
-    m_num_itemnew_alloced(0)
+    m_num_itemnew_alloced(0),
+    // use_new_impl == 2
+    m_item3_head(nullptr),
+    m_num_item3_alloced(0),
+    m_num_item3_alloced_target(0),
+    m_tot_seen(0)
 {
-    if (m_use_new_impl)
-    {
-        std::memset(m_recent_items_new, 0, sizeof(ItemNew*) * m_sample_size);
-    }
-    else
+    if (m_use_new_impl == 0)
     {
         std::memset(m_most_recent_items, 0, sizeof(Item*) * m_sample_size);
+    }
+    else if (m_use_new_impl == 1)
+    {
+        std::memset(m_recent_items_new, 0, sizeof(ItemNew*) * m_sample_size);
+    } else if (m_use_new_impl == 2)
+    {
+        // in case m_sample_size == 1
+        m_num_item3_alloced_target =
+            2 * m_sample_size * std::ceil(std::log(m_sample_size + 1));
     }
 }
 
@@ -902,7 +913,7 @@ SamplingSketchBITP::~SamplingSketchBITP()
 void
 SamplingSketchBITP::clear()
 {
-    if (!m_use_new_impl)
+    if (m_use_new_impl == 0)
     {
         for (auto iter = m_ts_map.begin();
                 iter != m_ts_map.end();)
@@ -943,7 +954,7 @@ SamplingSketchBITP::clear()
         m_num_items_alloced = 0;
         m_num_mwlistnodes_alloced = 0;
     }
-    else
+    else if (m_use_new_impl == 1)
     {
         for (uint32_t i = 0; i < m_sample_size; ++i)
         {
@@ -967,12 +978,38 @@ SamplingSketchBITP::clear()
         m_num_itemnew_alloced = 0;
         m_ts_map_new.m_tot_num_samples = 0;
     }
+    else if (m_use_new_impl == 2)
+    {
+        while (m_item3_head)
+        {
+            Item3 *item3 = m_item3_head;
+            m_item3_head = m_item3_head->m_next;
+            delete item3;
+        }
+        m_num_item3_alloced = 0;
+        m_num_item3_alloced_target = 2 * m_sample_size *
+            (uint64_t) std::ceil(std::log(m_sample_size));
+        m_tot_seen = 0;
+    }
 }
 
 size_t
 SamplingSketchBITP::memory_usage() const
 {
-    if (m_use_new_impl)
+    if (m_use_new_impl == 0)
+    {
+        return 8 // m_sample_size and alignment
+            + sizeof(m_ts_map)
+            + sizeof(m_min_weight_map)
+            + sizeof(m_most_recent_items_weight_map)
+            + 16 + m_sample_size * sizeof(Item*) // m_most_recent_items and its start
+            + sizeof(m_rng)
+            + sizeof(m_unif_0_1)
+            + 16 // m_num_items_alloced and m_num_mwlistnodes_alloced
+            + sizeof(Item) * m_num_items_alloced
+            + sizeof(MinWeightListNode) * m_num_mwlistnodes_alloced;
+    }
+    else if (m_use_new_impl == 1)
     {
         return 8 // m_sample_size, m_use_new_impl, m_itemnew_alloc and alignment
             + sizeof(m_rng)
@@ -987,25 +1024,24 @@ SamplingSketchBITP::memory_usage() const
             + m_ts_map_new.m_tot_num_samples *
                 sizeof(dsimpl::avl_container_impl::Node<ItemNew*, void>);
     }
-    else
+    else if (m_use_new_impl == 2)
     {
-        return 8 // m_sample_size and alignment
-            + sizeof(m_ts_map)
-            + sizeof(m_min_weight_map)
-            + sizeof(m_most_recent_items_weight_map)
-            + 16 + m_sample_size * sizeof(Item*) // m_most_recent_items and its start
-            + sizeof(m_rng)
+        return 32 // m_item3_head, m_num_item3_alloced,
+                  // m_num_item3_alloced_target, m_tot_seen
+            + m_num_item3_alloced * sizeof(Item3)
             + sizeof(m_unif_0_1)
-            + 16 // m_num_items_alloced and m_num_mwlistnodes_alloced
-            + sizeof(Item) * m_num_items_alloced
-            + sizeof(MinWeightListNode) * m_num_mwlistnodes_alloced;
+            + sizeof(m_rng);
     }
+    
+    assert(false);
+    return 0;
 }
 
 std::string
 SamplingSketchBITP::get_short_description() const
 {
-    return std::string("SAMPLING_BITP-ss") + std::to_string(m_sample_size);
+    return std::string("SAMPLING_BITP-ss") + std::to_string(m_sample_size) +
+        "-use_new_impl-" + std::to_string(m_use_new_impl);
 }
 
 void
@@ -1014,13 +1050,21 @@ SamplingSketchBITP::update(
     uint32_t value,
     int c)
 {
-    if (m_use_new_impl)
+    if (m_use_new_impl == 0)
+    {
+        update_old(ts, value, c);
+    }
+    else if (m_use_new_impl == 1)
     {
         update_new(ts, value, c);
     }
+    else if (m_use_new_impl == 2)
+    {
+        update_batched(ts, value, c);
+    }
     else
     {
-        update_old(ts, value, c);
+        assert(false);
     }
 }
 
@@ -1029,14 +1073,21 @@ SamplingSketchBITP::estimate_heavy_hitters_bitp(
     TIMESTAMP ts_s,
     double frac_threshold) const
 {
-    if (m_use_new_impl)
-    {
-        return estimate_heavy_hitters_bitp_new(ts_s, frac_threshold);
-    }
-    else
+    if (m_use_new_impl == 0)
     {
         return estimate_heavy_hitters_bitp_old(ts_s, frac_threshold);
     }
+    else if (m_use_new_impl == 1)
+    {
+        return estimate_heavy_hitters_bitp_new(ts_s, frac_threshold);
+    }
+    else if (m_use_new_impl == 2)
+    {
+        return estimate_heavy_hitters_bitp_batched(ts_s, frac_threshold);
+    }
+
+    assert(false);
+    return std::vector<IPersistentHeavyHitterSketchBITP::HeavyHitter>();
 }
 
 void
@@ -1611,6 +1662,139 @@ SamplingSketchBITP::estimate_heavy_hitters_bitp_old(
     return std::move(ret);
 }
 
+void
+SamplingSketchBITP::update_batched(
+    TIMESTAMP ts,
+    uint32_t value,
+    int c)
+{
+update_loop:
+    double weight = m_unif_0_1(m_rng);
+
+    Item3 *item3 = new Item3{
+        ts,
+        value,
+        weight,
+        m_item3_head
+    };
+    m_item3_head = item3;
+    ++m_tot_seen;
+    ++m_num_item3_alloced;
+    
+    assert(m_num_item3_alloced <= m_num_item3_alloced_target);
+    if (m_num_item3_alloced == m_num_item3_alloced_target)
+    {
+        std::vector<Item3*> min_heap;
+        min_heap.reserve(m_sample_size);
+
+        Item3 *item3 = m_item3_head;
+        Item3 **prev_next_ptr = &m_item3_head;
+        while (min_heap.size() < m_sample_size)
+        {
+            assert(item3);
+            min_heap.push_back(item3);
+            prev_next_ptr = &item3->m_next;
+            item3 = item3->m_next;
+        }
+
+        dsimpl::min_heap_make(
+            min_heap,
+            m_sample_size,
+            [](Item3 *item3) -> double { return item3->m_weight; });
+
+        while (item3)
+        {
+            if (item3->m_weight < min_heap[0]->m_weight)
+            {
+                // don't keep
+                item3 = item3->m_next; 
+                delete *prev_next_ptr;
+                *prev_next_ptr = item3;
+                --m_num_item3_alloced;
+            }
+            else
+            {
+                // replace the min weight
+                min_heap[0] = item3;
+                dsimpl::min_heap_push_down(
+                    min_heap,
+                    0,
+                    m_sample_size,
+                    [](Item3 *item3) -> double { return item3->m_weight; });
+                prev_next_ptr = &item3->m_next;
+                item3 = item3->m_next;
+            }
+        }
+
+        m_num_item3_alloced_target = 2 * m_sample_size
+            * (uint64_t) std::ceil(std::log(m_tot_seen + 1));
+        if (m_num_item3_alloced_target < 2 * m_num_item3_alloced)
+        {
+            m_num_item3_alloced_target = 2 * m_num_item3_alloced;
+        }
+    }
+
+    if (--c) goto update_loop;
+}
+
+std::vector<IPersistentHeavyHitterSketchBITP::HeavyHitter>
+SamplingSketchBITP::estimate_heavy_hitters_bitp_batched(
+    TIMESTAMP ts_s,
+    double frac_threshold) const
+{
+    std::vector<Item3*> samples;
+    samples.reserve(m_sample_size);
+    
+    Item3 *item3 = m_item3_head;
+    while (item3 && samples.size() < m_sample_size)
+    {
+        samples.push_back(item3);
+        item3 = item3->m_next;
+    }
+
+    if (item3)
+    {
+        dsimpl::min_heap_make(
+            samples,
+            (dsimpl::UINT8) samples.size(),
+            [](Item3 *item3) -> double { return item3->m_weight; });
+        while (item3)
+        {
+            if (item3->m_weight >= samples[0]->m_weight)
+            {
+                samples[0] = item3;
+                dsimpl::min_heap_push_down(
+                    samples,
+                    0,
+                    m_sample_size,
+                    [](Item3 *item3) -> double { return item3->m_weight; });
+            }
+
+            item3 = item3->m_next;
+        }
+    }
+
+    std::unordered_map<uint32_t, uint32_t> cnt_map;
+    for (Item3 *item: samples)
+    {
+        ++cnt_map[item->m_value];
+    }
+    
+    std::vector<IPersistentHeavyHitterSketchBITP::HeavyHitter> ret;
+    uint32_t m = (uint32_t) samples.size();
+    auto sample_threshold = (uint32_t) std::floor(frac_threshold * m);
+    for (const auto &p: cnt_map)
+    {
+        if (p.second > sample_threshold)
+        {
+            ret.emplace_back(IPersistentHeavyHitterSketchBITP::HeavyHitter{
+                p.first, (float) p.second / m}); 
+        }
+    }
+
+    return std::move(ret);
+}
+
 SamplingSketchBITP*
 SamplingSketchBITP::get_test_instance()
 {
@@ -1626,17 +1810,23 @@ SamplingSketchBITP::create_from_config(
     sample_size = g_config->get_u32("SAMPLING_BITP.sample_size", idx).value();
     seed = g_config->get_u32("SAMPLING.seed", -1).value();
 
-    bool use_new_impl;
+    uint32_t use_new_impl;
     if (!g_config->is_list("SAMPLING_BITP.use_new_impl"))
     {
-        use_new_impl = g_config->get_boolean("SAMPLING_BITP.use_new_impl").value();
+        use_new_impl = g_config->get_u32("SAMPLING_BITP.use_new_impl").value();
     }
     else
     {
-        use_new_impl = g_config->get_boolean("SAMPLING_BITP.use_new_impl", idx).value();
+        use_new_impl = g_config->get_u32("SAMPLING_BITP.use_new_impl", idx).value();
     }
 
-    return new SamplingSketchBITP(sample_size, seed, use_new_impl);
+    if (use_new_impl > 2)
+    {
+        std::cerr << "[WARN] invalid value of SAMPLING_BITP.use_new_impl, defaults to 0"
+            << std::endl;
+    }
+
+    return new SamplingSketchBITP(sample_size, seed, (uint8_t) use_new_impl);
 }
 
 int
@@ -1650,6 +1840,7 @@ SamplingSketchBITP::num_configs_defined()
     return -1;
 }
 
+#ifndef NDEBUG
 void
 __attribute__((unused,noinline))
 SamplingSketchBITP::print_tree(
@@ -1658,4 +1849,6 @@ SamplingSketchBITP::print_tree(
         out << item->m_weight;         
     });
 }
+#endif
+
 

@@ -71,7 +71,9 @@ public:
         m_update_timers(),
         m_query_timers(),
         m_progress_bar_stopped(true),
-        m_progress_bar_status(PBS_NONE)
+        m_progress_bar_status(PBS_NONE),
+        m_infile_last_read_bytes(0),
+        m_last_progress_bar_tp()
     {}
 
     ~Query()
@@ -356,19 +358,47 @@ private:
     {
         uint64_t n_data = *(volatile uint64_t *) &m_n_data;
         uint64_t read_bytes = *(volatile uint64_t *) &m_infile_read_bytes;
-        if (m_stderr_is_a_tty)
+    
+        auto tp = std::chrono::steady_clock::now();
+        uint64_t rem_bytes = m_infile_tot_bytes - read_bytes;
+        uint64_t delta_bytes = read_bytes - m_infile_last_read_bytes;
+        uint64_t est_secs;
+        uint64_t rate_s;
+        if (delta_bytes == 0 || m_last_progress_bar_tp == tp)
         {
-            fprintf(stderr,
-                "\033[A\033[2K\rProgress: %lu dp processed (approx. %.2f%%)\n",
-                n_data, (double) 100 * read_bytes / m_infile_tot_bytes);
+            rate_s = 0;
+            est_secs = std::numeric_limits<uint64_t>::max();
         }
         else
         {
-            fprintf(stderr,
-                "Progress: %lu dp processed (approx. %.2f%%)\n",
-                n_data, (double) 100 * read_bytes / m_infile_tot_bytes);
+            double ms_elapsed = 
+                std::chrono::duration_cast<std::chrono::milliseconds>(
+                    tp - m_last_progress_bar_tp).count();
+            double rate_ms = delta_bytes / ms_elapsed;
+            rate_s = (uint64_t) (rate_ms * 1000);
+            est_secs = (uint64_t)(rem_bytes / rate_ms / 1000);
+        }
+        
+
+        if (m_stderr_is_a_tty)
+        {
+            fprintf(stderr, "\033[A\033[2K\r");
+        }
+        fprintf(stderr,
+            "Progress: %lu dp processed (approx. %.2f%%), rate = %lu bytes/s",
+            n_data, (double) 100 * read_bytes / m_infile_tot_bytes, rate_s);
+        if (est_secs == std::numeric_limits<uint64_t>::max())
+        {
+            fprintf(stderr, ", ETA: unknown\n");
+        }
+        else
+        {
+            fprintf(stderr, ", ETA: %lu s\n", est_secs);
         }
         fflush(stderr);
+
+        m_last_progress_bar_tp = tp;
+        m_infile_last_read_bytes = read_bytes;
     }
 
     void
@@ -405,6 +435,8 @@ private:
     start_progress_bar()
     {
         if (m_suppress_progress_bar) return;
+        m_infile_last_read_bytes = 0;
+        m_last_progress_bar_tp = std::chrono::steady_clock::now();
         fprintf(stderr, "\n");
         m_progress_bar_stopped = false;
         m_progress_bar_thread = std::thread(&Query<QueryImpl>::show_progress_bar, this);
@@ -489,6 +521,11 @@ private:
 
     std::atomic<ProgressBarStatus>
                                 m_progress_bar_status;
+
+    uint64_t                    m_infile_last_read_bytes;
+
+    std::chrono::steady_clock::time_point
+                                m_last_progress_bar_tp;
 };
 
 ////////////////////////////////////////
