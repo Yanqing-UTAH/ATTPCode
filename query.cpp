@@ -73,7 +73,8 @@ public:
         m_progress_bar_stopped(true),
         m_progress_bar_status(PBS_NONE),
         m_infile_last_read_bytes(0),
-        m_last_progress_bar_tp()
+        m_last_progress_bar_tp(),
+        m_current_avg_rate_s(0)
     {}
 
     ~Query()
@@ -362,12 +363,10 @@ private:
         auto tp = std::chrono::steady_clock::now();
         uint64_t rem_bytes = m_infile_tot_bytes - read_bytes;
         uint64_t delta_bytes = read_bytes - m_infile_last_read_bytes;
-        uint64_t est_secs;
         uint64_t rate_s;
         if (delta_bytes == 0 || m_last_progress_bar_tp == tp)
         {
             rate_s = 0;
-            est_secs = std::numeric_limits<uint64_t>::max();
         }
         else
         {
@@ -376,7 +375,14 @@ private:
                     tp - m_last_progress_bar_tp).count();
             double rate_ms = delta_bytes / ms_elapsed;
             rate_s = (uint64_t) (rate_ms * 1000);
-            est_secs = (uint64_t)(rem_bytes / rate_ms / 1000);
+        }
+        if (m_infile_last_read_bytes != 0)
+        {
+            m_current_avg_rate_s = (rate_s + 1 + m_current_avg_rate_s) / 2;
+        }
+        else
+        {
+            m_current_avg_rate_s = rate_s;
         }
         
 
@@ -386,14 +392,16 @@ private:
         }
         fprintf(stderr,
             "Progress: %lu dp processed (approx. %.2f%%), rate = %lu bytes/s",
-            n_data, (double) 100 * read_bytes / m_infile_tot_bytes, rate_s);
-        if (est_secs == std::numeric_limits<uint64_t>::max())
+            n_data, (double) 100 * read_bytes / m_infile_tot_bytes,
+            m_current_avg_rate_s);
+        if (m_current_avg_rate_s == 0)
         {
             fprintf(stderr, ", ETA: unknown\n");
         }
         else
         {
-            fprintf(stderr, ", ETA: %lu s\n", est_secs);
+            fprintf(stderr, ", ETA: %lu s\n",
+                (uint64_t)(rem_bytes * 1.0 / m_current_avg_rate_s));
         }
         fflush(stderr);
 
@@ -437,6 +445,7 @@ private:
         if (m_suppress_progress_bar) return;
         m_infile_last_read_bytes = 0;
         m_last_progress_bar_tp = std::chrono::steady_clock::now();
+        m_current_avg_rate_s = 0;
         fprintf(stderr, "\n");
         m_progress_bar_stopped = false;
         m_progress_bar_thread = std::thread(&Query<QueryImpl>::show_progress_bar, this);
@@ -526,6 +535,8 @@ private:
 
     std::chrono::steady_clock::time_point
                                 m_last_progress_bar_tp;
+
+    uint64_t                    m_current_avg_rate_s;
 };
 
 ////////////////////////////////////////
@@ -844,7 +855,7 @@ private:
 
     double                      *m_singular_values;
 
-    double                      m_exact_fnorm;
+    double                      m_exact_fnorm_sqr;
 };
 
 
@@ -860,7 +871,7 @@ QueryMatrixSketchImpl::QueryMatrixSketchImpl():
     m_exact_covariance_matrix(nullptr),
     m_work(nullptr),
     m_singular_values(nullptr),
-    m_exact_fnorm(0)
+    m_exact_fnorm_sqr(0)
 {}
 
 QueryMatrixSketchImpl::~QueryMatrixSketchImpl()
@@ -973,9 +984,14 @@ QueryMatrixSketchImpl::print_query_summary(
     if (m_exact_enabled && sketch == m_sketches[0].get())
     {
         std::swap(m_last_answer, m_exact_covariance_matrix);
-        // XXX should compute ||A||_F^2 instead of ||ATA||_F^2
-        m_exact_fnorm = lapack_wrapper_dlansp('f', 'u', m_n, m_exact_covariance_matrix);
-        m_out << "\tF-norm = " << m_exact_fnorm << std::endl;
+        // should compute ||A||_F^2 instead of ||ATA||_F^2
+        
+        m_exact_fnorm_sqr = 0;
+        for (int i = 1; i <= m_n; ++i)
+        {
+            m_exact_fnorm_sqr += m_exact_covariance_matrix[(1 + i) * i / 2 - 1];
+        }
+        m_out << "\tF-norm = " << std::sqrt(m_exact_fnorm_sqr) << std::endl;
     }
     else
     {
@@ -1011,7 +1027,7 @@ QueryMatrixSketchImpl::print_query_summary(
             << sketch->get_short_description()
             << ": "
             << "||ATA-BTB||_2 / ||A||_F^2 = "
-            << m_singular_values[0] / (m_exact_fnorm * m_exact_fnorm)
+            << m_singular_values[0] / m_exact_fnorm_sqr
             //<< ' '
             //<< m_singular_values[0]
             << std::endl;
