@@ -6,6 +6,7 @@
 extern "C"
 {
 #include <lapacke.h>
+#include <lapacke_utils.h>
 #include <cblas.h>
 }
 #include <cassert>
@@ -19,7 +20,7 @@ class FD {
     uint32_t l;
     uint32_t first_zero_line;
 
-    std::vector<double> B; //a 2l*d matrix
+    double *B; //a 2l*d matrix
     
 
 public:
@@ -27,7 +28,27 @@ public:
         d(_d),
         l(_l),
         first_zero_line(0),
-        B(2*l*d, 0) {
+        B(new double[2 * l * d]) {
+
+        memset(&B[0], 0, sizeof(double) * 2 * l * d);
+    }
+
+    FD(const FD& other):
+        d(other.d),
+        l(other.l),
+        first_zero_line(other.first_zero_line),
+        B(new double[2 * l * d]) {
+        
+        memcpy(B, other.B, sizeof(double) * 2 * l * d);
+    }
+
+    ~FD() {
+        delete []B;
+    }
+
+    void clear() {
+        memset(&B[0], 0, sizeof(double) * 2 * l * d);
+        first_zero_line = 0;
     }
 
     void update(const double *row) {
@@ -74,7 +95,8 @@ public:
             delete []U;
             delete []VT;
         }
-        
+
+        assert(first_zero_line < 2 * l); 
         memcpy(&B[(first_zero_line++) * d], row, sizeof(double) * d);
     }
     
@@ -86,13 +108,12 @@ public:
         --first_zero_line;
     }
 
-    vector<double> to_matrix() {
-        return B;
+    void to_matrix(double *B_out) {
+        memcpy(B_out, B, sizeof(double) * 2 * l * d);
     }
 
     size_t memory_usage() const {
-        // TODO ??
-        return 2 * l * d * sizeof(double);
+        return sizeof(FD) + sizeof(double) * 2 * l * d;
     }
 
     void
@@ -108,7 +129,7 @@ public:
                 CblasUpper,
                 d,
                 1.0, // alpha ?? this one should be something else?
-                B.data() + i,
+                B + i,
                 1,
                 A);
         }
@@ -120,29 +141,41 @@ public:
 FD_ATTP::FD_ATTP(int _l, int _d):
     l(_l),
     d(_d),
-    C(new FD(l, d)),
     AF2(0),
+    C(new FD(l, d)),
     partial_ckpt(),
-    full_ckpt(),
-    ckpt_cnt(0) {
-    }
+    full_ckpt()
+{
+}
 
 FD_ATTP::~FD_ATTP()
 {
-    // TODO
+    clear();
+    delete C;
 }
 
 void
 FD_ATTP::clear()
 {
-    // TODO
+    AF2 = 0.0;
+    C->clear();
+    for (auto &pckpt: partial_ckpt) {
+        delete []pckpt.row;
+    }
+    partial_ckpt.clear();
+    for (auto &fckpt: full_ckpt) {
+        delete fckpt.fd;
+    }
+    full_ckpt.clear();
 }
 
 size_t
 FD_ATTP::memory_usage() const
 {
-    // TODO
-    return 0;
+    return sizeof(FD_ATTP) +
+        partial_ckpt.size() * (sizeof(PartialCkpt) + d * sizeof(double)) +
+        ((full_ckpt.empty()) ? 0 :
+         (full_ckpt.size() * full_ckpt.front().fd->memory_usage()));
 }
 
 std::string
@@ -162,8 +195,9 @@ FD_ATTP::update(
 
     AF2 += cblas_ddot(d, a, 1, a, 1);
     
-    auto CM = C->to_matrix();
-    std::vector<double> S(d);
+    double *CM = new double[2 * l * d];
+    C->to_matrix(CM);
+    double *S = new double[std::min(2 * l, d)];
 #ifdef NDEBUG
     (void)
 #else
@@ -181,19 +215,21 @@ FD_ATTP::update(
         2 * l, // LDU
         nullptr,
         d); // LDVT
+
     assert(!info);
-    double c1_2norm_sqr = S.front() * S.front();
+
+    double c1_2norm_sqr = S[0] * S[0];
+    delete []CM;
+    delete []S;
+
     if (c1_2norm_sqr >= AF2/l) {
         double *row = new double[d];
         C->pop_first(row);
-        //partial_ckpt.push_back(PartialCkpt{ts, new double[d]});
-        //C->pop_first(&partial_ckpt.back().row[0]);
-        //++ckpt_cnt;
-        std::cout << "partial: " << _cnt << std::endl;
-
+        
+        uint32_t ckpt_cnt = full_ckpt.empty() ?
+            partial_ckpt.size() :
+            (partial_ckpt.size() - full_ckpt.back().next_partial_ckpt);
         if (ckpt_cnt + 1 >= l) {
-
-            std::cout << "full: " << _cnt << std::endl;
             if (full_ckpt.empty()) {
                 full_ckpt.push_back(FullCkpt{
                     ts,
@@ -211,14 +247,13 @@ FD_ATTP::update(
                 new_fd->update(p.row);
             });
             new_fd->update(row);
-            ckpt_cnt = 0;
 
             delete []row;
         } else {
             partial_ckpt.push_back(PartialCkpt{ts, row});
-            ++ckpt_cnt;
         }
     }
+
 }
 
 

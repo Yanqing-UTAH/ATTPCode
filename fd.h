@@ -28,11 +28,10 @@ class FD_ATTP:
 
     uint32_t l;
     uint32_t d;
-    FD *C;
     double AF2;
+    FD *C;
     std::vector<PartialCkpt> partial_ckpt;
     std::vector<FullCkpt> full_ckpt;
-    uint32_t ckpt_cnt;
 
 public:
 
@@ -40,6 +39,9 @@ public:
     
     virtual
     ~FD_ATTP();
+
+    FD_ATTP(const FD_ATTP&) = delete;
+    FD_ATTP &operator=(const FD_ATTP&) = delete;
 
     void
     clear() override;
