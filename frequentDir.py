@@ -100,37 +100,42 @@ class FDATTP:
             ret += self.l * 2 * self.d * 4
         return ret
 
-DS = np.loadtxt('matrix_small.txt', delimiter=' ')
-TS = DS[:, 0:1]
-A = DS[:, 1:]
-Q = [3, 50, 105, 120]
-BH = []
+fname = 'matrix_small.txt'
+TS = [] #timestamp
+A = [] #data
+Q = [] #queries
+for line in open(fname, 'r', encoding='utf-8'): 
+    if line[0] == '?':
+        Q.append(int(line[1:]))
+    else:
+        entries = list(map(float, line.split()))
+        TS.append(int(entries[0]))
+        A.append(entries[1:])
+
+A = np.array(A)
+
+BL = [] #baseline
 t = 0
-M = []
-
-for i in range(len(A)):
-    if TS[i] > Q[t]:
-        BH.append(copy.deepcopy(M))
-        t += 1
-        if t == len(Q):
-            break
-    M.append(A[i])
-while t < len(Q):
-    BH.append(M)
-    t += 1
-
 for l in range(50, 51):
     f = FDATTP(l, A.shape[1])
-    for (ts, row) in zip(TS, A):
+    for (i, (ts, row)) in enumerate(zip(TS, A)):
         f.update(ts, row)
+        if t < len(Q) and ts > Q[t]:
+            BL.append(i)
+            t += 1
+    while t < len(Q):
+        BL.append(len(A))
+        t += 1
+    
     print("l=%d, mem=%fMB" % (l, f.mem_usage() / 1024.0 / 1024.0))
-    for qi in range(len(Q)):
-        B = f.query(Q[qi])
-        BS = BH[qi]
-        BS = np.array(BS)
+
+
+    for i in range(len(Q)):
+        B = f.query(Q[i])
+        BS = A[:BL[i]]
         norm = LA.norm(BS, 'fro') 
         err = (LA.norm(np.matmul(BS.T, BS) - np.matmul(B.T,B))) / (norm ** 2)
-        print("Query %d,  l = %d, norm = %f, err = %f" % (Q[qi], l, norm, err))
+        print("Query %d,  l = %d, norm = %f, err = %f" % (Q[i], l, norm, err))
 
 
 """
