@@ -8,6 +8,7 @@ from scipy.sparse.linalg import eigs
 import math
 import copy
 import functools
+import os
 
 class FD:
     def __init__(self, l, d):
@@ -103,7 +104,11 @@ class FDATTP:
             ret += self.l * 2 * self.d * 4
         return ret
 
-fname = 'data/matrix_small.txt'
+fname = 'matrix_small.txt'
+if os.getlogin() == 'zyzhao':
+    ## this is the env on ravenserv1
+    ## cwd is /uusoc/scratch/ravenserv1/zyzhao/ATTPCode
+    fname = 'data/' + fname
 TS = [] #timestamp
 A = [] #data
 Q = [] #queries
