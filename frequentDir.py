@@ -1,10 +1,13 @@
+#!/usr/bin/python3
+
 import numpy as np
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 from scipy import linalg as LA
 from scipy.sparse.linalg import eigs
-from codecs import *
+#from codecs import *
 import math
 import copy
+import functools
 
 class FD:
     def __init__(self, l, d):
@@ -100,7 +103,7 @@ class FDATTP:
             ret += self.l * 2 * self.d * 4
         return ret
 
-fname = 'matrix_small.txt'
+fname = 'data/matrix_small.txt'
 TS = [] #timestamp
 A = [] #data
 Q = [] #queries
@@ -116,7 +119,7 @@ A = np.array(A)
 
 BL = [] #baseline
 t = 0
-for l in range(50, 51):
+for l in [20]:
     f = FDATTP(l, A.shape[1])
     for (i, (ts, row)) in enumerate(zip(TS, A)):
         f.update(ts, row)
@@ -129,7 +132,11 @@ for l in range(50, 51):
     
     print("l=%d, mem=%fMB" % (l, f.mem_usage() / 1024.0 / 1024.0))
 
-
+    
+    print("[debug] f: num_full_ckpt = %d, num_partial_ckpt = %d" % (
+            len(f.ckpt) -  1,
+            functools.reduce(lambda acc, ckpt: acc + len(ckpt[1]), f.ckpt, 0)
+        ))
     for i in range(len(Q)):
         B = f.query(Q[i])
         BS = A[:BL[i]]

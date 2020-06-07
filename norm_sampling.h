@@ -77,7 +77,7 @@ public:
     void
     update(
         TIMESTAMP ts,
-        double *dvec) override;
+        const double *dvec) override;
 
     void
     get_covariance_matrix(

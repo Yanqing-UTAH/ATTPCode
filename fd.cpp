@@ -15,63 +15,83 @@ using namespace std;
 
 // fast-FD impl.
 class FD {
-    vector<double> B; //a 2l*d matrix
-    size_t p_all_zeros;
-    vector<double> U;
-    vector<double> S;
-    vector<double> VT;
+    uint32_t d;
+    uint32_t l;
+    uint32_t first_zero_line;
 
-    public:
-    int d;
-    int l;
+    std::vector<double> B; //a 2l*d matrix
+    
 
-    FD(int _l, int _d) :
-        B(vector<double>(2*l*d, 0)),
-        p_all_zeros(0),
-        U(vector<double> (2*l*2*l)),
-        S(vector<double> (d)),
-        VT(vector<double> (d*d)),
+public:
+    FD(uint32_t _l, uint32_t _d) :
         d(_d),
-        l(_l)
-        {}
+        l(_l),
+        first_zero_line(0),
+        B(2*l*d, 0) {
+    }
 
-    void update(double *row) {
-        //assert(row.size() == d);
-        p_all_zeros = copy(row, row + d, B.begin() + p_all_zeros) - B.begin();
-        if (p_all_zeros == B.size()) {
+    void update(const double *row) {
+        if (first_zero_line == 2 * l) {
+            double *S = new double[std::min(2 * l, d)];
+            double *U = new double[2 * l * 2 * l];
+            double *VT = new double[d * d];
+
 #       ifdef NDEBUG
             (void)
 #       else
-            lapack_int info = 
+            lapack_int info =
 #       endif
             LAPACKE_dgesdd(
                 LAPACK_ROW_MAJOR,
                 'A',
-                2*l,
+                2 * l,
                 d,
                 &B[0],
-                d, // LDA
-                &S[0],
-                &U[0],
-                2*l, // LDU
-                &VT[0],
-                d); // LDVT
+                d, // LDA,
+                S,
+                U,
+                2 * l,
+                VT,
+                d);
             assert(!info);
-            for (int i = 0; i < l-1; ++i) {
-                for (int j = 0; j < d; ++j) {
-                    B[i*2*l+j] = VT[i*d+j] * sqrt(S[i] * S[i] - S[l]);
+    
+            double epsilon = S[l] * S[l];
+            uint32_t i;
+            for (i = 0; i < l - 1; ++i) {
+                auto s = std::sqrt(S[i] * S[i] - epsilon);
+                if (s == 0)
+                    break;
+                auto idx = i * d;
+                for (uint32_t j = 0; j < d; ++j) {
+                    B[idx] = s * VT[idx];
+                    ++idx;
                 }
             }
-            p_all_zeros = (l-1) * d;
+            memset(&B[i * d], 0, sizeof(double) * (2 * l - i) * d);
+            first_zero_line = i;
+        
+            delete []S;
+            delete []U;
+            delete []VT;
         }
+        
+        memcpy(&B[(first_zero_line++) * d], row, sizeof(double) * d);
+    }
+    
+    void pop_first(double *first_row) {
+        assert(first_zero_line);
+        memcpy(first_row, &B[0], sizeof(double) * d);
+        memmove(&B[0], &B[0] + d, sizeof(double) * (first_zero_line - 1) * d);
+        memset(&B[(first_zero_line - 1) * d], 0, sizeof(double) * d);
+        --first_zero_line;
     }
 
     vector<double> to_matrix() {
-        fill(B.begin() + p_all_zeros, B.end(), 0);
         return B;
     }
 
     size_t memory_usage() const {
+        // TODO ??
         return 2 * l * d * sizeof(double);
     }
 
@@ -80,7 +100,7 @@ class FD {
     {
         // A is a col-major packed upper triangle matrix
         memset(A, 0, sizeof(double) * d * (d + 1) / 2);
-        size_t i = 0, sz = p_all_zeros; 
+        size_t i = 0, sz = first_zero_line * d; 
         for (; i < sz; i += d)
         {
             cblas_dspr(
@@ -102,18 +122,14 @@ FD_ATTP::FD_ATTP(int _l, int _d):
     d(_d),
     C(new FD(l, d)),
     AF2(0),
-    partial_ckpt(vector<pair<TIMESTAMP, vector<double>>>()),
-    full_ckpt({{0, new FD(l, d)}}),
+    partial_ckpt(),
+    full_ckpt(),
     ckpt_cnt(0) {
     }
 
 FD_ATTP::~FD_ATTP()
 {
-    delete C;
-    for (auto &p: full_ckpt)
-    {
-        delete p.second;
-    }
+    // TODO
 }
 
 void
@@ -125,9 +141,8 @@ FD_ATTP::clear()
 size_t
 FD_ATTP::memory_usage() const
 {
-    size_t full_ckpt_usage = full_ckpt.size() == 0 ? 0 : full_ckpt.size() * (full_ckpt.front().second->memory_usage() + sizeof(int));
-    size_t partial_ckpt_usage = partial_ckpt.size() == 0 ? 0 : partial_ckpt.size() * (partial_ckpt.front().second.size() * sizeof(double) + sizeof(int));
-    return full_ckpt_usage + partial_ckpt_usage + C->memory_usage();
+    // TODO
+    return 0;
 }
 
 std::string
@@ -139,17 +154,16 @@ FD_ATTP::get_short_description() const
 void
 FD_ATTP::update(
     TIMESTAMP ts,
-    double *a)
+    const double *a)
 {
+    static unsigned long _cnt = 0;
+    ++_cnt;
     C->update(a);
 
     AF2 += cblas_ddot(d, a, 1, a, 1);
-    //for (auto& i : a) {
-    //    AF2 += i * i;
-    //}
     
     auto CM = C->to_matrix();
-    vector<double> S(d);
+    std::vector<double> S(d);
 #ifdef NDEBUG
     (void)
 #else
@@ -164,20 +178,45 @@ FD_ATTP::update(
         d, // LDA
         &S[0],
         nullptr,
-        2*l, // LDU
+        2 * l, // LDU
         nullptr,
         d); // LDVT
     assert(!info);
-    if (S.front() >= AF2/l) {
-        partial_ckpt.push_back({ts, std::vector(a, a + d)});
-        if (ckpt_cnt >= l) {
-            full_ckpt.emplace_back(std::make_pair(full_ckpt.back().first, new FD(*full_ckpt.back().second)));
-            for_each(partial_ckpt.end() - ckpt_cnt, partial_ckpt.end(), [&](decltype(partial_ckpt)::value_type p) {
-                full_ckpt.back().second->update(p.second.data());
-            });
-            for (auto i = partial_ckpt.end() - ckpt_cnt; i != partial_ckpt.end(); ++i) {
+    double c1_2norm_sqr = S.front() * S.front();
+    if (c1_2norm_sqr >= AF2/l) {
+        double *row = new double[d];
+        C->pop_first(row);
+        //partial_ckpt.push_back(PartialCkpt{ts, new double[d]});
+        //C->pop_first(&partial_ckpt.back().row[0]);
+        //++ckpt_cnt;
+        std::cout << "partial: " << _cnt << std::endl;
+
+        if (ckpt_cnt + 1 >= l) {
+
+            std::cout << "full: " << _cnt << std::endl;
+            if (full_ckpt.empty()) {
+                full_ckpt.push_back(FullCkpt{
+                    ts,
+                    new FD(l, d),
+                    (uint32_t) partial_ckpt.size()});
+            } else {
+                full_ckpt.push_back(FullCkpt{
+                    ts,
+                    new FD(*full_ckpt.back().fd),
+                    (uint32_t) partial_ckpt.size()});
             }
+            auto new_fd = full_ckpt.back().fd;
+            std::for_each(partial_ckpt.end() - ckpt_cnt, partial_ckpt.end(),
+                [new_fd](const PartialCkpt &p) {
+                new_fd->update(p.row);
+            });
+            new_fd->update(row);
             ckpt_cnt = 0;
+
+            delete []row;
+        } else {
+            partial_ckpt.push_back(PartialCkpt{ts, row});
+            ++ckpt_cnt;
         }
     }
 }
@@ -185,30 +224,29 @@ FD_ATTP::update(
 
 void
 FD_ATTP::get_covariance_matrix(
-    TIMESTAMP ts,
+    TIMESTAMP ts_e,
     double *a) const
 {
-    //a.resize(l * d);
-    auto full_cmp = [](TIMESTAMP ts_e, const decltype(full_ckpt)::value_type &p) -> bool {
-        return ts_e < p.first;
+    auto full_cmp = [](TIMESTAMP ts_e, const FullCkpt &fckpt) -> bool {
+        return ts_e < fckpt.ts;
     };
-    auto iter = upper_bound(full_ckpt.begin(), full_ckpt.end(), ts, full_cmp);
+    auto iter = std::upper_bound(full_ckpt.begin(), full_ckpt.end(), ts_e, full_cmp);
+    FD *fd;
+    uint32_t pckpt_i;
     if (iter == full_ckpt.begin()) {
-        memset(a, 0, sizeof(double) * d * (d + 1) / 2);
+        fd = new FD(l, d);
+        pckpt_i = 0;
     }
     else {
-        FD fd(*((iter - 1)->second));
-        auto partial_cmp = [](TIMESTAMP ts_e, const decltype(partial_ckpt)::value_type &p) -> bool {
-            return ts_e < p.first;
-        };
-        auto s = upper_bound(partial_ckpt.begin(), partial_ckpt.end(), iter->first, partial_cmp);
-        auto t = upper_bound(partial_ckpt.begin(), partial_ckpt.end(), ts, partial_cmp);
-        for_each(s, t, [&fd](decltype(partial_ckpt)::value_type p) {
-            fd.update(p.second.data());
-        });
-
-        fd.to_covariance_matrix(a);
+        fd = new FD(*((iter-1)->fd));
+        pckpt_i = (iter-1)->next_partial_ckpt;
     }
+
+    for (; pckpt_i < partial_ckpt.size() && partial_ckpt[pckpt_i].ts <= ts_e; ++pckpt_i) {
+        fd->update(partial_ckpt[pckpt_i].row);
+    }
+    fd->to_covariance_matrix(a);
+    delete fd;
 }
 
 FD_ATTP*

@@ -147,7 +147,7 @@ NormSamplingSketch::get_short_description() const
 void
 NormSamplingSketch::update(
     TIMESTAMP ts,
-    double *dvec)
+    const double *dvec)
 {
     double l2_sqr = cblas_ddot(m_n, dvec, 1, dvec, 1);
     double weight = std::log(- m_unif_m1_0(m_rng)) / l2_sqr;

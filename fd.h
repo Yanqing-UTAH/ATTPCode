@@ -12,13 +12,27 @@ class FD;
 class FD_ATTP:
     public IPersistentMatrixSketch
 {
-    int l;
-    int d;
+    struct PartialCkpt {
+        TIMESTAMP       ts;
+    
+        double          *row;
+    };
+
+    struct FullCkpt {
+        TIMESTAMP       ts;
+        
+        FD              *fd;
+
+        uint32_t        next_partial_ckpt;
+    };
+
+    uint32_t l;
+    uint32_t d;
     FD *C;
     double AF2;
-    std::vector<std::pair<TIMESTAMP, std::vector<double>>> partial_ckpt;
-    std::vector<std::pair<TIMESTAMP, FD*>> full_ckpt;
-    int ckpt_cnt;
+    std::vector<PartialCkpt> partial_ckpt;
+    std::vector<FullCkpt> full_ckpt;
+    uint32_t ckpt_cnt;
 
 public:
 
@@ -39,7 +53,7 @@ public:
     void
     update(
         TIMESTAMP ts,
-        double *dvec) override;
+        const double *dvec) override;
 
     void
     get_covariance_matrix(

@@ -231,7 +231,7 @@ ExactMatrix::get_short_description() const
 void
 ExactMatrix::update(
     TIMESTAMP       ts,
-    double          *dvec)
+    const double    *dvec)
 {
     if (m_last_ts != 0 && ts != m_last_ts)
     {

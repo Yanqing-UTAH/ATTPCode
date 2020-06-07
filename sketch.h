@@ -65,7 +65,7 @@ struct IPersistentSketch_dvec:
     //       pre-specified in the constructor of the underlying
     //       sketch
     virtual void
-    update(TIMESTAMP ts, double *dvec) = 0;
+    update(TIMESTAMP ts, const double *dvec) = 0;
 };
 
 struct IPersistentPointQueryable:

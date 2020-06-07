@@ -1,0 +1,120 @@
+Running query heavy_hitter_bitp at 2020/05/16 20:27:37
+Progress: 32023333 dp processed (approx. 45.60%), rate = 1982019 bytes/s,Progress: 32080081 dp processed (approx. 45.68%), rate = 1767393 bytes/s,Progress: 32146952 dp processed (approx. 45.78%), rate = 1796519 bytes/s,Progress: 32217297 dp processed (approx. 45.88%), rate = 1857737 bytes/s,Progress: 32291375 dp processed (approx. 45.98%), rate = 1939805 bytes/s,Progress: 32339690 dp processed (approx. 46.05%), rate = 1629292 bytes/s,Progress: 32403509 dp processed (approx. 46.14%), rate = 1689220 bytes/s,Progress: 32478205 dp processed (approx. 46.25%), rate = 1869047 bytes/s,Progress: 32535879 dp processed (approx. 46.33%), rate = 1724652 bytes/s,Progress: 32604415 dp processed (approx. 46.43%), rate = 1800113 bytes/s,Progress: 32647668 dp processed (approx. 46.49%), rate = 1491657 bytes/s,Progress: 32716331 dp processed (approx. 46.59%), rate = 1684261 bytes/s,Progress: 32779599 dp processed (approx. 46.68%), rate = 1708147 bytes/s,Progress: 32849899 dp processed (approx. 46.77%), rate = 1816472 bytes/s,Progress: 32887237 dp processed (approx. 46.83%), rate = 1421041 bytes/s,Progress: 32951160 dp processed (approx. 46.9Progress: 33275687 dp processed (approx. 47.38%), rate = 1478257 bytes/s, ETA: 343 s
+Progress: 69979868 dp processed (approx. 99.97%), rate = 1670436 bytes/s, ETA: 0 s
+HH(0.01|893971816):
+        EXACT_HH: 5
+        TMG_BITP-e0.005000: prec = 5/40 = 0.125, recall = 5/5 = 1
+        TMG_BITP-e0.001000: prec = 5/8 = 0.625, recall = 5/5 = 1
+        TMG_BITP-e0.000500: prec = 5/8 = 0.625, recall = 5/5 = 1
+        SAMPLING_BITP-ss1000-use_new_impl-2: prec = 3/8 = 0.375, recall = 3/5 = 0.6
+        SAMPLING_BITP-ss2000-use_new_impl-2: prec = 3/10 = 0.3, recall = 3/5 = 0.6
+        SAMPLING_BITP-ss5000-use_new_impl-2: prec = 4/11 = 0.363636, recall = 4/5 = 0.8
+        SAMPLING_BITP-ss10000-use_new_impl-2: prec = 5/9 = 0.555556, recall = 5/5 = 1
+
+
+HH(0.01|894918951):
+        EXACT_HH: 6
+        TMG_BITP-e0.005000: prec = 6/40 = 0.15, recall = 6/6 = 1
+        TMG_BITP-e0.001000: prec = 6/10 = 0.6, recall = 6/6 = 1
+        TMG_BITP-e0.000500: prec = 6/10 = 0.6, recall = 6/6 = 1
+        SAMPLING_BITP-ss1000-use_new_impl-2: prec = 3/8 = 0.375, recall = 3/6 = 0.5
+        SAMPLING_BITP-ss2000-use_new_impl-2: prec = 3/10 = 0.3, recall = 3/6 = 0.5
+        SAMPLING_BITP-ss5000-use_new_impl-2: prec = 4/11 = 0.363636, recall = 4/6 = 0.666667
+        SAMPLING_BITP-ss10000-use_new_impl-2: prec = 5/9 = 0.555556, recall = 5/6 = 0.833333
+
+
+HH(0.01|895569908):
+        EXACT_HH: 7
+        TMG_BITP-e0.005000: prec = 7/40 = 0.175, recall = 7/7 = 1
+        TMG_BITP-e0.001000: prec = 7/9 = 0.777778, recall = 7/7 = 1
+        TMG_BITP-e0.000500: prec = 7/9 = 0.777778, recall = 7/7 = 1
+        SAMPLING_BITP-ss1000-use_new_impl-2: prec = 4/8 = 0.5, recall = 4/7 = 0.571429
+        SAMPLING_BITP-ss2000-use_new_impl-2: prec = 4/10 = 0.4, recall = 4/7 = 0.571429
+        SAMPLING_BITP-ss5000-use_new_impl-2: prec = 5/11 = 0.454545, recall = 5/7 = 0.714286
+        SAMPLING_BITP-ss10000-use_new_impl-2: prec = 6/9 = 0.666667, recall = 6/7 = 0.857143
+
+
+HH(0.01|895780940):
+        EXACT_HH: 6
+        TMG_BITP-e0.005000: prec = 6/40 = 0.15, recall = 6/6 = 1
+        TMG_BITP-e0.001000: prec = 6/9 = 0.666667, recall = 6/6 = 1
+        TMG_BITP-e0.000500: prec = 6/9 = 0.666667, recall = 6/6 = 1
+        SAMPLING_BITP-ss1000-use_new_impl-2: prec = 4/8 = 0.5, recall = 4/6 = 0.666667
+        SAMPLING_BITP-ss2000-use_new_impl-2: prec = 4/10 = 0.4, recall = 4/6 = 0.666667
+        SAMPLING_BITP-ss5000-use_new_impl-2: prec = 5/11 = 0.454545, recall = 5/6 = 0.833333
+        SAMPLING_BITP-ss10000-use_new_impl-2: prec = 6/9 = 0.666667, recall = 6/6 = 1
+
+
+HH(0.01|896011700):
+        EXACT_HH: 5
+        TMG_BITP-e0.005000: prec = 5/39 = 0.128205, recall = 5/5 = 1
+        TMG_BITP-e0.001000: prec = 5/9 = 0.555556, recall = 5/5 = 1
+        TMG_BITP-e0.000500: prec = 5/9 = 0.555556, recall = 5/5 = 1
+        SAMPLING_BITP-ss1000-use_new_impl-2: prec = 3/8 = 0.375, recall = 3/5 = 0.6
+        SAMPLING_BITP-ss2000-use_new_impl-2: prec = 3/10 = 0.3, recall = 3/5 = 0.6
+        SAMPLING_BITP-ss5000-use_new_impl-2: prec = 4/11 = 0.363636, recall = 4/5 = 0.8
+        SAMPLING_BITP-ss10000-use_new_impl-2: prec = 5/9 = 0.555556, recall = 5/5 = 1
+
+
+HH(0.01|896338528):
+        EXACT_HH: 5
+        TMG_BITP-e0.005000: prec = 5/39 = 0.128205, recall = 5/5 = 1
+        TMG_BITP-e0.001000: prec = 5/9 = 0.555556, recall = 5/5 = 1
+        TMG_BITP-e0.000500: prec = 5/8 = 0.625, recall = 5/5 = 1
+        SAMPLING_BITP-ss1000-use_new_impl-2: prec = 3/8 = 0.375, recall = 3/5 = 0.6
+        SAMPLING_BITP-ss2000-use_new_impl-2: prec = 3/10 = 0.3, recall = 3/5 = 0.6
+        SAMPLING_BITP-ss5000-use_new_impl-2: prec = 4/11 = 0.363636, recall = 4/5 = 0.8
+        SAMPLING_BITP-ss10000-use_new_impl-2: prec = 5/9 = 0.555556, recall = 5/5 = 1
+
+
+HH(0.01|896633666):
+        EXACT_HH: 4
+        TMG_BITP-e0.005000: prec = 4/40 = 0.1, recall = 4/4 = 1
+        TMG_BITP-e0.001000: prec = 4/8 = 0.5, recall = 4/4 = 1
+        TMG_BITP-e0.000500: prec = 4/6 = 0.666667, recall = 4/4 = 1
+        SAMPLING_BITP-ss1000-use_new_impl-2: prec = 2/8 = 0.25, recall = 2/4 = 0.5
+        SAMPLING_BITP-ss2000-use_new_impl-2: prec = 2/10 = 0.2, recall = 2/4 = 0.5
+        SAMPLING_BITP-ss5000-use_new_impl-2: prec = 3/11 = 0.272727, recall = 3/4 = 0.75
+        SAMPLING_BITP-ss10000-use_new_impl-2: prec = 4/9 = 0.444444, recall = 4/4 = 1
+
+
+HH(0.01|896635789):
+        EXACT_HH: 0
+        TMG_BITP-e0.005000: prec = 0/0 = -nan, recall = 0/0 = -nan
+        TMG_BITP-e0.001000: prec = 0/0 = -nan, recall = 0/0 = -nan
+        TMG_BITP-e0.000500: prec = 0/0 = -nan, recall = 0/0 = -nan
+        SAMPLING_BITP-ss1000-use_new_impl-2: prec = 0/8 = 0, recall = 0/0 = -nan
+        SAMPLING_BITP-ss2000-use_new_impl-2: prec = 0/10 = 0, recall = 0/0 = -nan
+        SAMPLING_BITP-ss5000-use_new_impl-2: prec = 0/11 = 0, recall = 0/0 = -nan
+        SAMPLING_BITP-ss10000-use_new_impl-2: prec = 0/9 = 0, recall = 0/0 = -nan
+
+Progress: 70000000 dp processed (approx. 100.00%), rate = 464316 bytes/s, ETA: 0 s
+
+=============  Memory Usage  =============
+        EXACT_HH: 1399888648 B = 1335.037 MB
+        TMG_BITP-e0.005000: 99208072 B = 94.612 MB
+        TMG_BITP-e0.001000: 655074256 B = 624.727 MB
+        TMG_BITP-e0.000500: 993466288 B = 947.443 MB
+        SAMPLING_BITP-ss1000-use_new_impl-2: 1145592 B = 1.092 MB
+        SAMPLING_BITP-ss2000-use_new_impl-2: 2070936 B = 1.974 MB
+        SAMPLING_BITP-ss5000-use_new_impl-2: 3769272 B = 3.594 MB
+        SAMPLING_BITP-ss10000-use_new_impl-2: 3795544 B = 3.619 MB
+=============  Time stats    =============
+Update timers:
+        EXACT_HH: tot = 21875 ms = 21 s (avg 0 us = 0 ms)
+        TMG_BITP-e0.005000: tot = 112708 ms = 112 s (avg 1 us = 0 ms)
+        TMG_BITP-e0.001000: tot = 94064 ms = 94 s (avg 1 us = 0 ms)
+        TMG_BITP-e0.000500: tot = 90281 ms = 90 s (avg 1 us = 0 ms)
+        SAMPLING_BITP-ss1000-use_new_impl-2: tot = 35016 ms = 35 s (avg 0 us = 0 ms)
+        SAMPLING_BITP-ss2000-use_new_impl-2: tot = 37128 ms = 37 s (avg 0 us = 0 ms)
+        SAMPLING_BITP-ss5000-use_new_impl-2: tot = 41818 ms = 41 s (avg 0 us = 0 ms)
+        SAMPLING_BITP-ss10000-use_new_impl-2: tot = 48074 ms = 48 s (avg 0 us = 0 ms)
+Query timers:
+        EXACT_HH: tot = 85 ms = 0 s (avg 10678 us = 10 ms)
+        TMG_BITP-e0.005000: tot = 11 ms = 0 s (avg 1402 us = 1 ms)
+        TMG_BITP-e0.001000: tot = 65 ms = 0 s (avg 8160 us = 8 ms)
+        TMG_BITP-e0.000500: tot = 77 ms = 0 s (avg 9698 us = 9 ms)
+        SAMPLING_BITP-ss1000-use_new_impl-2: tot = 55 ms = 0 s (avg 6899 us = 6 ms)
+        SAMPLING_BITP-ss2000-use_new_impl-2: tot = 104 ms = 0 s (avg 13090 us = 13 ms)
+        SAMPLING_BITP-ss5000-use_new_impl-2: tot = 241 ms = 0 s (avg 30212 us = 30 ms)
+        SAMPLING_BITP-ss10000-use_new_impl-2: tot = 379 ms = 0 s (avg 47498 us = 47 ms)

@@ -75,13 +75,13 @@ public:
 
     void
     update(
-        TIMESTAMP   ts,
-        double      *dvec) override;
+        TIMESTAMP       ts,
+        const double    *dvec) override;
     
     void
     get_covariance_matrix(
-        TIMESTAMP   ts_e,
-        double      *A) const override;
+        TIMESTAMP       ts_e,
+        double          *A) const override;
 
 private:
 
