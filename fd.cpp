@@ -63,33 +63,36 @@ public:
             lapack_int info =
 #       endif
             LAPACKE_dgesdd(
-                LAPACK_ROW_MAJOR,
+                LAPACK_COL_MAJOR,
                 'A',
                 2 * l,
                 d,
                 &B[0],
-                d, // LDA,
+                2 * l, // LDA
                 S,
                 U,
-                2 * l,
+                2 * l, // LDU
                 VT,
-                d);
+                d); // LDVT
             assert(!info);
     
+            memset(B, 0, sizeof(double) * 2 * l * d);
             double epsilon = S[l] * S[l];
-            uint32_t i;
-            for (i = 0; i < l - 1; ++i) {
-                auto s = std::sqrt(S[i] * S[i] - epsilon);
-                if (s == 0)
+            for (first_zero_line = 0; first_zero_line < l - 1; ++first_zero_line) {
+                S[first_zero_line] =
+                    std::sqrt(S[first_zero_line] * S[first_zero_line] - epsilon);
+                if (S[first_zero_line] == 0) {
                     break;
-                auto idx = i * d;
-                for (uint32_t j = 0; j < d; ++j) {
-                    B[idx] = s * VT[idx];
-                    ++idx;
                 }
             }
-            memset(&B[i * d], 0, sizeof(double) * (2 * l - i) * d);
-            first_zero_line = i;
+            
+            for (uint32_t j = 0; j < d; ++j) {
+                auto idx = j * 2 * l;
+                auto idx2 = j * d;
+                for (uint32_t i = 0; i < first_zero_line; ++i) {
+                    B[idx++] = S[i] * VT[idx2++];
+                }
+            }
         
             delete []S;
             delete []U;
@@ -97,18 +100,39 @@ public:
         }
 
         assert(first_zero_line < 2 * l); 
-        memcpy(&B[(first_zero_line++) * d], row, sizeof(double) * d);
+        //memcpy(&B[(first_zero_line++) * d], row, sizeof(double) * d);
+        uint32_t idx = first_zero_line++;
+        for (uint32_t i = 0; i < d; ++i) {
+            B[idx] = row[i];
+            idx += 2 * l;
+        }
     }
     
     void pop_first(double *first_row) {
         assert(first_zero_line);
-        memcpy(first_row, &B[0], sizeof(double) * d);
-        memmove(&B[0], &B[0] + d, sizeof(double) * (first_zero_line - 1) * d);
-        memset(&B[(first_zero_line - 1) * d], 0, sizeof(double) * d);
+        //memcpy(first_row, &B[0], sizeof(double) * d);
+        //memmove(&B[0], &B[0] + d, sizeof(double) * (first_zero_line - 1) * d);
+        //memset(&B[(first_zero_line - 1) * d], 0, sizeof(double) * d);
+        uint32_t idx = 0;
+        for (uint32_t i = 0; i < d; ++i) {
+            first_row[i] = B[idx];
+            memmove(&B[idx], &B[idx + 1], sizeof(double) * (first_zero_line - 1));
+            B[idx + first_zero_line - 1] = 0;
+            idx += 2 * l;
+        }
         --first_zero_line;
     }
 
     void to_matrix(double *B_out) {
+        /*LAPACKE_dge_trans(
+            LAPACK_ROW_MAJOR,
+            2 * l,
+            d,
+            B,
+            d,
+            B_out,
+            2 * l); */
+
         memcpy(B_out, B, sizeof(double) * 2 * l * d);
     }
 
@@ -121,8 +145,8 @@ public:
     {
         // A is a col-major packed upper triangle matrix
         memset(A, 0, sizeof(double) * d * (d + 1) / 2);
-        size_t i = 0, sz = first_zero_line * d; 
-        for (; i < sz; i += d)
+        size_t i = 0, sz = first_zero_line;
+        for (; i < sz; ++i)
         {
             cblas_dspr(
                 CblasColMajor,
@@ -130,7 +154,7 @@ public:
                 d,
                 1.0, // alpha ?? this one should be something else?
                 B + i,
-                1,
+                2 * l,
                 A);
         }
     }
@@ -204,12 +228,12 @@ FD_ATTP::update(
     lapack_int info =
 #endif
     LAPACKE_dgesdd(
-        LAPACK_ROW_MAJOR,
+        LAPACK_COL_MAJOR,
         'N',
         2*l,
         d,
         &CM[0],
-        d, // LDA
+        2 * l, // LDA
         &S[0],
         nullptr,
         2 * l, // LDU
@@ -225,7 +249,7 @@ FD_ATTP::update(
     if (c1_2norm_sqr >= AF2/l) {
         double *row = new double[d];
         C->pop_first(row);
-        
+
         uint32_t ckpt_cnt = full_ckpt.empty() ?
             partial_ckpt.size() :
             (partial_ckpt.size() - full_ckpt.back().next_partial_ckpt);

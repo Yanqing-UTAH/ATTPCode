@@ -1,8 +1,8 @@
 CC = COMPILER='gcc' ./bin/compile
 CXX = COMPILER='g++ -std=gnu++17' ./bin/compile
 LINK.o = $(LINK.cc)
-CXXFLAGS =  -O0 -g -fkeep-inline-functions -Wall -Wno-comment
-CPPFLAGS = 
+CXXFLAGS =  -O2 -Wall -Wno-comment
+CPPFLAGS =  -DNDEBUG
 LDFLAGS = 
 LDLIBS = -llapacke -llapack -lcblas  -pthread
 
