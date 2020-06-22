@@ -2,7 +2,7 @@ CC = COMPILER='@CC@' ./bin/compile
 CXX = COMPILER='@CXX@' ./bin/compile
 LINK.o = $(LINK.cc)
 CXXFLAGS = @CXXFLAGS@ -Wall -Wno-comment
-CPPFLAGS = @CPPFLAGS@
+CPPFLAGS = @CPPFLAGS@ -Iexternal/fftw-3.3.8/api
 LDFLAGS = @LDFLAGS@
 LDLIBS = @LIBS@ -pthread
 
@@ -10,12 +10,15 @@ LDLIBS = @LIBS@ -pthread
 top_srcdir = @top_srcdir@
 
 EXES=driver
-OBJS=test_pla.o driver.o sketch.o old_driver.o test_conf.o misra_gries.o test_hh.o norm_sampling.o fd.o pmmg.o perf_timer.o pcm.o test_pams.o pams.o lapack_wrapper.o exact_query.o MurmurHash3.o query.o conf.o sampling.o pla.o heavyhitters.o test_pcm.o 
+OBJS=test_pla.o driver.o sketch.o old_driver.o test_conf.o misra_gries.o test_hh.o norm_sampling.o fd.o pmmg.o perf_timer.o pcm.o test_pams.o pams.o lapack_wrapper.o exact_query.o MurmurHash3.o query.o conf.o sampling.o pla.o test_dct.o heavyhitters.o test_pcm.o 
 DRIVER_OBJS=driver.o sketch.o old_driver.o misra_gries.o norm_sampling.o fd.o pmmg.o perf_timer.o pcm.o pams.o lapack_wrapper.o exact_query.o MurmurHash3.o query.o conf.o sampling.o pla.o heavyhitters.o 
 
-.PHONY: all clean depend
+FFTW3_LDFLAGS=-Lexternal/fftw-3.3.8/build/lib
+FFTW3_LIBS=-lfftw3
 
-all: $(EXES)
+.PHONY: all clean depend driver_tgt
+
+all: driver_tgt
 
 # exe targets
 
@@ -27,7 +30,13 @@ test_pams: test_pams.o pams.o conf.o MurmurHash3.o
 
 test_hh: test_hh.o heavyhitters.o pcm.o pla.o conf.o MurmurHash3.o
 
+test_dct: $(FFTW) test_dct.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o test_dct test_dct.cpp $(LDFLAGS) $(FFTW3_LDFLAGS) $(LDLIBS) $(FFTW3_LIBS)
+
+driver_tgt: external/fftw-3.3.8/build driver
+
 driver: $(DRIVER_OBJS)
+	$(CXX) -o driver $(DRIVER_OBJS) $(LDFLAGS) $(FFTW3_LDFLAGS) $(LDLIBS) $(FFTW3_LIBS)
 
 # objs
 
@@ -87,6 +96,8 @@ sampling.o: sampling.cpp sampling.h sketch.h util.h sketch_lib.h avl.h \
  basic_defs.h avl_container.h conf.h hashtable.h min_heap.h
 
 pla.o: pla.cpp pla.h
+
+test_dct.o: test_dct.cpp
 
 heavyhitters.o: heavyhitters.cpp heavyhitters.h pcm.h pla.h util.h \
  sketch.h sketch_lib.h MurmurHash3.h conf.h hashtable.h

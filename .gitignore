@@ -14,3 +14,4 @@ config.log
 stamp-h
 config.h
 Makefile.in.old
+*.fftw
