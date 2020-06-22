@@ -2,3 +2,10 @@
 *.o
 *.lo
 .libs
+*.lla
+doc/FAQ/fftw-faq.ascii
+doc/FAQ/fftw-faq.html
+doc/fftw3.pdf
+mpi/*.f03
+tests/bench
+tools/fftw-wisdom
