@@ -25,6 +25,7 @@ extern "C"
 #include <lapacke.h>
 }
 #include "lapack_wrapper.h"
+#include <fftw3.h>
 
 
 ////////////////////////////////////////
@@ -42,6 +43,8 @@ protected:
     QueryBase():
         m_out(std::cout)
     {}
+
+    void finish() {}
 
     int
     early_setup() { return 0; }
@@ -230,7 +233,7 @@ public:
                 char *pc_arg_start;
 
                 ts = (TIMESTAMP) strtoull(line.c_str(), &pc_arg_start, 0);
-                if (QueryImpl::parse_update_arg(pc_arg_start))
+                if (QueryImpl::parse_update_arg(ts, pc_arg_start))
                 {
                     fprintf(stderr,
                         "[WARN] malformatted line on %lu\n",
@@ -317,6 +320,12 @@ public:
         }
 
         return 0;
+    }
+
+    void
+    finish()
+    {
+        QueryImpl::finish();
     }
 
 private:
@@ -733,6 +742,7 @@ protected:
 
     int
     parse_update_arg(
+        TIMESTAMP ts,
         const char *str)
     {
         if (m_input_is_ip)
@@ -826,12 +836,16 @@ protected:
 
     int
     parse_update_arg(
+        TIMESTAMP ts,
         const char *str);
 
     void
     update(
         IPersistentMatrixSketch *sketch,
         TIMESTAMP ts);
+
+    void
+    finish();
 
 private:
     inline
@@ -841,7 +855,21 @@ private:
         return (size_t) m_n * ((size_t) m_n + 1) / 2;
     }
 
+    void
+    print_query_summary_with_exact_answer(
+        IPersistentMatrixSketch *sketch);
+
+    void
+    print_query_summary_with_analytic_error(
+        IPersistentMatrixSketch *sketch);
+
+    double
+    get_exact_fnorm_sqr(
+        TIMESTAMP ts) const;
+
     bool                        m_exact_enabled;
+    
+    bool                        m_use_analytic_error;
 
     int                         m_n;
 
@@ -854,8 +882,37 @@ private:
     double                      *m_work; // of size m_n * m_n
 
     double                      *m_singular_values;
+    
+    // Now removed.
+    //double                      m_exact_fnorm_sqr;
+    
+    int                         m_num_dirs;
+    
+    bool                        m_has_dir_list;
+    
+    // non-null only when m_use_analytic_error
+    // length == m_num_dirs
+    int                         *m_num_vecs;
+    
+    // non-null only when m_use_analytic_error
+    // contains m_num_dirs counts of double arrays
+    // each of size m_num_vecs[k]
+    double                      **m_var_list;
+    
+    // non-null only when m_has_dir_list (and m_use_analytic_error)
+    // contains m_num_dirs counts of double arrays
+    // m_dir_list[k] is a column-major array of size m_num_vecs[k] by m_n
+    double                      **m_dir_list;
+   
+    // populated only when m_use_analytic_error
+    // each pair is a timestamp and an array of length m_num_dirs
+    std::vector<std::pair<TIMESTAMP, uint64_t*>>
+                                m_cnt_maps;
 
-    double                      m_exact_fnorm_sqr;
+    TIMESTAMP                   m_current_query_ts;
+
+    std::vector<std::pair<TIMESTAMP, double>>
+                                m_exact_fnorm_sqr_vec;
 };
 
 
@@ -865,14 +922,25 @@ private:
 ////////////////////////////////////////
 QueryMatrixSketchImpl::QueryMatrixSketchImpl():
     m_exact_enabled(false),
+    m_use_analytic_error(false),
     m_n(0),
     m_dvec(nullptr),
     m_last_answer(nullptr),
     m_exact_covariance_matrix(nullptr),
     m_work(nullptr),
     m_singular_values(nullptr),
-    m_exact_fnorm_sqr(0)
-{}
+    //m_exact_fnorm_sqr(0),
+    m_num_dirs(0),
+    m_has_dir_list(false),
+    m_num_vecs(nullptr),
+    m_var_list(nullptr),
+    m_dir_list(nullptr),
+    m_cnt_maps(),
+    m_current_query_ts(0),
+    m_exact_fnorm_sqr_vec()
+{
+    m_exact_fnorm_sqr_vec.emplace_back(0, 0.0);
+}
 
 QueryMatrixSketchImpl::~QueryMatrixSketchImpl()
 {
@@ -881,6 +949,31 @@ QueryMatrixSketchImpl::~QueryMatrixSketchImpl()
     delete []m_exact_covariance_matrix;
     delete []m_work;
     delete []m_singular_values;
+    delete []m_num_vecs;
+    
+    if (m_var_list)
+    {
+        for (int i = 0; i < m_num_dirs; ++i)
+        {
+            delete []m_var_list[i];
+        }
+        delete []m_var_list;
+    }
+
+    if (m_dir_list)
+    {
+        for (int i = 0; i < m_num_dirs; ++i)
+        {
+            delete []m_dir_list[i];
+        }
+        delete []m_dir_list;
+    }
+
+    for (const auto &p: m_cnt_maps)
+    {
+        delete []p.second;
+    }
+    m_cnt_maps.clear();
 }
 
 int
@@ -940,20 +1033,104 @@ QueryMatrixSketchImpl::early_setup()
 int
 QueryMatrixSketchImpl::additional_setup()
 {
+    m_use_analytic_error = g_config->get_boolean("MS.use_analytic_error").value();
+    m_exact_enabled = g_config->get_boolean("EXACT_MS.enabled").value();
 
-    if (g_config->get_boolean("EXACT_MS.enabled").value())
+    if (!m_use_analytic_error)
     {
-        m_exact_enabled = true;
-        if (m_sketches.size() == 0 ||
-            m_sketches[0].get()->get_short_description() != "EXACT_MS")
+        // When we don't use analytic error and the exact answer is enabled,
+        // we use EXACT_MS as the reference answer.
+        if (m_exact_enabled)
         {
-            std::cerr << "[ERROR] exact query should come first" << std::endl;
-            return 1;
+            if (m_sketches.size() == 0 ||
+                m_sketches[0].get()->get_short_description() != "EXACT_MS")
+            {
+                std::cerr << "[ERROR] exact query should come first" << std::endl;
+                return 1;
+            }
         }
     }
     else
     {
-        m_exact_enabled = false;
+        // Otherwise, we need to load the ground truth file to compute
+        // the analytic errors.
+        std::string ground_truth_file = g_config->get("MS.ground_truth_file").value();
+        
+        // import the fftw3 wisdom file if available  
+        if (g_config->get_boolean("misc.fftw3.import_wisdom").value())
+        {
+            std::string wisdom_file = g_config->get("misc.fftw3.wisdom_filename").value();
+            fftw_import_wisdom_from_filename(wisdom_file.c_str());
+        }
+        
+        std::ifstream fin(ground_truth_file);
+        if (!fin)
+        {
+            std::cerr << "[ERROR] unable to open the ground truth file " << ground_truth_file << std::endl;
+            return 1;
+        }
+
+#define ERROR_RETURN() \
+        do \
+        { \
+            std::cerr << "[ERROR] malformated ground truth file" << std::endl; \
+            return 1; \
+        } while(0)
+
+        int d, num_dirs, has_dir_list;
+        if (!(fin >> d >> num_dirs >> has_dir_list)) ERROR_RETURN();
+        
+        if (d != m_n)
+        {
+            std::cerr << "[ERROR] MS.dimension and the dimension in the ground truth file mismatch" << std::endl;
+            return 1;
+        }
+    
+        m_num_dirs = num_dirs;
+        m_has_dir_list = (has_dir_list == 1);
+    
+        m_num_vecs = new int[m_num_dirs];
+        m_var_list = new double*[m_num_dirs];
+        for (int i = 0; i < m_num_dirs; ++i)
+        {
+            int num_vecs;
+            if (!(fin >> num_vecs)) ERROR_RETURN();
+            m_num_vecs[i] = num_vecs;
+            
+            m_var_list[i] = new double[num_vecs];
+            for (int j = 0; j < num_vecs; ++j)
+            {
+                if (!(fin >> m_var_list[i][j])) ERROR_RETURN();
+            }
+        }
+    
+        if (m_has_dir_list)
+        {
+            m_dir_list = new double*[m_num_dirs];
+
+            for (int k = 0; k < m_num_dirs; ++k)
+            {
+                int m = m_num_vecs[k]; // # of rows
+                int n = m_n; // # of columns
+                double *dir_mat = new double[m * n];
+                for (int i = 0; i < m; ++i)
+                for (int j = 0; j < n; ++j)
+                {
+                    if (!(fin >> dir_mat[j * m + i])) ERROR_RETURN();
+                }
+            }
+        }
+        
+        TIMESTAMP ts;
+        while (fin >> ts)
+        {
+            uint64_t *cnt_map = new uint64_t[m_num_dirs];
+            m_cnt_maps.emplace_back(ts, cnt_map);
+            for (int i = 0; i < m_num_dirs; ++i)
+            {
+                if (!(fin >> cnt_map[i])) ERROR_RETURN();
+            }
+        }
     }
 
     return 0;
@@ -965,6 +1142,7 @@ QueryMatrixSketchImpl::parse_query_arg(
     const char *str)
 {
     m_out << "MS(" << ts << "):" << std::endl;
+    m_current_query_ts = ts;
     return 0;
 }
 
@@ -980,18 +1158,38 @@ void
 QueryMatrixSketchImpl::print_query_summary(
     IPersistentMatrixSketch *sketch)
 {
-    if (!m_exact_enabled) return ;
-    if (m_exact_enabled && sketch == m_sketches[0].get())
+    if (m_use_analytic_error)
+    {
+        print_query_summary_with_analytic_error(sketch);
+    }
+    else if (m_exact_enabled)
+    {
+        print_query_summary_with_exact_answer(sketch);
+    }
+}
+
+void
+QueryMatrixSketchImpl::print_query_summary_with_exact_answer(
+    IPersistentMatrixSketch *sketch)
+{
+    assert(m_exact_enabled && !m_use_analytic_error);
+    
+    // This local variable replaces the former member m_exact_fnorm_sqr
+    // computed in the following then-branch.
+    double m_exact_fnorm_sqr = get_exact_fnorm_sqr(m_current_query_ts);
+
+    if (sketch == m_sketches[0].get())
     {
         std::swap(m_last_answer, m_exact_covariance_matrix);
         // should compute ||A||_F^2 instead of ||ATA||_F^2
         
-        m_exact_fnorm_sqr = 0;
-        for (int i = 1; i <= m_n; ++i)
-        {
-            m_exact_fnorm_sqr += m_exact_covariance_matrix[(1 + i) * i / 2 - 1];
-        }
+        //m_exact_fnorm_sqr = 0;
+        //for (int i = 1; i <= m_n; ++i)
+        //{
+        //    m_exact_fnorm_sqr += m_exact_covariance_matrix[(1 + i) * i / 2 - 1];
+        //}
         m_out << "\tF-norm = " << std::sqrt(m_exact_fnorm_sqr) << std::endl;
+
     }
     else
     {
@@ -1035,6 +1233,13 @@ QueryMatrixSketchImpl::print_query_summary(
 }
 
 void
+QueryMatrixSketchImpl::print_query_summary_with_analytic_error(
+    IPersistentMatrixSketch *sketch)
+{
+    // TODO
+}
+
+void
 QueryMatrixSketchImpl::dump_query_result(
     IPersistentMatrixSketch *sketch,
     std::ostream &out,
@@ -1046,8 +1251,16 @@ QueryMatrixSketchImpl::dump_query_result(
 
 int
 QueryMatrixSketchImpl::parse_update_arg(
+    TIMESTAMP ts,
     const char *str)
 {
+    if (ts != m_exact_fnorm_sqr_vec.back().first)
+    {
+        m_exact_fnorm_sqr_vec.emplace_back(
+            ts,
+            m_exact_fnorm_sqr_vec.back().second);
+    }
+
     const char *s = str;
     for (int i = 0; i < m_n; ++i)
     {
@@ -1055,6 +1268,8 @@ QueryMatrixSketchImpl::parse_update_arg(
         m_dvec[i] = strtod(s, &s2);
         if (s2 == s || (m_dvec[i] == HUGE_VAL)) return 1;
         s = s2;
+
+        m_exact_fnorm_sqr_vec.back().second += m_dvec[i] * m_dvec[i];
     }
     
     return 0;
@@ -1066,6 +1281,33 @@ QueryMatrixSketchImpl::update(
     TIMESTAMP ts)
 {
     sketch->update(ts, m_dvec);
+}
+
+void
+QueryMatrixSketchImpl::finish()
+{
+    if (m_use_analytic_error &&
+        g_config->get_boolean("misc.fftw3.export_wisdom"))
+    {
+        std::string wisdom_filename = g_config->get("misc.fftw3.wisdom_filename").value();
+        fftw_export_wisdom_to_filename(wisdom_filename.c_str());
+    }
+}
+
+double
+QueryMatrixSketchImpl::get_exact_fnorm_sqr(
+    TIMESTAMP ts) const
+{
+    auto iter = std::upper_bound(
+        m_exact_fnorm_sqr_vec.begin(),
+        m_exact_fnorm_sqr_vec.end(),
+        ts,
+        [](TIMESTAMP ts, const std::pair<TIMESTAMP, double> &p) -> bool
+        {
+            return ts < p.first;
+        });
+    assert(iter != m_exact_fnorm_sqr_vec.begin());
+    return (--iter)->second;
 }
 
 ////////////////////////////////////////
@@ -1103,6 +1345,7 @@ int run_query_impl()
     if ((ret = query.setup())) return ret;
     if ((ret = query.run())) return ret;
     if ((ret = query.print_stats())) return ret;
+    query.finish();
 
     return 0;
 }

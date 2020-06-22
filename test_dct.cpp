@@ -56,13 +56,8 @@ void rescale_and_check_output(double *output) {
 }
 
 int main(int argc, char *argv[]) {
-    FILE *wisdom_file = fopen("test_dct.fftw", "r");
-    if (wisdom_file) {
-        fclose(wisdom_file);
-        std::cout << "importing widsom..." << std::endl;
-        if (!fftw_import_wisdom_from_filename("test_dct.fftw")) {
-            std::cout << "[WARN] error when importing wisdom" << std::endl;
-        }
+    if (!fftw_import_wisdom_from_filename("test_dct.fftw3")) {
+        std::cout << "[WARN] error when importing wisdom" << std::endl;
     }
 
     double *input_arr = new double[input_dim];
@@ -101,7 +96,7 @@ int main(int argc, char *argv[]) {
     rescale_and_check_output(output_arr);
      
     std::cout << "exporting wisdom..." << std::endl;
-    fftw_export_wisdom_to_filename("test_dct.fftw");
+    fftw_export_wisdom_to_filename("test_dct.fftw3");
 
     return 0;
 }

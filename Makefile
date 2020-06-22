@@ -1,8 +1,8 @@
 CC = COMPILER='gcc' ./bin/compile
 CXX = COMPILER='g++ -std=gnu++17' ./bin/compile
 LINK.o = $(LINK.cc)
-CXXFLAGS =  -O2 -Wall -Wno-comment
-CPPFLAGS =  -DNDEBUG -Iexternal/fftw-3.3.8/api
+CXXFLAGS =  -O0 -g -fkeep-inline-functions -Wall -Wno-comment
+CPPFLAGS =  -Iexternal/fftw-3.3.8/api
 LDFLAGS = 
 LDLIBS = -llapacke -llapack -lcblas  -pthread
 
