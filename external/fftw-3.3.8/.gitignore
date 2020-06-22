@@ -8,4 +8,6 @@ doc/FAQ/fftw-faq.html
 doc/fftw3.pdf
 mpi/*.f03
 tests/bench
-tools/fftw-wisdom
+tools/fftw-wisdomA
+fftw.pc
+Makefile
