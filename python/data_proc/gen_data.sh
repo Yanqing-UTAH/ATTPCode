@@ -14,7 +14,7 @@ import time_serial_matrix
 
 time_serial_matrix.${DS}()
 EOF
-    mv X_${DS}.csv matrix_${DS}.csv
+    mv X_${DS}.csv matrix_${DS}.txt
 
 done
       

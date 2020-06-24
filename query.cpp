@@ -16,12 +16,14 @@
 #include <thread>
 #include <atomic>
 #include <cassert>
+#include <random>
 #include "util.h"
 #include "conf.h"
 #include "sketch.h"
 #include "perf_timer.h"
 extern "C"
 {
+#include <cblas.h>
 #include <lapacke.h>
 }
 #include "lapack_wrapper.h"
@@ -858,14 +860,35 @@ private:
     void
     print_query_summary_with_exact_answer(
         IPersistentMatrixSketch *sketch);
-
+    
+    // overwrites m_work, m_ae_V, m_ae_VT_hat, m_singular_values
     void
     print_query_summary_with_analytic_error(
         IPersistentMatrixSketch *sketch);
 
+    void
+    print_query_summary_common(
+        IPersistentMatrixSketch *sketch,
+        double err) const;
+
     double
     get_exact_fnorm_sqr(
         TIMESTAMP ts) const;
+    
+    // overwrites m_work, m_ae_work2
+    void
+    analytic_error_mul_ata_btb(
+        double *V, /* length == m_n, stride = m_ae_K, in and out */
+        double *VT_hat, /* in */
+        double *sig_hat_sqr /* in */) const;
+
+    static fftw_plan
+    get_dct_plan(
+        int n,
+        double *in,
+        int istride,
+        double *out,
+        unsigned flags);
 
     bool                        m_exact_enabled;
     
@@ -913,8 +936,24 @@ private:
 
     std::vector<std::pair<TIMESTAMP, double>>
                                 m_exact_fnorm_sqr_vec;
-};
+    
+    static constexpr int        m_ae_K = 10;
 
+    static constexpr int        m_ae_P = 100;
+
+    // m_ae_K rows by m_n columns
+    // column-major
+    double                      *m_ae_V;
+    
+    // m_n by m_n
+    // column-major
+    double                      *m_ae_VT_hat;
+    
+    // length m_n
+    double                      *m_ae_work2;
+
+    fftw_plan                   m_fftw_plan2;
+};
 
 
 ////////////////////////////////////////
@@ -937,7 +976,11 @@ QueryMatrixSketchImpl::QueryMatrixSketchImpl():
     m_dir_list(nullptr),
     m_cnt_maps(),
     m_current_query_ts(0),
-    m_exact_fnorm_sqr_vec()
+    m_exact_fnorm_sqr_vec(),
+    m_ae_V(nullptr),
+    m_ae_VT_hat(nullptr),
+    m_ae_work2(nullptr),
+    m_fftw_plan2(nullptr)
 {
     m_exact_fnorm_sqr_vec.emplace_back(0, 0.0);
 }
@@ -974,6 +1017,15 @@ QueryMatrixSketchImpl::~QueryMatrixSketchImpl()
         delete []p.second;
     }
     m_cnt_maps.clear();
+
+    delete []m_ae_V;
+    delete []m_ae_VT_hat;
+    delete []m_ae_work2;
+
+    if (m_fftw_plan2)
+    {
+        fftw_destroy_plan(m_fftw_plan2);
+    }
 }
 
 int
@@ -1023,9 +1075,6 @@ QueryMatrixSketchImpl::early_setup()
     
     m_dvec = new double[m_n];
     m_last_answer = new double[matrix_size()];
-    m_exact_covariance_matrix = new double[matrix_size()];
-    m_work = new double[m_n * m_n];
-    m_singular_values = new double[m_n];
 
     return 0;
 }
@@ -1048,6 +1097,11 @@ QueryMatrixSketchImpl::additional_setup()
                 std::cerr << "[ERROR] exact query should come first" << std::endl;
                 return 1;
             }
+
+            // these are used by print_query_summary_with_exact_answer()
+            m_exact_covariance_matrix = new double[matrix_size()];
+            m_work = new double[m_n * m_n];
+            m_singular_values = new double[m_n];
         }
     }
     else
@@ -1055,13 +1109,6 @@ QueryMatrixSketchImpl::additional_setup()
         // Otherwise, we need to load the ground truth file to compute
         // the analytic errors.
         std::string ground_truth_file = g_config->get("MS.ground_truth_file").value();
-        
-        // import the fftw3 wisdom file if available  
-        if (g_config->get_boolean("misc.fftw3.import_wisdom").value())
-        {
-            std::string wisdom_file = g_config->get("misc.fftw3.wisdom_filename").value();
-            fftw_import_wisdom_from_filename(wisdom_file.c_str());
-        }
         
         std::ifstream fin(ground_truth_file);
         if (!fin)
@@ -1091,11 +1138,24 @@ QueryMatrixSketchImpl::additional_setup()
     
         m_num_vecs = new int[m_num_dirs];
         m_var_list = new double*[m_num_dirs];
+        int max_num_vecs = 0;
         for (int i = 0; i < m_num_dirs; ++i)
         {
             int num_vecs;
             if (!(fin >> num_vecs)) ERROR_RETURN();
             m_num_vecs[i] = num_vecs;
+            if (num_vecs > max_num_vecs)
+            {
+                max_num_vecs = num_vecs;
+            }
+            if (!m_has_dir_list)
+            {
+                if (num_vecs != m_n)
+                {
+                    std::cerr << "[ERROR] num_vecs must equal to MS.dimension for a ground truth without dir_list" << std::endl;
+                    return 1;
+                }
+            }
             
             m_var_list[i] = new double[num_vecs];
             for (int j = 0; j < num_vecs; ++j)
@@ -1118,6 +1178,8 @@ QueryMatrixSketchImpl::additional_setup()
                 {
                     if (!(fin >> dir_mat[j * m + i])) ERROR_RETURN();
                 }
+
+                m_dir_list[k] = dir_mat;
             }
         }
         
@@ -1130,6 +1192,70 @@ QueryMatrixSketchImpl::additional_setup()
             {
                 if (!(fin >> cnt_map[i])) ERROR_RETURN();
             }
+        }
+        
+        m_ae_V = new double[m_n * m_ae_K];
+        // m_work will be used as the work space in the first SVD of
+        // print_query_summary_with_analytic_error(). Then it will be reused in
+        // each call of analytic_error_mul_ata_btb().  After that, it is used
+        // for storing the first m_n right singular vectors of the last SVD on
+        // m_ae_V if m_n <= m_ae_K (size m_n by m_n), or is used for storing the
+        // left singular vectors if m_n > m_ae_K (size m_ae_K by m_ae_K).
+        m_work = new double[std::max(
+            m_n * m_n,
+            m_has_dir_list ? max_num_vecs : (2 * m_n))];
+        m_ae_VT_hat = new double[m_n * m_n];
+        m_singular_values = new double[m_n];
+        m_ae_work2 = new double[std::max(m_n, m_ae_K)];
+
+        // import the fftw3 wisdom file if available  
+        if (g_config->get_boolean("misc.fftw3.import_wisdom").value())
+        {
+            std::string wisdom_file = g_config->get("misc.fftw3.wisdom_filename").value();
+            fftw_import_wisdom_from_filename(wisdom_file.c_str());
+        }
+
+        if (!m_has_dir_list)
+        {
+            // Populate a few wisdoms if not available.
+            // It's ok to spend a few more seconds here than later so we
+            // use FFTW_PATIENT | FFTW_PRESERVE_INPUT as the flags.
+            // Note that FFTW_PRESERVE_INPUT should be default for r2r transformations
+            // but we specify it anyway just in case.
+            //
+            // Note: keep the following in sync with what's in
+            // analytic_error_mul_ata_btb().
+            fftw_plan plan;
+            
+            plan = get_dct_plan(m_n, m_ae_V, m_ae_K, m_work,
+                    FFTW_WISDOM_ONLY | FFTW_PRESERVE_INPUT);
+            if (!plan)
+            {
+                plan = get_dct_plan(m_n, m_ae_V, m_ae_K, m_work,
+                    FFTW_PATIENT | FFTW_PRESERVE_INPUT);
+                if (!plan)
+                {
+                    std::cerr << "[ERROR] unable to create fftw plan 1" << std::endl;
+                    return 1;
+                }
+                fftw_destroy_plan(plan);
+            }
+
+            plan = get_dct_plan(m_n, m_work + m_n, 1, m_work + m_n,
+                    FFTW_WISDOM_ONLY | FFTW_PRESERVE_INPUT);
+            if (!plan)
+            {
+                plan = get_dct_plan(m_n, m_work + m_n, 1, m_work + m_n,
+                    FFTW_PATIENT | FFTW_PRESERVE_INPUT);
+                if (!plan)
+                {
+                    std::cerr << "[ERROR] unable to create fftw plan 2" << std::endl;
+                    return 1;
+                }
+
+                // this one can be reused over time
+            }
+            m_fftw_plan2 = plan;
         }
     }
 
@@ -1173,23 +1299,11 @@ QueryMatrixSketchImpl::print_query_summary_with_exact_answer(
     IPersistentMatrixSketch *sketch)
 {
     assert(m_exact_enabled && !m_use_analytic_error);
-    
-    // This local variable replaces the former member m_exact_fnorm_sqr
-    // computed in the following then-branch.
-    double m_exact_fnorm_sqr = get_exact_fnorm_sqr(m_current_query_ts);
 
     if (sketch == m_sketches[0].get())
     {
         std::swap(m_last_answer, m_exact_covariance_matrix);
-        // should compute ||A||_F^2 instead of ||ATA||_F^2
-        
-        //m_exact_fnorm_sqr = 0;
-        //for (int i = 1; i <= m_n; ++i)
-        //{
-        //    m_exact_fnorm_sqr += m_exact_covariance_matrix[(1 + i) * i / 2 - 1];
-        //}
-        m_out << "\tF-norm = " << std::sqrt(m_exact_fnorm_sqr) << std::endl;
-
+        print_query_summary_common(sketch, -1.0);
     }
     else
     {
@@ -1221,14 +1335,7 @@ QueryMatrixSketchImpl::print_query_summary_with_exact_answer(
             nullptr,
             1);
 
-        m_out << '\t'
-            << sketch->get_short_description()
-            << ": "
-            << "||ATA-BTB||_2 / ||A||_F^2 = "
-            << m_singular_values[0] / m_exact_fnorm_sqr
-            //<< ' '
-            //<< m_singular_values[0]
-            << std::endl;
+        print_query_summary_common(sketch, m_singular_values[0]);
     }
 }
 
@@ -1236,7 +1343,340 @@ void
 QueryMatrixSketchImpl::print_query_summary_with_analytic_error(
     IPersistentMatrixSketch *sketch)
 {
-    // TODO
+    constexpr uint64_t seed = 123408101995ul;
+    static std::mt19937 rgen(seed);
+    static std::normal_distribution std_normal(0.0, 1.0);
+    
+    assert(m_ae_V);
+    assert(m_work);
+    assert(m_singular_values);
+    assert(m_ae_VT_hat);
+
+    // unpack m_last_answer
+    {
+        int k = 0;
+        for (int j = 0; j < m_n; ++j)
+        {
+            for (int i = 0; i < j; ++i)
+            {
+                m_work[i * m_n + j] =
+                m_work[j * m_n + i] = m_last_answer[k];
+                ++k;
+            }
+            m_work[j* m_n + j] = m_last_answer[k];
+        }
+    }
+    // u, s, vh = LA.svd(XTX)
+    (void) LAPACKE_dgesdd(
+        LAPACK_COL_MAJOR,
+        'O',
+        m_n,
+        m_n,
+        m_work,
+        m_n,
+        m_singular_values,
+        nullptr,
+        1,
+        m_ae_VT_hat,
+        m_n);
+
+    // The values in m_work will not be used below.
+    // The space will be reused in analytic_error_mul_ata_btb().
+    
+    // Note: sig_hat in analytic_error() of time_serial_matrix.py
+    // is sqrt of m_ae_VT_hat
+    int mat_size = m_ae_K * m_n;
+    for (int i = 0; i < m_ae_K; ++i)
+    {
+        // V[i] = np.random.normal(size=self.dim)
+        for (int idx = i; idx < mat_size; idx += m_ae_K) 
+        {
+            m_ae_V[idx] = std_normal(rgen);
+        }
+
+        for (int j = 0; j < m_ae_P; ++j)
+        {
+            // Vi_norm = np.linalg.norm(V[i])
+            double two_norm = cblas_dnrm2(m_n, m_ae_V + i, m_ae_K);
+            if (two_norm == 0) break;
+            
+            assert(!std::isnan(two_norm));
+            
+            // V[i] /= Vi_norm
+            cblas_dscal(m_n, 1 / two_norm, m_ae_V + i, m_ae_K);
+
+            // V[i] = self.mul_ata_btb(V[i], Vt_hat, sig_hat, t)
+            analytic_error_mul_ata_btb(
+                m_ae_V + i,
+                m_ae_VT_hat,
+                m_singular_values);
+        }
+    }
+    
+    // _, _, V = LA.svd(V, full_matrices=False)
+    if (m_ae_K >= m_n)
+    {
+        (void) LAPACKE_dgesdd(
+            LAPACK_COL_MAJOR,
+            'O', // jobz
+            m_ae_K, //m
+            m_n, // n
+            m_ae_V, // A
+            m_ae_K, // LDA
+            m_ae_work2, // S
+            nullptr, // U (not referenced)
+            1, // LDU
+            m_work, // VT: m_n by m_n
+            m_n // LDVT
+        );
+
+        // Prepare for calling analytic_error_mul_ata_btb() by copying the
+        // first right singular vector to m_ae_V with a stride of m_ae_K.
+        cblas_dcopy(
+            m_n,
+            m_work,
+            m_n,
+            m_ae_V,
+            m_ae_K);
+    }
+    else
+    {
+        (void) LAPACKE_dgesdd(
+            LAPACK_COL_MAJOR,
+            'O', // jobz
+            m_ae_K, // m
+            m_n, // n
+            m_ae_V, // A
+            m_ae_K, // LDA
+            m_ae_work2, // S
+            m_work, // U: m_ae_K by m_ae_K
+            m_ae_K, // LDU
+            nullptr, // VT (not referenced)
+            1  // LDVT
+        );
+    }
+
+    analytic_error_mul_ata_btb(
+        m_ae_V,
+        m_ae_VT_hat,
+        m_singular_values);
+    double err = cblas_dnrm2(m_n, m_ae_V, m_ae_K);
+    print_query_summary_common(sketch, err);
+}
+
+void
+QueryMatrixSketchImpl::print_query_summary_common(
+    IPersistentMatrixSketch *sketch,
+    double err) const
+{
+    double exact_fnorm_sqr = get_exact_fnorm_sqr(m_current_query_ts);
+
+    if (sketch == m_sketches[0].get())
+    {
+        m_out << "\tF-norm = " << std::sqrt(exact_fnorm_sqr) << std::endl;
+    }
+    
+    // err < 0 if we do not use analytic_error and this is the EXACT sketch
+    if (err >= 0.0) {
+        m_out << '\t'
+            << sketch->get_short_description()
+            << ": "
+            << "||ATA-BTB||_2 / ||A||_F^2 = "
+            << err / exact_fnorm_sqr
+            << std::endl;
+    }
+}
+
+void
+QueryMatrixSketchImpl::analytic_error_mul_ata_btb(
+    double *V, /* length == m_n, stride = m_ae_K, in and out */
+    double *VT_hat, /* in */
+    double *sig_hat_sqr /* in */) const
+{
+    assert(m_ae_work2);
+    assert(m_work);
+
+    // result = np.zeros(self.dim)
+    memset(m_ae_work2, 0, sizeof(double) * m_n);
+
+    // u, counts = np.unique(...)
+    // Here, u is in [0, 1, ..., m_num_dirs - 1] and counts is the cnt_map.
+    auto iter = std::upper_bound(
+        m_cnt_maps.begin(),
+        m_cnt_maps.end(),
+        m_current_query_ts,
+        [](TIMESTAMP ts, const std::pair<TIMESTAMP, uint64_t*> &p) -> bool
+        {
+            return ts < p.first;
+        });
+    const uint64_t *cnt_map = (--iter)->second;
+
+    if (!m_has_dir_list)
+    {
+        // precompute dct(v, 4, norm='ortho') for once and store it
+        // in m_work.
+        fftw_plan plan = get_dct_plan(m_n, V, m_ae_K, m_work,
+                FFTW_WISDOM_ONLY | FFTW_PRESERVE_INPUT);
+        assert(plan);
+        fftw_execute(plan);
+        fftw_destroy_plan(plan);
+
+        double scale_factor = std::sqrt(2 * m_n);
+        for (int i = 0; i < m_n; ++i)
+        {
+            m_work[i] /= scale_factor;
+        }
+
+        // m_fftw_plan2 performs dct(m_work + m_n, 4, norm='ortho') and in place.
+        assert(m_fftw_plan2);
+    }
+    
+    for (int i = 0; i < m_num_dirs; ++i)
+    {
+        if (cnt_map[i] == 0) continue;
+
+        if (m_has_dir_list)
+        {
+            // result += self.dir_list[u[i]].T @ (
+            //  counts[i] * self.var_list[u[i]] * (self.dir_list[u[i]] @ v))
+            
+            // res1 = counts[i] * self.dir_list[u[i]] @ v
+            cblas_dgemv(
+                CblasColMajor,
+                CblasNoTrans,
+                m_num_vecs[i], // m
+                m_n, // n
+                cnt_map[i], // alpha
+                m_dir_list[i], // A = self.dir_list[u[i]]
+                m_num_vecs[i], // lda
+                V, // X = v
+                m_ae_K, // incX
+                0, // beta
+                m_work, // Y
+                1 // incY
+                );
+            
+            // res2 = self.var_list[u[i]] * res1
+            for (int j = 0; j < m_num_vecs[i]; ++j)
+            {
+                m_work[j] *= m_var_list[i][j];
+            }
+
+            // result += self.dir_list[u[i]].T @ res2
+            cblas_dgemv(
+                CblasColMajor,
+                CblasTrans,
+                m_num_vecs[i], // m
+                m_n, // n
+                1.0, // alpha
+                m_dir_list[i], // A = self.dir_list[u[i]]
+                m_num_vecs[i], //lda
+                m_work, // X = res2
+                1, // incX
+                1, // beta
+                m_ae_work2, // Y = result
+                1 // incY
+                );
+        }
+        else
+        {
+            // result += dct(
+            //  counts[i] * self.var_list[u[i]] * dct(v, 4, norm='ortho'),
+            //  4, norm='ortho')
+            
+            // res1 = count[i] * self.var_list[u[i]] * dct(v, 4, norm='ortho')
+            for (int j = 0; j < m_n; ++j)
+            {
+                m_work[j + m_n] = m_work[j] * cnt_map[i] * m_var_list[i][j];
+            }
+            
+            // res2 = dct(res1, 4) = dct(res1, 4, norm='ortho') * math.sqrt(2 * d)
+            fftw_execute(m_fftw_plan2);
+
+            // result += (1 / math.sqrt(2 * d)) * res2
+            cblas_daxpy(
+                m_n, // n
+                1 / std::sqrt(2 * m_n), // alpha
+                m_work + m_n, // X
+                1, // incX
+                m_ae_work2, // Y = result
+                1 // incY
+                );
+            
+        }
+    }
+
+    // now m_work is being reused again  
+    // V = m_ae_work2 - VT_hat.T @ (sig_hat ** 2 * (VT_hat @ V))
+    
+    // res1 = VT_hat @ V
+    cblas_dgemv(
+        CblasColMajor,
+        CblasNoTrans,
+        m_n, // m
+        m_n, // n
+        1, // alpha
+        VT_hat, // A
+        m_n, // lda
+        V, // X = v
+        m_ae_K, // incX
+        0, // beta
+        m_work, // Y
+        1 // incY
+        );
+
+    // res2 = sig_hat ** 2 * res1
+    for (int j = 0; j < m_n; ++j)
+    {
+        m_work[j] *= sig_hat_sqr[j];
+    }
+
+    // V = - VT_hat.T @ res2 + m_ae_work2
+    cblas_dcopy(
+        m_n,
+        m_ae_work2,
+        1,
+        V,
+        m_ae_K);
+    cblas_dgemv(
+        CblasColMajor,
+        CblasTrans,
+        m_n, // m
+        m_n, // n
+        -1.0, // alpha
+        VT_hat, // A
+        m_n, // lda
+        m_work, // X = res2
+        1, // incX
+        1.0, // beta
+        V, // Y = V
+        1 // incY
+        );
+}
+
+fftw_plan
+QueryMatrixSketchImpl::get_dct_plan(
+    int n,
+    double *in,
+    int istride,
+    double *out,
+    unsigned flags)
+{
+    fftw_r2r_kind kind = FFTW_REDFT11; // dct type 4
+    return fftw_plan_many_r2r(
+        1, // rank,
+        &n,
+        1, // howmany
+        in,
+        nullptr, // inembed
+        istride, // istride
+        0, // idist (not used for howmany == 1)
+        out,
+        nullptr, // onembed
+        1, // ostride
+        0, // odist (not used for howmany == 1)
+        &kind,
+        flags);
 }
 
 void
