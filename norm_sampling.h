@@ -15,6 +15,8 @@ private:
         TIMESTAMP               m_ts;
 
         double                  *m_dvec;
+
+        double                  m_threshold;
     };
 
     struct List

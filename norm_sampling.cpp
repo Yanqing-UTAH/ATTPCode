@@ -40,6 +40,7 @@ NormSamplingSketch::List::append(
     ensure_item_capacity(m_length + 1);
     
     m_items[m_length].m_ts = ts;
+    m_items[m_length].m_threshold = m_weight;
     m_items[m_length++].m_dvec = dvec;
     m_weight = weight;
 }
@@ -150,7 +151,7 @@ NormSamplingSketch::update(
     const double *dvec)
 {
     double l2_sqr = cblas_ddot(m_n, dvec, 1, dvec, 1);
-    double weight = std::log(- m_unif_m1_0(m_rng)) / l2_sqr;
+    double weight = l2_sqr / (-m_unif_m1_0(m_rng));
 
     if (m_seen < m_sample_size)
     {
@@ -205,25 +206,34 @@ NormSamplingSketch::get_covariance_matrix(
     memset(A, 0, m_n * (m_n + 1) / 2 * sizeof(double));
     
     uint32_t c = 0;
+    const Item **items = new const Item*[m_sample_size];
+    double threshold = 0;
     for (uint32_t i = 0; i < m_sample_size ; ++i)
     {
         Item *item = m_reservoir[i].last_of(ts_e); 
         if (!item) continue;
-    
-        ++c;
+        items[c++] = item;
+        if (item->m_threshold > threshold) {
+            threshold = item->m_threshold;
+        }
+    }
+
+    for (uint32_t i = 0; i < c; ++i) {
+        double *dvec = items[i]->m_dvec;
+        double l2_sqr = cblas_ddot(m_n, dvec, 1, dvec, 1);
+        double alpha = (l2_sqr < threshold) ? (threshold / l2_sqr) : 1.0;
+
         cblas_dspr(
             CblasColMajor,
             CblasUpper,
             m_n,
-            1.0,
-            item->m_dvec,
+            alpha,
+            dvec,
             1,
             A);
     }
 
-    if (c == 0) return;
-
-    auto iter = std::upper_bound(m_ts_2_cnt.begin(), m_ts_2_cnt.end(), ts_e,
+    /*auto iter = std::upper_bound(m_ts_2_cnt.begin(), m_ts_2_cnt.end(), ts_e,
         [](TIMESTAMP ts, const auto &p) -> bool
         {
             return ts < p.first;
@@ -233,7 +243,7 @@ NormSamplingSketch::get_covariance_matrix(
     for (uint32_t i = 0, hi = (uint32_t) m_n * (m_n + 1) / 2; i < hi; ++i)
     {
         A[i] = (double) n / c * A[i];
-    }
+    } */
 }
 
 NormSamplingSketch*

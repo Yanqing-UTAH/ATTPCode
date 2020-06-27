@@ -1351,7 +1351,8 @@ QueryMatrixSketchImpl::print_query_summary_with_analytic_error(
     assert(m_work);
     assert(m_singular_values);
     assert(m_ae_VT_hat);
-
+    
+    // TODO remove this svd
     // unpack m_last_answer
     {
         int k = 0;
@@ -1366,6 +1367,22 @@ QueryMatrixSketchImpl::print_query_summary_with_analytic_error(
             m_work[j* m_n + j] = m_last_answer[k];
         }
     }
+
+    
+    std::ofstream fout(std::string("output/") +
+            sketch->get_short_description() +
+            std::string("_ts") +
+            std::to_string(m_current_query_ts) + 
+            ".txt");
+    for (int i = 0; i < m_n; ++i) { 
+        for (int j = 0; j < m_n; ++j) {
+            if (j != 0) fout << ' ';
+            fout << m_work[j * m_n + i];
+        }
+        fout << std::endl;
+    }
+    fout.close();
+
     // u, s, vh = LA.svd(XTX)
     (void) LAPACKE_dgesdd(
         LAPACK_COL_MAJOR,

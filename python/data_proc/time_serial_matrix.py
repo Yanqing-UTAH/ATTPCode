@@ -40,12 +40,14 @@ class TimeSerialMatrix():
         u, indices, counts = np.unique(
             self.type_list[self.current_index:self.current_index+n], return_inverse=True, return_counts=True)
         for i in range(len(u)):
+            if counts[i] == 0:
+                continue
             x = self.random.normal(scale=self.sd_list[u[i]], size=(
                 counts[i], len(self.sd_list[u[i]]))).astype('float16')
-            if self.dir_list[i] is not None:
-                X[indices == u[i]] = x @ self.dir_list[i]
+            if self.dir_list[u[i]] is not None:
+                X[indices == i] = x @ self.dir_list[u[i]]
             else:
-                X[indices == u[i]] = dct(x, 4, norm='ortho')
+                X[indices == i] = dct(x, 4, norm='ortho')
         self.current_index += n
         return X, t
 
@@ -60,7 +62,7 @@ class TimeSerialMatrix():
         return len(self.ts_list) - self.current_index
     
     def analytic_error(self, Vt_hat, sig_hat, t):
-        k, p = 10, 100
+        k, p = 20, 100
         V = np.empty((k, self.dim))
         for i in range(k):
             V[i] = np.random.normal(size=self.dim)
@@ -211,12 +213,14 @@ def generate(suffix, T, n, d, loc, scale, random_state=None):
 
     gt_file.close()
 
+    return tsm
+
 def small():
     generate('small', 100, 1000, 100, 80, 7.5, random_state=0)
 
 
 def medium():
-    generate('medium', 1000, 10000, 1000, 800, 75, random_state=0)
+    generate('medium', 1000, 50000, 1000, 800, 75, random_state=0)
 
 
 def big():
