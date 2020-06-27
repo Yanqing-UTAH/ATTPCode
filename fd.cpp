@@ -166,6 +166,7 @@ FD_ATTP::FD_ATTP(int _l, int _d):
     l(_l),
     d(_d),
     AF2(0),
+    nxt_target(0),
     C(new FD(l, d)),
     partial_ckpt(),
     full_ckpt()
@@ -218,6 +219,10 @@ FD_ATTP::update(
     C->update(a);
 
     AF2 += cblas_ddot(d, a, 1, a, 1);
+
+    if (AF2 / l < nxt_target) {
+        return;
+    }
     
     double *CM = new double[2 * l * d];
     C->to_matrix(CM);
@@ -247,6 +252,7 @@ FD_ATTP::update(
     delete []S;
 
     if (c1_2norm_sqr >= AF2/l) {
+        nxt_target = AF2 / l + c1_2norm_sqr;
         double *row = new double[d];
         C->pop_first(row);
 
