@@ -9,6 +9,7 @@
 #include "dummy_persistent_misra_gries.h"
 #include "norm_sampling.h"
 #include "fd.h"
+#include "norm_sampling_wr.h"
 #include <unordered_map>
 #include <cassert>
 #include <utility>

@@ -10,8 +10,8 @@ LDLIBS = -llapacke -llapack -lcblas  -pthread
 top_srcdir = .
 
 EXES=driver
-OBJS=test_pla.o driver.o sketch.o old_driver.o test_conf.o misra_gries.o test_hh.o norm_sampling.o fd.o pmmg.o perf_timer.o pcm.o test_pams.o pams.o lapack_wrapper.o exact_query.o MurmurHash3.o query.o conf.o sampling.o pla.o test_dct.o heavyhitters.o test_pcm.o 
-DRIVER_OBJS=driver.o sketch.o old_driver.o misra_gries.o norm_sampling.o fd.o pmmg.o perf_timer.o pcm.o pams.o lapack_wrapper.o exact_query.o MurmurHash3.o query.o conf.o sampling.o pla.o heavyhitters.o 
+OBJS=test_pla.o driver.o sketch.o old_driver.o test_conf.o misra_gries.o test_hh.o norm_sampling.o fd.o pmmg.o perf_timer.o pcm.o test_pams.o pams.o lapack_wrapper.o exact_query.o MurmurHash3.o norm_sampling_wr.o query.o conf.o sampling.o pla.o test_dct.o heavyhitters.o test_pcm.o 
+DRIVER_OBJS=driver.o sketch.o old_driver.o misra_gries.o norm_sampling.o fd.o pmmg.o perf_timer.o pcm.o pams.o lapack_wrapper.o exact_query.o MurmurHash3.o norm_sampling_wr.o query.o conf.o sampling.o pla.o heavyhitters.o 
 
 FFTW3_BUILD_DIR=external/fftw-3.3.8/build
 FFTW3_LDFLAGS=-L$(FFTW3_BUILD_DIR)/lib
@@ -53,8 +53,8 @@ driver.o: driver.cpp conf.h hashtable.h misra_gries.h sketch.h util.h \
 sketch.o: sketch.cpp sketch.h util.h sketch_lib.h pcm.h pla.h \
  MurmurHash3.h pams.h sampling.h avl.h basic_defs.h avl_container.h \
  heavyhitters.h exact_query.h pmmg.h misra_gries.h hashtable.h min_heap.h \
- dummy_persistent_misra_gries.h conf.h norm_sampling.h fenwick_tree.h \
- fd.h sketch_list.h
+ dummy_persistent_misra_gries.h conf.h norm_sampling.h fd.h \
+ norm_sampling_wr.h sketch_list.h
 
 old_driver.o: old_driver.cpp sketch.h util.h sketch_lib.h
 
@@ -66,8 +66,8 @@ misra_gries.o: misra_gries.cpp misra_gries.h hashtable.h sketch.h util.h \
 test_hh.o: test_hh.cpp heavyhitters.h pcm.h pla.h util.h sketch.h \
  sketch_lib.h MurmurHash3.h
 
-norm_sampling.o: norm_sampling.cpp norm_sampling.h fenwick_tree.h \
- sketch.h util.h sketch_lib.h min_heap.h basic_defs.h conf.h hashtable.h
+norm_sampling.o: norm_sampling.cpp norm_sampling.h sketch.h util.h \
+ sketch_lib.h min_heap.h basic_defs.h conf.h hashtable.h
 
 fd.o: fd.cpp fd.h sketch.h util.h sketch_lib.h conf.h hashtable.h
 
@@ -92,8 +92,11 @@ exact_query.o: exact_query.cpp exact_query.h sketch.h util.h sketch_lib.h \
 
 MurmurHash3.o: MurmurHash3.cpp MurmurHash3.h
 
+norm_sampling_wr.o: norm_sampling_wr.cpp norm_sampling_wr.h sketch.h \
+ util.h sketch_lib.h conf.h hashtable.h avl.h basic_defs.h
+
 query.o: query.cpp util.h conf.h hashtable.h sketch.h sketch_lib.h \
- perf_timer.h lapack_wrapper.h
+ perf_timer.h lapack_wrapper.h 
 
 conf.o: conf.cpp conf.h hashtable.h util.h config_list.h
 
@@ -102,7 +105,7 @@ sampling.o: sampling.cpp sampling.h sketch.h util.h sketch_lib.h avl.h \
 
 pla.o: pla.cpp pla.h
 
-test_dct.o: test_dct.cpp
+test_dct.o: test_dct.cpp 
 
 heavyhitters.o: heavyhitters.cpp heavyhitters.h pcm.h pla.h util.h \
  sketch.h sketch_lib.h MurmurHash3.h conf.h hashtable.h

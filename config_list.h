@@ -77,6 +77,11 @@ DEFINE_CONFIG_ENTRY(NORM_SAMPLING.enabled, boolean, true, false, false)
 DEFINE_CONFIG_ENTRY(NORM_SAMPLING.sample_size, u32, NORM_SAMPLING.enabled, true, , true, 1u)
 DEFINE_CONFIG_ENTRY(NORM_SAMPLING.seed, u32, true, false, 19950810u)
 
+// norm sampling w/ replacement
+DEFINE_CONFIG_ENTRY(NORM_SAMPLING_WR.enabled, boolean, true, false, false)
+DEFINE_CONFIG_ENTRY(NORM_SAMPLING_WR.sample_size, u32, NORM_SAMPLING_WR.enabled, true, , true, 1u)
+DEFINE_CONFIG_ENTRY(NORM_SAMPLING_WR.seed, u32, true, false, 19950810u)
+
 // ATTP FD
 DEFINE_CONFIG_ENTRY(PFD.enabled, boolean, true, false, false)
 DEFINE_CONFIG_ENTRY(PFD.half_sketch_size, u32, PFD.enabled, true, , true, 1)

@@ -21,7 +21,6 @@ DEFINE_SKETCH_TYPE(EXACT_HH, ExactHeavyHitters, exact_heavy_hitters)
 
 #ifndef ST_REQUIRE_CREATE
 DEFINE_SKETCH_TYPE(EXACT_MS, ExactMatrix, exact_matrix)
-DEFINE_SKETCH_TYPE(PFD, FD_ATTP, persistent_frequent_direction)
 #endif
 
 // other sketches
@@ -39,5 +38,7 @@ DEFINE_SKETCH_TYPE(TMG_BITP, TreeMisraGriesBITP, tree_misra_gries_bitp)
 DEFINE_SKETCH_TYPE(SAMPLING_BITP, SamplingSketchBITP, persistent_sampling_sketch_bitp)
 
 DEFINE_SKETCH_TYPE(NORM_SAMPLING, NormSamplingSketch, persistent_norm_sampling_sketch)
+DEFINE_SKETCH_TYPE(PFD, FD_ATTP, persistent_frequent_direction)
+DEFINE_SKETCH_TYPE(NORM_SAMPLING_WR, NormSamplingWRSketch, persistent_norm_sampling_with_replacement_sketch)
 #endif
 

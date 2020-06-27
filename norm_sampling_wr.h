@@ -1,21 +1,20 @@
-#ifndef NORM_SAMPLING_H
-#define NORM_SAMPLING_H
+#ifndef NORM_SAMPLING_WR_H
+#define NORM_SAMPLING_WR_H
 
 #include "sketch.h"
-#include <unordered_map>
 #include <random>
+#include <map>
 
-class NormSamplingSketch:
+class NormSamplingWRSketch:
     public IPersistentMatrixSketch
 {
 private:
     struct Item
     {
         TIMESTAMP               m_ts;
-
+    
+        // flip bit 63 to indicate ownership
         double                  *m_dvec;
-
-        double                  m_threshold;
     };
 
     struct List
@@ -27,22 +26,20 @@ private:
 
         void
         reset();
-
+    
         void
         append(
             TIMESTAMP ts,
             double *dvec,
-            double weight);
+            bool is_owner);
 
         size_t
         memory_usage() const;
-
-        Item*
-        last_of(
+    
+        // transparently return the latest dvec up to timestamp ts
+        double*
+        dvec_last_of(
             TIMESTAMP ts) const;
-
-        double
-        get_weight() const { return m_weight; }
 
     private:
         void ensure_item_capacity(uint32_t desired_length);
@@ -52,19 +49,17 @@ private:
                                 m_capacity;
 
         Item                    *m_items;
-
-        double                  m_weight;
     };
 
 
 public:
-    NormSamplingSketch(
+    NormSamplingWRSketch(
         uint32_t n,
         uint32_t sample_size,
         uint32_t seed = 19950810u);
 
     virtual
-    ~NormSamplingSketch();
+    ~NormSamplingWRSketch();
 
     void
     clear() override;
@@ -90,31 +85,30 @@ private:
     
     uint32_t                    m_sample_size;
 
-    uint32_t                    m_seen;
+    TIMESTAMP                   m_last_ts;
 
     uint64_t                    m_n_dvec_stored;
 
+    double                      m_tot_weight;
+
     List                        *m_reservoir;
     
-    List                        **m_weight_min_heap;
-
     std::mt19937                m_rng;
 
     std::uniform_real_distribution<double>
-                                m_unif_m1_0; // [-1, 0)
+                                m_unif_0_1;
 
-/*    std::vector<std::pair<TIMESTAMP, uint64_t>>
-                                m_ts_2_cnt; */
+    std::map<TIMESTAMP, double> m_sqr_fnorms;
 
 public:
-    static NormSamplingSketch*
+    static NormSamplingWRSketch*
     get_test_instance();
 
-    static NormSamplingSketch*
+    static NormSamplingWRSketch*
     create_from_config(int idx = -1);
 
     static int
     num_configs_defined();
 };
 
-#endif // NORM_SAMPLING_H
+#endif // NORM_SAMPLING_WR_H
