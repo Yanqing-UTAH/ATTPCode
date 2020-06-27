@@ -96,8 +96,8 @@ NormSamplingSketch::NormSamplingSketch(
     m_reservoir(new List[sample_size]),
     m_weight_min_heap(new List*[sample_size]),
     m_rng(seed),
-    m_unif_m1_0(-1.0, 0),
-    m_ts_2_cnt()
+    m_unif_m1_0(-1.0, 0)
+    //m_ts_2_cnt()
 {    
     for (uint32_t i = 0; i < m_sample_size; ++i)
     {
@@ -134,8 +134,8 @@ NormSamplingSketch::memory_usage() const
     }
     res += sizeof(List*) * m_sample_size; // m_weight_min_heap
     res += m_n_dvec_stored * sizeof(double) * m_n;
-    res += sizeof(m_ts_2_cnt) * sizeof(std::pair<TIMESTAMP, uint64_t>) *
-        m_ts_2_cnt.capacity();
+    /* res += sizeof(m_ts_2_cnt) * sizeof(std::pair<TIMESTAMP, uint64_t>) *
+        m_ts_2_cnt.capacity(); */
     return res;
 }
 
@@ -188,14 +188,14 @@ NormSamplingSketch::update(
         ++m_seen;
     }
 
-    if (m_ts_2_cnt.empty() || m_ts_2_cnt.back().first != ts)
+    /*if (m_ts_2_cnt.empty() || m_ts_2_cnt.back().first != ts)
     {
         m_ts_2_cnt.emplace_back(std::make_pair(ts, m_seen));
     }
     else
     {
         m_ts_2_cnt.back().second = m_seen;
-    }
+    } */
 }
 
 void

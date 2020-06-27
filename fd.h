@@ -29,6 +29,7 @@ class FD_ATTP:
     uint32_t l;
     uint32_t d;
     double AF2;
+    double nxt_target;
     FD *C;
     std::vector<PartialCkpt> partial_ckpt;
     std::vector<FullCkpt> full_ckpt;
