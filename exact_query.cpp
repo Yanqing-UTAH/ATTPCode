@@ -79,7 +79,7 @@ ExactHeavyHitters::estimate_heavy_hitters(
     {
         auto &item_vec = p.second;
         auto upper_ptr = std::upper_bound(item_vec.begin(), item_vec.end(),
-            ts_e, [](TIMESTAMP ts, const Item i) -> bool { return ts < i.m_ts; });
+            ts_e, [](TIMESTAMP ts, const Item &i) -> bool { return ts < i.m_ts; });
         if (upper_ptr != item_vec.begin())
         {
             snapshot.emplace_back(p.first, upper_ptr[-1].m_cnt);
@@ -114,7 +114,7 @@ ExactHeavyHitters::estimate_heavy_hitters_bitp(
         auto &item_vec = p.second;
         auto upper_ptr = std::upper_bound(item_vec.begin(),
             item_vec.end(),
-            ts_s, [](TIMESTAMP ts, const Item i) -> bool {
+            ts_s, [](TIMESTAMP ts, const Item &i) -> bool {
                 return ts < i.m_ts;
             });
         
@@ -145,6 +145,49 @@ ExactHeavyHitters::estimate_heavy_hitters_bitp(
     }
 
     return std::move(ret);
+}
+
+uint64_t
+ExactHeavyHitters::estimate_frequency(
+    TIMESTAMP ts_e,
+    uint32_t key) const
+{
+    auto iter = m_items.find(key);
+    if (iter == m_items.end())
+    {
+        return 0;
+    }
+
+    const std::vector<Item> &items = iter->second;
+    auto upper_ptr = std::upper_bound(items.begin(), items.end(),
+        ts_e, [](TIMESTAMP ts, const Item &i) -> bool { return ts < i.m_ts; });
+    if (upper_ptr == items.begin())
+    {
+        return 0;
+    }
+    --upper_ptr;
+    return upper_ptr->m_cnt;
+}
+
+uint64_t
+ExactHeavyHitters::estimate_frequency_bitp(
+    TIMESTAMP ts_s,
+    uint32_t key) const
+{
+    auto iter = m_items.find(key);
+    if (iter == m_items.end())
+    {
+        return 0;
+    }
+
+    const std::vector<Item> &items = iter->second;
+    auto upper_ptr = std::upper_bound(items.begin(), items.end(),
+        ts_s, [](TIMESTAMP ts, const Item &i) -> bool { return ts < i.m_ts; });
+    if (upper_ptr == items.begin())
+    {
+        return items.back().m_cnt;
+    }
+    return items.back().m_cnt - (upper_ptr - 1)->m_cnt;
 }
 
 ExactHeavyHitters*

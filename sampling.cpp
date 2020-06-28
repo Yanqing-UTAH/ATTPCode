@@ -201,11 +201,17 @@ using namespace SamplingSketchInternals;
 
 SamplingSketch::SamplingSketch(
     unsigned sample_size,
-    unsigned seed):
+    unsigned seed,
+    bool enable_frequency_estimation):
+    m_enable_frequency_estimation(enable_frequency_estimation),
     m_sample_size(sample_size),
     m_seen(0ull),
     m_reservoir(new List[sample_size]),
-    m_rng(seed)
+    m_rng(seed),
+    m_last_ts(0),
+    m_tmp_cnt_ts(0),
+    m_tmp_cnt_map(),
+    m_ts2cnt_map()
 {
 }
 
@@ -238,6 +244,21 @@ update_loop:
 void
 SamplingSketch::update(TIMESTAMP ts, uint32_t value, int c)
 {
+    if (m_enable_frequency_estimation)
+    {
+        if (ts == m_tmp_cnt_ts)
+        {
+            m_tmp_cnt_ts = 0;
+            m_tmp_cnt_map.clear();
+        }
+
+        if (ts != m_last_ts)
+        {
+            m_ts2cnt_map.emplace_back(std::make_pair(m_last_ts, m_seen));
+            m_last_ts = ts;
+        }
+    }
+
 update_loop:
     if (m_seen < m_sample_size)
     {
@@ -269,10 +290,16 @@ SamplingSketch::clear()
 size_t
 SamplingSketch::memory_usage() const
 {
-    size_t sum = sizeof(*this);
+    size_t sum = 24 + sizeof(m_rng);
     for (unsigned i = 0; i < m_sample_size; ++i)
     {
         sum += m_reservoir[i].memory_usage();
+    }
+    if (m_enable_frequency_estimation)
+    {
+        sum += sizeof(m_last_ts)
+            + sizeof(m_ts2cnt_map)
+            + m_ts2cnt_map.capacity() * sizeof(m_ts2cnt_map[0]);
     }
     return sum;
 }
@@ -349,6 +376,53 @@ SamplingSketch::estimate_heavy_hitters(
     return std::move(ret);
 }
 
+uint64_t
+SamplingSketch::estimate_frequency(
+    TIMESTAMP ts_e,
+    uint32_t key) const
+{
+    if (m_tmp_cnt_ts != ts_e)
+    {
+        unsigned n = (unsigned) std::min((unsigned long long) m_sample_size, m_seen);
+        unsigned nvalid = 0;
+        m_tmp_cnt_map.clear();
+        for (unsigned i = 0; i < n; ++i)
+        {
+            Item *item = m_reservoir[i].last_of(ts_e);
+            if (item)
+            {
+                ++nvalid;
+                ++m_tmp_cnt_map[item->m_value.m_u32];
+            }
+        }
+        
+        if (nvalid != 0)
+        {
+            auto iter = std::upper_bound(m_ts2cnt_map.begin(), m_ts2cnt_map.end(),
+                ts_e, [](TIMESTAMP ts, const auto &p) -> bool
+                {
+                    return ts < p.first;
+                });
+            --iter;
+            uint64_t tot_cnt = iter->second;
+            double scale_factor = (double) tot_cnt / nvalid;
+            for (auto &p: m_tmp_cnt_map)
+            {
+                p.second = std::round(p.second * scale_factor);
+            }
+        }
+        
+        m_tmp_cnt_ts = ts_e;
+    }
+    
+    auto iter = m_tmp_cnt_map.find(key);
+    if (iter == m_tmp_cnt_map.end())
+    {
+        return 0;
+    }
+    return iter->second;
+}
+
 SamplingSketch*
 SamplingSketch::create(
     int &argi,
@@ -398,11 +472,15 @@ SamplingSketch::create_from_config(
     int idx)
 {
     uint32_t sample_size, seed;
+    bool in_frequency_estimation_test;
 
     sample_size = g_config->get_u32("SAMPLING.sample_size", idx).value();
     seed = g_config->get_u32("SAMPLING.seed", -1).value();
 
-    return new SamplingSketch(sample_size, seed);
+    in_frequency_estimation_test = 
+        (g_config->get("test_name").value() == "frequency_estimation");
+
+    return new SamplingSketch(sample_size, seed, in_frequency_estimation_test);
 }
 
 int

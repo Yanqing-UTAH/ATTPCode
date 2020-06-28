@@ -101,6 +101,13 @@ public:
               << " at "
               << text_tt
               << std::endl;
+    
+        // This is for the output file path.
+        // We can't use \/ and shouln't use ' ' or ':' in file name.
+        if (0 == strftime(text_tt, 256, "%Y-%m-%d-%H-%M-%S", &local_time))
+        {
+            strcpy(text_tt, "<time_buffer_too_small>");
+        }
         
         int ret;
         if ((ret = QueryImpl::early_setup()))
@@ -145,9 +152,11 @@ public:
             m_outfile_name_template = outfile_name_opt.value();
             for (auto &sketch: m_sketches)
             {
-                m_outfiles.emplace_back(new std::ofstream(
-                    format_outfile_name(m_outfile_name_template,
-                        text_tt, sketch.get())));
+                auto file_name = format_outfile_name(
+                    m_outfile_name_template,
+                    text_tt,
+                    sketch.get());
+                m_outfiles.emplace_back(new std::ofstream(file_name));
             }
         }
 
@@ -716,6 +725,7 @@ protected:
         TIMESTAMP ts,
         uint64_t out_limit)
     {
+        out << "#" << sketch->get_short_description() << std::endl;
         out << "HH(" << m_query_fraction << '|' << ts << ") = {" << std::endl;
         uint64_t n_written = 0;
         for (const auto &hh: m_last_answer)
@@ -1767,6 +1777,272 @@ QueryMatrixSketchImpl::get_exact_fnorm_sqr(
     return (--iter)->second;
 }
 
+/////////////////////////////////////////////////
+//  Frequency estimation query implementation  //
+/////////////////////////////////////////////////
+
+template<class ISketch>
+struct FESketchQueryHelper {};
+
+template<>
+struct FESketchQueryHelper<IPersistentFrequencyEstimationSketch>
+{
+    static uint64_t
+    estimate(
+        IPersistentFrequencyEstimationSketch *sketch,
+        TIMESTAMP ts_e,
+        uint32_t key)
+    {
+        return sketch->estimate_frequency(ts_e, key);
+    }
+};
+
+template<>
+struct FESketchQueryHelper<IPersistentFrequencyEstimationSketchBITP>
+{
+    static uint64_t
+    estimate(
+        IPersistentFrequencyEstimationSketchBITP *sketch,
+        TIMESTAMP ts_s,
+        uint32_t key)
+    {
+        return sketch->estimate_frequency_bitp(ts_s, key);
+    }
+};
+
+template<class ISketch>
+class QueryFrequencyEstimationImpl:
+    public QueryBase<ISketch>
+{
+protected:
+    using QueryBase<ISketch>::m_out;
+    using QueryBase<ISketch>::m_sketches;
+
+    const char *
+    get_name() const
+    {
+        return ISketch::query_type;
+    }
+
+    int
+    additional_setup()
+    {
+        auto input_type = g_config->get("HH.input_type").value();
+        if (input_type == "IP")
+        {
+            m_input_is_ip = true;
+        }
+        else if (input_type == "uint32")
+        {
+            m_input_is_ip = false;
+        }
+        else
+        {
+            fprintf(stderr,
+                "[ERROR] Invalid HH.input_type: %s (IP or uint32 required)\n",
+                input_type.c_str());
+            return 1;
+        }
+
+        if (g_config->get_boolean("EXACT_HH.enabled").value())
+        {
+            m_exact_enabled = true; 
+            if (m_sketches.size() == 0 ||
+                m_sketches[0].get()->get_short_description() != "EXACT_HH")
+            {
+                fprintf(stderr,
+                    "[ERROR] exact query should be the first in the sketch list");
+                return 1;
+            }
+        }
+        else
+        {
+            m_exact_enabled = false;
+        }
+
+        return 0;
+    }
+
+    int
+    parse_query_arg(
+        TIMESTAMP ts,
+        const char *str)
+    {
+        m_query_keys.clear();
+        std::istringstream iss(str);
+    
+        if (m_input_is_ip)
+        {
+            std::string key;
+            while (iss >> key)
+            {
+                if (key.length() != 16) return 1;
+                struct in_addr ip;
+                if (!inet_aton(key.c_str(), &ip))
+                {
+                    return 1;
+                }
+                m_query_keys.push_back((uint32_t) ip.s_addr);
+            }
+        }
+        else
+        {
+            uint64_t key;
+            while (iss >> key)
+            {
+                m_query_keys.push_back(key);
+            }
+        }
+        m_out << "FE(" << ts << "):" << std::endl;
+
+        return 0;
+    }
+
+    void
+    query(
+        ISketch *sketch,
+        TIMESTAMP ts)
+    {
+        m_last_answer.clear();
+        m_last_answer.reserve(m_query_keys.size());
+        for (uint64_t key: m_query_keys)
+        {
+            uint64_t cnt = FESketchQueryHelper<ISketch>::estimate(
+                    sketch, ts, key);
+            m_last_answer.push_back(cnt);
+        }
+    }
+
+    void
+    print_query_summary(
+        ISketch *sketch)
+    {
+        if (m_exact_enabled && sketch == m_sketches[0].get())
+        {
+            m_exact_answer.swap(m_last_answer);
+        }
+        else if (m_exact_enabled && sketch != m_sketches[0].get())
+        {
+            double sum_err = 0;
+            double sum_err_sqr = 0;
+            uint64_t max_err = 0;
+            uint64_t min_err = ~(0ul);
+
+            for (uint64_t i = 0; i < m_query_keys.size(); ++i)
+            {
+                uint64_t err = 
+                    (m_last_answer[i] > m_exact_answer[i]) ?
+                    (m_last_answer[i] - m_exact_answer[i]) :
+                    (m_exact_answer[i] - m_last_answer[i]);
+                sum_err += err;
+                sum_err_sqr += err * err;
+                if (err > max_err) max_err += err;
+                if (err < min_err) min_err += err;
+            }
+            
+            double avg_err = sum_err / m_query_keys.size();
+            double stddev_err = std::sqrt(
+                    sum_err_sqr / m_query_keys.size() +
+                    avg_err * avg_err / m_query_keys.size() -
+                    2 * avg_err * avg_err);
+            m_out << '\t'
+                << sketch->get_short_description()
+                << ": avg_err = "
+                << avg_err
+                << ", stddev = "
+                << stddev_err
+                << ", min_err = "
+                << min_err
+                << ", max_err = "
+                << max_err
+                << std::endl;
+        }
+    }
+
+    void
+    dump_query_result(
+        ISketch *sketch,
+        std::ostream &out,
+        TIMESTAMP ts,
+        uint64_t out_limit)
+    {
+        out << "FE_" << ts << " = eval('" << std::endl;
+        out << "{" << std::endl;
+        std::vector<uint64_t> &answer = 
+            (m_exact_enabled && sketch == m_sketches[0].get())
+            ? m_exact_answer : m_last_answer;
+        for (uint64_t i = 0; i < std::min(out_limit, (uint64_t) m_query_keys.size()); ++i)
+        {
+            out << '\t';
+            if (m_input_is_ip)
+            {
+                struct in_addr ip = { .s_addr = (in_addr_t) m_query_keys[i] };
+                out << '"' << inet_ntoa(ip) << "\": ";
+            }
+            else
+            {
+                out << m_query_keys[i] << ": ";
+            }
+            out << answer[i] << ',' << std::endl;
+        }
+        out << "}')" << std::endl;
+        if (m_query_keys.size() > out_limit)
+        {
+            out << "# <"
+                << m_query_keys.size() - out_limit
+                << " omitted" << std::endl;
+        }
+    }
+
+    int
+    parse_update_arg(
+        TIMESTAMP ts,
+        const char *str)
+    {
+        if (m_input_is_ip)
+        {
+            while (std::isspace(*str)) ++str;
+            char ip_str[17];
+            strncpy(ip_str, str, 16);
+            ip_str[16] = '\0';
+        
+            struct in_addr ip;
+            if (!inet_aton(ip_str, &ip))
+            {
+                return 1;
+            }
+            m_update_value = (uint32_t) ip.s_addr;
+        }
+        else
+        {
+            m_update_value = (uint32_t) strtoul(str, nullptr, 0);
+        }
+
+        return 0;
+    }
+
+    void
+    update(
+        ISketch *sketch,
+        TIMESTAMP ts)
+    {
+        sketch->update(ts, m_update_value);
+    }
+
+private:
+    bool                        m_input_is_ip;
+
+    bool                        m_exact_enabled;
+
+    uint32_t                    m_update_value;
+
+    std::vector<uint32_t>       m_query_keys;
+
+    std::vector<uint64_t>       m_last_answer; // last estimated cnts
+
+    std::vector<uint64_t>       m_exact_answer; // exact cnts
+};
+
 ////////////////////////////////////////
 //      Query public interface        //
 ////////////////////////////////////////
@@ -1774,7 +2050,9 @@ QueryMatrixSketchImpl::get_exact_fnorm_sqr(
 static std::vector<std::string> supported_query_types({
     "heavy_hitter",
     "heavy_hitter_bitp",
-    "matrix_sketch"
+    "matrix_sketch",
+    "frequency_estimation",
+    "frequency_estimation_bitp"
 });
 
 bool
@@ -1810,6 +2088,8 @@ int run_query_impl()
 using QueryHeavyHitter = Query<QueryHeavyHitterImpl<IPersistentHeavyHitterSketch>>;
 using QueryHeavyHitterBITP = Query<QueryHeavyHitterImpl<IPersistentHeavyHitterSketchBITP>>;
 using QueryMatrixSketch = Query<QueryMatrixSketchImpl>;
+using QueryFrequencyEstimation = Query<QueryFrequencyEstimationImpl<IPersistentFrequencyEstimationSketch>>;
+using QueryFrequencyEstimationBITP = Query<QueryFrequencyEstimationImpl<IPersistentFrequencyEstimationSketchBITP>>;
 
 int
 run_query(
@@ -1827,6 +2107,14 @@ run_query(
     else if (query_type == "matrix_sketch")
     {
         return run_query_impl<QueryMatrixSketch>();
+    }
+    else if (query_type == "frequency_estimation")
+    {
+        return run_query_impl<QueryFrequencyEstimation>();
+    }
+    else if (query_type == "frequency_estimation_bitp")
+    {
+        // TODO
     }
     
     return 2;

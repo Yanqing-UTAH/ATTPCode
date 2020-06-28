@@ -206,15 +206,17 @@ NormSamplingWRSketch::get_covariance_matrix(
     {
         double *dvec = m_reservoir[i].dvec_last_of(ts_e); 
         if (!dvec) return ; // which means we haven't seen any update
+        double two_norm_sqr = cblas_ddot(m_n, dvec, 1, dvec, 1);
         cblas_dspr(
             CblasColMajor,
             CblasUpper,
             m_n,
+            //1.0 / two_norm_sqr,
             1.0,
             dvec,
             1,
             A);
-        sample_fnorm_sqr += cblas_ddot(m_n, dvec, 1, dvec, 1);
+        sample_fnorm_sqr += two_norm_sqr;
     }
     
     double tot_fnorm_sqr;

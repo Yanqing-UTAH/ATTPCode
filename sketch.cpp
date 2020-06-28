@@ -168,6 +168,32 @@ check_query_type(
             }
         }
     }
+    else if (!strcmp(query_type, "frequency_estimation"))
+    {
+        for (SKETCH_TYPE st = 0; st < NUM_SKETCH_TYPES; ++st)
+        {
+            IPersistentFrequencyEstimationSketch *ipfes =
+                dynamic_cast<IPersistentFrequencyEstimationSketch*>(
+                    test_instances[st].get());
+            if (ipfes)
+            {
+                ret.push_back(st);
+            }
+        }
+    }
+    else if (!strcmp(query_type, "frequency_estimation_bitp"))
+    {
+        for (SKETCH_TYPE st = 0; st < NUM_SKETCH_TYPES; ++st)
+        {
+            IPersistentFrequencyEstimationSketchBITP *ipfes =
+                dynamic_cast<IPersistentFrequencyEstimationSketchBITP*>(
+                    test_instances[st].get());
+            if (ipfes)
+            {
+                ret.push_back(st);
+            }
+        }
+    }
     else if (help_str)
     {
         snprintf(help_str_buffer, help_str_bufsize,

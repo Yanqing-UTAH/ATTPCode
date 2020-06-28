@@ -16,12 +16,14 @@ namespace SamplingSketchInternals {
 
 class SamplingSketch:
     public AbstractPersistentPointQueryable, // str
-    public IPersistentHeavyHitterSketch // u32
+    public IPersistentHeavyHitterSketch, // u32
+    public IPersistentFrequencyEstimationSketch // u32
 {
 public:
     SamplingSketch(
         unsigned sample_size,
-        unsigned seed = 19950810u);
+        unsigned seed = 19950810u,
+        bool enable_frequency_estimation = false);
 
     virtual ~SamplingSketch();
 
@@ -56,7 +58,14 @@ public:
         TIMESTAMP ts_e,
         double frac_threshold) const override;
 
+    uint64_t
+    estimate_frequency(
+        TIMESTAMP ts_e,
+        uint32_t key) const override;
+
 private:
+    bool                m_enable_frequency_estimation;
+
     unsigned            m_sample_size;
 
     unsigned long long  m_seen;
@@ -65,6 +74,16 @@ private:
                         *m_reservoir;
 
     std::mt19937        m_rng;
+
+    TIMESTAMP           m_last_ts;
+
+    mutable TIMESTAMP   m_tmp_cnt_ts;
+
+    mutable std::unordered_map<uint32_t, uint64_t>
+                        m_tmp_cnt_map;
+
+    std::vector<std::pair<TIMESTAMP, uint64_t>>
+                        m_ts2cnt_map;
 
 public:
     static SamplingSketch*

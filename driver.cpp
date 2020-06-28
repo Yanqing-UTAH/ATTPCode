@@ -24,6 +24,8 @@ void print_new_help(const char *progname)
     std::cerr << "\theavy_hitter" << std::endl;
     std::cerr << "\theavy_hitter_bitp" << std::endl;
     std::cerr << "\tmatrix_sketch" << std::endl;
+    std::cerr << "\tfrequency_estimation" << std::endl;
+    std::cerr << "\tfrequency_estimation_bitp" << std::endl;
 }
 
 int

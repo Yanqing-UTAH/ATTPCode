@@ -3,7 +3,9 @@
 
 class ExactHeavyHitters:
     public IPersistentHeavyHitterSketch,
-    public IPersistentHeavyHitterSketchBITP
+    public IPersistentHeavyHitterSketchBITP,
+    public IPersistentFrequencyEstimationSketch,
+    public IPersistentFrequencyEstimationSketchBITP
 {
 private:
     struct Item
@@ -39,6 +41,16 @@ public:
     estimate_heavy_hitters_bitp(
         TIMESTAMP ts_s,
         double frac_threshold) const override;
+
+    uint64_t
+    estimate_frequency(
+        TIMESTAMP ts_e,
+        uint32_t key) const override;
+
+    uint64_t
+    estimate_frequency_bitp(
+        TIMESTAMP ts_s,
+        uint32_t key) const override;
 
 private:
     std::unordered_map<uint32_t, std::vector<Item>> m_items;

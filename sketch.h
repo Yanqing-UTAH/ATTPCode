@@ -130,9 +130,33 @@ struct IPersistentHeavyHitterSketchBITP:
         double frac_threshold) const = 0;
 };
 
+struct IPersistentFrequencyEstimationSketch:
+    virtual public IPersistentSketch_u32
+{
+    static constexpr const char *query_type = "frequency_estimation";
+
+    virtual uint64_t
+    estimate_frequency(
+        TIMESTAMP ts_e,
+        uint32_t key) const = 0;
+};
+
+struct IPersistentFrequencyEstimationSketchBITP:
+    virtual public IPersistentSketch_u32
+{
+    static constexpr const char *query_type = "frequency_estimation_bitp";
+
+    virtual uint64_t
+    estimate_frequency_bitp(
+        TIMESTAMP ts_s,
+        uint32_t key) const = 0;
+};
+
 struct IPersistentMatrixSketch:
     virtual public IPersistentSketch_dvec
 {
+    static constexpr const char *query_type = "matrix_sketch";
+
     // ts_e: end of the query period (inclusive)
     // A: The space where the covariance matrix is supposed to be stored.  Its
     // size should be at least n * (n + 1) / 2 if the sketch is configured to

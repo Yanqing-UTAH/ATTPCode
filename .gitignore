@@ -16,3 +16,4 @@ config.h
 Makefile.in.old
 *.fftw3
 test_dct
+misc/create_fe_data
