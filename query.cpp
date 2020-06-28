@@ -1936,8 +1936,8 @@ protected:
                     (m_exact_answer[i] - m_last_answer[i]);
                 sum_err += err;
                 sum_err_sqr += err * err;
-                if (err > max_err) max_err += err;
-                if (err < min_err) min_err += err;
+                if (err > max_err) max_err = err;
+                if (err < min_err) min_err = err;
             }
             
             double avg_err = sum_err / m_query_keys.size();

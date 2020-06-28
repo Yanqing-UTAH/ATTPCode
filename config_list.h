@@ -64,6 +64,14 @@ DEFINE_CONFIG_ENTRY(DUMMY_PMG.epsilon, double, DUMMY_PMG.enabled, true, , false,
 DEFINE_CONFIG_ENTRY(TMG_BITP.enabled, boolean, true, false, false)
 DEFINE_CONFIG_ENTRY(TMG_BITP.epsilon, double, TMG_BITP.enabled, true, , false, 0, false, 1)
 
+// Persistent AMSketch (for frequency estimation)
+DEFINE_CONFIG_ENTRY(PAMS.enabled, boolean, true, false, false)
+DEFINE_CONFIG_ENTRY(PAMS.epsilon, double, PAMS.enabled, true, , false, 0, false, 1)
+DEFINE_CONFIG_ENTRY(PAMS.delta, double, PAMS.enabled, true, , false, 0, false, 1)
+DEFINE_CONFIG_ENTRY(PAMS.Delta, double, PAMS.enabled, true, , false, 0)
+DEFINE_CONFIG_ENTRY(PAMS.seed, u32, true, false, 19950810u)
+
+
 // Test matrix sketch (ATTP)
 DEFINE_CONFIG_ENTRY(MS.dimension, u32, true, false, , true, 1)
 DEFINE_CONFIG_ENTRY(MS.use_analytic_error, boolean, true, false, false)

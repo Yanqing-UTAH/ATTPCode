@@ -4,11 +4,13 @@
 
 using namespace std;
 
-PAMSketch::PAMSketch(double eps, double delta, double Delta) :
+PAMSketch::PAMSketch(double eps, double delta, double Delta,
+        uint32_t seed) :
     w(ceil(exp(1)/eps)),
     d(ceil(log(1/delta))),
     D(Delta),
     p_sampling(1/Delta),
+    rgen(seed),
     m_eps(eps),
     m_delta(delta),
     m_Delta(Delta) {
@@ -19,9 +21,23 @@ PAMSketch::PAMSketch(double eps, double delta, double Delta) :
     }
 
     //srand(time(NULL));
+    std::uniform_int_distribution<int> unif(0, std::numeric_limits<int>::max());
     ksi.resize(d);
     for (unsigned int i = 0; i < d; i++) {
-        ksi[i] = std::make_tuple(rand_int(), rand_int(), rand_int(), rand_int());
+        ksi[i] = std::make_tuple(
+            unif(rgen), unif(rgen), unif(rgen), unif(rgen));
+    }
+
+    prepare_u32_hash();
+}
+
+void PAMSketch::prepare_u32_hash()
+{
+    std::uniform_real_distribution<double> unif(111.0, 11111111.0);
+    u32_hash_param.resize(d); 
+    for (unsigned int i = 0; i < d; ++i)
+    {
+        u32_hash_param[i] = unif(rgen);
     }
 }
 
@@ -33,33 +49,57 @@ void PAMSketch::clear() {
 }
 
 void PAMSketch::update(unsigned long long t, const char *str, int c) {
-	size_t len = strlen(str);
-    unsigned int item = hashstr(str);
+    update_impl(t, str_hash(str), c);
+}
+
+void
+PAMSketch::update(
+    TIMESTAMP ts,
+    uint32_t value,
+    int c)
+{
+    update_impl(ts, value, c);
+}
+
+void PAMSketch::update_impl(TIMESTAMP ts, uint64_t hashval, int c)
+{
     for (unsigned int j = 0; j < d; j++) {
-        unsigned int hashval = h(j, str, len);
-        unsigned int f = flag(j, item);
-        C[j][hashval][f].val += c;
+        unsigned int h = u32_hash(j, hashval);
+        unsigned int f = flag(j, hashval);
+        C[j][h][f].val += c;
 
         if (p_sampling(rgen)) {
-            C[j][hashval][f].samples.emplace_back(std::make_pair(t, C[j][hashval][f].val));
+            C[j][h][f].samples.emplace_back(std::make_pair(ts, C[j][h][f].val));
         }
     }
+
 }
 
 double
 PAMSketch::estimate_point_in_interval(
     const char *str,
     unsigned long long s,
-    unsigned long long e) {
-    size_t len = strlen(str);
-    
+    unsigned long long e)
+{
+    return estimate_point_in_interval_impl(
+        str_hash(str),
+        s,
+        e);
+}
+
+double
+PAMSketch::estimate_point_in_interval_impl(
+    uint64_t hashval,
+    TIMESTAMP s,
+    TIMESTAMP e) const
+{
     std::vector<double> D;
     D.reserve(d);
     for (unsigned int j = 0; j < d; j++) {
-        unsigned int hashval = h(j, str, len);
+        unsigned int h = u32_hash(j, hashval);
         int Xi_value = Xi(j, hashval);
-        double D_s = Xi_value * (estimate_C(j, hashval, 1, s) - estimate_C(j, hashval, 0, s));
-        double D_e = Xi_value * (estimate_C(j, hashval, 1, e) - estimate_C(j, hashval, 0, e));
+        double D_s = Xi_value * (estimate_C(j, h, 1, s) - estimate_C(j, h, 0, s));
+        double D_e = Xi_value * (estimate_C(j, h, 1, e) - estimate_C(j, h, 0, e));
         
         D.push_back(D_e - D_s);
     }
@@ -80,7 +120,7 @@ PAMSketch::estimate_point_at_the_time(
     return estimate_point_in_interval(str, 0, ts_e);
 }
 
-double PAMSketch::estimate_C(unsigned j, unsigned i, unsigned f, unsigned long long t) {
+double PAMSketch::estimate_C(unsigned j, unsigned i, unsigned f, unsigned long long t) const {
     auto &samples = C[j][i][f].samples;
 
     auto r = samples.size(), l = (decltype(r)) 0;
@@ -104,14 +144,32 @@ double PAMSketch::estimate_C(unsigned j, unsigned i, unsigned f, unsigned long l
     }
 }
 
+uint64_t
+PAMSketch::estimate_frequency(
+    TIMESTAMP ts_e,
+    uint32_t key) const
+{
+    return (uint64_t) std::round(
+            estimate_point_in_interval_impl(key, 0, ts_e));
+}
+
+uint64_t
+PAMSketch::estimate_frequency_bitp(
+    TIMESTAMP ts_s,
+    uint32_t key) const
+{
+    return (uint64_t) std::round(
+            estimate_point_in_interval_impl(key, ts_s, (TIMESTAMP) ~0ul));
+}
+
 size_t PAMSketch::memory_usage() const {
-    size_t mem = 0;
+    size_t mem = sizeof(*this) + sizeof(double) * u32_hash_param.capacity();
     
     mem += 2 * sizeof(Counter) * w * d;
     for (unsigned j = 0; j < d; ++j)
     for (unsigned h = 0; h < w; ++h) {
         mem += sizeof(C[j][h][0].samples.front()) *
-            (C[j][h][0].samples.size() + C[j][h][1].samples.size());
+            (C[j][h][0].samples.capacity() + C[j][h][1].samples.capacity());
     }
 
     return mem;
@@ -154,10 +212,12 @@ PAMSketch *PAMSketch::get_test_instance() {
 }
 
 PAMSketch *PAMSketch::create_from_config(int idx) {
-    double epsilon = g_config->get_double("PAMS.epsilon").value();
-    double delta = g_config->get_double("PAMS.delta").value();
-    double Delta = g_config->get_double("PAMS.Delta").value();
-
-    return new PAMSketch(epsilon, delta, Delta);
+    
+    double epsilon = g_config->get_double("PAMS.epsilon", idx).value();
+    double delta = g_config->get_double("PAMS.delta", idx).value();
+    double Delta = g_config->get_double("PAMS.Delta", idx).value();
+    uint32_t seed = g_config->get_u32("PAMS.seed").value();
+    
+    return new PAMSketch(epsilon, delta, Delta, seed);
 }
 

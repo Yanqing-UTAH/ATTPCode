@@ -1139,6 +1139,7 @@ SamplingSketchBITP::memory_usage() const
                 + sizeof(m_ts2cnt_map)
                 + m_ts2cnt_map.capacity() * sizeof(m_ts2cnt_map[0]);
         }
+        return sum;
     }
     
     assert(false);
@@ -2025,7 +2026,7 @@ SamplingSketchBITP::create_from_config(
     }
 
     bool in_frequency_estimation_test = 
-        (g_config->get("test_name").value() == "frequency_estimation");
+        (g_config->get("test_name").value() == "frequency_estimation_bitp");
     if (in_frequency_estimation_test && use_new_impl != 2)
     {
         std::cerr << "[ERROR] frequnecy_estimation_bitp with SAMPLING_BITP is only implemented with use_new_impl == 2, but got " << use_new_impl
