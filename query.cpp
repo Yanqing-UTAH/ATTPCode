@@ -1941,10 +1941,8 @@ protected:
             }
             
             double avg_err = sum_err / m_query_keys.size();
-            double stddev_err = std::sqrt(
-                    sum_err_sqr / m_query_keys.size() +
-                    avg_err * avg_err / m_query_keys.size() -
-                    2 * avg_err * avg_err);
+            double stddev_err = std::sqrt(sum_err_sqr / m_query_keys.size()
+                    - avg_err * avg_err);
             m_out << '\t'
                 << sketch->get_short_description()
                 << ": avg_err = "
@@ -2114,7 +2112,7 @@ run_query(
     }
     else if (query_type == "frequency_estimation_bitp")
     {
-        // TODO
+        return run_query_impl<QueryFrequencyEstimationBITP>();
     }
     
     return 2;

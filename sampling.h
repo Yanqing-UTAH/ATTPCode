@@ -100,7 +100,8 @@ public:
 };
 
 class SamplingSketchBITP:
-    public IPersistentHeavyHitterSketchBITP
+    public IPersistentHeavyHitterSketchBITP,
+    public IPersistentFrequencyEstimationSketchBITP
 {
 private:
     struct MinWeightListNode
@@ -276,7 +277,8 @@ public:
     SamplingSketchBITP(
         uint32_t            sample_size,
         uint32_t            seed = 19950810u,
-        uint8_t             use_new_impl = 0);
+        uint8_t             use_new_impl = 0,
+        bool                enable_frequency_estimation = false);
 
     ~SamplingSketchBITP();
     
@@ -299,6 +301,11 @@ public:
     estimate_heavy_hitters_bitp(
         TIMESTAMP           ts_s,
         double              frac_threshold) const override;
+
+    uint64_t
+    estimate_frequency_bitp(
+        TIMESTAMP           ts_s,
+        uint32_t            key) const override;
 
 private:
 
@@ -410,6 +417,8 @@ private:
 
     uint8_t                 m_use_new_impl;
 
+    bool                    m_enable_frequency_estimation;
+
     // use_new_impl == 0 (old impl)
 
     dsimpl::avl_t<decltype(m_ts_map_node_desc)>
@@ -461,6 +470,17 @@ private:
     uint64_t                m_num_item3_alloced_target;
 
     uint64_t                m_tot_seen;
+    
+    // frequency estimation
+    TIMESTAMP           m_last_ts;
+
+    mutable TIMESTAMP       m_tmp_cnt_ts;
+
+    mutable std::unordered_map<uint32_t, uint64_t>
+                            m_tmp_cnt_map;
+
+    std::vector<std::pair<TIMESTAMP, uint64_t>>
+                        m_ts2cnt_map;
 
 public:
     static SamplingSketchBITP*

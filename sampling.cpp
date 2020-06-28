@@ -285,6 +285,14 @@ SamplingSketch::clear()
         m_reservoir[i].reset();
     }
     m_seen = 0;
+
+    if (m_enable_frequency_estimation)
+    {
+        m_last_ts = 0;
+        m_tmp_cnt_ts = 0;
+        m_tmp_cnt_map.clear();
+        m_ts2cnt_map.clear();
+    }
 }
 
 size_t
@@ -938,9 +946,11 @@ SamplingSketchBITP::m_itemnew_node_desc3(
 SamplingSketchBITP::SamplingSketchBITP(
     uint32_t sample_size,
     uint32_t seed,
-    uint8_t use_new_impl):
+    uint8_t use_new_impl,
+    bool enable_frequency_estimation):
     m_sample_size(sample_size),
     m_use_new_impl(use_new_impl),
+    m_enable_frequency_estimation(enable_frequency_estimation),
     // use_new_impl == 0
     m_ts_map(m_ts_map_node_desc),
     m_min_weight_map(m_weight_map_node_desc),
@@ -951,7 +961,7 @@ SamplingSketchBITP::SamplingSketchBITP(
     m_unif_0_1(0.0, 1.0),
     m_num_items_alloced(0),
     m_num_mwlistnodes_alloced(0),
-    // use_new_impl == 1
+    // use_new_impl == 1 (broken)
     m_recent_items_new((use_new_impl == 1) ? new ItemNew*[m_sample_size]: nullptr),
     m_recent_items_start_new(m_sample_size - 1),
     m_ts_map_new(ItemNewNodeDesc(
@@ -964,7 +974,12 @@ SamplingSketchBITP::SamplingSketchBITP(
     m_item3_head(nullptr),
     m_num_item3_alloced(0),
     m_num_item3_alloced_target(0),
-    m_tot_seen(0)
+    m_tot_seen(0),
+    // frequency estimation
+    m_last_ts(0),
+    m_tmp_cnt_ts(0),
+    m_tmp_cnt_map(),
+    m_ts2cnt_map()
 {
     if (m_use_new_impl == 0)
     {
@@ -1069,6 +1084,14 @@ SamplingSketchBITP::clear()
             (uint64_t) std::ceil(std::log(m_sample_size));
         m_tot_seen = 0;
     }
+
+    if (m_enable_frequency_estimation)
+    {
+        m_last_ts = 0;
+        m_tmp_cnt_ts = 0;
+        m_tmp_cnt_map.clear();
+        m_ts2cnt_map.clear();
+    }
 }
 
 size_t
@@ -1104,11 +1127,18 @@ SamplingSketchBITP::memory_usage() const
     }
     else if (m_use_new_impl == 2)
     {
-        return 32 // m_item3_head, m_num_item3_alloced,
+        size_t sum = 32 // m_item3_head, m_num_item3_alloced,
                   // m_num_item3_alloced_target, m_tot_seen
             + m_num_item3_alloced * sizeof(Item3)
             + sizeof(m_unif_0_1)
             + sizeof(m_rng);
+
+        if (m_enable_frequency_estimation)
+        {
+            sum += sizeof(m_last_ts)
+                + sizeof(m_ts2cnt_map)
+                + m_ts2cnt_map.capacity() * sizeof(m_ts2cnt_map[0]);
+        }
     }
     
     assert(false);
@@ -1746,6 +1776,21 @@ SamplingSketchBITP::update_batched(
     uint32_t value,
     int c)
 {
+    if (m_enable_frequency_estimation)
+    {
+        if (ts == m_tmp_cnt_ts)
+        {
+            m_tmp_cnt_ts = 0;
+            m_tmp_cnt_map.clear();
+        }
+
+        if (ts != m_last_ts)
+        {
+            m_ts2cnt_map.emplace_back(std::make_pair(m_last_ts, m_tot_seen));
+            m_last_ts = ts;
+        }
+    }
+
 update_loop:
     double weight = m_unif_0_1(m_rng);
 
@@ -1824,19 +1869,19 @@ SamplingSketchBITP::estimate_heavy_hitters_bitp_batched(
     samples.reserve(m_sample_size);
     
     Item3 *item3 = m_item3_head;
-    while (item3 && samples.size() < m_sample_size)
+    while (item3 && item3->m_ts > ts_s && samples.size() < m_sample_size)
     {
         samples.push_back(item3);
         item3 = item3->m_next;
     }
 
-    if (item3)
+    if (item3 && item3->m_ts > ts_s)
     {
         dsimpl::min_heap_make(
             samples,
             (dsimpl::UINT8) samples.size(),
             [](Item3 *item3) -> double { return item3->m_weight; });
-        while (item3)
+        while (item3 && item3->m_ts > ts_s)
         {
             if (item3->m_weight >= samples[0]->m_weight)
             {
@@ -1873,6 +1918,81 @@ SamplingSketchBITP::estimate_heavy_hitters_bitp_batched(
     return std::move(ret);
 }
 
+uint64_t
+SamplingSketchBITP::estimate_frequency_bitp(
+    TIMESTAMP ts_s,
+    uint32_t key) const
+{
+    if (m_tmp_cnt_ts != ts_s)
+    {
+        std::vector<Item3*> samples;
+        samples.reserve(m_sample_size);
+        
+        Item3 *item3 = m_item3_head;
+        while (item3 && item3->m_ts > ts_s && samples.size() < m_sample_size)
+        {
+            samples.push_back(item3);
+            item3 = item3->m_next;
+        }
+
+        if (item3 && item3->m_ts > ts_s)
+        {
+            dsimpl::min_heap_make(
+                samples,
+                (dsimpl::UINT8) samples.size(),
+                [](Item3 *item3) -> double { return item3->m_weight; });
+            while (item3 && item3->m_ts > ts_s)
+            {
+                if (item3->m_weight >= samples[0]->m_weight)
+                {
+                    samples[0] = item3;
+                    dsimpl::min_heap_push_down(
+                        samples,
+                        0,
+                        m_sample_size,
+                        [](Item3 *item3) -> double { return item3->m_weight; });
+                }
+
+                item3 = item3->m_next;
+            }
+        }
+        
+        uint32_t nvalid = 0;
+        m_tmp_cnt_map.clear();
+        for (Item3 *item: samples)
+        {
+            ++nvalid;
+            ++m_tmp_cnt_map[item->m_value];
+        }
+
+        if (nvalid != 0)
+        {
+            auto iter = std::upper_bound(m_ts2cnt_map.begin(), m_ts2cnt_map.end(),
+                ts_s, [](TIMESTAMP ts, const auto &p) -> bool
+                {
+                    return ts < p.first;
+                });
+            --iter;
+            uint64_t tot_cnt = iter->second;
+            double scale_factor = (double) tot_cnt / nvalid;
+            for (auto &p: m_tmp_cnt_map)
+            {
+                p.second = std::round(p.second * scale_factor);
+            }
+        }
+
+        m_tmp_cnt_ts = ts_s;
+    }
+    
+    auto iter = m_tmp_cnt_map.find(key);
+    if (iter == m_tmp_cnt_map.end())
+    {
+        return 0;
+    }
+    return iter->second;
+}
+
+
 SamplingSketchBITP*
 SamplingSketchBITP::get_test_instance()
 {
@@ -1904,7 +2024,17 @@ SamplingSketchBITP::create_from_config(
             << std::endl;
     }
 
-    return new SamplingSketchBITP(sample_size, seed, (uint8_t) use_new_impl);
+    bool in_frequency_estimation_test = 
+        (g_config->get("test_name").value() == "frequency_estimation");
+    if (in_frequency_estimation_test && use_new_impl != 2)
+    {
+        std::cerr << "[ERROR] frequnecy_estimation_bitp with SAMPLING_BITP is only implemented with use_new_impl == 2, but got " << use_new_impl
+            << std::endl;
+        return nullptr;
+    }
+
+    return new SamplingSketchBITP(sample_size, seed, (uint8_t) use_new_impl,
+            in_frequency_estimation_test);
 }
 
 int

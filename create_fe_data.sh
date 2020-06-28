@@ -1,8 +1,14 @@
 #!/bin/bash
 
 if [ $# -lt 1 ]; then
-    echo "usage: $0 <datafile>"
+    echo "usage: $0 <datafile> [is_bitp = 0]"
     exit 1
+fi
+
+if [ $# -ge 2 ]; then
+    IS_BITP=$2
+else
+    IS_BITP=0
 fi
 
 if [ ! -x misc/create_fe_data ]; then
@@ -18,9 +24,16 @@ if [ ! -x ./driver ]; then
     make
 fi
 
+if [ $IS_BITP -eq 0 ]; then
+    CONF_TEMPLATE=configs/generate-fe-key-set.conf
+else
+    CONF_TEMPLATE=configs/generate-fe-key-set-bitp.conf
+fi
+
 CONF=`mktemp`
 KEYSET_FILE=`mktemp`
-cat configs/generate-fe-key-set.conf |
+
+cat $CONF_TEMPLATE |
 sed 's,outfile =.*,outfile = '$KEYSET_FILE',' |
 sed 's,infile =.*,infile = '$1',' > $CONF
 
