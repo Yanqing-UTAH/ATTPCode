@@ -48,70 +48,73 @@ fftw3:
 test_pla.o: test_pla.cpp pla.h
 
 driver.o: driver.cpp conf.h hashtable.h misra_gries.h sketch.h util.h \
- sketch_lib.h query.h
+ MurmurHash3.h sketch_lib.h query.h
 
-sketch.o: sketch.cpp sketch.h util.h sketch_lib.h pcm.h pla.h \
- MurmurHash3.h pams.h sampling.h avl.h basic_defs.h avl_container.h \
+sketch.o: sketch.cpp sketch.h util.h MurmurHash3.h sketch_lib.h pcm.h \
+ pla.h pams.h sampling.h avl.h basic_defs.h avl_container.h \
  heavyhitters.h exact_query.h pmmg.h misra_gries.h hashtable.h min_heap.h \
  dummy_persistent_misra_gries.h conf.h norm_sampling.h fd.h \
  norm_sampling_wr.h sketch_list.h
 
-old_driver.o: old_driver.cpp sketch.h util.h sketch_lib.h
+old_driver.o: old_driver.cpp sketch.h util.h MurmurHash3.h sketch_lib.h
 
 test_conf.o: test_conf.cpp conf.h hashtable.h
 
 misra_gries.o: misra_gries.cpp misra_gries.h hashtable.h sketch.h util.h \
- sketch_lib.h
+ MurmurHash3.h sketch_lib.h
 
-test_hh.o: test_hh.cpp heavyhitters.h pcm.h pla.h util.h sketch.h \
- sketch_lib.h MurmurHash3.h
+test_hh.o: test_hh.cpp heavyhitters.h pcm.h pla.h util.h MurmurHash3.h \
+ sketch.h sketch_lib.h
 
 norm_sampling.o: norm_sampling.cpp norm_sampling.h sketch.h util.h \
- sketch_lib.h min_heap.h basic_defs.h conf.h hashtable.h
+ MurmurHash3.h sketch_lib.h min_heap.h basic_defs.h conf.h hashtable.h
 
-fd.o: fd.cpp fd.h sketch.h util.h sketch_lib.h conf.h hashtable.h
+fd.o: fd.cpp fd.h sketch.h util.h MurmurHash3.h sketch_lib.h conf.h \
+ hashtable.h
 
-pmmg.o: pmmg.cpp pmmg.h util.h misra_gries.h hashtable.h sketch.h \
- sketch_lib.h min_heap.h basic_defs.h conf.h
+pmmg.o: pmmg.cpp pmmg.h util.h MurmurHash3.h misra_gries.h hashtable.h \
+ sketch.h sketch_lib.h min_heap.h basic_defs.h conf.h
 
 perf_timer.o: perf_timer.cpp perf_timer.h
 
-pcm.o: pcm.cpp pcm.h pla.h util.h sketch.h sketch_lib.h MurmurHash3.h \
+pcm.o: pcm.cpp pcm.h pla.h util.h MurmurHash3.h sketch.h sketch_lib.h \
  conf.h hashtable.h
 
-test_pams.o: test_pams.cpp pams.h util.h sketch.h sketch_lib.h \
- MurmurHash3.h
+test_pams.o: test_pams.cpp pams.h util.h MurmurHash3.h sketch.h \
+ sketch_lib.h
 
-pams.o: pams.cpp pams.h util.h sketch.h sketch_lib.h MurmurHash3.h conf.h \
+pams.o: pams.cpp pams.h util.h MurmurHash3.h sketch.h sketch_lib.h conf.h \
  hashtable.h
 
 lapack_wrapper.o: lapack_wrapper.c
 
-exact_query.o: exact_query.cpp exact_query.h sketch.h util.h sketch_lib.h \
- conf.h hashtable.h
+exact_query.o: exact_query.cpp exact_query.h sketch.h util.h \
+ MurmurHash3.h sketch_lib.h conf.h hashtable.h
 
 MurmurHash3.o: MurmurHash3.cpp MurmurHash3.h
 
 norm_sampling_wr.o: norm_sampling_wr.cpp norm_sampling_wr.h sketch.h \
- util.h sketch_lib.h conf.h hashtable.h avl.h basic_defs.h
+ util.h MurmurHash3.h sketch_lib.h conf.h hashtable.h avl.h basic_defs.h
 
-query.o: query.cpp util.h conf.h hashtable.h sketch.h sketch_lib.h \
- perf_timer.h lapack_wrapper.h 
+query.o: query.cpp util.h MurmurHash3.h conf.h hashtable.h sketch.h \
+ sketch_lib.h perf_timer.h lapack_wrapper.h \
+ 
 
-conf.o: conf.cpp conf.h hashtable.h util.h config_list.h
+conf.o: conf.cpp conf.h hashtable.h util.h MurmurHash3.h config_list.h
 
-sampling.o: sampling.cpp sampling.h sketch.h util.h sketch_lib.h avl.h \
- basic_defs.h avl_container.h conf.h hashtable.h min_heap.h
+sampling.o: sampling.cpp sampling.h sketch.h util.h MurmurHash3.h \
+ sketch_lib.h avl.h basic_defs.h avl_container.h conf.h hashtable.h \
+ min_heap.h
 
 pla.o: pla.cpp pla.h
 
 test_dct.o: test_dct.cpp 
 
 heavyhitters.o: heavyhitters.cpp heavyhitters.h pcm.h pla.h util.h \
- sketch.h sketch_lib.h MurmurHash3.h conf.h hashtable.h
+ MurmurHash3.h sketch.h sketch_lib.h conf.h hashtable.h
 
-test_pcm.o: test_pcm.cpp pcm.h pla.h util.h sketch.h sketch_lib.h \
- MurmurHash3.h
+test_pcm.o: test_pcm.cpp pcm.h pla.h util.h MurmurHash3.h sketch.h \
+ sketch_lib.h
 
 
 # end of objs

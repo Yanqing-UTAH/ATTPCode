@@ -13,7 +13,7 @@ void PLA::clear() {
     buffer_initialized = initialized = false;
 }
 
-double PLA::estimate(unsigned long long t) {
+double PLA::estimate(unsigned long long t) const {
     if (buffer_initialized) {
         if (t >= buffer_last.x) {
             return buffer_last.y;

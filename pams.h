@@ -41,7 +41,7 @@ class PAMSketch:
         double m_delta;
         double m_Delta;
     
-        std::vector<double> u32_hash_param;
+        std::vector<std::pair<uint64_t, uint64_t>> m_u32_hash_param;
     
     public:
         PAMSketch(double eps, double delta, double Delta,
@@ -97,14 +97,6 @@ class PAMSketch:
         //    return (h[0] ^ h[1]) % w;
         //}
 
-        inline uint64_t str_hash(const char *str) const
-        {
-            size_t len = strlen(str);
-            uint64_t h[2];
-            MurmurHash3_x64_128(str, len, 950810u, h);
-            return h[0] ^ h[1];
-        }
-    
         // j^th ksi to hash value i (mapped to 0, 1)
         inline unsigned int flag(unsigned j, unsigned int i) const {
             return (((std::get<0>(ksi[j]) * i + std::get<1>(ksi[j]))
@@ -119,11 +111,10 @@ class PAMSketch:
 
         void prepare_u32_hash();
 
-        unsigned int u32_hash(unsigned j, uint32_t key) const
+        unsigned int u32_hash(unsigned j, uint64_t key) const
         {
-            double x = u32_hash_param[j] * key;
-            x = x - std::floor(x);
-            return std::floor(x * w);
+            auto x = m_u32_hash_param[j].first * key + m_u32_hash_param[j].second;
+            return (unsigned)(x % w);
         }
 
     public:

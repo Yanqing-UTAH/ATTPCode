@@ -13,7 +13,8 @@ PAMSketch::PAMSketch(double eps, double delta, double Delta,
     rgen(seed),
     m_eps(eps),
     m_delta(delta),
-    m_Delta(Delta) {
+    m_Delta(Delta),
+    m_u32_hash_param() {
 
     C.resize(d);
     for (unsigned int i = 0; i < d; i++) {
@@ -33,11 +34,12 @@ PAMSketch::PAMSketch(double eps, double delta, double Delta,
 
 void PAMSketch::prepare_u32_hash()
 {
-    std::uniform_real_distribution<double> unif(111.0, 11111111.0);
-    u32_hash_param.resize(d); 
+    std::uniform_int_distribution<uint64_t> unif(0, (((uint64_t) 1) << 63) - 1);
+    m_u32_hash_param.resize(d); 
     for (unsigned int i = 0; i < d; ++i)
     {
-        u32_hash_param[i] = unif(rgen);
+        m_u32_hash_param[i].first = unif(rgen);
+        m_u32_hash_param[i].second = unif(rgen);
     }
 }
 
@@ -163,7 +165,7 @@ PAMSketch::estimate_frequency_bitp(
 }
 
 size_t PAMSketch::memory_usage() const {
-    size_t mem = sizeof(*this) + sizeof(double) * u32_hash_param.capacity();
+    size_t mem = sizeof(*this) + sizeof(double) * m_u32_hash_param.size();
     
     mem += 2 * sizeof(Counter) * w * d;
     for (unsigned j = 0; j < d; ++j)

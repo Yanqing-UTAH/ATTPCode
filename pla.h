@@ -27,7 +27,7 @@ class PLA {
 
         void clear();
 
-        double estimate(unsigned long long);
+        double estimate(unsigned long long) const;
 
         void feed(point current);
 
@@ -53,11 +53,13 @@ class PLA {
         bool buffer_initialized;
 
 
-        inline double valueAtTime(double slope, double intercept, unsigned long long time) {
+        inline double valueAtTime(
+            double slope, double intercept, unsigned long long time) const
+        {
             return slope * time + intercept;
         }
 
-        inline double pointSlope(point pt1, point pt2) {
+        inline double pointSlope(point pt1, point pt2) const {
             assert((abs((double) pt2.x - pt1.x) > double_eps));
             return (pt2.y - pt1.y) / (pt2.x - pt1.x);
         }

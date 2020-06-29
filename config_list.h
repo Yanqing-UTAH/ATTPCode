@@ -32,7 +32,7 @@ DEFINE_CONFIG_ENTRY(EXACT_HH.enabled, boolean, true, false, false)
 // uniform sampling sketch
 DEFINE_CONFIG_ENTRY(SAMPLING.enabled, boolean, true, false, false)
 DEFINE_CONFIG_ENTRY(SAMPLING.sample_size, u32, SAMPLING.enabled, true, , true, 1u)
-DEFINE_CONFIG_ENTRY(SAMPLING.seed, u32, true, false, 19950810u)
+DEFINE_CONFIG_ENTRY(SAMPLING.seed, u32, SAMPLING.enabled, false, 19950810u)
 
 // uniform sampling sketch BITP
 DEFINE_CONFIG_ENTRY(SAMPLING_BITP.enabled, boolean, true, false, false)
@@ -46,6 +46,7 @@ DEFINE_CONFIG_ENTRY(PCM_HH.log_universe_size, u32, PCM_HH.enabled, true, , true,
 DEFINE_CONFIG_ENTRY(PCM_HH.epsilon, double, PCM_HH.enabled, true, , false, 0, false, 1)
 DEFINE_CONFIG_ENTRY(PCM_HH.delta, double, PCM_HH.enabled, true, , false, 0, false, 1)
 DEFINE_CONFIG_ENTRY(PCM_HH.Delta, double, PCM_HH.enabled, true, , false, 0)
+DEFINE_CONFIG_ENTRY(PCM_HH.seed, u32, PCM_HH.enabled, false, 19950810u)
 
 // Chain Misra Gries
 DEFINE_CONFIG_ENTRY(CMG.enabled, boolean, true, false, false)
@@ -71,6 +72,12 @@ DEFINE_CONFIG_ENTRY(PAMS.delta, double, PAMS.enabled, true, , false, 0, false, 1
 DEFINE_CONFIG_ENTRY(PAMS.Delta, double, PAMS.enabled, true, , false, 0)
 DEFINE_CONFIG_ENTRY(PAMS.seed, u32, true, false, 19950810u)
 
+// Persistent Count-Min (for frequency estimation)
+DEFINE_CONFIG_ENTRY(PCM.enabled, boolean, true, false, false)
+DEFINE_CONFIG_ENTRY(PCM.epsilon, double, PCM.enabled, true, , false, 0, false, 1)
+DEFINE_CONFIG_ENTRY(PCM.delta, double, PCM.enabled, true, , false, 0, false, 1)
+DEFINE_CONFIG_ENTRY(PCM.Delta, double, PCM.enabled, true, , false, 0)
+DEFINE_CONFIG_ENTRY(PCM.seed, u32, true, false, 19950810u)
 
 // Test matrix sketch (ATTP)
 DEFINE_CONFIG_ENTRY(MS.dimension, u32, true, false, , true, 1)

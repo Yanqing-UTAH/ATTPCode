@@ -3,6 +3,8 @@
 
 #include <cmath>
 #include <cerrno>
+#include <cstring>
+#include "MurmurHash3.h"
 
 #define STRINGIFY_HELPER(_1) #_1
 #define STRINGIFY(_1) STRINGIFY_HELPER(_1)
@@ -147,5 +149,14 @@ struct ResourceGuard {
 private:
     T *m_t;
 };
+
+inline uint64_t str_hash(const char *str)
+{
+    size_t len = strlen(str);
+    uint64_t h[2];
+    MurmurHash3_x64_128(str, len, 950810u, h);
+    return h[0] ^ h[1];
+}
+    
 
 #endif

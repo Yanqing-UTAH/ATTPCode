@@ -14,7 +14,8 @@ public:
         unsigned logUniverseSize,
         double epsilon,
         double delta,
-        double Delta);
+        double Delta,
+        uint64_t seed = 19950810ul);
 
     virtual ~HeavyHitters();
 
