@@ -977,7 +977,7 @@ SamplingSketchBITP::SamplingSketchBITP(
     m_tot_seen(0),
     // frequency estimation
     m_last_ts(0),
-    m_tmp_cnt_ts(0),
+    m_tmp_cnt_ts(~0ul),
     m_tmp_cnt_map(),
     m_ts2cnt_map()
 {
@@ -1088,7 +1088,7 @@ SamplingSketchBITP::clear()
     if (m_enable_frequency_estimation)
     {
         m_last_ts = 0;
-        m_tmp_cnt_ts = 0;
+        m_tmp_cnt_ts = ~0ul;
         m_tmp_cnt_map.clear();
         m_ts2cnt_map.clear();
     }
@@ -1781,7 +1781,7 @@ SamplingSketchBITP::update_batched(
     {
         if (ts == m_tmp_cnt_ts)
         {
-            m_tmp_cnt_ts = 0;
+            m_tmp_cnt_ts = ~0ul;
             m_tmp_cnt_map.clear();
         }
 

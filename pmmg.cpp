@@ -14,6 +14,9 @@ struct MisraGriesAccessor {
     static cnt_map_t&
     cnt_map(MG *mg) { return mg->m_cnt; }
 
+    static const cnt_map_t&
+    cnt_map(const MG *mg) { return mg->m_cnt; }
+
     static void
     reset_delta(MG *mg) { mg->reset_delta(); }
 
@@ -76,7 +79,9 @@ ChainMisraGries::ChainMisraGries(
     m_deleted_counters(),
     m_c1_max_heap(),
     m_c2_min_heap(),
-    m_inverted_index_proxy()
+    m_inverted_index_proxy(),
+    m_tmp_cnt_ts(0),
+    m_tmp_cnt_map()
 {
     m_all_counters = new Counter[2 * (m_k - 1)];
     
@@ -129,6 +134,8 @@ ChainMisraGries::clear()
     m_c1_max_heap.clear();
     m_c2_min_heap.clear();
     m_deleted_counters.clear();
+    m_tmp_cnt_ts = 0;
+    m_tmp_cnt_map.clear();
 }
 
 size_t
@@ -179,6 +186,12 @@ ChainMisraGries::update(
     uint32_t            key,
     int                 c)
 {
+    if (ts == m_tmp_cnt_ts)
+    {
+        m_tmp_cnt_ts = 0;
+        m_tmp_cnt_map.clear();
+    }
+
     if (m_use_update_new)
         update_new(ts, key, c);
     else
@@ -660,6 +673,30 @@ ChainMisraGries::estimate_heavy_hitters(
     {
         return m_cur_sketch.estimate_heavy_hitters(frac_threshold, m_tot_cnt);
     }
+    
+    create_tmp_cnt_at(ts_e);    
+    
+    uint64_t threshold = (uint64_t) std::ceil((m_epsilon_over_3 + frac_threshold - m_epsilon) * m_est_tot_cnt);
+    std::vector<HeavyHitter> ret;
+    for (auto &p: m_tmp_cnt_map)
+    {
+        if (p.second >= threshold)
+        {
+            ret.emplace_back(HeavyHitter{
+                p.first, (float)((double) p.second / m_est_tot_cnt - m_epsilon_over_3)
+            });
+        }
+    }
+
+    return std::move(ret);
+}
+
+void
+ChainMisraGries::create_tmp_cnt_at(
+    TIMESTAMP ts_e) const
+{
+    m_tmp_cnt_ts = ts_e;
+    m_tmp_cnt_map.clear();
 
     auto iter = std::upper_bound(
         m_checkpoints.begin(), m_checkpoints.end(),
@@ -670,12 +707,13 @@ ChainMisraGries::estimate_heavy_hitters(
 
     if (iter == m_checkpoints.begin())
     {
-        return std::vector<HeavyHitter>();
+        m_est_tot_cnt = 0;
+        return;
     }
 
     const ChkptNode &last_chkpt = *(iter - 1);
 
-    std::unordered_map<key_type, uint64_t> snapshot;
+    std::unordered_map<key_type, uint64_t> &snapshot = m_tmp_cnt_map;
     uint64_t d = (uint64_t) std::floor(last_chkpt.m_tot_cnt * m_epsilon_over_3);
     for (const auto &p: last_chkpt.m_cnt_map)
     {
@@ -734,39 +772,43 @@ ChainMisraGries::estimate_heavy_hitters(
         next_tot_cnt = n->m_tot_cnt;
     }
     
-    
     // Obsolete: m_tot_cnt is an underestimate of m_tot_cnt at timestamp ts_e and it
     // can deviate by an arbitrarily large number
     
     // We now estimate tot_cnt_at_ts as a linear interpolation with its previous and next stored counts
-    uint64_t tot_cnt_at_ts_e;
     if (prev_ts == next_ts)
     {
         assert(ts_e == prev_ts);
-        tot_cnt_at_ts_e = iter->m_tot_cnt;
+        m_est_tot_cnt = iter->m_tot_cnt;
     }
     else
     {
-        tot_cnt_at_ts_e = (
+        m_est_tot_cnt = (
             (next_tot_cnt - prev_tot_cnt) * 1.0 * ts_e +
             prev_tot_cnt * 1.0 * next_ts -
             next_tot_cnt * 1.0 * prev_ts) / (next_ts - prev_ts);
     }
+}
 
-    
-    uint64_t threshold = (uint64_t) std::ceil((m_epsilon_over_3 + frac_threshold - m_epsilon) * tot_cnt_at_ts_e);
-    std::vector<HeavyHitter> ret;
-    for (auto &p: snapshot)
+uint64_t
+ChainMisraGries::estimate_frequency(
+    TIMESTAMP ts_e,
+    uint32_t key) const
+{
+    const std::unordered_map<key_type, uint64_t> &cnt_map =
+        (ts_e >= m_last_ts) ? MGA::cnt_map(&m_cur_sketch) : m_tmp_cnt_map;
+    if (ts_e < m_last_ts && m_tmp_cnt_ts != ts_e)
     {
-        if (p.second >= threshold)
-        {
-            ret.emplace_back(HeavyHitter{
-                p.first, (float)((double) p.second / tot_cnt_at_ts_e - m_epsilon_over_3)
-            });
-        }
+        create_tmp_cnt_at(ts_e);
     }
-
-    return std::move(ret);
+    
+    // realign the error bound to center around the true value
+    // d = +eps / 6 * N
+    uint64_t d = m_epsilon_over_3 / 2 * m_est_tot_cnt;
+    auto iter = cnt_map.find(d);
+    if (iter == cnt_map.end()) return 0;
+    uint64_t est_c = iter->second;
+    return est_c + d;
 }
 
 void
@@ -1177,7 +1219,10 @@ TreeMisraGriesBITP::TreeMisraGriesBITP(
     m_level(0),
     m_remaining_nodes_at_cur_level(2 * m_k),
     m_cur_sketch(nullptr),
-    m_size_counter(0)
+    m_size_counter(0),
+    m_tmp_ts(~0ul),
+    m_tmp_mg(nullptr),
+    m_est_tot_cnt(0)
 {
     m_cur_sketch = new MisraGries(m_k);
 }
@@ -1212,6 +1257,14 @@ TreeMisraGriesBITP::clear()
         }
         m_tree[i] = nullptr;
     }
+
+    m_tmp_ts = ~0ul;
+    if (m_tmp_mg)
+    {
+        delete m_tmp_mg;
+        m_tmp_mg = nullptr;
+    }
+    m_est_tot_cnt = 0;
 }
 
 size_t
@@ -1236,6 +1289,16 @@ TreeMisraGriesBITP::update(
     uint32_t value,
     int c)
 {
+    if (m_tmp_ts == ts)
+    {
+        if (m_tmp_mg)
+        {
+            delete m_tmp_mg;
+            m_tmp_mg = nullptr;
+        }
+        m_tmp_ts = ~0ul;
+    }
+
     if (m_last_ts != 0 && m_last_ts != ts)
     {
         merge_cur_sketch(); 
@@ -1256,6 +1319,18 @@ TreeMisraGriesBITP::estimate_heavy_hitters_bitp(
         return std::vector<IPersistentHeavyHitterSketchBITP::HeavyHitter>();
     }
 
+    create_tmp_mg_at(ts_s);
+
+    auto ret = m_tmp_mg->estimate_heavy_hitters(
+            frac_threshold - m_epsilon_prime, m_est_tot_cnt);
+    
+    return ret;
+}
+
+void
+TreeMisraGriesBITP::create_tmp_mg_at(
+    TIMESTAMP ts_s) const
+{
     MisraGries *mg = m_cur_sketch->clone();
     uint64_t est_excluded_cnt = 0;
     uint64_t level = m_tree.size();
@@ -1312,12 +1387,30 @@ TreeMisraGriesBITP::estimate_heavy_hitters_bitp(
         }
     }
 
-    auto ret = mg->estimate_heavy_hitters(
-            frac_threshold - m_epsilon_prime, m_tot_cnt - est_excluded_cnt);
+    m_tmp_ts = ts_s;
+    if (m_tmp_mg)
+    {
+        delete m_tmp_mg;
+    }
+    m_tmp_mg = mg;
+    m_est_tot_cnt = m_tot_cnt - est_excluded_cnt;
+}
 
-    //std::cout << m_tot_cnt << ' ' << est_excluded_cnt << std::endl;
-    delete mg;
-    return ret;
+uint64_t
+TreeMisraGriesBITP::estimate_frequency_bitp(
+    TIMESTAMP ts_s,
+    uint32_t key) const
+{
+    if (m_tmp_ts != ts_s)
+    {
+        create_tmp_mg_at(ts_s);
+    }
+
+    uint64_t d = (m_epsilon_prime / 2) * m_est_tot_cnt;
+    auto &cnt_map = MGA::cnt_map(m_tmp_mg);
+    auto iter = cnt_map.find(key);
+    if (iter == cnt_map.end()) return 0;
+    return iter->second + d;
 }
 
 void
