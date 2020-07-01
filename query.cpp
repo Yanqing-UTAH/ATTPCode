@@ -1978,7 +1978,11 @@ protected:
         std::vector<uint64_t> &answer = 
             (m_exact_enabled && sketch == m_sketches[0].get())
             ? m_exact_answer : m_last_answer;
-        for (uint64_t i = 0; i < std::min(out_limit, (uint64_t) m_query_keys.size()); ++i)
+        uint64_t loop_size = m_query_keys.size();
+        if (out_limit != 0) {
+            loop_size = std::min(out_limit, (uint64_t) m_query_keys.size());
+        }
+        for (uint64_t i = 0; i < loop_size; ++i)
         {
             out << '\t';
             if (m_input_is_ip)
