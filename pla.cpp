@@ -79,5 +79,5 @@ void PLA::feed(point current) {
 }
 
 unsigned long long PLA::memory_usage() const {
-    return result.size() * sizeof(int) * 3;
+    return result.capacity() * sizeof(segment) + sizeof(*this);
 }

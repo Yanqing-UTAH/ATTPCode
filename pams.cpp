@@ -167,12 +167,14 @@ PAMSketch::estimate_frequency_bitp(
 size_t PAMSketch::memory_usage() const {
     size_t mem = sizeof(*this) + sizeof(double) * m_u32_hash_param.size();
     
-    mem += 2 * sizeof(Counter) * w * d;
+    mem += 2 * sizeof(Counter) * C.capacity() * C[0].capacity();
     for (unsigned j = 0; j < d; ++j)
     for (unsigned h = 0; h < w; ++h) {
         mem += sizeof(C[j][h][0].samples.front()) *
             (C[j][h][0].samples.capacity() + C[j][h][1].samples.capacity());
     }
+
+    mem += ksi.capacity() * sizeof(ksi[0]);
 
     return mem;
 }

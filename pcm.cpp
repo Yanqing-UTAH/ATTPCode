@@ -54,7 +54,7 @@ uint64_t CMSketch::estimate_impl(uint64_t hashval) const {
 }
 
 size_t CMSketch::memory_usage() const {
-    return sizeof(int) * C.capacity() + sizeof(*this) +
+    return sizeof(int) * C.capacity() * C[0].capacity() + sizeof(*this) +
         m_u32_hash_param.size() * sizeof(m_u32_hash_param[0]);
 }
 
