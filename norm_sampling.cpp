@@ -211,11 +211,13 @@ NormSamplingSketch::get_covariance_matrix(
             threshold = item->m_threshold;
         }
     }
-
+    
+    //uint64_t _c = 0;
     for (uint32_t i = 0; i < c; ++i) {
         double *dvec = items[i]->m_dvec;
         double l2_sqr = cblas_ddot(m_n, dvec, 1, dvec, 1);
         double alpha = (l2_sqr < threshold) ? (threshold / l2_sqr) : 1.0;
+        //if (l2_sqr < threshold) ++_c;
 
         cblas_dspr(
             CblasColMajor,
@@ -226,6 +228,7 @@ NormSamplingSketch::get_covariance_matrix(
             1,
             A);
     }
+    //std::cout << "_c == " << _c << std::endl;
 
     delete []items;
 }

@@ -19,7 +19,7 @@ world-cup-98 dataset:
 world-cup-98-client-ip.txt:
     -- timestamp followed by a tab followed by a client IP address (randomly
     mapped from client IDs) on each line
-    -- 1352804107 lines
+    -- 1,352,804,107 lines
 
 world-cup-98-client-id.txt
     -- timestamp followed by a tab followed by the client ID

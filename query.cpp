@@ -237,6 +237,16 @@ public:
                 }
                 continue_progress_bar();
             }
+            else if (line[0] == '+')
+            {
+                // stat request
+                pause_progress_bar();
+                m_out << "Stats request at line " << lineno
+                    << " with " << m_n_data << " processed" << std::endl;
+                print_stats();
+                m_out << std::endl;
+                continue_progress_bar();
+            }
             else if (line[0] != '#')
             {
                 // a data point
@@ -1939,7 +1949,7 @@ protected:
                 if (err > max_err) max_err = err;
                 if (err < min_err) min_err = err;
             }
-            
+
             double avg_err = sum_err / m_query_keys.size();
             double stddev_err = std::sqrt(sum_err_sqr / m_query_keys.size()
                     - avg_err * avg_err);
@@ -1964,8 +1974,7 @@ protected:
         TIMESTAMP ts,
         uint64_t out_limit)
     {
-        out << "FE_" << ts << " = eval('" << std::endl;
-        out << "{" << std::endl;
+        out << "FE_" << ts << " = {" << std::endl;
         std::vector<uint64_t> &answer = 
             (m_exact_enabled && sketch == m_sketches[0].get())
             ? m_exact_answer : m_last_answer;
@@ -1983,7 +1992,7 @@ protected:
             }
             out << answer[i] << ',' << std::endl;
         }
-        out << "}')" << std::endl;
+        out << "}" << std::endl;
         if (m_query_keys.size() > out_limit)
         {
             out << "# <"
