@@ -158,7 +158,6 @@ ChainMisraGries::memory_usage() const
 
     if (m_use_update_new)
     {
-        const_cast<ChainMisraGries*>(this)->update_new(0, 0, 0);
         return 88 + // scalar members + m_inverted_index_proxy (which counts as 8 for alignment)
             m_cur_sketch.memory_usage() + 
             size_of_checkpoints_and_dnodes +
