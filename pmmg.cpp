@@ -152,12 +152,13 @@ ChainMisraGries::memory_usage() const
                     acc += sizeof(DeltaNode);
                     n = n->m_next;
                 }
+                acc += size_of_unordered_map(chkpt.m_cnt_map);
                 return acc;
             });
 
     if (m_use_update_new)
     {
-
+        const_cast<ChainMisraGries*>(this)->update_new(0, 0, 0);
         return 88 + // scalar members + m_inverted_index_proxy (which counts as 8 for alignment)
             m_cur_sketch.memory_usage() + 
             size_of_checkpoints_and_dnodes +
@@ -167,7 +168,7 @@ ChainMisraGries::memory_usage() const
             sizeof(m_c1_max_heap) + sizeof(Counter*) * m_c1_max_heap.capacity() +
             sizeof(m_c2_min_heap) + sizeof(Counter*) * m_c2_min_heap.capacity();
     }
-
+    
     return 56 + // scalar members
         m_cur_sketch.memory_usage() +
         size_of_unordered_map(m_snapshot_cnt_map) +
