@@ -221,7 +221,8 @@ ChainMisraGries::update_new(
             DeltaNode *new_dnode_list = nullptr;
             DeltaNode **new_dnode_list_tail_ptr = &new_dnode_list;
             size_t num_deltas = m_num_delta_nodes_since_last_chkpt;
-            size_t max_allowable_num_deltas = (size_t) std::log2(m_tot_cnt);
+            size_t max_allowable_num_deltas =
+                (size_t) std::log2(m_tot_cnt) / m_epsilon_over_3;
 
             int64_t max_delta_c = (int64_t) get_allowable_cnt_upper_bound(0, m_tot_cnt);
 
