@@ -975,6 +975,7 @@ SamplingSketchBITP::SamplingSketchBITP(
     m_num_item3_alloced(0),
     m_num_item3_alloced_target(0),
     m_tot_seen(0),
+    m_max_num_item3_alloced(0),
     // frequency estimation
     m_last_ts(0),
     m_tmp_cnt_ts(~0ul),
@@ -1083,6 +1084,7 @@ SamplingSketchBITP::clear()
         m_num_item3_alloced_target = 2 * m_sample_size *
             (uint64_t) std::ceil(std::log(m_sample_size));
         m_tot_seen = 0;
+        m_max_num_item3_alloced = 0;
     }
 
     if (m_enable_frequency_estimation)
@@ -1127,8 +1129,9 @@ SamplingSketchBITP::memory_usage() const
     }
     else if (m_use_new_impl == 2)
     {
-        size_t sum = 32 // m_item3_head, m_num_item3_alloced,
+        size_t sum = 40 // m_item3_head, m_num_item3_alloced,
                   // m_num_item3_alloced_target, m_tot_seen
+                  // m_max_num_item3_alloced
             + m_num_item3_alloced * sizeof(Item3)
             + sizeof(m_unif_0_1)
             + sizeof(m_rng);
@@ -1144,6 +1147,31 @@ SamplingSketchBITP::memory_usage() const
     
     assert(false);
     return 0;
+}
+
+size_t
+SamplingSketchBITP::max_memory_usage() const
+{
+    if (m_use_new_impl == 2)
+    {
+        size_t sum = 40 // m_item3_head, m_num_item3_alloced,
+                  // m_num_item3_alloced_target, m_tot_seen
+                  // m_max_num_item3_alloced
+            + m_max_num_item3_alloced * sizeof(Item3)
+            + sizeof(m_unif_0_1)
+            + sizeof(m_rng);
+
+        if (m_enable_frequency_estimation)
+        {
+            sum += sizeof(m_last_ts)
+                + sizeof(m_ts2cnt_map)
+                + m_ts2cnt_map.capacity() * sizeof(m_ts2cnt_map[0]);
+        }
+        return sum;
+    }
+
+    assert(false);
+    return memory_usage(); // not implemented for 0 and 1
 }
 
 std::string
@@ -1804,6 +1832,10 @@ update_loop:
     m_item3_head = item3;
     ++m_tot_seen;
     ++m_num_item3_alloced;
+    if (m_num_item3_alloced > m_max_num_item3_alloced)
+    {
+        m_max_num_item3_alloced = m_num_item3_alloced;
+    }
     
     assert(m_num_item3_alloced <= m_num_item3_alloced_target);
     if (m_num_item3_alloced == m_num_item3_alloced_target)

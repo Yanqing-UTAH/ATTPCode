@@ -31,6 +31,11 @@ struct IPersistentSketch
 
     virtual size_t
     memory_usage() const = 0;
+    
+    // override IPersistentSketch::max_memory_usage() if the sketch's
+    // memory usage fluctuates during updates.
+    virtual size_t
+    max_memory_usage() const { return memory_usage(); }
 
     virtual std::string
     get_short_description() const = 0;

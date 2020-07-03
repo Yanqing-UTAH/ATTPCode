@@ -308,6 +308,26 @@ public:
                  << std::setw(0)
                  << " MB"
                  << std::endl;
+
+            size_t max_mm_b = sketch->max_memory_usage();
+            if (max_mm_b != mm_b)
+            {
+                double max_mm_mb = max_mm_b / 1024.0 / 1024;
+                char saved_fill = m_out.fill();
+                m_out << '\t'
+                     << sketch.get()->get_short_description()
+                     << "_max: "
+                     << max_mm_b
+                     << " B = "
+                     << (size_t) std::floor(max_mm_mb) << '.'
+                     << std::setfill('0')
+                     << std::setw(3)
+                     << ((size_t)(std::floor(max_mm_mb * 1000))) % 1000
+                     << std::setfill(saved_fill)
+                     << std::setw(0)
+                     << " MB"
+                     << std::endl;
+            }
         }
 
         if (m_measure_time)

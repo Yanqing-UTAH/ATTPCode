@@ -288,6 +288,9 @@ public:
     size_t
     memory_usage() const override;
 
+    size_t
+    max_memory_usage() const override;
+
     std::string
     get_short_description() const override;
     
@@ -470,6 +473,8 @@ private:
     uint64_t                m_num_item3_alloced_target;
 
     uint64_t                m_tot_seen;
+
+    uint64_t                m_max_num_item3_alloced;
     
     // frequency estimation
     TIMESTAMP           m_last_ts;
