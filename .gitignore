@@ -17,3 +17,8 @@ Makefile.in.old
 .vscode/settings.json
 python/.vscode/settings.json
 *.pyc
+*.fftw3
+test_dct
+misc/create_fe_data
+misc/insert_mem_stats
+Makefile

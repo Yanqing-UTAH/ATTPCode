@@ -13,7 +13,7 @@ void PLA::clear() {
     buffer_initialized = initialized = false;
 }
 
-double PLA::estimate(unsigned long long t) {
+double PLA::estimate(unsigned long long t) const {
     if (buffer_initialized) {
         if (t >= buffer_last.x) {
             return buffer_last.y;
@@ -79,5 +79,5 @@ void PLA::feed(point current) {
 }
 
 unsigned long long PLA::memory_usage() const {
-    return result.size() * sizeof(int) * 3;
+    return result.capacity() * sizeof(segment) + sizeof(*this);
 }

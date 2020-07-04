@@ -5,12 +5,20 @@
 #include <type_traits>
 #include <functional>
 
+//
+// VecT can be any type that supports subscript operator and has array-like
+// behavior now.
+//
+
 namespace dsimpl {
 
 namespace min_heap_internal {
 
+template<class VecT>
+using ValueType = std::decay_t<decltype((*((VecT*)nullptr))[0])>;
+
 template<class VecT, class KeyFunc>
-using KeyType = std::invoke_result_t<KeyFunc, decltype(((VecT*)nullptr)->front())>;
+using KeyType = std::invoke_result_t<KeyFunc, ValueType<VecT>>;
 
 template<class VecT, class KeyFunc>
 using DefaultLessFunc = std::less<KeyType<VecT, KeyFunc>>;
@@ -30,7 +38,7 @@ void push_down(
     KeyFunc             key_func,
     LessFunc            less_func) {
     
-    typedef typename VecT::value_type T;
+    typedef ValueType<VecT> T;
     
     T item_i0 = heap[i];
     i = i - BaseIdx + 1;
@@ -94,7 +102,7 @@ void push_up(
     KeyFunc             key_func,
     LessFunc            less_func) {
     
-    typedef typename VecT::value_type T;
+    typedef ValueType<VecT> T;
 
     T item_i0 = heap[i];
     i = i - BaseIdx + 1;
@@ -165,7 +173,7 @@ void push_down_with_inverted_index(
     IdxFunc             idx_func,
     LessFunc            less_func) {
 
-    typedef typename VecT::value_type T;
+    typedef ValueType<VecT> T;
     
     T item_i0 = heap[i];
     i = i - BaseIdx + 1; 
@@ -248,7 +256,7 @@ void push_up_with_inverted_index(
     IdxFunc             idx_func,
     LessFunc            less_func) {
 
-    typedef typename VecT::value_type T;
+    typedef ValueType<VecT> T;
     
     T item_i0 = heap[i];
     i = i - BaseIdx + 1;

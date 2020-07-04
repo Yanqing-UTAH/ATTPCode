@@ -40,6 +40,8 @@ class TimeSerialMatrix():
         u, indices, counts = np.unique(
             self.type_list[self.current_index:self.current_index+n], return_inverse=True, return_counts=True)
         for i in range(len(u)):
+            if counts[i] == 0:
+                continue
             x = self.random.normal(scale=self.sd_list[u[i]], size=(
                 counts[i], len(self.sd_list[u[i]]))).astype('float16')
             if self.dir_list[u[i]] is not None:
@@ -60,7 +62,7 @@ class TimeSerialMatrix():
         return len(self.ts_list) - self.current_index
     
     def analytic_error(self, Vt_hat, sig_hat, t):
-        k, p = 10, 100
+        k, p = 20, 100
         V = np.empty((k, self.dim))
         for i in range(k):
             V[i] = np.random.normal(size=self.dim)
@@ -146,32 +148,90 @@ def old():
 def generate(suffix, T, n, d, loc, scale, random_state=None):
     tsm = uniform_normal_tsm(T, n, d, loc, scale,
                              random_state=random_state)
-    open(f'X_{suffix}.csv', "w").close()
-    open(f't_{suffix}.csv', "w").close()
-    fX = open(f'X_{suffix}.csv', 'ab')
-    ft = open(f't_{suffix}.csv', 'ab')
+
+    num_dirs = len(tsm.dir_list)
+    if tsm.dir_list[0] is None:
+        has_dir_list = 0
+    else:
+        has_dir_list = 1
+    
+    # The ground truth file is generated for computing analytic errors.
+    # It's formated as follows:
+    gt_file = open(f'ground_truth_{suffix}.txt', 'w')
+
+    # Line 1: three integers, d, num_dirs, has_dir_list
+    gt_file.write(f'{d} {num_dirs} {has_dir_list}\n')
+
+    # Next num_dirs lines: d + 1 integers, num_vecs, var_list[lineno - 2]
+    for i in range(num_dirs):
+        variance = tsm.var_list[i]
+        gt_file.write(str(len(variance)))
+        for j in range(len(variance)):
+            gt_file.write(f' {variance[j]}')
+        gt_file.write('\n')
+
+    # Next batch of lines: dir_list content (only if has_dir_list == 1)
+    #   in row-major format
+    if has_dir_list == 1:
+        for k in range(num_dirs):
+            dir_mat = tsm.dir_list[k]
+            for i in range(len(dir_mat)):
+                gt_file.write(str(dir_mat[i, 0]))
+                for j in range(1, d):
+                    gt_file.write(f' {dir_mat[i, j]}')
+                gt_file.write('\n')
+
+    # Rem file: num_dirs + 1 integers, ts and num_dirs counts
+    prev_ts = 0
+    cnt_map = [0] * num_dirs
+
+    f = open(f'X_{suffix}.csv', 'w')
+    vec_idx = 0
     for i in range(math.ceil(n/1000)):
         X, t = tsm.nextVectors(1000)
-        np.savetxt(ft, t, fmt='%.2f')
-        np.savetxt(fX, X, fmt='%.5f')
-        ft.write(b"\n")
-        fX.write(b"\n")
-    fX.close()
-    ft.close()
+        n = X.shape[0]
+        for i in range(n):
+            ts = int(math.floor(t[i] + 1))
+            if ts != prev_ts:
+                if prev_ts != 0:
+                    gt_file.write(str(prev_ts))
+                    for j in range(num_dirs):
+                        gt_file.write(f' {cnt_map[j]}')
+                    gt_file.write('\n')
+                prev_ts = ts
+            X_dir = tsm.type_list[vec_idx]
+            vec_idx += 1
+            cnt_map[X_dir] += 1
 
+            f.write(str(ts)) # we require timestamp to start from 1
+            for j in range(X.shape[1]):
+                f.write(' %.5f' % X[i][j])
+            f.write("\n")
+    f.close()
+
+    if prev_ts != 0:
+        gt_file.write(str(prev_ts))
+        for j in range(num_dirs):
+            gt_file.write(f' {cnt_map[j]}')
+        gt_file.write('\n')
+
+    gt_file.close()
+
+    return tsm
 
 def small():
-    generate('s', 100, 1000, 100, 80, 7.5, random_state=0)
+    generate('small', 100, 1000, 100, 80, 7.5, random_state=0)
 
 
 def medium():
-    generate('m', 1000, 10000, 1000, 800, 75, random_state=0)
+    generate('medium', 1000, 50000, 1000, 800, 75, random_state=0)
 
 
 def big():
-    generate('b', 10000, 50000, 10000, 8000, 750, random_state=0)
+    generate('big', 10000, 50000, 10000, 8000, 750, random_state=0)
 
 
 if __name__ == '__main__':
-    pass
+    small()
+    #medium()
     #big()

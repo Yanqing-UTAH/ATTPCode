@@ -8,16 +8,25 @@ if [ ! -d deps ]; then
     if [ ! -d deps/src ]; then
         mkdir deps/src
     fi
+else
+    rm -f deps/src/*
 fi
 
-FILE_LIST="`find . -maxdepth 1 -name '*.cpp'`"
+FILE_LIST="`find . -maxdepth 1 -a \( -name '*.cpp' -or -name '*.c' \) `"
 
 for src_file in $FILE_LIST; do
     dirname=`dirname "$src_file"`
-    basename=`basename "$src_file" | sed 's/[.]cpp//'`
+    basename=`basename "$src_file" | sed 's/[.]\(cpp\|c\)//'`
     dep_filebase="$BASEDIR/deps/src/${dirname}/${basename}"
-    $@ -MMD -MF "${dep_filebase}.d.raw" -E "$BASEDIR/${src_file}" > /dev/null
-    sed "s,$BASEDIR/,,g" "${dep_filebase}.d.raw" > "${dep_filebase}.d"
+    suffix=`basename "$src_file" | sed 's/^.*[.]\(cpp\|c\)$/\1/'`
+    if [ x'$suffix' = xc ]; then
+        export COMPILER="$CC"
+    else
+        export COMPILER="$CXX"
+    fi
+    $@ -MMD -MF "${dep_filebase}.d.raw" -E "$BASEDIR/${src_file}" -o /dev/null || exit 1
+    sed "s,[$BASEDIR]/,,g" "${dep_filebase}.d.raw" |
+    sed 's,external[a-z0-9./-]*[.]h,,g' > "${dep_filebase}.d"
     echo -e '' >> "${dep_filebase}.d"
 done
 
@@ -31,8 +40,10 @@ echo "" >> "$BASEDIR/deps/all_deps.d"
 
 
 OBJS=$(grep '^.*[.]o:' "$BASEDIR/deps/all_deps.d" | sed 's,:.*,,' | tr '\n' ' ')
+DRIVER_OBJS=$(grep '^.*[.]o:' "$BASEDIR/deps/all_deps.d" | \
+    grep -v '^test_' | sed 's,:.*,,' | tr '\n' ' ')
 
-mv Makefile Makefile.old
+mv Makefile.in Makefile.in.old
 
 sed '
     /# objs/,/# end of objs/{
@@ -41,8 +52,9 @@ sed '
             N
         }
         /^#/!d
-    }' Makefile.old |\
-sed "s/^OBJS=."'*'"/OBJS=${OBJS}/" > Makefile
+    }' Makefile.in.old |\
+sed "s/^OBJS=."'*'"/OBJS=${OBJS}/" |\
+sed "s/^DRIVER_OBJS=."'*'"/DRIVER_OBJS=${DRIVER_OBJS}/" > Makefile.in
 
-rm -f Makefile.old
+rm -f Makefile.in.old
 

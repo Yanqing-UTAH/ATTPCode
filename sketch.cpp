@@ -7,6 +7,9 @@
 #include "exact_query.h"
 #include "pmmg.h"
 #include "dummy_persistent_misra_gries.h"
+#include "norm_sampling.h"
+#include "fd.h"
+#include "norm_sampling_wr.h"
 #include <unordered_map>
 #include <cassert>
 #include <utility>
@@ -147,6 +150,45 @@ check_query_type(
                 dynamic_cast<IPersistentHeavyHitterSketchBITP*>(
                     test_instances[st].get());
             if (ist)
+            {
+                ret.push_back(st);
+            }
+        }
+    }
+    else if (!strcmp(query_type, "matrix_sketch"))
+    {
+        for (SKETCH_TYPE st = 0; st < NUM_SKETCH_TYPES; ++st)
+        {
+            IPersistentMatrixSketch *ipms =
+                dynamic_cast<IPersistentMatrixSketch*>(
+                    test_instances[st].get());
+            if (ipms)
+            {
+                ret.push_back(st);
+            }
+        }
+    }
+    else if (!strcmp(query_type, "frequency_estimation"))
+    {
+        for (SKETCH_TYPE st = 0; st < NUM_SKETCH_TYPES; ++st)
+        {
+            IPersistentFrequencyEstimationSketch *ipfes =
+                dynamic_cast<IPersistentFrequencyEstimationSketch*>(
+                    test_instances[st].get());
+            if (ipfes)
+            {
+                ret.push_back(st);
+            }
+        }
+    }
+    else if (!strcmp(query_type, "frequency_estimation_bitp"))
+    {
+        for (SKETCH_TYPE st = 0; st < NUM_SKETCH_TYPES; ++st)
+        {
+            IPersistentFrequencyEstimationSketchBITP *ipfes =
+                dynamic_cast<IPersistentFrequencyEstimationSketchBITP*>(
+                    test_instances[st].get());
+            if (ipfes)
             {
                 ret.push_back(st);
             }

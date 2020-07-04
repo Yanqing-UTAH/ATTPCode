@@ -2,6 +2,7 @@
 #include <sstream>
 #include "conf.h"
 #include <iostream>
+#include <random>
 
 using namespace std;
 
@@ -9,7 +10,7 @@ HeavyHitters::HeavyHitters(unsigned logUniverseSize) : levels(logUniverseSize) {
 	assert(logUniverseSize > 0);
 	pcm = new PCMSketch*[levels];
 	for (auto i = 0; i < levels; ++i) {
-		pcm[i] = new PCMSketch(0.0005, 0.1, 0.1);
+		pcm[i] = new PCMSketch(0.0005, 0.1, 0.1, i);
 	}
     cnt_pla = nullptr;
 }
@@ -18,7 +19,8 @@ HeavyHitters::HeavyHitters(
     unsigned logUniverseSize,
     double epsilon,
     double delta,
-    double Delta):
+    double Delta,
+    uint64_t seed):
     levels(logUniverseSize),
     pcm(nullptr),
     tot_cnt(0ull),
@@ -27,10 +29,12 @@ HeavyHitters::HeavyHitters(
     m_delta(delta),
     m_Delta(Delta)
 {
+    std::mt19937 rgen(seed);
+
     pcm = new PCMSketch*[levels];
     for (auto i = 0; i < levels; ++i)
     {
-        pcm[i] = new PCMSketch(epsilon, delta, Delta);
+        pcm[i] = new PCMSketch(epsilon, delta, Delta, rgen());
     }
     cnt_pla = new PLA(Delta);
 }
@@ -57,10 +61,10 @@ void HeavyHitters::clear() {
 
 void HeavyHitters::update(unsigned long long ts, uint32_t element, int cnt) {
 	unsigned idx = element;
-	char buffer[30];
+	//char buffer[30];
 	for (auto i = 0; i < levels; ++i) {
-		sprintf(buffer, "%u", idx);
-		pcm[i]->update(ts, buffer, cnt);
+		//sprintf(buffer, "%u", idx);
+		pcm[i]->update(ts, idx, cnt);
 		idx >>= 1;
 	}
     
@@ -74,15 +78,15 @@ void HeavyHitters::update(unsigned long long ts, uint32_t element, int cnt) {
 vector<uint32_t> HeavyHitters::query_hh(unsigned long long ts, double threshold) const {
 	vector<uint32_t> result;
 	vector<pair<int, unsigned>> stack = {{levels - 1, 0U}, {levels - 1, 1U}};
-	char buffer[30];
+	//char buffer[30];
     //uint64_t n = 0;
 	while (!stack.empty()) {
 		auto [level, x] = stack.back();
 		stack.pop_back();
-		sprintf(buffer, "%u", x);
+		//sprintf(buffer, "%u", x);
         //if (++n % 100000 == 0)
             //cout << stack.size() << endl;
-		auto freq = pcm[level]->estimate_point_at_the_time(buffer, ts);
+		auto freq = pcm[level]->estimate_frequency(ts, x);
 		if (freq > threshold) {
 			if (level == 0) {
 				result.push_back(x);
@@ -103,7 +107,7 @@ HeavyHitters::estimate_heavy_hitters(
 {
     double cnt_est = cnt_pla->estimate(ts_e);
     double threshold = frac_threshold * cnt_est;
-    
+
     //decltype(query_hh(ts_e, threshold)) raw_result;
     auto raw_result = query_hh(ts_e, threshold);
     
@@ -111,9 +115,62 @@ HeavyHitters::estimate_heavy_hitters(
     std::transform(raw_result.begin(), raw_result.end(),
         std::back_inserter(ret),
         [ts_e,this,cnt_est](uint32_t value) -> auto {
-            char buffer[30];
-            sprintf(buffer, "%u", value);
-            auto freq = pcm[0]->estimate_point_at_the_time(buffer, ts_e);
+            //char buffer[30];
+            //sprintf(buffer, "%u", value);
+            auto freq = pcm[0]->estimate_frequency_bitp(ts_e, value);
+            return IPersistentHeavyHitterSketch::HeavyHitter{
+                .m_value = value,
+                .m_fraction = (float) (freq / cnt_est)
+            };
+        });
+    return std::move(ret); 
+}
+
+vector<uint32_t> HeavyHitters::query_hh_bitp(unsigned long long ts, double threshold) const {
+	vector<uint32_t> result;
+	vector<pair<int, unsigned>> stack = {{levels - 1, 0U}, {levels - 1, 1U}};
+	//char buffer[30];
+    //uint64_t n = 0;
+	while (!stack.empty()) {
+		auto [level, x] = stack.back();
+		stack.pop_back();
+		//sprintf(buffer, "%u", x);
+        //if (++n % 100000 == 0)
+            //cout << stack.size() << endl;
+		auto freq = pcm[level]->estimate_frequency_bitp(ts, x);
+		if (freq > threshold) {
+			if (level == 0) {
+				result.push_back(x);
+			}
+			else {
+				stack.push_back({level - 1, x << 1});
+				stack.push_back({level - 1, (x << 1) | 1});
+			}
+		}
+	}
+	return std::move(result);
+}
+
+std::vector<IPersistentHeavyHitterSketchBITP::HeavyHitter>
+HeavyHitters::estimate_heavy_hitters_bitp(
+    TIMESTAMP ts_s,
+    double frac_threshold) const
+{
+    auto cnt_at_s = cnt_pla->estimate(ts_s);
+    double cnt_est = (cnt_at_s > tot_cnt)? 0: (tot_cnt - cnt_at_s);
+    double threshold = frac_threshold * cnt_est;
+
+    //decltype(query_hh(ts_e, threshold)) raw_result;
+    // TODO
+    auto raw_result = query_hh_bitp(ts_s, threshold);
+    
+    std::vector<IPersistentHeavyHitterSketch::HeavyHitter> ret;
+    std::transform(raw_result.begin(), raw_result.end(),
+        std::back_inserter(ret),
+        [ts_s,this,cnt_est](uint32_t value) -> auto {
+            //char buffer[30];
+            //sprintf(buffer, "%u", value);
+            auto freq = pcm[0]->estimate_frequency_bitp(ts_s, value);
             return IPersistentHeavyHitterSketch::HeavyHitter{
                 .m_value = value,
                 .m_fraction = (float) (freq / cnt_est)
@@ -187,8 +244,9 @@ HeavyHitters::create_from_config(int idx)
     double epsilon = g_config->get_double("PCM_HH.epsilon", idx).value();
     double delta = g_config->get_double("PCM_HH.delta", idx).value();
     double Delta = g_config->get_double("PCM_HH.Delta", idx).value();
+    uint32_t seed = g_config->get_u32("PCM_HH.seed").value();
 
-    return new HeavyHitters(logUniverseSize, epsilon, delta, Delta);
+    return new HeavyHitters(logUniverseSize, epsilon, delta, Delta, seed);
 }
 
 int

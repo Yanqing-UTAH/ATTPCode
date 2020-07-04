@@ -1,7 +1,0 @@
-#!/bin/bash
-
-CXX=${CXX-g++}
-
-${CXX} -fdiagnostics-color=always $@ 2>&1 | less -R -F -X
-exit ${PIPESTATUS[0]}
-

@@ -4,6 +4,9 @@
     #ifndef CONFIG_H
     #define CONFIG_H
 
+/* Define to 1 if you have the <cblas.h> header file. */
+#undef HAVE_CBLAS_H
+
 /* define if the compiler supports basic C++17 syntax */
 #undef HAVE_CXX17
 
@@ -12,6 +15,9 @@
 
 /* Define to 1 if you have the <lapacke.h> header file. */
 #undef HAVE_LAPACKE_H
+
+/* Define to 1 if you have the <lapacke_utils.h> header file. */
+#undef HAVE_LAPACKE_UTILS_H
 
 /* Define to 1 if you have the <memory.h> header file. */
 #undef HAVE_MEMORY_H

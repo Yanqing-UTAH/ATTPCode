@@ -300,7 +300,7 @@ Config::CONCAT(set_, name)( \
             return ; \
         } \
         entry->m_is_assigned = true; \
-        std::get<CVT(name)>(entry->m_value) = new_value; \
+        entry->m_value.emplace<CVT(name)>(new_value); \
     } \
 }
 #include "config_list.h"

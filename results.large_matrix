@@ -1,0 +1,22 @@
+Running query matrix_sketch at 2020/04/08 21:28:26
+MS(4):
+MS(2000):
+MS(4000):
+MS(6000):
+MS(8000):
+MS(10000):
+MS(12000):
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss10: 6328192 B = 6.35 MB
+	NORM_SAMPLING-ss20: 12490816 B = 11.912 MB
+	NORM_SAMPLING-ss30: 17453696 B = 16.645 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss10: tot = 716 ms = 0 s (avg 14 us = 0 ms)
+	NORM_SAMPLING-ss20: tot = 649 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING-ss30: tot = 656 ms = 0 s (avg 13 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss10: tot = 5221 ms = 5 s (avg 745967 us = 745 ms)
+	NORM_SAMPLING-ss20: tot = 9124 ms = 9 s (avg 1303553 us = 1303 ms)
+	NORM_SAMPLING-ss30: tot = 13211 ms = 13 s (avg 1887369 us = 1887 ms)

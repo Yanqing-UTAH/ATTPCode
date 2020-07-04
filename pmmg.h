@@ -16,7 +16,8 @@ typedef MisraGries MG;
 constexpr double umap_default_load_factor = 1.25;
 
 class ChainMisraGries:
-    public IPersistentHeavyHitterSketch
+    public IPersistentHeavyHitterSketch,
+    public IPersistentFrequencyEstimationSketch
 {
 private:
     static constexpr ptrdiff_t     m_before_first_delta_idx = ~(ptrdiff_t) 0; 
@@ -150,6 +151,11 @@ public:
         TIMESTAMP ts_e,
         double frac_threshold) const override;
 
+    uint64_t
+    estimate_frequency(
+        TIMESTAMP ts_e,
+        uint32_t key) const;
+
 private:
     void
     clear(
@@ -221,6 +227,10 @@ private:
         return m_checkpoints.empty() ? 0 : m_checkpoints.back().m_tot_cnt;
     }
 
+    void
+    create_tmp_cnt_at(
+        TIMESTAMP ts_e) const;
+
     double                      m_epsilon,
 
                                 m_epsilon_over_3;
@@ -264,6 +274,15 @@ private:
     std::vector<Counter*>       m_c2_min_heap;
 
     InvertedIndexProxy          m_inverted_index_proxy;
+
+    // variables for frequency estimation
+    mutable TIMESTAMP           m_tmp_cnt_ts;
+    
+    // estimation are in [-2 * eps/3 * N, eps / 3 * N] of the true value 
+    mutable std::unordered_map<key_type, uint64_t>
+                                m_tmp_cnt_map;
+
+    mutable uint64_t            m_est_tot_cnt;
 
 public:
     static ChainMisraGries*
@@ -367,7 +386,8 @@ public:
 };
 
 class TreeMisraGriesBITP:
-    public IPersistentHeavyHitterSketchBITP
+    public IPersistentHeavyHitterSketchBITP,
+    public IPersistentFrequencyEstimationSketchBITP
 {
 private:
     struct TreeNode {
@@ -416,12 +436,21 @@ public:
 
     std::vector<IPersistentHeavyHitterSketchBITP::HeavyHitter>
     estimate_heavy_hitters_bitp(
-        TIMESTAMP ts_e,
+        TIMESTAMP ts_s,
         double frac_threshold) const override;
+
+    uint64_t
+    estimate_frequency_bitp(
+        TIMESTAMP ts_s,
+        uint32_t key) const override;
 
 private:
     void
     merge_cur_sketch();
+
+    void
+    create_tmp_mg_at(
+        TIMESTAMP ts_s) const;
 
     double                  m_epsilon,
 
@@ -444,6 +473,13 @@ private:
     MisraGries              *m_cur_sketch;
 
     size_t                  m_size_counter;
+    
+    // for frequency estimation
+    mutable TIMESTAMP       m_tmp_ts; 
+
+    mutable MisraGries      *m_tmp_mg;
+
+    mutable uint64_t        m_est_tot_cnt;
 
 public:
     static int
