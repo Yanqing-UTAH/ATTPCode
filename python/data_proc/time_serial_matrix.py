@@ -220,15 +220,15 @@ def generate(suffix, T, n, d, loc, scale, random_state=None):
     return tsm
 
 def small():
-    generate('small', 100, 1000, 100, 80, 7.5, random_state=0)
+    generate('small', 1000, 50000, 100, 500, 20, random_state=0)
 
 
 def medium():
-    generate('medium', 1000, 50000, 1000, 800, 75, random_state=0)
+    generate('medium', 1000, 50000, 1000, 500, 20, random_state=0)
 
 
 def big():
-    generate('big', 10000, 50000, 10000, 8000, 750, random_state=0)
+    generate('big', 1000, 50000, 10000, 500, 20, random_state=0)
 
 
 if __name__ == '__main__':

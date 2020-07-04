@@ -30,19 +30,11 @@ for i in tqdm(range(T + 20)):
 plt.figure()
 plt.title(f'Analytic Covariance Error (n={n}, d={d})')
 plt.xlabel('t')
-<<<<<<< HEAD
-# plt.plot(np.arange(T)+1, A_F/d/(np.arange(T)+1),
-#          label=rf'$\|A\|_F^2/{n**2*math.sqrt(d):.1f}/t^2$')
-# plt.plot(np.arange(T)+1, error/(n*math.sqrt(d)),
-#          label=rf'$\|A^T A - B^T B\|_2/{n*math.sqrt(d):.1f}$')
-plt.plot(np.arange(T)+1, error/A_F, label=r'$\|A^T A - B^T B\|_2 / \|A\|_F^2$')
-=======
 plt.plot(np.arange(T + 20)+1, A_F/d/(np.arange(T + 20)+1),
          label=rf'$\|A\|_F^2/{n**2*math.sqrt(d):.1f}/t^2$')
 plt.plot(np.arange(T + 20)+1, error/(n*math.sqrt(d)),
          label=rf'$\|A^T A - B^T B\|_2/{n*math.sqrt(d):.1f}$')
 plt.plot(np.arange(T + 20)+1, error/A_F, label=r'$\|A^T A - B^T B\|_2 / \|A\|_F^2$')
->>>>>>> 7f9462e3630a5f9c3e09ae42f33396d3d80e4ac6
 plt.legend()
 plt.show()
 

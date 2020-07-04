@@ -28,7 +28,7 @@ public:
         d(_d),
         l(_l),
         first_zero_line(0),
-        B(new double[2 * l * d]) {
+        B(new double[2 * _l * _d]) {
 
         memset(&B[0], 0, sizeof(double) * 2 * l * d);
     }
@@ -37,7 +37,7 @@ public:
         d(other.d),
         l(other.l),
         first_zero_line(other.first_zero_line),
-        B(new double[2 * l * d]) {
+        B(new double[2 * other.l * other.d]) {
         
         memcpy(B, other.B, sizeof(double) * 2 * l * d);
     }
@@ -74,10 +74,20 @@ public:
                 2 * l, // LDU
                 VT,
                 d); // LDVT
+            /*if (info != 0) {
+                LAPACKE_xerbla("dgesdd", info);        
+                std::cout << 2 * l << ' ' << d << std::endl;
+                std::cout << LAPACKE_dge_nancheck(
+                    LAPACK_COL_MAJOR,
+                    2 * l,
+                    d,
+                    &B[0],
+                    2 * l) << std::endl;
+            } */
             assert(!info);
     
             memset(B, 0, sizeof(double) * 2 * l * d);
-            double epsilon = S[l] * S[l];
+            double epsilon = S[l - 1] * S[l - 1];
             for (first_zero_line = 0; first_zero_line < l - 1; ++first_zero_line) {
                 S[first_zero_line] =
                     std::sqrt(S[first_zero_line] * S[first_zero_line] - epsilon);
@@ -167,7 +177,7 @@ FD_ATTP::FD_ATTP(int _l, int _d):
     d(_d),
     AF2(0),
     nxt_target(0),
-    C(new FD(l, d)),
+    C(new FD(_l, _d)),
     partial_ckpt(),
     full_ckpt()
 {
@@ -197,10 +207,11 @@ FD_ATTP::clear()
 size_t
 FD_ATTP::memory_usage() const
 {
-    return sizeof(FD_ATTP) +
-        partial_ckpt.size() * (sizeof(PartialCkpt) + d * sizeof(double)) +
+    std::cout << full_ckpt.size() <<  ' ' << partial_ckpt.size() << std::endl;
+    return sizeof(FD_ATTP) + C->memory_usage() +
+        (partial_ckpt.size() * (sizeof(PartialCkpt) + d * sizeof(double))) +
         ((full_ckpt.empty()) ? 0 :
-         (full_ckpt.size() * full_ckpt.front().fd->memory_usage()));
+         (full_ckpt.size() * (sizeof(FullCkpt) + full_ckpt.front().fd->memory_usage())));
 }
 
 std::string
@@ -214,76 +225,86 @@ FD_ATTP::update(
     TIMESTAMP ts,
     const double *a)
 {
-    static unsigned long _cnt = 0;
-    ++_cnt;
+    //static unsigned long _cnt = 0;
+    //++_cnt;
     C->update(a);
+    
+    double n2 = cblas_ddot(d, a, 1, a, 1);
+    AF2 += n2;
 
-    AF2 += cblas_ddot(d, a, 1, a, 1);
+    //std::cout << AF2 << std::endl;
 
-    if (AF2 / l < nxt_target) {
+    if (AF2 * (l-1) / l < nxt_target) {
+        //std::cout << AF2 * (l - 1) / l << ' ' << nxt_target << std::endl;
         return;
     }
     
     double *CM = new double[2 * l * d];
-    C->to_matrix(CM);
     double *S = new double[std::min(2 * l, d)];
+    
+    double c1_2norm_sqr;
+    for (;;) {
+        C->to_matrix(CM);
 #ifdef NDEBUG
-    (void)
+        (void)
 #else
-    lapack_int info =
+        lapack_int info =
 #endif
-    LAPACKE_dgesdd(
-        LAPACK_COL_MAJOR,
-        'N',
-        2*l,
-        d,
-        &CM[0],
-        2 * l, // LDA
-        &S[0],
-        nullptr,
-        2 * l, // LDU
-        nullptr,
-        d); // LDVT
+        LAPACKE_dgesdd(
+            LAPACK_COL_MAJOR,
+            'N',
+            2*l,
+            d,
+            &CM[0],
+            2 * l, // LDA
+            &S[0],
+            nullptr,
+            2 * l, // LDU
+            nullptr,
+            d); // LDVT
 
-    assert(!info);
+        assert(!info);
 
-    double c1_2norm_sqr = S[0] * S[0];
-    delete []CM;
-    delete []S;
+        c1_2norm_sqr = S[0] * S[0];
+        if (c1_2norm_sqr >= AF2/l) {
+            double *row = new double[d];
+            C->pop_first(row);
 
-    if (c1_2norm_sqr >= AF2/l) {
-        nxt_target = AF2 / l + c1_2norm_sqr;
-        double *row = new double[d];
-        C->pop_first(row);
+            uint32_t ckpt_cnt = full_ckpt.empty() ?
+                partial_ckpt.size() :
+                (partial_ckpt.size() - full_ckpt.back().next_partial_ckpt);
+            if (ckpt_cnt + 1 >= l) {
+                if (full_ckpt.empty()) {
+                    full_ckpt.push_back(FullCkpt{
+                        ts,
+                        new FD(l, d),
+                        (uint32_t) partial_ckpt.size()});
+                } else {
+                    full_ckpt.push_back(FullCkpt{
+                        ts,
+                        new FD(*full_ckpt.back().fd),
+                        (uint32_t) partial_ckpt.size()});
+                }
+                auto new_fd = full_ckpt.back().fd;
+                std::for_each(partial_ckpt.end() - ckpt_cnt, partial_ckpt.end(),
+                    [new_fd](const PartialCkpt &p) {
+                    new_fd->update(p.row);
+                });
+                new_fd->update(row);
 
-        uint32_t ckpt_cnt = full_ckpt.empty() ?
-            partial_ckpt.size() :
-            (partial_ckpt.size() - full_ckpt.back().next_partial_ckpt);
-        if (ckpt_cnt + 1 >= l) {
-            if (full_ckpt.empty()) {
-                full_ckpt.push_back(FullCkpt{
-                    ts,
-                    new FD(l, d),
-                    (uint32_t) partial_ckpt.size()});
+                delete []row;
             } else {
-                full_ckpt.push_back(FullCkpt{
-                    ts,
-                    new FD(*full_ckpt.back().fd),
-                    (uint32_t) partial_ckpt.size()});
+                partial_ckpt.push_back(PartialCkpt{ts, row});
             }
-            auto new_fd = full_ckpt.back().fd;
-            std::for_each(partial_ckpt.end() - ckpt_cnt, partial_ckpt.end(),
-                [new_fd](const PartialCkpt &p) {
-                new_fd->update(p.row);
-            });
-            new_fd->update(row);
-
-            delete []row;
         } else {
-            partial_ckpt.push_back(PartialCkpt{ts, row});
+            break;
         }
     }
 
+    nxt_target = AF2 - c1_2norm_sqr;
+    
+    delete []CM;
+    delete []S;
 }
 
 
