@@ -14,3 +14,6 @@ config.log
 stamp-h
 config.h
 Makefile.in.old
+.vscode/settings.json
+python/.vscode/settings.json
+*.pyc
