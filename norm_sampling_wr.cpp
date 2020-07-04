@@ -185,6 +185,7 @@ NormSamplingWRSketch::update(
                 dvec_copy = new double[m_n];
                 memcpy(dvec_copy, dvec, sizeof(double) * m_n);
                 m_reservoir[i].append(ts, dvec_copy, true);
+                ++m_n_dvec_stored;
             }
             else
             {
