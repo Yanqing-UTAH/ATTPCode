@@ -42,10 +42,10 @@ class TimeSerialMatrix():
         for i in range(len(u)):
             x = self.random.normal(scale=self.sd_list[u[i]], size=(
                 counts[i], len(self.sd_list[u[i]]))).astype('float16')
-            if self.dir_list[i] is not None:
-                X[indices == u[i]] = x @ self.dir_list[i]
+            if self.dir_list[u[i]] is not None:
+                X[indices == i] = x @ self.dir_list[u[i]]
             else:
-                X[indices == u[i]] = dct(x, 4, norm='ortho')
+                X[indices == i] = dct(x, 4, norm='ortho')
         self.current_index += n
         return X, t
 
@@ -92,16 +92,18 @@ class TimeSerialMatrix():
 def uniform_normal_tsm(T, n, d, loc, scale, random_state=None):
     random_state = np.random.mtrand.RandomState(random_state)
     tsm = TimeSerialMatrix(dim=d, random_state=random_state)
+    # vars = random_state.normal(size=d)**2
     vars = random_state.beta(1, 10, size=d)
-    vars /= np.linalg.norm(vars)
+    # vars /= np.linalg.norm(vars)
     if d < 2000:
         dirs = ortho_group.rvs(dim=d, random_state=random_state)
     else:
         dirs = None
     ts_list = uniform.rvs(0, T, size=n//2, random_state=random_state)
     tsm.add_type(vars=vars, dirs=dirs, ts_list=ts_list)
-    vars = random_state.beta(1, 10, size=d//10)
-    vars /= np.linalg.norm(vars)
+    # vars = random_state.normal(scale=1, size=d//10)**2
+    vars = random_state.beta(1, 10, size=d//10)*10
+    # vars /= np.linalg.norm(vars)
     if d < 2000:
         dirs = ortho_group.rvs(dim=d, random_state=random_state)[:d//10]
     else:
@@ -109,6 +111,8 @@ def uniform_normal_tsm(T, n, d, loc, scale, random_state=None):
         vars = np.pad(vars, (0, d-len(vars)),
                       'constant', constant_values=(0, 0))
     ts_list = norm.rvs(loc, scale, size=n//2, random_state=random_state)
+    ts_list = np.clip(ts_list, 1, T)
+    # ts_list = ts_list[(ts_list > 0) & (ts_list <= T)]
     tsm.add_type(vars=vars, dirs=dirs, ts_list=ts_list)
     return tsm
 
