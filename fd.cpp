@@ -207,7 +207,7 @@ FD_ATTP::clear()
 size_t
 FD_ATTP::memory_usage() const
 {
-    std::cout << full_ckpt.size() <<  ' ' << partial_ckpt.size() << std::endl;
+    //std::cout << full_ckpt.size() <<  ' ' << partial_ckpt.size() << std::endl;
     return sizeof(FD_ATTP) + C->memory_usage() +
         (partial_ckpt.size() * (sizeof(PartialCkpt) + d * sizeof(double))) +
         ((full_ckpt.empty()) ? 0 :
