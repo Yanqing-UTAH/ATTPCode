@@ -30,14 +30,16 @@ run_filter() {
     
     echo "${PREV_INFILE}: $TEST_NAMES"
     NTESTS=$(echo "$TEST_NAMES" | awk '{ print NF; }')
+    N_SAMPLING_BITP=$(echo "$TEST_NAMES" | tr ' ' '\n' | grep SAMPLING_BITP | wc -l)
     OUTFILE=$OUT_DIR/$PREV_INFILE
+
 
     grep 'Stats request at line\|timers\|'"$(echo "$TEST_NAMES" | sed 's/ /\\|/g' | \
         sed 's/[.]/[.]/g')"'\|^MS\|^HH' ../raw_logs/$PREV_INFILE |
     sed "/${LIST_OF_EXCLUDED_QUERIES}/{$(yes N\; | head -n $NTESTS | tr '\n' ' ')d}" > $OUTFILE
 
     NLINES=`wc -l $OUTFILE | awk '{ print $1; }'`
-    sed -i "$(echo "" | awk "{ print $NLINES - ($NTESTS "'*'" 3 + 2) + 1 ;}") iSTART_OF_FINAL_STATS_REPORT" $OUTFILE
+    sed -i "$(echo "" | awk "{ print $NLINES - ($NTESTS "'*'" 3 + 2) - $N_SAMPLING_BITP + 1 ;}") iSTART_OF_FINAL_STATS_REPORT" $OUTFILE
 }
 
 PREV_INFILE=""
