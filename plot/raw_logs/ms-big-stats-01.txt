@@ -1,0 +1,1645 @@
+Running query matrix_sketch at 2020/07/04 20:14:53
+Stats request at line 501 with 500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 7775456 B = 7.415 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 6652440 B = 6.344 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 5 ms = 0 s (avg 10 us = 0 ms)
+	PFD-l150: tot = 196801 ms = 196 s (avg 393602 us = 393 ms)
+	NORM_SAMPLING_WR-ss25: tot = 7 ms = 0 s (avg 14 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1002 with 1000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 9695456 B = 9.246 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 7612776 B = 7.260 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 9 ms = 0 s (avg 9 us = 0 ms)
+	PFD-l150: tot = 342456 ms = 342 s (avg 342456 us = 342 ms)
+	NORM_SAMPLING_WR-ss25: tot = 12 ms = 0 s (avg 12 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1503 with 1500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 10655456 B = 10.161 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 8013096 B = 7.641 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 14 ms = 0 s (avg 9 us = 0 ms)
+	PFD-l150: tot = 474015 ms = 474 s (avg 316010 us = 316 ms)
+	NORM_SAMPLING_WR-ss25: tot = 18 ms = 0 s (avg 12 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 2004 with 2000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 11375456 B = 10.848 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 8573416 B = 8.176 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 18 ms = 0 s (avg 9 us = 0 ms)
+	PFD-l150: tot = 637079 ms = 637 s (avg 318539 us = 318 ms)
+	NORM_SAMPLING_WR-ss25: tot = 23 ms = 0 s (avg 11 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 2505 with 2500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 11855456 B = 11.306 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 9133704 B = 8.710 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 23 ms = 0 s (avg 9 us = 0 ms)
+	PFD-l150: tot = 758329 ms = 758 s (avg 303331 us = 303 ms)
+	NORM_SAMPLING_WR-ss25: tot = 28 ms = 0 s (avg 11 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 3006 with 3000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 12255456 B = 11.687 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 9694008 B = 9.244 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 27 ms = 0 s (avg 9 us = 0 ms)
+	PFD-l150: tot = 877491 ms = 877 s (avg 292497 us = 292 ms)
+	NORM_SAMPLING_WR-ss25: tot = 33 ms = 0 s (avg 11 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 3507 with 3500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 12575456 B = 11.992 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 10014312 B = 9.550 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 32 ms = 0 s (avg 9 us = 0 ms)
+	PFD-l150: tot = 1032640 ms = 1032 s (avg 295040 us = 295 ms)
+	NORM_SAMPLING_WR-ss25: tot = 38 ms = 0 s (avg 10 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 4008 with 4000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 12815456 B = 12.221 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 10254632 B = 9.779 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 36 ms = 0 s (avg 9 us = 0 ms)
+	PFD-l150: tot = 1149798 ms = 1149 s (avg 287449 us = 287 ms)
+	NORM_SAMPLING_WR-ss25: tot = 43 ms = 0 s (avg 10 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 4509 with 4500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 13055456 B = 12.450 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 10334968 B = 9.856 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 41 ms = 0 s (avg 9 us = 0 ms)
+	PFD-l150: tot = 1266122 ms = 1266 s (avg 281360 us = 281 ms)
+	NORM_SAMPLING_WR-ss25: tot = 47 ms = 0 s (avg 10 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 5010 with 5000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 13295456 B = 12.679 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 10495288 B = 10.009 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 45 ms = 0 s (avg 9 us = 0 ms)
+	PFD-l150: tot = 1418938 ms = 1418 s (avg 283787 us = 283 ms)
+	NORM_SAMPLING_WR-ss25: tot = 52 ms = 0 s (avg 10 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 5511 with 5500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 13295456 B = 12.679 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 10495608 B = 10.009 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 50 ms = 0 s (avg 9 us = 0 ms)
+	PFD-l150: tot = 1534115 ms = 1534 s (avg 278930 us = 278 ms)
+	NORM_SAMPLING_WR-ss25: tot = 57 ms = 0 s (avg 10 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 6012 with 6000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 13455456 B = 12.832 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 10495928 B = 10.009 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 54 ms = 0 s (avg 9 us = 0 ms)
+	PFD-l150: tot = 1649332 ms = 1649 s (avg 274888 us = 274 ms)
+	NORM_SAMPLING_WR-ss25: tot = 62 ms = 0 s (avg 10 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 6513 with 6500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 13695456 B = 13.061 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 10816232 B = 10.315 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 58 ms = 0 s (avg 9 us = 0 ms)
+	PFD-l150: tot = 1800979 ms = 1800 s (avg 277073 us = 277 ms)
+	NORM_SAMPLING_WR-ss25: tot = 67 ms = 0 s (avg 10 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 7014 with 7000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 13855456 B = 13.213 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 10896568 B = 10.391 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 63 ms = 0 s (avg 9 us = 0 ms)
+	PFD-l150: tot = 1915262 ms = 1915 s (avg 273608 us = 273 ms)
+	NORM_SAMPLING_WR-ss25: tot = 72 ms = 0 s (avg 10 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 7515 with 7500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 14095840 B = 13.442 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 10976904 B = 10.468 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 67 ms = 0 s (avg 9 us = 0 ms)
+	PFD-l150: tot = 2029556 ms = 2029 s (avg 270607 us = 270 ms)
+	NORM_SAMPLING_WR-ss25: tot = 76 ms = 0 s (avg 10 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 8016 with 8000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 14175840 B = 13.519 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 11217224 B = 10.697 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 72 ms = 0 s (avg 9 us = 0 ms)
+	PFD-l150: tot = 2143282 ms = 2143 s (avg 267910 us = 267 ms)
+	NORM_SAMPLING_WR-ss25: tot = 81 ms = 0 s (avg 10 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 8517 with 8500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 14175840 B = 13.519 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 11297544 B = 10.774 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 76 ms = 0 s (avg 9 us = 0 ms)
+	PFD-l150: tot = 2294383 ms = 2294 s (avg 269927 us = 269 ms)
+	NORM_SAMPLING_WR-ss25: tot = 86 ms = 0 s (avg 10 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 9018 with 9000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 14335840 B = 13.671 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 11457880 B = 10.927 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 81 ms = 0 s (avg 9 us = 0 ms)
+	PFD-l150: tot = 2407860 ms = 2407 s (avg 267540 us = 267 ms)
+	NORM_SAMPLING_WR-ss25: tot = 91 ms = 0 s (avg 10 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 9519 with 9500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 14335840 B = 13.671 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 11538216 B = 11.003 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 85 ms = 0 s (avg 9 us = 0 ms)
+	PFD-l150: tot = 2521687 ms = 2521 s (avg 265440 us = 265 ms)
+	NORM_SAMPLING_WR-ss25: tot = 95 ms = 0 s (avg 10 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 10020 with 10000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 14495840 B = 13.824 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 11618536 B = 11.080 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 90 ms = 0 s (avg 9 us = 0 ms)
+	PFD-l150: tot = 2671975 ms = 2671 s (avg 267197 us = 267 ms)
+	NORM_SAMPLING_WR-ss25: tot = 100 ms = 0 s (avg 10 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 10521 with 10500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 14575840 B = 13.900 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 11698872 B = 11.156 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 94 ms = 0 s (avg 9 us = 0 ms)
+	PFD-l150: tot = 2785460 ms = 2785 s (avg 265281 us = 265 ms)
+	NORM_SAMPLING_WR-ss25: tot = 105 ms = 0 s (avg 10 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 11022 with 11000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 14575840 B = 13.900 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 11939160 B = 11.386 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 98 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 2898696 ms = 2898 s (avg 263517 us = 263 ms)
+	NORM_SAMPLING_WR-ss25: tot = 110 ms = 0 s (avg 10 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 11523 with 11500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 14735840 B = 14.053 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 12019352 B = 11.462 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 103 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 3048948 ms = 3048 s (avg 265125 us = 265 ms)
+	NORM_SAMPLING_WR-ss25: tot = 114 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 12024 with 12000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 14815840 B = 14.129 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 12019464 B = 11.462 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 107 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 3161919 ms = 3161 s (avg 263493 us = 263 ms)
+	NORM_SAMPLING_WR-ss25: tot = 119 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 12525 with 12500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 14815840 B = 14.129 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 12019544 B = 11.462 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 112 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 3274822 ms = 3274 s (avg 261985 us = 261 ms)
+	NORM_SAMPLING_WR-ss25: tot = 124 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 13026 with 13000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 14895840 B = 14.205 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 12019592 B = 11.462 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 116 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 3425021 ms = 3425 s (avg 263463 us = 263 ms)
+	NORM_SAMPLING_WR-ss25: tot = 129 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 13527 with 13500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 14975840 B = 14.282 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 12179640 B = 11.615 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 121 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 3537920 ms = 3537 s (avg 262068 us = 262 ms)
+	NORM_SAMPLING_WR-ss25: tot = 133 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 14028 with 14000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 15135840 B = 14.434 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 12339688 B = 11.768 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 125 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 3650480 ms = 3650 s (avg 260748 us = 260 ms)
+	NORM_SAMPLING_WR-ss25: tot = 138 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 14529 with 14500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 15215840 B = 14.510 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 12339720 B = 11.768 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 130 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 3800361 ms = 3800 s (avg 262093 us = 262 ms)
+	NORM_SAMPLING_WR-ss25: tot = 143 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 15030 with 15000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 15375840 B = 14.663 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 12339752 B = 11.768 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 134 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 3912974 ms = 3912 s (avg 260864 us = 260 ms)
+	NORM_SAMPLING_WR-ss25: tot = 147 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 15531 with 15500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 15375840 B = 14.663 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 12419768 B = 11.844 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 138 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 4025917 ms = 4025 s (avg 259736 us = 259 ms)
+	NORM_SAMPLING_WR-ss25: tot = 152 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 16032 with 16000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 15375840 B = 14.663 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 12419800 B = 11.844 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 143 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 4138486 ms = 4138 s (avg 258655 us = 258 ms)
+	NORM_SAMPLING_WR-ss25: tot = 157 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 16533 with 16500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 15455840 B = 14.739 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 12499816 B = 11.920 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 147 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 4288020 ms = 4288 s (avg 259880 us = 259 ms)
+	NORM_SAMPLING_WR-ss25: tot = 161 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 17034 with 17000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 15535840 B = 14.816 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 12739848 B = 12.149 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 152 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 4400626 ms = 4400 s (avg 258860 us = 258 ms)
+	NORM_SAMPLING_WR-ss25: tot = 166 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 17535 with 17500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 15615840 B = 14.892 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 12819864 B = 12.225 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 156 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 4513262 ms = 4513 s (avg 257900 us = 257 ms)
+	NORM_SAMPLING_WR-ss25: tot = 171 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 18036 with 18000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 15615840 B = 14.892 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 12819880 B = 12.225 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 161 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 4662689 ms = 4662 s (avg 259038 us = 259 ms)
+	NORM_SAMPLING_WR-ss25: tot = 176 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 18537 with 18500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 15615840 B = 14.892 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 12819896 B = 12.226 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 165 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 4775334 ms = 4775 s (avg 258126 us = 258 ms)
+	NORM_SAMPLING_WR-ss25: tot = 180 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 19038 with 19000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 15615840 B = 14.892 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 12899912 B = 12.302 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 169 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 4888006 ms = 4888 s (avg 257263 us = 257 ms)
+	NORM_SAMPLING_WR-ss25: tot = 185 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 19539 with 19500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 15695840 B = 14.968 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 12979944 B = 12.378 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 174 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 5037559 ms = 5037 s (avg 258336 us = 258 ms)
+	NORM_SAMPLING_WR-ss25: tot = 190 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 20040 with 20000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 15855840 B = 15.121 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 13059960 B = 12.454 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 178 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 5149895 ms = 5149 s (avg 257494 us = 257 ms)
+	NORM_SAMPLING_WR-ss25: tot = 194 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 20541 with 20500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 15855840 B = 15.121 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 13139976 B = 12.531 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 183 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 5262385 ms = 5262 s (avg 256701 us = 256 ms)
+	NORM_SAMPLING_WR-ss25: tot = 199 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 21042 with 21000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 15855840 B = 15.121 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 13219992 B = 12.607 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 187 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 5411987 ms = 5411 s (avg 257713 us = 257 ms)
+	NORM_SAMPLING_WR-ss25: tot = 204 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 21543 with 21500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 15855840 B = 15.121 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 13220008 B = 12.607 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 192 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 5524379 ms = 5524 s (avg 256947 us = 256 ms)
+	NORM_SAMPLING_WR-ss25: tot = 209 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 22044 with 22000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 15855840 B = 15.121 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 13300024 B = 12.683 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 196 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 5636758 ms = 5636 s (avg 256216 us = 256 ms)
+	NORM_SAMPLING_WR-ss25: tot = 213 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 22545 with 22500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 15935840 B = 15.197 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 13300040 B = 12.683 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 200 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 5786233 ms = 5786 s (avg 257165 us = 257 ms)
+	NORM_SAMPLING_WR-ss25: tot = 218 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 23046 with 23000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 15935840 B = 15.197 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 13300056 B = 12.683 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 205 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 5898612 ms = 5898 s (avg 256461 us = 256 ms)
+	NORM_SAMPLING_WR-ss25: tot = 223 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 23547 with 23500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 15935840 B = 15.197 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 13460072 B = 12.836 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 209 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 6010788 ms = 6010 s (avg 255778 us = 255 ms)
+	NORM_SAMPLING_WR-ss25: tot = 227 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 24048 with 24000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 15935840 B = 15.197 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 13460088 B = 12.836 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 214 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 6123193 ms = 6123 s (avg 255133 us = 255 ms)
+	NORM_SAMPLING_WR-ss25: tot = 232 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 24549 with 24500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 15935840 B = 15.197 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 13540104 B = 12.912 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 218 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 6272691 ms = 6272 s (avg 256028 us = 256 ms)
+	NORM_SAMPLING_WR-ss25: tot = 237 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 25050 with 25000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16175840 B = 15.426 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 13540104 B = 12.912 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 223 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 6384833 ms = 6384 s (avg 255393 us = 255 ms)
+	NORM_SAMPLING_WR-ss25: tot = 241 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 25551 with 25500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16255840 B = 15.502 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 13540120 B = 12.912 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 227 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 6497211 ms = 6497 s (avg 254792 us = 254 ms)
+	NORM_SAMPLING_WR-ss25: tot = 246 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 26052 with 26000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16255840 B = 15.502 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 13540136 B = 12.912 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 232 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 6646349 ms = 6646 s (avg 255628 us = 255 ms)
+	NORM_SAMPLING_WR-ss25: tot = 251 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 26553 with 26500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16255840 B = 15.502 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 13700152 B = 13.065 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 236 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 6758433 ms = 6758 s (avg 255035 us = 255 ms)
+	NORM_SAMPLING_WR-ss25: tot = 255 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 27054 with 27000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16335840 B = 15.579 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 13700168 B = 13.065 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 240 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 6870819 ms = 6870 s (avg 254474 us = 254 ms)
+	NORM_SAMPLING_WR-ss25: tot = 260 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 27555 with 27500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16415840 B = 15.655 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 13780184 B = 13.141 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 245 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 7019920 ms = 7019 s (avg 255269 us = 255 ms)
+	NORM_SAMPLING_WR-ss25: tot = 265 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 28056 with 28000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16415840 B = 15.655 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 13780200 B = 13.141 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 249 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 7132011 ms = 7132 s (avg 254714 us = 254 ms)
+	NORM_SAMPLING_WR-ss25: tot = 269 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 28557 with 28500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16415840 B = 15.655 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 13780216 B = 13.141 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 254 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 7244121 ms = 7244 s (avg 254179 us = 254 ms)
+	NORM_SAMPLING_WR-ss25: tot = 274 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 29058 with 29000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16575840 B = 15.807 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 13780232 B = 13.141 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 258 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 7393299 ms = 7393 s (avg 254941 us = 254 ms)
+	NORM_SAMPLING_WR-ss25: tot = 279 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 29559 with 29500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16655840 B = 15.884 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 13780248 B = 13.141 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 263 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 7505357 ms = 7505 s (avg 254418 us = 254 ms)
+	NORM_SAMPLING_WR-ss25: tot = 283 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 30060 with 30000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16655840 B = 15.884 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 13860264 B = 13.218 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 267 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 7617418 ms = 7617 s (avg 253913 us = 253 ms)
+	NORM_SAMPLING_WR-ss25: tot = 288 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 30561 with 30500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16655840 B = 15.884 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 13940280 B = 13.294 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 271 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 7729510 ms = 7729 s (avg 253426 us = 253 ms)
+	NORM_SAMPLING_WR-ss25: tot = 293 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 31062 with 31000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16735840 B = 15.960 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 13940296 B = 13.294 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 276 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 7878624 ms = 7878 s (avg 254149 us = 254 ms)
+	NORM_SAMPLING_WR-ss25: tot = 297 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 31563 with 31500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16815840 B = 16.036 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14020328 B = 13.370 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 280 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 7990409 ms = 7990 s (avg 253663 us = 253 ms)
+	NORM_SAMPLING_WR-ss25: tot = 302 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 32064 with 32000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16815840 B = 16.036 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14020344 B = 13.370 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 285 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 8102527 ms = 8102 s (avg 253203 us = 253 ms)
+	NORM_SAMPLING_WR-ss25: tot = 307 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 32565 with 32500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16815840 B = 16.036 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14100360 B = 13.447 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 289 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 8251810 ms = 8251 s (avg 253901 us = 253 ms)
+	NORM_SAMPLING_WR-ss25: tot = 311 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 33066 with 33000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16815840 B = 16.036 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14100376 B = 13.447 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 294 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 8364018 ms = 8364 s (avg 253455 us = 253 ms)
+	NORM_SAMPLING_WR-ss25: tot = 316 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 33567 with 33500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16895840 B = 16.113 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14260408 B = 13.599 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 298 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 8476178 ms = 8476 s (avg 253020 us = 253 ms)
+	NORM_SAMPLING_WR-ss25: tot = 321 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 34068 with 34000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16895840 B = 16.113 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14260424 B = 13.599 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 302 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 8625838 ms = 8625 s (avg 253701 us = 253 ms)
+	NORM_SAMPLING_WR-ss25: tot = 325 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 34569 with 34500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16895840 B = 16.113 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14340456 B = 13.676 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 307 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 8738015 ms = 8738 s (avg 253275 us = 253 ms)
+	NORM_SAMPLING_WR-ss25: tot = 330 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 35070 with 35000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16975840 B = 16.189 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14340488 B = 13.676 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 311 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 8850425 ms = 8850 s (avg 252869 us = 252 ms)
+	NORM_SAMPLING_WR-ss25: tot = 335 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 35571 with 35500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16975840 B = 16.189 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14340504 B = 13.676 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 316 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 8999750 ms = 8999 s (avg 253514 us = 253 ms)
+	NORM_SAMPLING_WR-ss25: tot = 339 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 36072 with 36000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16975840 B = 16.189 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14420536 B = 13.752 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 320 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 9112145 ms = 9112 s (avg 253115 us = 253 ms)
+	NORM_SAMPLING_WR-ss25: tot = 344 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 36573 with 36500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16975840 B = 16.189 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14420584 B = 13.752 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 325 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 9224296 ms = 9224 s (avg 252720 us = 252 ms)
+	NORM_SAMPLING_WR-ss25: tot = 349 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 37074 with 37000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 16975840 B = 16.189 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14420632 B = 13.752 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 329 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 9373599 ms = 9373 s (avg 253340 us = 253 ms)
+	NORM_SAMPLING_WR-ss25: tot = 353 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 37575 with 37500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17055840 B = 16.265 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14420680 B = 13.752 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 333 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 9486072 ms = 9486 s (avg 252961 us = 252 ms)
+	NORM_SAMPLING_WR-ss25: tot = 358 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 38076 with 38000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17055840 B = 16.265 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14420760 B = 13.752 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 338 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 9598266 ms = 9598 s (avg 252585 us = 252 ms)
+	NORM_SAMPLING_WR-ss25: tot = 363 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 38577 with 38500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17055840 B = 16.265 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14420888 B = 13.752 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 342 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 9710435 ms = 9710 s (avg 252219 us = 252 ms)
+	NORM_SAMPLING_WR-ss25: tot = 367 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 39078 with 39000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17135840 B = 16.342 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14421096 B = 13.753 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 347 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 9860065 ms = 9860 s (avg 252822 us = 252 ms)
+	NORM_SAMPLING_WR-ss25: tot = 372 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 39579 with 39500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17135840 B = 16.342 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14501400 B = 13.829 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 351 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 9972185 ms = 9972 s (avg 252460 us = 252 ms)
+	NORM_SAMPLING_WR-ss25: tot = 377 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 40080 with 40000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17135840 B = 16.342 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14501704 B = 13.829 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 356 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 10084268 ms = 10084 s (avg 252106 us = 252 ms)
+	NORM_SAMPLING_WR-ss25: tot = 381 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 40581 with 40500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17135840 B = 16.342 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14582040 B = 13.906 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 360 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 10233479 ms = 10233 s (avg 252678 us = 252 ms)
+	NORM_SAMPLING_WR-ss25: tot = 386 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 41082 with 41000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17135840 B = 16.342 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14662344 B = 13.983 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 364 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 10344837 ms = 10344 s (avg 252313 us = 252 ms)
+	NORM_SAMPLING_WR-ss25: tot = 391 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 41583 with 41500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17135840 B = 16.342 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14662648 B = 13.983 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 369 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 10456347 ms = 10456 s (avg 251960 us = 251 ms)
+	NORM_SAMPLING_WR-ss25: tot = 396 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 42084 with 42000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17135840 B = 16.342 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14742968 B = 14.059 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 373 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 10604904 ms = 10604 s (avg 252497 us = 252 ms)
+	NORM_SAMPLING_WR-ss25: tot = 400 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 42585 with 42500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17215840 B = 16.418 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14823288 B = 14.136 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 378 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 10716052 ms = 10716 s (avg 252142 us = 252 ms)
+	NORM_SAMPLING_WR-ss25: tot = 405 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 43086 with 43000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17215840 B = 16.418 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14903608 B = 14.213 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 382 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 10827380 ms = 10827 s (avg 251799 us = 251 ms)
+	NORM_SAMPLING_WR-ss25: tot = 410 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 43587 with 43500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17215840 B = 16.418 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14903944 B = 14.213 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 387 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 10975834 ms = 10975 s (avg 252318 us = 252 ms)
+	NORM_SAMPLING_WR-ss25: tot = 414 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 44088 with 44000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17215840 B = 16.418 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 14984488 B = 14.290 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 391 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 11087261 ms = 11087 s (avg 251983 us = 251 ms)
+	NORM_SAMPLING_WR-ss25: tot = 419 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 44589 with 44500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17215840 B = 16.418 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 15064808 B = 14.366 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 395 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 11198726 ms = 11198 s (avg 251656 us = 251 ms)
+	NORM_SAMPLING_WR-ss25: tot = 424 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 45090 with 45000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17295840 B = 16.494 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 15065144 B = 14.367 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 400 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 11346846 ms = 11346 s (avg 252152 us = 252 ms)
+	NORM_SAMPLING_WR-ss25: tot = 429 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 45591 with 45500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17375840 B = 16.570 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 15065480 B = 14.367 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 404 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 11458345 ms = 11458 s (avg 251831 us = 251 ms)
+	NORM_SAMPLING_WR-ss25: tot = 433 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 46092 with 46000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17375840 B = 16.570 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 15065768 B = 14.367 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 409 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 11570452 ms = 11570 s (avg 251531 us = 251 ms)
+	NORM_SAMPLING_WR-ss25: tot = 438 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 46593 with 46500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17375840 B = 16.570 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 15066088 B = 14.368 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 413 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 11682308 ms = 11682 s (avg 251232 us = 251 ms)
+	NORM_SAMPLING_WR-ss25: tot = 443 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 47094 with 47000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17375840 B = 16.570 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 15066392 B = 14.368 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 418 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 11831595 ms = 11831 s (avg 251736 us = 251 ms)
+	NORM_SAMPLING_WR-ss25: tot = 447 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 47595 with 47500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17455840 B = 16.647 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 15066728 B = 14.368 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 422 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 11943437 ms = 11943 s (avg 251440 us = 251 ms)
+	NORM_SAMPLING_WR-ss25: tot = 452 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 48096 with 48000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17455840 B = 16.647 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 15067032 B = 14.369 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 426 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 12055538 ms = 12055 s (avg 251157 us = 251 ms)
+	NORM_SAMPLING_WR-ss25: tot = 457 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 48597 with 48500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17455840 B = 16.647 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 15067352 B = 14.369 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 431 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 12204562 ms = 12204 s (avg 251640 us = 251 ms)
+	NORM_SAMPLING_WR-ss25: tot = 461 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 49098 with 49000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17535840 B = 16.723 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 15067704 B = 14.369 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 435 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 12316714 ms = 12316 s (avg 251361 us = 251 ms)
+	NORM_SAMPLING_WR-ss25: tot = 466 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 49599 with 49500 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17535840 B = 16.723 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 15068024 B = 14.369 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 440 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 12428517 ms = 12428 s (avg 251081 us = 251 ms)
+	NORM_SAMPLING_WR-ss25: tot = 471 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 50100 with 50000 processed
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17535840 B = 16.723 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 15068360 B = 14.370 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 444 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 12577756 ms = 12577 s (avg 251555 us = 251 ms)
+	NORM_SAMPLING_WR-ss25: tot = 475 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss25: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+MS(10):
+
+MS(100):
+
+MS(200):
+
+MS(450):
+
+MS(470):
+
+MS(480):
+
+MS(490):
+
+MS(500):
+
+MS(510):
+
+MS(520):
+
+MS(530):
+
+MS(550):
+
+MS(600):
+
+MS(800):
+
+MS(1000):
+
+
+=============  Memory Usage  =============
+	NORM_SAMPLING-ss25: 17535840 B = 16.723 MB
+	PFD-l150: 60162592 B = 57.375 MB
+	NORM_SAMPLING_WR-ss25: 15068360 B = 14.370 MB
+=============  Time stats    =============
+Update timers:
+	NORM_SAMPLING-ss25: tot = 444 ms = 0 s (avg 8 us = 0 ms)
+	PFD-l150: tot = 12577756 ms = 12577 s (avg 251555 us = 251 ms)
+	NORM_SAMPLING_WR-ss25: tot = 475 ms = 0 s (avg 9 us = 0 ms)
+Query timers:
+	NORM_SAMPLING-ss25: tot = 18024 ms = 18 s (avg 1201625 us = 1201 ms)
+	PFD-l150: tot = 637359 ms = 637 s (avg 42490644 us = 42490 ms)
+	NORM_SAMPLING_WR-ss25: tot = 18455 ms = 18 s (avg 1230369 us = 1230 ms)

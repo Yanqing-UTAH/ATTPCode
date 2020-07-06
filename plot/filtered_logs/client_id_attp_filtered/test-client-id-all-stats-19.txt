@@ -1,0 +1,614 @@
+Stats request at line 13528042 with 13528041 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 21052936 B = 20.077 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 76508 ms = 76 s (avg 5 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 27056084 with 27056082 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 31549704 B = 30.088 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 155934 ms = 155 s (avg 5 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 40584126 with 40584123 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 41011912 B = 39.112 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 237522 ms = 237 s (avg 5 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 54112168 with 54112164 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 52871944 B = 50.422 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 319602 ms = 319 s (avg 5 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 67640210 with 67640205 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 62288296 B = 59.402 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 402684 ms = 402 s (avg 5 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 81168252 with 81168246 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 71265608 B = 67.964 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 487582 ms = 487 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 94696294 with 94696287 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 81051912 B = 77.297 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 573509 ms = 573 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 108224336 with 108224328 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 90885000 B = 86.674 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 660499 ms = 660 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 121752378 with 121752369 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 100045160 B = 95.410 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 746390 ms = 746 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 135280420 with 135280410 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 109694568 B = 104.612 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 836953 ms = 836 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 148808462 with 148808451 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 117915080 B = 112.452 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 929556 ms = 929 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 162336504 with 162336492 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 124769064 B = 118.989 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 1022009 ms = 1022 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 175864546 with 175864533 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 132239176 B = 126.113 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 1121320 ms = 1121 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 189392588 with 189392574 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 137038056 B = 130.689 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 1230528 ms = 1230 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 202920630 with 202920615 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 144111848 B = 137.435 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 1331177 ms = 1331 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 216448672 with 216448656 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 152569224 B = 145.501 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 1426879 ms = 1426 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 229976714 with 229976697 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 163174728 B = 155.615 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 1523764 ms = 1523 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 243504756 with 243504738 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 171751240 B = 163.794 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 1626766 ms = 1626 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 257032798 with 257032779 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 180456136 B = 172.096 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 1727259 ms = 1727 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 270560840 with 270560820 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 189824584 B = 181.030 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 1822887 ms = 1822 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 284088882 with 284088861 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 197558920 B = 188.406 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 1923978 ms = 1923 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 297616924 with 297616902 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 205143592 B = 195.640 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 2025885 ms = 2025 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 311144966 with 311144943 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 211143144 B = 201.361 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 2123263 ms = 2123 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 324673008 with 324672984 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 217583944 B = 207.504 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 2217711 ms = 2217 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 338201050 with 338201025 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 223455880 B = 213.104 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 2311232 ms = 2311 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 351729092 with 351729066 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 229097576 B = 218.484 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 2407566 ms = 2407 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 365257134 with 365257107 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 234492008 B = 223.629 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 2505186 ms = 2505 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 378785176 with 378785148 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 238301736 B = 227.262 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 2613088 ms = 2613 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 392313218 with 392313189 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 243051656 B = 231.792 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 2720246 ms = 2720 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 405841260 with 405841230 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 248297192 B = 236.794 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 2825938 ms = 2825 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 419369302 with 419369271 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 254762184 B = 242.960 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 2927755 ms = 2927 s (avg 6 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 432897344 with 432897312 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 263178472 B = 250.986 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 3031802 ms = 3031 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 446425386 with 446425353 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 269982856 B = 257.475 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 3137310 ms = 3137 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 459953428 with 459953394 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 279421992 B = 266.477 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 3235218 ms = 3235 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 473481470 with 473481435 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 290659336 B = 277.194 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 3337943 ms = 3337 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 487009512 with 487009476 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 300331880 B = 286.418 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 3442894 ms = 3442 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 500537554 with 500537517 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 310684232 B = 296.291 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 3539898 ms = 3539 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 514065596 with 514065558 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 323004520 B = 308.041 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 3643914 ms = 3643 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 527593638 with 527593599 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 333519976 B = 318.069 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 3745601 ms = 3745 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 541121680 with 541121640 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 345271752 B = 329.276 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 3843959 ms = 3843 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 554649722 with 554649681 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 354955272 B = 338.511 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 3949379 ms = 3949 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 568177764 with 568177722 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 364825480 B = 347.924 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 4045113 ms = 4045 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 581705806 with 581705763 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 375745416 B = 358.338 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 4140399 ms = 4140 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 595233848 with 595233804 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 386089192 B = 368.203 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 4239167 ms = 4239 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 608761890 with 608761845 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 394931368 B = 376.635 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 4339416 ms = 4339 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 622289932 with 622289886 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 402634792 B = 383.982 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 4446641 ms = 4446 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 635817974 with 635817927 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 408744872 B = 389.809 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 4549251 ms = 4549 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 649346016 with 649345968 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 416160296 B = 396.881 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 4654057 ms = 4654 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 662874058 with 662874009 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 419379528 B = 399.951 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 4766088 ms = 4766 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 676402100 with 676402050 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 423895560 B = 404.258 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 4874651 ms = 4874 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 689930142 with 689930091 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 430179304 B = 410.250 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 4975167 ms = 4975 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 703458184 with 703458132 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 434026088 B = 413.919 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 5083039 ms = 5083 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 716986226 with 716986173 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 437369448 B = 417.108 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 5192199 ms = 5192 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 730514268 with 730514214 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 441166536 B = 420.729 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 5297543 ms = 5297 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 744042310 with 744042255 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 446209608 B = 425.538 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 5399084 ms = 5399 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 757570352 with 757570296 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 449452648 B = 428.631 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 5512234 ms = 5512 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 771098394 with 771098337 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 453386536 B = 432.383 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 5620887 ms = 5620 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 784626436 with 784626378 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 460415304 B = 439.086 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 5729956 ms = 5729 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 798154478 with 798154419 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 464246280 B = 442.739 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 5830656 ms = 5830 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 811682520 with 811682460 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 468760008 B = 447.044 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 5943422 ms = 5943 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 825210562 with 825210501 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 472343752 B = 450.462 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 6056830 ms = 6056 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 838738604 with 838738542 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 477699592 B = 455.569 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 6169682 ms = 6169 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 852266646 with 852266583 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 483081576 B = 460.702 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 6274239 ms = 6274 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 865794688 with 865794624 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 489557768 B = 466.878 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 6373055 ms = 6373 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 879322730 with 879322665 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 496502888 B = 473.502 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 6471227 ms = 6471 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 892850772 with 892850706 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 503855880 B = 480.514 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 6572005 ms = 6572 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 906378814 with 906378747 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 511797448 B = 488.088 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 6677473 ms = 6677 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 919906856 with 919906788 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 516295208 B = 492.377 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 6793863 ms = 6793 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 933434898 with 933434829 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 521939272 B = 497.760 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 6907097 ms = 6907 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 946962940 with 946962870 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 529206600 B = 504.690 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 7019877 ms = 7019 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 960490982 with 960490911 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 540147688 B = 515.124 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 7134044 ms = 7134 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 974019024 with 974018952 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 547811624 B = 522.433 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 7234876 ms = 7234 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 987547066 with 987546993 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 553730856 B = 528.078 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 7350258 ms = 7350 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1001075108 with 1001075034 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 561213192 B = 535.214 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 7464991 ms = 7464 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1014603150 with 1014603075 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 568158824 B = 541.838 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 7580649 ms = 7580 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1028131192 with 1028131116 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 579567624 B = 552.718 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 7690927 ms = 7690 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1041659234 with 1041659157 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 590426824 B = 563.074 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 7791441 ms = 7791 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1055187276 with 1055187198 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 601621512 B = 573.750 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 7889371 ms = 7889 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1068715318 with 1068715239 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 612857928 B = 584.466 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 7986928 ms = 7986 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1082243360 with 1082243280 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 626050952 B = 597.048 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 8090836 ms = 8090 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1095771402 with 1095771321 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 634741416 B = 605.336 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 8206360 ms = 8206 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1109299444 with 1109299362 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 643605320 B = 613.789 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 8319397 ms = 8319 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1122827486 with 1122827403 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 654244872 B = 623.936 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 8417028 ms = 8417 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1136355528 with 1136355444 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 665836584 B = 634.991 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 8514630 ms = 8514 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1149883570 with 1149883485 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 677816520 B = 646.416 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 8610038 ms = 8610 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1163411612 with 1163411526 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 690602824 B = 658.610 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 8707186 ms = 8707 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1176939654 with 1176939567 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 702882696 B = 670.321 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 8810681 ms = 8810 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1190467696 with 1190467608 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 709026376 B = 676.180 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 8927556 ms = 8927 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1203995738 with 1203995649 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 716274120 B = 683.092 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 9039197 ms = 9039 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1217523780 with 1217523690 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 727413768 B = 693.715 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 9137960 ms = 9137 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1231051822 with 1231051731 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 733783432 B = 699.790 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 9254218 ms = 9254 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1244579864 with 1244579772 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 742561672 B = 708.161 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 9359343 ms = 9359 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1258107906 with 1258107813 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 753918088 B = 718.992 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 9454727 ms = 9454 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1271635948 with 1271635854 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 765541896 B = 730.077 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 9548144 ms = 9548 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1285163990 with 1285163895 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 776840232 B = 740.852 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 9643328 ms = 9643 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1298692032 with 1298691936 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 786519176 B = 750.083 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 9745355 ms = 9745 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1312220074 with 1312219977 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 794839848 B = 758.018 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 9844416 ms = 9844 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1325748116 with 1325748018 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 803383624 B = 766.166 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 9935738 ms = 9935 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1339276158 with 1339276059 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 814834568 B = 777.086 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 10021997 ms = 10021 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1352804200 with 1352804100 processed
+	PCM_HH-logU22-e0.005-d0.001-D2000: 825662248 B = 787.412 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 10107820 ms = 10107 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+HH(0.0002|897641976):
+	PCM_HH-logU22-e0.005-d0.001-D2000: prec = 0/116029 = 0, recall = 0/103 = 0
+HH(0.0002|898271001):
+	PCM_HH-logU22-e0.005-d0.001-D2000: prec = 3/533364 = 5.62468e-06, recall = 3/136 = 0.0220588
+HH(0.0002|898876267):
+	PCM_HH-logU22-e0.005-d0.001-D2000: prec = 0/77041 = 0, recall = 0/151 = 0
+HH(0.0002|899479307):
+	PCM_HH-logU22-e0.005-d0.001-D2000: prec = 0/0 = -nan, recall = 0/166 = 0
+START_OF_FINAL_STATS_REPORT
+	PCM_HH-logU22-e0.005-d0.001-D2000: 825662248 B = 787.412 MB
+Update timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 10107820 ms = 10107 s (avg 7 us = 0 ms)
+Query timers:
+	PCM_HH-logU22-e0.005-d0.001-D2000: tot = 11408 ms = 11 s (avg 1629783 us = 1629 ms)

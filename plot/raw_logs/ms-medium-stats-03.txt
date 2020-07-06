@@ -1,0 +1,1690 @@
+Running query matrix_sketch at 2020/07/04 18:03:35
+Stats request at line 501 with 500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 14014560 B = 13.365 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9069488 B = 8.649 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 240 ms = 0 s (avg 480 us = 0 ms)
+	PFD-l150: tot = 25210 ms = 25 s (avg 50420 us = 50 ms)
+	PFD-l200: tot = 53804 ms = 53 s (avg 107608 us = 107 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1002 with 1000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 24025072 B = 22.912 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9582512 B = 9.138 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 490 ms = 0 s (avg 490 us = 0 ms)
+	PFD-l150: tot = 38315 ms = 38 s (avg 38315 us = 38 ms)
+	PFD-l200: tot = 96011 ms = 96 s (avg 96011 us = 96 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1503 with 1500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 34535572 B = 32.935 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9582512 B = 9.138 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 718 ms = 0 s (avg 479 us = 0 ms)
+	PFD-l150: tot = 43857 ms = 43 s (avg 29238 us = 29 ms)
+	PFD-l200: tot = 116548 ms = 116 s (avg 77699 us = 77 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 2004 with 2000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 44546596 B = 42.482 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9582512 B = 9.138 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 935 ms = 0 s (avg 467 us = 0 ms)
+	PFD-l150: tot = 47566 ms = 47 s (avg 23783 us = 23 ms)
+	PFD-l200: tot = 130391 ms = 130 s (avg 65195 us = 65 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 2505 with 2500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 54056096 B = 51.551 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9582512 B = 9.138 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 1143 ms = 1 s (avg 457 us = 0 ms)
+	PFD-l150: tot = 50646 ms = 50 s (avg 20258 us = 20 ms)
+	PFD-l200: tot = 139981 ms = 139 s (avg 55992 us = 55 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 3006 with 3000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 65067096 B = 62.052 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9582512 B = 9.138 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 1349 ms = 1 s (avg 449 us = 0 ms)
+	PFD-l150: tot = 53088 ms = 53 s (avg 17696 us = 17 ms)
+	PFD-l200: tot = 147764 ms = 147 s (avg 49254 us = 49 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 3507 with 3500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 74578644 B = 71.123 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9582512 B = 9.138 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 1551 ms = 1 s (avg 443 us = 0 ms)
+	PFD-l150: tot = 55213 ms = 55 s (avg 15775 us = 15 ms)
+	PFD-l200: tot = 154363 ms = 154 s (avg 44103 us = 44 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 4008 with 4000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 84588644 B = 80.670 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9582512 B = 9.138 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 1755 ms = 1 s (avg 438 us = 0 ms)
+	PFD-l150: tot = 57356 ms = 57 s (avg 14339 us = 14 ms)
+	PFD-l200: tot = 159931 ms = 159 s (avg 39982 us = 39 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 4509 with 4500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 94098144 B = 89.738 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9582512 B = 9.138 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 1953 ms = 1 s (avg 434 us = 0 ms)
+	PFD-l150: tot = 59067 ms = 59 s (avg 13126 us = 13 ms)
+	PFD-l200: tot = 164943 ms = 164 s (avg 36654 us = 36 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 5010 with 5000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 104608644 B = 99.762 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9582512 B = 9.138 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 2151 ms = 2 s (avg 430 us = 0 ms)
+	PFD-l150: tot = 60692 ms = 60 s (avg 12138 us = 12 ms)
+	PFD-l200: tot = 169109 ms = 169 s (avg 33821 us = 33 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 5511 with 5500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 114118144 B = 108.831 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9582512 B = 9.138 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 2348 ms = 2 s (avg 426 us = 0 ms)
+	PFD-l150: tot = 62442 ms = 62 s (avg 11353 us = 11 ms)
+	PFD-l200: tot = 173209 ms = 173 s (avg 31492 us = 31 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 6012 with 6000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 124128144 B = 118.377 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9582512 B = 9.138 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 2533 ms = 2 s (avg 422 us = 0 ms)
+	PFD-l150: tot = 63853 ms = 63 s (avg 10642 us = 10 ms)
+	PFD-l200: tot = 176659 ms = 176 s (avg 29443 us = 29 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 6513 with 6500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 133141240 B = 126.973 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9582512 B = 9.138 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 2715 ms = 2 s (avg 417 us = 0 ms)
+	PFD-l150: tot = 65137 ms = 65 s (avg 10021 us = 10 ms)
+	PFD-l200: tot = 180076 ms = 180 s (avg 27704 us = 27 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 7014 with 7000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 143651740 B = 136.996 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9582512 B = 9.138 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 2895 ms = 2 s (avg 413 us = 0 ms)
+	PFD-l150: tot = 66402 ms = 66 s (avg 9486 us = 9 ms)
+	PFD-l200: tot = 182950 ms = 182 s (avg 26135 us = 26 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 7515 with 7500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 154162240 B = 147.020 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9582512 B = 9.138 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 3074 ms = 3 s (avg 409 us = 0 ms)
+	PFD-l150: tot = 67803 ms = 67 s (avg 9040 us = 9 ms)
+	PFD-l200: tot = 185902 ms = 185 s (avg 24786 us = 24 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 8016 with 8000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 163671740 B = 156.089 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9582512 B = 9.138 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 3252 ms = 3 s (avg 406 us = 0 ms)
+	PFD-l150: tot = 68955 ms = 68 s (avg 8619 us = 8 ms)
+	PFD-l200: tot = 188427 ms = 188 s (avg 23553 us = 23 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 8517 with 8500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 174182240 B = 166.113 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9582512 B = 9.138 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 3432 ms = 3 s (avg 403 us = 0 ms)
+	PFD-l150: tot = 70123 ms = 70 s (avg 8249 us = 8 ms)
+	PFD-l200: tot = 191186 ms = 191 s (avg 22492 us = 22 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 9018 with 9000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 183691740 B = 175.182 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9582512 B = 9.138 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 3610 ms = 3 s (avg 401 us = 0 ms)
+	PFD-l150: tot = 71408 ms = 71 s (avg 7934 us = 7 ms)
+	PFD-l200: tot = 193437 ms = 193 s (avg 21493 us = 21 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 9519 with 9500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 193701740 B = 184.728 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9582512 B = 9.138 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 3798 ms = 3 s (avg 399 us = 0 ms)
+	PFD-l150: tot = 72585 ms = 72 s (avg 7640 us = 7 ms)
+	PFD-l200: tot = 196095 ms = 196 s (avg 20641 us = 20 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 10020 with 10000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 204212240 B = 194.751 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9582512 B = 9.138 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 3975 ms = 3 s (avg 397 us = 0 ms)
+	PFD-l150: tot = 73622 ms = 73 s (avg 7362 us = 7 ms)
+	PFD-l200: tot = 198137 ms = 198 s (avg 19813 us = 19 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 10521 with 10500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 214722740 B = 204.775 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9582512 B = 9.138 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 4156 ms = 4 s (avg 395 us = 0 ms)
+	PFD-l150: tot = 74895 ms = 74 s (avg 7132 us = 7 ms)
+	PFD-l200: tot = 200491 ms = 200 s (avg 19094 us = 19 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 11022 with 11000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 224232240 B = 213.844 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9582512 B = 9.138 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 4332 ms = 4 s (avg 393 us = 0 ms)
+	PFD-l150: tot = 75930 ms = 75 s (avg 6902 us = 6 ms)
+	PFD-l200: tot = 202458 ms = 202 s (avg 18405 us = 18 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 11523 with 11500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 230238240 B = 219.572 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9582512 B = 9.138 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 4505 ms = 4 s (avg 391 us = 0 ms)
+	PFD-l150: tot = 76885 ms = 76 s (avg 6685 us = 6 ms)
+	PFD-l200: tot = 204571 ms = 204 s (avg 17788 us = 17 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 12024 with 12000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 233741740 B = 222.913 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9582512 B = 9.138 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 4690 ms = 4 s (avg 390 us = 0 ms)
+	PFD-l150: tot = 78104 ms = 78 s (avg 6508 us = 6 ms)
+	PFD-l200: tot = 206419 ms = 206 s (avg 17201 us = 17 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 12525 with 12500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 235743740 B = 224.822 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9582512 B = 9.138 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 4860 ms = 4 s (avg 388 us = 0 ms)
+	PFD-l150: tot = 79159 ms = 79 s (avg 6332 us = 6 ms)
+	PFD-l200: tot = 208920 ms = 208 s (avg 16713 us = 16 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 13026 with 13000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 237745740 B = 226.732 MB
+	PFD-l150: 6467488 B = 6.167 MB
+	PFD-l200: 9590528 B = 9.146 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 5035 ms = 5 s (avg 387 us = 0 ms)
+	PFD-l150: tot = 80597 ms = 80 s (avg 6199 us = 6 ms)
+	PFD-l200: tot = 214217 ms = 214 s (avg 16478 us = 16 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 13527 with 13500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 239247240 B = 228.163 MB
+	PFD-l150: 6475504 B = 6.175 MB
+	PFD-l200: 9590528 B = 9.146 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 5215 ms = 5 s (avg 386 us = 0 ms)
+	PFD-l150: tot = 84338 ms = 84 s (avg 6247 us = 6 ms)
+	PFD-l200: tot = 218867 ms = 218 s (avg 16212 us = 16 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 14028 with 14000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 240748740 B = 229.595 MB
+	PFD-l150: 6475504 B = 6.175 MB
+	PFD-l200: 12790576 B = 12.198 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 5392 ms = 5 s (avg 385 us = 0 ms)
+	PFD-l150: tot = 85838 ms = 85 s (avg 6131 us = 6 ms)
+	PFD-l200: tot = 226389 ms = 226 s (avg 16170 us = 16 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 14529 with 14500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 241749740 B = 230.550 MB
+	PFD-l150: 6483520 B = 6.183 MB
+	PFD-l200: 12798592 B = 12.205 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 5571 ms = 5 s (avg 384 us = 0 ms)
+	PFD-l150: tot = 90091 ms = 90 s (avg 6213 us = 6 ms)
+	PFD-l200: tot = 230488 ms = 230 s (avg 15895 us = 15 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 15030 with 15000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 242250240 B = 231.027 MB
+	PFD-l150: 6483520 B = 6.183 MB
+	PFD-l200: 12798592 B = 12.205 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 5746 ms = 5 s (avg 383 us = 0 ms)
+	PFD-l150: tot = 92040 ms = 92 s (avg 6136 us = 6 ms)
+	PFD-l200: tot = 236905 ms = 236 s (avg 15793 us = 15 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 15531 with 15500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 243251240 B = 231.982 MB
+	PFD-l150: 6491536 B = 6.190 MB
+	PFD-l200: 12838672 B = 12.243 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 5941 ms = 5 s (avg 383 us = 0 ms)
+	PFD-l150: tot = 95315 ms = 95 s (avg 6149 us = 6 ms)
+	PFD-l200: tot = 256878 ms = 256 s (avg 16572 us = 16 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 16032 with 16000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 244252240 B = 232.937 MB
+	PFD-l150: 6491536 B = 6.190 MB
+	PFD-l200: 12878752 B = 12.282 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 6140 ms = 6 s (avg 383 us = 0 ms)
+	PFD-l150: tot = 96940 ms = 96 s (avg 6058 us = 6 ms)
+	PFD-l200: tot = 280880 ms = 280 s (avg 17555 us = 17 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 16533 with 16500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 244752740 B = 233.414 MB
+	PFD-l150: 6491536 B = 6.190 MB
+	PFD-l200: 12902800 B = 12.305 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 6336 ms = 6 s (avg 384 us = 0 ms)
+	PFD-l150: tot = 100013 ms = 100 s (avg 6061 us = 6 ms)
+	PFD-l200: tot = 301451 ms = 301 s (avg 18269 us = 18 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 17034 with 17000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 245253240 B = 233.891 MB
+	PFD-l150: 6499552 B = 6.198 MB
+	PFD-l200: 12918832 B = 12.320 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 6538 ms = 6 s (avg 384 us = 0 ms)
+	PFD-l150: tot = 105892 ms = 105 s (avg 6228 us = 6 ms)
+	PFD-l200: tot = 323956 ms = 323 s (avg 19056 us = 19 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 17535 with 17500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 246254240 B = 234.846 MB
+	PFD-l150: 6531616 B = 6.229 MB
+	PFD-l200: 12950896 B = 12.350 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 6742 ms = 6 s (avg 385 us = 0 ms)
+	PFD-l150: tot = 114132 ms = 114 s (avg 6521 us = 6 ms)
+	PFD-l200: tot = 344287 ms = 344 s (avg 19673 us = 19 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 18036 with 18000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 246754740 B = 235.323 MB
+	PFD-l150: 6539632 B = 6.236 MB
+	PFD-l200: 12966928 B = 12.366 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 6937 ms = 6 s (avg 385 us = 0 ms)
+	PFD-l150: tot = 120727 ms = 120 s (avg 6707 us = 6 ms)
+	PFD-l200: tot = 358289 ms = 358 s (avg 19904 us = 19 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 18537 with 18500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 247255240 B = 235.800 MB
+	PFD-l150: 6571696 B = 6.267 MB
+	PFD-l200: 12990976 B = 12.389 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 7142 ms = 7 s (avg 386 us = 0 ms)
+	PFD-l150: tot = 134175 ms = 134 s (avg 7252 us = 7 ms)
+	PFD-l200: tot = 374390 ms = 374 s (avg 20237 us = 20 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 19038 with 19000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 247755740 B = 236.278 MB
+	PFD-l150: 6587728 B = 6.282 MB
+	PFD-l200: 13007008 B = 12.404 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 7338 ms = 7 s (avg 386 us = 0 ms)
+	PFD-l150: tot = 140585 ms = 140 s (avg 7399 us = 7 ms)
+	PFD-l200: tot = 390973 ms = 390 s (avg 20577 us = 20 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 19539 with 19500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 248256240 B = 236.755 MB
+	PFD-l150: 6603760 B = 6.297 MB
+	PFD-l200: 13031056 B = 12.427 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 7538 ms = 7 s (avg 386 us = 0 ms)
+	PFD-l150: tot = 148745 ms = 148 s (avg 7627 us = 7 ms)
+	PFD-l200: tot = 408833 ms = 408 s (avg 20965 us = 20 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 20040 with 20000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 248756740 B = 237.232 MB
+	PFD-l150: 6619792 B = 6.313 MB
+	PFD-l200: 13055104 B = 12.450 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 7743 ms = 7 s (avg 387 us = 0 ms)
+	PFD-l150: tot = 156638 ms = 156 s (avg 7831 us = 7 ms)
+	PFD-l200: tot = 428773 ms = 428 s (avg 21438 us = 21 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 20541 with 20500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 249257240 B = 237.710 MB
+	PFD-l150: 6635824 B = 6.328 MB
+	PFD-l200: 13071136 B = 12.465 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 7947 ms = 7 s (avg 387 us = 0 ms)
+	PFD-l150: tot = 167504 ms = 167 s (avg 8170 us = 8 ms)
+	PFD-l200: tot = 448092 ms = 448 s (avg 21858 us = 21 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 21042 with 21000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 249757740 B = 238.187 MB
+	PFD-l150: 6643840 B = 6.336 MB
+	PFD-l200: 13103200 B = 12.496 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 8146 ms = 8 s (avg 387 us = 0 ms)
+	PFD-l150: tot = 173964 ms = 173 s (avg 8284 us = 8 ms)
+	PFD-l200: tot = 469187 ms = 469 s (avg 22342 us = 22 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 21543 with 21500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 250258240 B = 238.664 MB
+	PFD-l150: 6651856 B = 6.343 MB
+	PFD-l200: 13143280 B = 12.534 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 8346 ms = 8 s (avg 388 us = 0 ms)
+	PFD-l150: tot = 176496 ms = 176 s (avg 8209 us = 8 ms)
+	PFD-l200: tot = 494413 ms = 494 s (avg 22995 us = 22 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 22044 with 22000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 250758740 B = 239.142 MB
+	PFD-l150: 6659872 B = 6.351 MB
+	PFD-l200: 13159312 B = 12.549 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 8544 ms = 8 s (avg 388 us = 0 ms)
+	PFD-l150: tot = 183250 ms = 183 s (avg 8329 us = 8 ms)
+	PFD-l200: tot = 511755 ms = 511 s (avg 23261 us = 23 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 22545 with 22500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 251259240 B = 239.619 MB
+	PFD-l150: 6675904 B = 6.366 MB
+	PFD-l200: 13183360 B = 12.572 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 8749 ms = 8 s (avg 388 us = 0 ms)
+	PFD-l150: tot = 190568 ms = 190 s (avg 8469 us = 8 ms)
+	PFD-l200: tot = 533661 ms = 533 s (avg 23718 us = 23 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 23046 with 23000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 251759740 B = 240.096 MB
+	PFD-l150: 6683920 B = 6.374 MB
+	PFD-l200: 13207408 B = 12.595 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 8950 ms = 8 s (avg 389 us = 0 ms)
+	PFD-l150: tot = 197298 ms = 197 s (avg 8578 us = 8 ms)
+	PFD-l200: tot = 551735 ms = 551 s (avg 23988 us = 23 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 23547 with 23500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 252260240 B = 240.574 MB
+	PFD-l150: 6691936 B = 6.381 MB
+	PFD-l200: 13231456 B = 12.618 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 9152 ms = 9 s (avg 389 us = 0 ms)
+	PFD-l150: tot = 205217 ms = 205 s (avg 8732 us = 8 ms)
+	PFD-l200: tot = 572358 ms = 572 s (avg 24355 us = 24 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 24048 with 24000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 252760740 B = 241.051 MB
+	PFD-l150: 6707968 B = 6.397 MB
+	PFD-l200: 13263520 B = 12.649 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 9363 ms = 9 s (avg 390 us = 0 ms)
+	PFD-l150: tot = 215185 ms = 215 s (avg 8966 us = 8 ms)
+	PFD-l200: tot = 598618 ms = 598 s (avg 24942 us = 24 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 24549 with 24500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 253261240 B = 241.528 MB
+	PFD-l150: 6707968 B = 6.397 MB
+	PFD-l200: 13279552 B = 12.664 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 9563 ms = 9 s (avg 390 us = 0 ms)
+	PFD-l150: tot = 221419 ms = 221 s (avg 9037 us = 9 ms)
+	PFD-l200: tot = 617574 ms = 617 s (avg 25207 us = 25 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 25050 with 25000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 253761740 B = 242.006 MB
+	PFD-l150: 6724000 B = 6.412 MB
+	PFD-l200: 13295584 B = 12.679 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 9765 ms = 9 s (avg 390 us = 0 ms)
+	PFD-l150: tot = 228132 ms = 228 s (avg 9125 us = 9 ms)
+	PFD-l200: tot = 640668 ms = 640 s (avg 25626 us = 25 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 25551 with 25500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 254262240 B = 242.483 MB
+	PFD-l150: 6740032 B = 6.427 MB
+	PFD-l200: 13311616 B = 12.694 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 9964 ms = 9 s (avg 390 us = 0 ms)
+	PFD-l150: tot = 239347 ms = 239 s (avg 9386 us = 9 ms)
+	PFD-l200: tot = 654368 ms = 654 s (avg 25661 us = 25 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 26052 with 26000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 254762740 B = 242.960 MB
+	PFD-l150: 6764080 B = 6.450 MB
+	PFD-l200: 13327648 B = 12.710 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 10163 ms = 10 s (avg 390 us = 0 ms)
+	PFD-l150: tot = 246336 ms = 246 s (avg 9474 us = 9 ms)
+	PFD-l200: tot = 673526 ms = 673 s (avg 25904 us = 25 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 26553 with 26500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 255263240 B = 243.437 MB
+	PFD-l150: 6772096 B = 6.458 MB
+	PFD-l200: 13351696 B = 12.733 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 10363 ms = 10 s (avg 391 us = 0 ms)
+	PFD-l150: tot = 253563 ms = 253 s (avg 9568 us = 9 ms)
+	PFD-l200: tot = 693484 ms = 693 s (avg 26169 us = 26 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 27054 with 27000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 255763740 B = 243.915 MB
+	PFD-l150: 6788128 B = 6.473 MB
+	PFD-l200: 13367728 B = 12.748 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 10564 ms = 10 s (avg 391 us = 0 ms)
+	PFD-l150: tot = 264296 ms = 264 s (avg 9788 us = 9 ms)
+	PFD-l200: tot = 710550 ms = 710 s (avg 26316 us = 26 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 27555 with 27500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 256264240 B = 244.392 MB
+	PFD-l150: 6804160 B = 6.488 MB
+	PFD-l200: 13391776 B = 12.771 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 10770 ms = 10 s (avg 391 us = 0 ms)
+	PFD-l150: tot = 275834 ms = 275 s (avg 10030 us = 10 ms)
+	PFD-l200: tot = 730887 ms = 730 s (avg 26577 us = 26 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 28056 with 28000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 256764740 B = 244.869 MB
+	PFD-l150: 6820192 B = 6.504 MB
+	PFD-l200: 13415824 B = 12.794 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 10976 ms = 10 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 287129 ms = 287 s (avg 10254 us = 10 ms)
+	PFD-l200: tot = 751515 ms = 751 s (avg 26839 us = 26 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 28557 with 28500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 257265240 B = 245.347 MB
+	PFD-l150: 6828208 B = 6.511 MB
+	PFD-l200: 13431856 B = 12.809 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 11176 ms = 11 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 296775 ms = 296 s (avg 10413 us = 10 ms)
+	PFD-l200: tot = 769254 ms = 769 s (avg 26991 us = 26 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 29058 with 29000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 257765740 B = 245.824 MB
+	PFD-l150: 6844240 B = 6.527 MB
+	PFD-l200: 13455904 B = 12.832 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 11378 ms = 11 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 305643 ms = 305 s (avg 10539 us = 10 ms)
+	PFD-l200: tot = 791531 ms = 791 s (avg 27294 us = 27 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 29559 with 29500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 258266240 B = 246.301 MB
+	PFD-l150: 6860272 B = 6.542 MB
+	PFD-l200: 13463920 B = 12.840 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 11573 ms = 11 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 314586 ms = 314 s (avg 10663 us = 10 ms)
+	PFD-l200: tot = 803685 ms = 803 s (avg 27243 us = 27 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 30060 with 30000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 258766740 B = 246.779 MB
+	PFD-l150: 6868288 B = 6.550 MB
+	PFD-l200: 13479952 B = 12.855 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 11765 ms = 11 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 320573 ms = 320 s (avg 10685 us = 10 ms)
+	PFD-l200: tot = 817616 ms = 817 s (avg 27253 us = 27 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 30561 with 30500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 259267240 B = 247.256 MB
+	PFD-l150: 6876304 B = 6.557 MB
+	PFD-l200: 13495984 B = 12.870 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 11963 ms = 11 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 329044 ms = 329 s (avg 10788 us = 10 ms)
+	PFD-l200: tot = 834331 ms = 834 s (avg 27355 us = 27 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 31062 with 31000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 260268240 B = 248.211 MB
+	PFD-l150: 6884320 B = 6.565 MB
+	PFD-l200: 13512016 B = 12.886 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 12158 ms = 12 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 332784 ms = 332 s (avg 10734 us = 10 ms)
+	PFD-l200: tot = 853049 ms = 853 s (avg 27517 us = 27 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 31563 with 31500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 260776932 B = 248.696 MB
+	PFD-l150: 6892336 B = 6.573 MB
+	PFD-l200: 13528048 B = 12.901 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 12356 ms = 12 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 340509 ms = 340 s (avg 10809 us = 10 ms)
+	PFD-l200: tot = 870192 ms = 870 s (avg 27625 us = 27 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 32064 with 32000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 261277432 B = 249.173 MB
+	PFD-l150: 6908368 B = 6.588 MB
+	PFD-l200: 13552096 B = 12.924 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 12561 ms = 12 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 349400 ms = 349 s (avg 10918 us = 10 ms)
+	PFD-l200: tot = 892663 ms = 892 s (avg 27895 us = 27 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 32565 with 32500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 261777932 B = 249.650 MB
+	PFD-l150: 6916384 B = 6.595 MB
+	PFD-l200: 13568128 B = 12.939 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 12763 ms = 12 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 354906 ms = 354 s (avg 10920 us = 10 ms)
+	PFD-l200: tot = 915771 ms = 915 s (avg 28177 us = 28 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 33066 with 33000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 262778932 B = 250.605 MB
+	PFD-l150: 6924400 B = 6.603 MB
+	PFD-l200: 13584160 B = 12.954 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 12957 ms = 12 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 361711 ms = 361 s (avg 10960 us = 10 ms)
+	PFD-l200: tot = 930535 ms = 930 s (avg 28198 us = 28 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 33567 with 33500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 263279432 B = 251.082 MB
+	PFD-l150: 6932416 B = 6.611 MB
+	PFD-l200: 13600192 B = 12.970 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 13154 ms = 13 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 372881 ms = 372 s (avg 11130 us = 11 ms)
+	PFD-l200: tot = 942382 ms = 942 s (avg 28130 us = 28 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 34068 with 34000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 264280432 B = 252.037 MB
+	PFD-l150: 6948448 B = 6.626 MB
+	PFD-l200: 13616224 B = 12.985 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 13359 ms = 13 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 381634 ms = 381 s (avg 11224 us = 11 ms)
+	PFD-l200: tot = 963439 ms = 963 s (avg 28336 us = 28 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 34569 with 34500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 264780932 B = 252.514 MB
+	PFD-l150: 6956464 B = 6.634 MB
+	PFD-l200: 13632256 B = 13.000 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 13554 ms = 13 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 388738 ms = 388 s (avg 11267 us = 11 ms)
+	PFD-l200: tot = 979913 ms = 979 s (avg 28403 us = 28 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 35070 with 35000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 265781932 B = 253.469 MB
+	PFD-l150: 6972496 B = 6.649 MB
+	PFD-l200: 13640272 B = 13.008 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 13755 ms = 13 s (avg 393 us = 0 ms)
+	PFD-l150: tot = 400438 ms = 400 s (avg 11441 us = 11 ms)
+	PFD-l200: tot = 995706 ms = 995 s (avg 28448 us = 28 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 35571 with 35500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 266782932 B = 254.424 MB
+	PFD-l150: 6972496 B = 6.649 MB
+	PFD-l200: 13656304 B = 13.023 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 13938 ms = 13 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 402985 ms = 402 s (avg 11351 us = 11 ms)
+	PFD-l200: tot = 1007866 ms = 1007 s (avg 28390 us = 28 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 36072 with 36000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 267783932 B = 255.378 MB
+	PFD-l150: 6980512 B = 6.657 MB
+	PFD-l200: 13672336 B = 13.038 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 14138 ms = 14 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 408936 ms = 408 s (avg 11359 us = 11 ms)
+	PFD-l200: tot = 1030575 ms = 1030 s (avg 28627 us = 28 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 36573 with 36500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 268784932 B = 256.333 MB
+	PFD-l150: 6980512 B = 6.657 MB
+	PFD-l200: 13680352 B = 13.046 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 14326 ms = 14 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 413762 ms = 413 s (avg 11335 us = 11 ms)
+	PFD-l200: tot = 1043681 ms = 1043 s (avg 28594 us = 28 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 37074 with 37000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 270286432 B = 257.765 MB
+	PFD-l150: 6988528 B = 6.664 MB
+	PFD-l200: 13696384 B = 13.061 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 14534 ms = 14 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 426446 ms = 426 s (avg 11525 us = 11 ms)
+	PFD-l200: tot = 1064075 ms = 1064 s (avg 28758 us = 28 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 37575 with 37500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 272288432 B = 259.674 MB
+	PFD-l150: 6996544 B = 6.672 MB
+	PFD-l200: 13712416 B = 13.077 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 14733 ms = 14 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 433593 ms = 433 s (avg 11562 us = 11 ms)
+	PFD-l200: tot = 1081036 ms = 1081 s (avg 28827 us = 28 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 38076 with 38000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 274290432 B = 261.583 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13712416 B = 13.077 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 14932 ms = 14 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 443971 ms = 443 s (avg 11683 us = 11 ms)
+	PFD-l200: tot = 1101299 ms = 1101 s (avg 28981 us = 28 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 38577 with 38500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 278294432 B = 265.402 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13720432 B = 13.084 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 15123 ms = 15 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 450913 ms = 450 s (avg 11712 us = 11 ms)
+	PFD-l200: tot = 1112426 ms = 1112 s (avg 28894 us = 28 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 39078 with 39000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 284800932 B = 271.607 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13728448 B = 13.092 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 15334 ms = 15 s (avg 393 us = 0 ms)
+	PFD-l150: tot = 462646 ms = 462 s (avg 11862 us = 11 ms)
+	PFD-l200: tot = 1134347 ms = 1134 s (avg 29085 us = 29 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 39579 with 39500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 293809932 B = 280.198 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13728448 B = 13.092 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 15526 ms = 15 s (avg 393 us = 0 ms)
+	PFD-l150: tot = 467359 ms = 467 s (avg 11831 us = 11 ms)
+	PFD-l200: tot = 1139566 ms = 1139 s (avg 28849 us = 28 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 40080 with 40000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 303819932 B = 289.745 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13728448 B = 13.092 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 15714 ms = 15 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 469942 ms = 469 s (avg 11748 us = 11 ms)
+	PFD-l200: tot = 1143295 ms = 1143 s (avg 28582 us = 28 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 40581 with 40500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 313329432 B = 298.814 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13728448 B = 13.092 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 15899 ms = 15 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 471705 ms = 471 s (avg 11647 us = 11 ms)
+	PFD-l200: tot = 1146062 ms = 1146 s (avg 28297 us = 28 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 41082 with 41000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 322338432 B = 307.405 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13728448 B = 13.092 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 16088 ms = 16 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 473182 ms = 473 s (avg 11541 us = 11 ms)
+	PFD-l200: tot = 1148814 ms = 1148 s (avg 28019 us = 28 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 41583 with 41500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 331847932 B = 316.474 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13728448 B = 13.092 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 16274 ms = 16 s (avg 392 us = 0 ms)
+	PFD-l150: tot = 474687 ms = 474 s (avg 11438 us = 11 ms)
+	PFD-l200: tot = 1150837 ms = 1150 s (avg 27731 us = 27 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 42084 with 42000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 342858932 B = 326.975 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13728448 B = 13.092 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 16457 ms = 16 s (avg 391 us = 0 ms)
+	PFD-l150: tot = 475853 ms = 475 s (avg 11329 us = 11 ms)
+	PFD-l200: tot = 1152866 ms = 1152 s (avg 27449 us = 27 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 42585 with 42500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 352368432 B = 336.044 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13728448 B = 13.092 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 16639 ms = 16 s (avg 391 us = 0 ms)
+	PFD-l150: tot = 476910 ms = 476 s (avg 11221 us = 11 ms)
+	PFD-l200: tot = 1154474 ms = 1154 s (avg 27164 us = 27 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 43086 with 43000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 362378432 B = 345.591 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13728448 B = 13.092 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 16822 ms = 16 s (avg 391 us = 0 ms)
+	PFD-l150: tot = 477970 ms = 477 s (avg 11115 us = 11 ms)
+	PFD-l200: tot = 1156234 ms = 1156 s (avg 26889 us = 26 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 43587 with 43500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 372388432 B = 355.137 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13728448 B = 13.092 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 17025 ms = 17 s (avg 391 us = 0 ms)
+	PFD-l150: tot = 479223 ms = 479 s (avg 11016 us = 11 ms)
+	PFD-l200: tot = 1157793 ms = 1157 s (avg 26615 us = 26 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 44088 with 44000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 382398432 B = 364.683 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13728448 B = 13.092 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 17207 ms = 17 s (avg 391 us = 0 ms)
+	PFD-l150: tot = 480171 ms = 480 s (avg 10912 us = 10 ms)
+	PFD-l200: tot = 1159424 ms = 1159 s (avg 26350 us = 26 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 44589 with 44500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 391907932 B = 373.752 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13728448 B = 13.092 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 17389 ms = 17 s (avg 390 us = 0 ms)
+	PFD-l150: tot = 481117 ms = 481 s (avg 10811 us = 10 ms)
+	PFD-l200: tot = 1160757 ms = 1160 s (avg 26084 us = 26 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 45090 with 45000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 402418432 B = 383.776 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13728448 B = 13.092 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 17570 ms = 17 s (avg 390 us = 0 ms)
+	PFD-l150: tot = 482238 ms = 482 s (avg 10716 us = 10 ms)
+	PFD-l200: tot = 1162243 ms = 1162 s (avg 25827 us = 25 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 45591 with 45500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 412928932 B = 393.799 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13728448 B = 13.092 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 17753 ms = 17 s (avg 390 us = 0 ms)
+	PFD-l150: tot = 483109 ms = 483 s (avg 10617 us = 10 ms)
+	PFD-l200: tot = 1163373 ms = 1163 s (avg 25568 us = 25 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 46092 with 46000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 422938932 B = 403.345 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13728448 B = 13.092 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 17935 ms = 17 s (avg 389 us = 0 ms)
+	PFD-l150: tot = 483983 ms = 483 s (avg 10521 us = 10 ms)
+	PFD-l200: tot = 1164788 ms = 1164 s (avg 25321 us = 25 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 46593 with 46500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 432948932 B = 412.892 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13728448 B = 13.092 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 18118 ms = 18 s (avg 389 us = 0 ms)
+	PFD-l150: tot = 485068 ms = 485 s (avg 10431 us = 10 ms)
+	PFD-l200: tot = 1165919 ms = 1165 s (avg 25073 us = 25 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 47094 with 47000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 442958932 B = 422.438 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13728448 B = 13.092 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 18300 ms = 18 s (avg 389 us = 0 ms)
+	PFD-l150: tot = 485903 ms = 485 s (avg 10338 us = 10 ms)
+	PFD-l200: tot = 1167268 ms = 1167 s (avg 24835 us = 24 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 47595 with 47500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 453969932 B = 432.939 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13728448 B = 13.092 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 18484 ms = 18 s (avg 389 us = 0 ms)
+	PFD-l150: tot = 486740 ms = 486 s (avg 10247 us = 10 ms)
+	PFD-l200: tot = 1168330 ms = 1168 s (avg 24596 us = 24 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 48096 with 48000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 463979932 B = 442.485 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13728448 B = 13.092 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 18665 ms = 18 s (avg 388 us = 0 ms)
+	PFD-l150: tot = 487750 ms = 487 s (avg 10161 us = 10 ms)
+	PFD-l200: tot = 1169609 ms = 1169 s (avg 24366 us = 24 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 48597 with 48500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 473989932 B = 452.032 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13728448 B = 13.092 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 18846 ms = 18 s (avg 388 us = 0 ms)
+	PFD-l150: tot = 488585 ms = 488 s (avg 10073 us = 10 ms)
+	PFD-l200: tot = 1170599 ms = 1170 s (avg 24136 us = 24 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 49098 with 49000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 483999932 B = 461.578 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13728448 B = 13.092 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 19027 ms = 19 s (avg 388 us = 0 ms)
+	PFD-l150: tot = 489382 ms = 489 s (avg 9987 us = 9 ms)
+	PFD-l200: tot = 1171882 ms = 1171 s (avg 23915 us = 23 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 49599 with 49500 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 495010932 B = 472.079 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13728448 B = 13.092 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 19213 ms = 19 s (avg 388 us = 0 ms)
+	PFD-l150: tot = 490179 ms = 490 s (avg 9902 us = 9 ms)
+	PFD-l200: tot = 1172807 ms = 1172 s (avg 23693 us = 23 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 50100 with 50000 processed
+
+=============  Memory Usage  =============
+	EXACT_MS: 504019932 B = 480.670 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13728448 B = 13.092 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 19392 ms = 19 s (avg 387 us = 0 ms)
+	PFD-l150: tot = 491187 ms = 491 s (avg 9823 us = 9 ms)
+	PFD-l200: tot = 1174088 ms = 1174 s (avg 23481 us = 23 ms)
+Query timers:
+	EXACT_MS: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l150: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+MS(10):
+	F-norm = 144.334
+	PFD-l150: ||ATA-BTB||_2 / ||A||_F^2 = 0.00640187
+	PFD-l200: ||ATA-BTB||_2 / ||A||_F^2 = 0.00465141
+
+MS(100):
+	F-norm = 475.977
+	PFD-l150: ||ATA-BTB||_2 / ||A||_F^2 = 0.00591944
+	PFD-l200: ||ATA-BTB||_2 / ||A||_F^2 = 0.00547912
+
+MS(200):
+	F-norm = 671.753
+	PFD-l150: ||ATA-BTB||_2 / ||A||_F^2 = 0.00589892
+	PFD-l200: ||ATA-BTB||_2 / ||A||_F^2 = 0.00567029
+
+MS(450):
+	F-norm = 1016.21
+	PFD-l150: ||ATA-BTB||_2 / ||A||_F^2 = 0.00582515
+	PFD-l200: ||ATA-BTB||_2 / ||A||_F^2 = 0.00572362
+
+MS(470):
+	F-norm = 1099.92
+	PFD-l150: ||ATA-BTB||_2 / ||A||_F^2 = 0.00599316
+	PFD-l200: ||ATA-BTB||_2 / ||A||_F^2 = 0.00596911
+
+MS(480):
+	F-norm = 1194.89
+	PFD-l150: ||ATA-BTB||_2 / ||A||_F^2 = 0.00718644
+	PFD-l200: ||ATA-BTB||_2 / ||A||_F^2 = 0.00623626
+
+MS(490):
+	F-norm = 1332.61
+	PFD-l150: ||ATA-BTB||_2 / ||A||_F^2 = 0.00782611
+	PFD-l200: ||ATA-BTB||_2 / ||A||_F^2 = 0.00597605
+
+MS(500):
+	F-norm = 1486.72
+	PFD-l150: ||ATA-BTB||_2 / ||A||_F^2 = 0.00781359
+	PFD-l200: ||ATA-BTB||_2 / ||A||_F^2 = 0.00584514
+
+MS(510):
+	F-norm = 1622.39
+	PFD-l150: ||ATA-BTB||_2 / ||A||_F^2 = 0.00765218
+	PFD-l200: ||ATA-BTB||_2 / ||A||_F^2 = 0.00589106
+
+MS(520):
+	F-norm = 1720.5
+	PFD-l150: ||ATA-BTB||_2 / ||A||_F^2 = 0.00763198
+	PFD-l200: ||ATA-BTB||_2 / ||A||_F^2 = 0.00584124
+
+MS(530):
+	F-norm = 1783.08
+	PFD-l150: ||ATA-BTB||_2 / ||A||_F^2 = 0.00774591
+	PFD-l200: ||ATA-BTB||_2 / ||A||_F^2 = 0.00578601
+
+MS(550):
+	F-norm = 1831.59
+	PFD-l150: ||ATA-BTB||_2 / ||A||_F^2 = 0.00783673
+	PFD-l200: ||ATA-BTB||_2 / ||A||_F^2 = 0.00587384
+
+MS(600):
+	F-norm = 1866.65
+	PFD-l150: ||ATA-BTB||_2 / ||A||_F^2 = 0.00771231
+	PFD-l200: ||ATA-BTB||_2 / ||A||_F^2 = 0.00564201
+
+MS(800):
+	F-norm = 1986.2
+	PFD-l150: ||ATA-BTB||_2 / ||A||_F^2 = 0.00693645
+	PFD-l200: ||ATA-BTB||_2 / ||A||_F^2 = 0.00511906
+
+MS(1000):
+	F-norm = 2095.9
+	PFD-l150: ||ATA-BTB||_2 / ||A||_F^2 = 0.00634355
+	PFD-l200: ||ATA-BTB||_2 / ||A||_F^2 = 0.00472409
+
+
+=============  Memory Usage  =============
+	EXACT_MS: 504019932 B = 480.670 MB
+	PFD-l150: 7004560 B = 6.680 MB
+	PFD-l200: 13728448 B = 13.092 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_MS: tot = 19392 ms = 19 s (avg 387 us = 0 ms)
+	PFD-l150: tot = 491187 ms = 491 s (avg 9823 us = 9 ms)
+	PFD-l200: tot = 1174088 ms = 1174 s (avg 23481 us = 23 ms)
+Query timers:
+	EXACT_MS: tot = 9 ms = 0 s (avg 610 us = 0 ms)
+	PFD-l150: tot = 2218 ms = 2 s (avg 147905 us = 147 ms)
+	PFD-l200: tot = 9733 ms = 9 s (avg 648884 us = 648 ms)

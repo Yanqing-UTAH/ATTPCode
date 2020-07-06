@@ -1,0 +1,1524 @@
+Stats request at line 501 with 500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 24301440 B = 23.175 MB
+	NORM_SAMPLING_WR-ss400: 31637440 B = 30.171 MB
+Update timers:
+	PFD-l60: tot = 205984 ms = 205 s (avg 411969 us = 411 ms)
+	PFD-l10: tot = 250171 ms = 250 s (avg 500343 us = 500 ms)
+	NORM_SAMPLING_WR-ss200: tot = 8 ms = 0 s (avg 16 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 10 ms = 0 s (avg 20 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1002 with 1000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 32781776 B = 31.263 MB
+	NORM_SAMPLING_WR-ss400: 48757776 B = 46.499 MB
+Update timers:
+	PFD-l60: tot = 461514 ms = 461 s (avg 461514 us = 461 ms)
+	PFD-l10: tot = 517600 ms = 517 s (avg 517600 us = 517 ms)
+	NORM_SAMPLING_WR-ss200: tot = 15 ms = 0 s (avg 15 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 19 ms = 0 s (avg 19 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1503 with 1500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 39102352 B = 37.290 MB
+	NORM_SAMPLING_WR-ss400: 60278096 B = 57.485 MB
+Update timers:
+	PFD-l60: tot = 715945 ms = 715 s (avg 477297 us = 477 ms)
+	PFD-l10: tot = 779102 ms = 779 s (avg 519401 us = 519 ms)
+	NORM_SAMPLING_WR-ss200: tot = 21 ms = 0 s (avg 14 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 27 ms = 0 s (avg 18 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 2004 with 2000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 43182672 B = 41.182 MB
+	NORM_SAMPLING_WR-ss400: 68598416 B = 65.420 MB
+Update timers:
+	PFD-l60: tot = 970030 ms = 970 s (avg 485015 us = 485 ms)
+	PFD-l10: tot = 1046333 ms = 1046 s (avg 523166 us = 523 ms)
+	NORM_SAMPLING_WR-ss200: tot = 28 ms = 0 s (avg 14 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 36 ms = 0 s (avg 18 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 2505 with 2500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 46543216 B = 44.387 MB
+	NORM_SAMPLING_WR-ss400: 74918704 B = 71.448 MB
+Update timers:
+	PFD-l60: tot = 1255376 ms = 1255 s (avg 502150 us = 502 ms)
+	PFD-l10: tot = 1307791 ms = 1307 s (avg 523116 us = 523 ms)
+	NORM_SAMPLING_WR-ss200: tot = 34 ms = 0 s (avg 13 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 44 ms = 0 s (avg 17 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 3006 with 3000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 49583776 B = 47.286 MB
+	NORM_SAMPLING_WR-ss400: 80359520 B = 76.636 MB
+Update timers:
+	PFD-l60: tot = 1508372 ms = 1508 s (avg 502790 us = 502 ms)
+	PFD-l10: tot = 1568810 ms = 1568 s (avg 522936 us = 522 ms)
+	NORM_SAMPLING_WR-ss200: tot = 41 ms = 0 s (avg 13 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 53 ms = 0 s (avg 17 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 3507 with 3500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 51184080 B = 48.812 MB
+	NORM_SAMPLING_WR-ss400: 84519824 B = 80.604 MB
+Update timers:
+	PFD-l60: tot = 1761335 ms = 1761 s (avg 503238 us = 503 ms)
+	PFD-l10: tot = 1835219 ms = 1835 s (avg 524348 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 47 ms = 0 s (avg 13 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 61 ms = 0 s (avg 17 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 4008 with 4000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 53104400 B = 50.644 MB
+	NORM_SAMPLING_WR-ss400: 88120144 B = 84.037 MB
+Update timers:
+	PFD-l60: tot = 2014050 ms = 2014 s (avg 503512 us = 503 ms)
+	PFD-l10: tot = 2095821 ms = 2095 s (avg 523955 us = 523 ms)
+	NORM_SAMPLING_WR-ss200: tot = 54 ms = 0 s (avg 13 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 69 ms = 0 s (avg 17 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 4509 with 4500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 55184736 B = 52.628 MB
+	NORM_SAMPLING_WR-ss400: 92520736 B = 88.234 MB
+Update timers:
+	PFD-l60: tot = 2266441 ms = 2266 s (avg 503653 us = 503 ms)
+	PFD-l10: tot = 2362259 ms = 2362 s (avg 524946 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 60 ms = 0 s (avg 13 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 77 ms = 0 s (avg 17 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 5010 with 5000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 56545312 B = 53.925 MB
+	NORM_SAMPLING_WR-ss400: 95241056 B = 90.828 MB
+Update timers:
+	PFD-l60: tot = 2550711 ms = 2550 s (avg 510142 us = 510 ms)
+	PFD-l10: tot = 2623268 ms = 2623 s (avg 524653 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 66 ms = 0 s (avg 13 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 85 ms = 0 s (avg 17 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 5511 with 5500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 59025632 B = 56.291 MB
+	NORM_SAMPLING_WR-ss400: 99161888 B = 94.568 MB
+Update timers:
+	PFD-l60: tot = 2803286 ms = 2803 s (avg 509688 us = 509 ms)
+	PFD-l10: tot = 2889659 ms = 2889 s (avg 525392 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 73 ms = 0 s (avg 13 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 93 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 6012 with 6000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 59985952 B = 57.207 MB
+	NORM_SAMPLING_WR-ss400: 101402464 B = 96.704 MB
+Update timers:
+	PFD-l60: tot = 3055997 ms = 3055 s (avg 509332 us = 509 ms)
+	PFD-l10: tot = 3150248 ms = 3150 s (avg 525041 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 79 ms = 0 s (avg 13 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 101 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 6513 with 6500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 61186256 B = 58.351 MB
+	NORM_SAMPLING_WR-ss400: 104122768 B = 99.299 MB
+Update timers:
+	PFD-l60: tot = 3308689 ms = 3308 s (avg 509029 us = 509 ms)
+	PFD-l10: tot = 3416835 ms = 3416 s (avg 525667 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 86 ms = 0 s (avg 13 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 109 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 7014 with 7000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 62466592 B = 59.572 MB
+	NORM_SAMPLING_WR-ss400: 106603360 B = 101.664 MB
+Update timers:
+	PFD-l60: tot = 3561447 ms = 3561 s (avg 508778 us = 508 ms)
+	PFD-l10: tot = 3677430 ms = 3677 s (avg 525347 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 92 ms = 0 s (avg 13 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 117 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 7515 with 7500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 63506928 B = 60.564 MB
+	NORM_SAMPLING_WR-ss400: 108763696 B = 103.725 MB
+Update timers:
+	PFD-l60: tot = 3813938 ms = 3813 s (avg 508525 us = 508 ms)
+	PFD-l10: tot = 3943719 ms = 3943 s (avg 525829 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 98 ms = 0 s (avg 13 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 125 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 8016 with 8000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 64467248 B = 61.480 MB
+	NORM_SAMPLING_WR-ss400: 110924016 B = 105.785 MB
+Update timers:
+	PFD-l60: tot = 4098002 ms = 4098 s (avg 512250 us = 512 ms)
+	PFD-l10: tot = 4204236 ms = 4204 s (avg 525529 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 105 ms = 0 s (avg 13 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 133 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 8517 with 8500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 65507824 B = 62.473 MB
+	NORM_SAMPLING_WR-ss400: 112524592 B = 107.311 MB
+Update timers:
+	PFD-l60: tot = 4350391 ms = 4350 s (avg 511810 us = 511 ms)
+	PFD-l10: tot = 4464852 ms = 4464 s (avg 525276 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 111 ms = 0 s (avg 13 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 141 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 9018 with 9000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 66708160 B = 63.617 MB
+	NORM_SAMPLING_WR-ss400: 114684928 B = 109.372 MB
+Update timers:
+	PFD-l60: tot = 4602738 ms = 4602 s (avg 511415 us = 511 ms)
+	PFD-l10: tot = 4731207 ms = 4731 s (avg 525689 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 117 ms = 0 s (avg 13 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 149 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 9519 with 9500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 67428496 B = 64.304 MB
+	NORM_SAMPLING_WR-ss400: 115965264 B = 110.593 MB
+Update timers:
+	PFD-l60: tot = 4855075 ms = 4855 s (avg 511060 us = 511 ms)
+	PFD-l10: tot = 4991793 ms = 4991 s (avg 525451 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 123 ms = 0 s (avg 13 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 156 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 10020 with 10000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 67909072 B = 64.763 MB
+	NORM_SAMPLING_WR-ss400: 117325584 B = 111.890 MB
+Update timers:
+	PFD-l60: tot = 5107059 ms = 5107 s (avg 510705 us = 510 ms)
+	PFD-l10: tot = 5257947 ms = 5257 s (avg 525794 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 130 ms = 0 s (avg 13 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 164 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 10521 with 10500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 68629408 B = 65.450 MB
+	NORM_SAMPLING_WR-ss400: 119085920 B = 113.569 MB
+Update timers:
+	PFD-l60: tot = 5390529 ms = 5390 s (avg 513383 us = 513 ms)
+	PFD-l10: tot = 5518330 ms = 5518 s (avg 525555 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 136 ms = 0 s (avg 13 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 172 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 11022 with 11000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 69749696 B = 66.518 MB
+	NORM_SAMPLING_WR-ss400: 120606208 B = 115.019 MB
+Update timers:
+	PFD-l60: tot = 5642536 ms = 5642 s (avg 512957 us = 512 ms)
+	PFD-l10: tot = 5783939 ms = 5783 s (avg 525812 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 142 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 180 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 11523 with 11500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 70709888 B = 67.434 MB
+	NORM_SAMPLING_WR-ss400: 122446656 B = 116.774 MB
+Update timers:
+	PFD-l60: tot = 5894530 ms = 5894 s (avg 512567 us = 512 ms)
+	PFD-l10: tot = 6044219 ms = 6044 s (avg 525584 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 149 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 188 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 12024 with 12000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 71510000 B = 68.197 MB
+	NORM_SAMPLING_WR-ss400: 123406768 B = 117.689 MB
+Update timers:
+	PFD-l60: tot = 6146748 ms = 6146 s (avg 512229 us = 512 ms)
+	PFD-l10: tot = 6310581 ms = 6310 s (avg 525881 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 155 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 196 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 12525 with 12500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 72150336 B = 68.807 MB
+	NORM_SAMPLING_WR-ss400: 124606848 B = 118.834 MB
+Update timers:
+	PFD-l60: tot = 6398512 ms = 6398 s (avg 511880 us = 511 ms)
+	PFD-l10: tot = 6570382 ms = 6570 s (avg 525630 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 161 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 204 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 13026 with 13000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 72950384 B = 69.570 MB
+	NORM_SAMPLING_WR-ss400: 126047152 B = 120.207 MB
+Update timers:
+	PFD-l60: tot = 6681789 ms = 6681 s (avg 513983 us = 513 ms)
+	PFD-l10: tot = 6836288 ms = 6836 s (avg 525868 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 167 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 211 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 13527 with 13500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 73670432 B = 70.257 MB
+	NORM_SAMPLING_WR-ss400: 127007200 B = 121.123 MB
+Update timers:
+	PFD-l60: tot = 6933652 ms = 6933 s (avg 513603 us = 513 ms)
+	PFD-l10: tot = 7096587 ms = 7096 s (avg 525673 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 174 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 219 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 14028 with 14000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 74470480 B = 71.020 MB
+	NORM_SAMPLING_WR-ss400: 127967504 B = 122.039 MB
+Update timers:
+	PFD-l60: tot = 7185705 ms = 7185 s (avg 513264 us = 513 ms)
+	PFD-l10: tot = 7356726 ms = 7356 s (avg 525480 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 180 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 227 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 14529 with 14500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 75270512 B = 71.783 MB
+	NORM_SAMPLING_WR-ss400: 128847536 B = 122.878 MB
+Update timers:
+	PFD-l60: tot = 7437462 ms = 7437 s (avg 512928 us = 512 ms)
+	PFD-l10: tot = 7622426 ms = 7622 s (avg 525684 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 186 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 235 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 15030 with 15000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 75670544 B = 72.165 MB
+	NORM_SAMPLING_WR-ss400: 130287824 B = 124.252 MB
+Update timers:
+	PFD-l60: tot = 7689197 ms = 7689 s (avg 512613 us = 512 ms)
+	PFD-l10: tot = 7882406 ms = 7882 s (avg 525493 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 192 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 243 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 15531 with 15500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 75830560 B = 72.317 MB
+	NORM_SAMPLING_WR-ss400: 131167840 B = 125.091 MB
+Update timers:
+	PFD-l60: tot = 7972243 ms = 7972 s (avg 514338 us = 514 ms)
+	PFD-l10: tot = 8148181 ms = 8148 s (avg 525689 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 198 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 250 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 16032 with 16000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 76390592 B = 72.851 MB
+	NORM_SAMPLING_WR-ss400: 132047872 B = 125.930 MB
+Update timers:
+	PFD-l60: tot = 8223806 ms = 8223 s (avg 513987 us = 513 ms)
+	PFD-l10: tot = 8408006 ms = 8408 s (avg 525500 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 205 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 258 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 16533 with 16500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 76550608 B = 73.004 MB
+	NORM_SAMPLING_WR-ss400: 132607888 B = 126.464 MB
+Update timers:
+	PFD-l60: tot = 8475789 ms = 8475 s (avg 513684 us = 513 ms)
+	PFD-l10: tot = 8674096 ms = 8674 s (avg 525702 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 211 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 266 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 17034 with 17000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 76870896 B = 73.309 MB
+	NORM_SAMPLING_WR-ss400: 133407920 B = 127.227 MB
+Update timers:
+	PFD-l60: tot = 8727139 ms = 8727 s (avg 513361 us = 513 ms)
+	PFD-l10: tot = 8933942 ms = 8933 s (avg 525526 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 217 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 274 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 17535 with 17500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 77430912 B = 73.843 MB
+	NORM_SAMPLING_WR-ss400: 134287936 B = 128.066 MB
+Update timers:
+	PFD-l60: tot = 8978575 ms = 8978 s (avg 513061 us = 513 ms)
+	PFD-l10: tot = 9199594 ms = 9199 s (avg 525691 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 223 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 282 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 18036 with 18000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 77670928 B = 74.072 MB
+	NORM_SAMPLING_WR-ss400: 135167952 B = 128.906 MB
+Update timers:
+	PFD-l60: tot = 9262160 ms = 9262 s (avg 514564 us = 514 ms)
+	PFD-l10: tot = 9459957 ms = 9459 s (avg 525553 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 229 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 289 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 18537 with 18500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 78230944 B = 74.606 MB
+	NORM_SAMPLING_WR-ss400: 136047968 B = 129.745 MB
+Update timers:
+	PFD-l60: tot = 9513885 ms = 9513 s (avg 514264 us = 514 ms)
+	PFD-l10: tot = 9725498 ms = 9725 s (avg 525702 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 235 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 297 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 19038 with 19000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 78550960 B = 74.912 MB
+	NORM_SAMPLING_WR-ss400: 136768240 B = 130.432 MB
+Update timers:
+	PFD-l60: tot = 9765482 ms = 9765 s (avg 513972 us = 513 ms)
+	PFD-l10: tot = 9985218 ms = 9985 s (avg 525537 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 242 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 305 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 19539 with 19500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 78950992 B = 75.293 MB
+	NORM_SAMPLING_WR-ss400: 137408528 B = 131.042 MB
+Update timers:
+	PFD-l60: tot = 10017066 ms = 10017 s (avg 513695 us = 513 ms)
+	PFD-l10: tot = 10245104 ms = 10245 s (avg 525389 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 248 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 313 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 20040 with 20000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 79351008 B = 75.675 MB
+	NORM_SAMPLING_WR-ss400: 137968544 B = 131.577 MB
+Update timers:
+	PFD-l60: tot = 10268660 ms = 10268 s (avg 513433 us = 513 ms)
+	PFD-l10: tot = 10510664 ms = 10510 s (avg 525533 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 254 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 321 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 20541 with 20500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 79511024 B = 75.827 MB
+	NORM_SAMPLING_WR-ss400: 139008816 B = 132.569 MB
+Update timers:
+	PFD-l60: tot = 10551808 ms = 10551 s (avg 514722 us = 514 ms)
+	PFD-l10: tot = 10770518 ms = 10770 s (avg 525391 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 260 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 328 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 21042 with 21000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 80231040 B = 76.514 MB
+	NORM_SAMPLING_WR-ss400: 139888832 B = 133.408 MB
+Update timers:
+	PFD-l60: tot = 10803670 ms = 10803 s (avg 514460 us = 514 ms)
+	PFD-l10: tot = 11036562 ms = 11036 s (avg 525550 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 266 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 336 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 21543 with 21500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 80551056 B = 76.819 MB
+	NORM_SAMPLING_WR-ss400: 140689104 B = 134.171 MB
+Update timers:
+	PFD-l60: tot = 11055382 ms = 11055 s (avg 514203 us = 514 ms)
+	PFD-l10: tot = 11296567 ms = 11296 s (avg 525421 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 273 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 344 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 22044 with 22000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 81111072 B = 77.353 MB
+	NORM_SAMPLING_WR-ss400: 141169120 B = 134.629 MB
+Update timers:
+	PFD-l60: tot = 11307118 ms = 11307 s (avg 513959 us = 513 ms)
+	PFD-l10: tot = 11562132 ms = 11562 s (avg 525551 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 279 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 352 ms = 0 s (avg 16 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 22545 with 22500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 81431088 B = 77.658 MB
+	NORM_SAMPLING_WR-ss400: 142129136 B = 135.544 MB
+Update timers:
+	PFD-l60: tot = 11558851 ms = 11558 s (avg 513726 us = 513 ms)
+	PFD-l10: tot = 11822086 ms = 11822 s (avg 525426 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 285 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 359 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 23046 with 23000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 82151104 B = 78.345 MB
+	NORM_SAMPLING_WR-ss400: 142449152 B = 135.850 MB
+Update timers:
+	PFD-l60: tot = 11841613 ms = 11841 s (avg 514852 us = 514 ms)
+	PFD-l10: tot = 12087370 ms = 12087 s (avg 525537 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 291 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 367 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 23547 with 23500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 82391120 B = 78.574 MB
+	NORM_SAMPLING_WR-ss400: 142769168 B = 136.155 MB
+Update timers:
+	PFD-l60: tot = 12092986 ms = 12092 s (avg 514595 us = 514 ms)
+	PFD-l10: tot = 12347344 ms = 12347 s (avg 525418 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 297 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 375 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 24048 with 24000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 82791136 B = 78.955 MB
+	NORM_SAMPLING_WR-ss400: 143409440 B = 136.765 MB
+Update timers:
+	PFD-l60: tot = 12344735 ms = 12344 s (avg 514363 us = 514 ms)
+	PFD-l10: tot = 12612895 ms = 12612 s (avg 525537 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 304 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 383 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 24549 with 24500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 83431664 B = 79.566 MB
+	NORM_SAMPLING_WR-ss400: 144529456 B = 137.834 MB
+Update timers:
+	PFD-l60: tot = 12596337 ms = 12596 s (avg 514136 us = 514 ms)
+	PFD-l10: tot = 12872797 ms = 12872 s (avg 525420 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 310 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 390 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 25050 with 25000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 83671664 B = 79.795 MB
+	NORM_SAMPLING_WR-ss400: 145089456 B = 138.368 MB
+Update timers:
+	PFD-l60: tot = 12847765 ms = 12847 s (avg 513910 us = 513 ms)
+	PFD-l10: tot = 13132557 ms = 13132 s (avg 525302 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 316 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 398 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 25551 with 25500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 84231680 B = 80.329 MB
+	NORM_SAMPLING_WR-ss400: 145729472 B = 138.978 MB
+Update timers:
+	PFD-l60: tot = 13130815 ms = 13130 s (avg 514933 us = 514 ms)
+	PFD-l10: tot = 13397998 ms = 13397 s (avg 525411 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 322 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 406 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 26052 with 26000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 84471696 B = 80.558 MB
+	NORM_SAMPLING_WR-ss400: 146609488 B = 139.817 MB
+Update timers:
+	PFD-l60: tot = 13382516 ms = 13382 s (avg 514712 us = 514 ms)
+	PFD-l10: tot = 13658321 ms = 13658 s (avg 525320 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 328 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 414 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 26553 with 26500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 84631712 B = 80.711 MB
+	NORM_SAMPLING_WR-ss400: 147089504 B = 140.275 MB
+Update timers:
+	PFD-l60: tot = 13633879 ms = 13633 s (avg 514486 us = 514 ms)
+	PFD-l10: tot = 13923450 ms = 13923 s (avg 525413 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 334 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 421 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 27054 with 27000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 84951728 B = 81.016 MB
+	NORM_SAMPLING_WR-ss400: 147649520 B = 140.809 MB
+Update timers:
+	PFD-l60: tot = 13885140 ms = 13885 s (avg 514264 us = 514 ms)
+	PFD-l10: tot = 14183008 ms = 14183 s (avg 525296 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 341 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 429 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 27555 with 27500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 85271744 B = 81.321 MB
+	NORM_SAMPLING_WR-ss400: 148289792 B = 141.420 MB
+Update timers:
+	PFD-l60: tot = 14136537 ms = 14136 s (avg 514055 us = 514 ms)
+	PFD-l10: tot = 14448417 ms = 14448 s (avg 525397 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 347 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 437 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 28056 with 28000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 85431760 B = 81.474 MB
+	NORM_SAMPLING_WR-ss400: 149009808 B = 142.106 MB
+Update timers:
+	PFD-l60: tot = 14419713 ms = 14419 s (avg 514989 us = 514 ms)
+	PFD-l10: tot = 14708217 ms = 14708 s (avg 525293 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 353 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 445 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 28557 with 28500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 85431776 B = 81.474 MB
+	NORM_SAMPLING_WR-ss400: 149569824 B = 142.640 MB
+Update timers:
+	PFD-l60: tot = 14671264 ms = 14671 s (avg 514781 us = 514 ms)
+	PFD-l10: tot = 14973779 ms = 14973 s (avg 525395 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 359 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 453 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 29058 with 29000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 85751792 B = 81.779 MB
+	NORM_SAMPLING_WR-ss400: 150209840 B = 143.251 MB
+Update timers:
+	PFD-l60: tot = 14922794 ms = 14922 s (avg 514579 us = 514 ms)
+	PFD-l10: tot = 15233704 ms = 15233 s (avg 525300 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 365 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 460 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 29559 with 29500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 86151808 B = 82.160 MB
+	NORM_SAMPLING_WR-ss400: 150690368 B = 143.709 MB
+Update timers:
+	PFD-l60: tot = 15174187 ms = 15174 s (avg 514379 us = 514 ms)
+	PFD-l10: tot = 15499084 ms = 15499 s (avg 525392 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 372 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 468 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 30060 with 30000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 86631824 B = 82.618 MB
+	NORM_SAMPLING_WR-ss400: 151010384 B = 144.014 MB
+Update timers:
+	PFD-l60: tot = 15425397 ms = 15425 s (avg 514179 us = 514 ms)
+	PFD-l10: tot = 15758562 ms = 15758 s (avg 525285 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 378 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 476 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 30561 with 30500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 86791840 B = 82.771 MB
+	NORM_SAMPLING_WR-ss400: 151650400 B = 144.625 MB
+Update timers:
+	PFD-l60: tot = 15708624 ms = 15708 s (avg 515036 us = 515 ms)
+	PFD-l10: tot = 16018547 ms = 16018 s (avg 525198 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 384 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 483 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 31062 with 31000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 86951856 B = 82.923 MB
+	NORM_SAMPLING_WR-ss400: 152210416 B = 145.159 MB
+Update timers:
+	PFD-l60: tot = 15959858 ms = 15959 s (avg 514834 us = 514 ms)
+	PFD-l10: tot = 16284078 ms = 16284 s (avg 525292 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 390 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 491 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 31563 with 31500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 87191888 B = 83.152 MB
+	NORM_SAMPLING_WR-ss400: 152530448 B = 145.464 MB
+Update timers:
+	PFD-l60: tot = 16211457 ms = 16211 s (avg 514649 us = 514 ms)
+	PFD-l10: tot = 16543674 ms = 16543 s (avg 525196 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 396 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 499 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 32064 with 32000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 87431904 B = 83.381 MB
+	NORM_SAMPLING_WR-ss400: 153010464 B = 145.922 MB
+Update timers:
+	PFD-l60: tot = 16462770 ms = 16462 s (avg 514461 us = 514 ms)
+	PFD-l10: tot = 16809026 ms = 16809 s (avg 525282 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 402 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 507 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 32565 with 32500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 87832176 B = 83.763 MB
+	NORM_SAMPLING_WR-ss400: 153570480 B = 146.456 MB
+Update timers:
+	PFD-l60: tot = 16714030 ms = 16714 s (avg 514277 us = 514 ms)
+	PFD-l10: tot = 17068653 ms = 17068 s (avg 525189 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 409 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 514 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 33066 with 33000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 87832192 B = 83.763 MB
+	NORM_SAMPLING_WR-ss400: 154450496 B = 147.295 MB
+Update timers:
+	PFD-l60: tot = 16996604 ms = 16996 s (avg 515048 us = 515 ms)
+	PFD-l10: tot = 17333954 ms = 17333 s (avg 525271 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 415 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 522 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 33567 with 33500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 87992224 B = 83.915 MB
+	NORM_SAMPLING_WR-ss400: 155010528 B = 147.829 MB
+Update timers:
+	PFD-l60: tot = 17247802 ms = 17247 s (avg 514859 us = 514 ms)
+	PFD-l10: tot = 17593405 ms = 17593 s (avg 525176 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 421 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 530 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 34068 with 34000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 88072496 B = 83.992 MB
+	NORM_SAMPLING_WR-ss400: 155650544 B = 148.439 MB
+Update timers:
+	PFD-l60: tot = 17499542 ms = 17499 s (avg 514692 us = 514 ms)
+	PFD-l10: tot = 17858890 ms = 17858 s (avg 525261 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 427 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 538 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 34569 with 34500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 88312528 B = 84.221 MB
+	NORM_SAMPLING_WR-ss400: 156050576 B = 148.821 MB
+Update timers:
+	PFD-l60: tot = 17751118 ms = 17751 s (avg 514525 us = 514 ms)
+	PFD-l10: tot = 18118393 ms = 18118 s (avg 525170 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 433 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 545 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 35070 with 35000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 88552560 B = 84.450 MB
+	NORM_SAMPLING_WR-ss400: 156530608 B = 149.279 MB
+Update timers:
+	PFD-l60: tot = 18002573 ms = 18002 s (avg 514359 us = 514 ms)
+	PFD-l10: tot = 18383801 ms = 18383 s (avg 525251 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 439 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 553 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 35571 with 35500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 88712576 B = 84.602 MB
+	NORM_SAMPLING_WR-ss400: 157090624 B = 149.813 MB
+Update timers:
+	PFD-l60: tot = 18286214 ms = 18286 s (avg 515104 us = 515 ms)
+	PFD-l10: tot = 18642619 ms = 18642 s (avg 525144 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 446 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 561 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 36072 with 36000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 88952608 B = 84.831 MB
+	NORM_SAMPLING_WR-ss400: 157490656 B = 150.194 MB
+Update timers:
+	PFD-l60: tot = 18538389 ms = 18538 s (avg 514955 us = 514 ms)
+	PFD-l10: tot = 18900970 ms = 18900 s (avg 525026 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 452 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 569 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 36573 with 36500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 89032656 B = 84.908 MB
+	NORM_SAMPLING_WR-ss400: 158210960 B = 150.881 MB
+Update timers:
+	PFD-l60: tot = 18790475 ms = 18790 s (avg 514807 us = 514 ms)
+	PFD-l10: tot = 19165022 ms = 19165 s (avg 525069 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 458 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 577 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 37074 with 37000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 89352704 B = 85.213 MB
+	NORM_SAMPLING_WR-ss400: 158531008 B = 151.186 MB
+Update timers:
+	PFD-l60: tot = 19042897 ms = 19042 s (avg 514672 us = 514 ms)
+	PFD-l10: tot = 19423427 ms = 19423 s (avg 524957 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 464 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 584 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 37575 with 37500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 89672752 B = 85.518 MB
+	NORM_SAMPLING_WR-ss400: 158771056 B = 151.415 MB
+Update timers:
+	PFD-l60: tot = 19295125 ms = 19295 s (avg 514536 us = 514 ms)
+	PFD-l10: tot = 19687708 ms = 19687 s (avg 525005 us = 525 ms)
+	NORM_SAMPLING_WR-ss200: tot = 470 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 592 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 38076 with 38000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 89752832 B = 85.594 MB
+	NORM_SAMPLING_WR-ss400: 159091392 B = 151.721 MB
+Update timers:
+	PFD-l60: tot = 19547301 ms = 19547 s (avg 514402 us = 514 ms)
+	PFD-l10: tot = 19946511 ms = 19946 s (avg 524908 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 476 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 600 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 38577 with 38500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 89832960 B = 85.671 MB
+	NORM_SAMPLING_WR-ss400: 159491520 B = 152.102 MB
+Update timers:
+	PFD-l60: tot = 19830778 ms = 19830 s (avg 515085 us = 515 ms)
+	PFD-l10: tot = 20210743 ms = 20210 s (avg 524954 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 483 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 608 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 39078 with 39000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 89833168 B = 85.671 MB
+	NORM_SAMPLING_WR-ss400: 159811728 B = 152.408 MB
+Update timers:
+	PFD-l60: tot = 20082655 ms = 20082 s (avg 514939 us = 514 ms)
+	PFD-l10: tot = 20468769 ms = 20468 s (avg 524840 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 489 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 615 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 39579 with 39500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 90153472 B = 85.977 MB
+	NORM_SAMPLING_WR-ss400: 159892032 B = 152.484 MB
+Update timers:
+	PFD-l60: tot = 20334352 ms = 20334 s (avg 514793 us = 514 ms)
+	PFD-l10: tot = 20732793 ms = 20732 s (avg 524880 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 495 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 623 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 40080 with 40000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 90233776 B = 86.053 MB
+	NORM_SAMPLING_WR-ss400: 160532336 B = 153.095 MB
+Update timers:
+	PFD-l60: tot = 20586140 ms = 20586 s (avg 514653 us = 514 ms)
+	PFD-l10: tot = 20991154 ms = 20991 s (avg 524778 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 501 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 631 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 40581 with 40500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 90394112 B = 86.206 MB
+	NORM_SAMPLING_WR-ss400: 160692672 B = 153.248 MB
+Update timers:
+	PFD-l60: tot = 20837948 ms = 20837 s (avg 514517 us = 514 ms)
+	PFD-l10: tot = 21255354 ms = 21255 s (avg 524823 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 507 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 638 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 41082 with 41000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 90474416 B = 86.283 MB
+	NORM_SAMPLING_WR-ss400: 161012976 B = 153.553 MB
+Update timers:
+	PFD-l60: tot = 21121184 ms = 21121 s (avg 515150 us = 515 ms)
+	PFD-l10: tot = 21513507 ms = 21513 s (avg 524719 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 514 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 646 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 41583 with 41500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 90634720 B = 86.436 MB
+	NORM_SAMPLING_WR-ss400: 161253280 B = 153.783 MB
+Update timers:
+	PFD-l60: tot = 21372735 ms = 21372 s (avg 515005 us = 515 ms)
+	PFD-l10: tot = 21771872 ms = 21771 s (avg 524623 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 520 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 654 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 42084 with 42000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 90875040 B = 86.665 MB
+	NORM_SAMPLING_WR-ss400: 161253600 B = 153.783 MB
+Update timers:
+	PFD-l60: tot = 21624444 ms = 21624 s (avg 514867 us = 514 ms)
+	PFD-l10: tot = 22035853 ms = 22035 s (avg 524663 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 526 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 662 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 42585 with 42500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 90955360 B = 86.741 MB
+	NORM_SAMPLING_WR-ss400: 161653920 B = 154.165 MB
+Update timers:
+	PFD-l60: tot = 21876171 ms = 21876 s (avg 514733 us = 514 ms)
+	PFD-l10: tot = 22293996 ms = 22293 s (avg 524564 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 532 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 669 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 43086 with 43000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 91275680 B = 87.047 MB
+	NORM_SAMPLING_WR-ss400: 161894240 B = 154.394 MB
+Update timers:
+	PFD-l60: tot = 22127718 ms = 22127 s (avg 514598 us = 514 ms)
+	PFD-l10: tot = 22557844 ms = 22557 s (avg 524601 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 539 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 677 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 43587 with 43500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 91516016 B = 87.276 MB
+	NORM_SAMPLING_WR-ss400: 162454576 B = 154.928 MB
+Update timers:
+	PFD-l60: tot = 22410972 ms = 22410 s (avg 515194 us = 515 ms)
+	PFD-l10: tot = 22816086 ms = 22816 s (avg 524507 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 545 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 685 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 44088 with 44000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 91516304 B = 87.276 MB
+	NORM_SAMPLING_WR-ss400: 162854864 B = 155.310 MB
+Update timers:
+	PFD-l60: tot = 22662706 ms = 22662 s (avg 515061 us = 515 ms)
+	PFD-l10: tot = 23080068 ms = 23080 s (avg 524547 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 551 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 693 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 44589 with 44500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 91756624 B = 87.505 MB
+	NORM_SAMPLING_WR-ss400: 163415184 B = 155.844 MB
+Update timers:
+	PFD-l60: tot = 22914339 ms = 22914 s (avg 514928 us = 514 ms)
+	PFD-l10: tot = 23338233 ms = 23338 s (avg 524454 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 557 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 700 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 45090 with 45000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 91996960 B = 87.735 MB
+	NORM_SAMPLING_WR-ss400: 164215520 B = 156.608 MB
+Update timers:
+	PFD-l60: tot = 23165896 ms = 23165 s (avg 514797 us = 514 ms)
+	PFD-l10: tot = 23602045 ms = 23602 s (avg 524489 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 564 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 708 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 45591 with 45500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 91997296 B = 87.735 MB
+	NORM_SAMPLING_WR-ss400: 164455856 B = 156.837 MB
+Update timers:
+	PFD-l60: tot = 23417387 ms = 23417 s (avg 514667 us = 514 ms)
+	PFD-l10: tot = 23859996 ms = 23859 s (avg 524395 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 570 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 716 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 46092 with 46000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 92157584 B = 87.888 MB
+	NORM_SAMPLING_WR-ss400: 164616144 B = 156.990 MB
+Update timers:
+	PFD-l60: tot = 23700685 ms = 23700 s (avg 515232 us = 515 ms)
+	PFD-l10: tot = 24123836 ms = 24123 s (avg 524431 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 576 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 724 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 46593 with 46500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 92317904 B = 88.041 MB
+	NORM_SAMPLING_WR-ss400: 164936464 B = 157.295 MB
+Update timers:
+	PFD-l60: tot = 23952081 ms = 23952 s (avg 515098 us = 515 ms)
+	PFD-l10: tot = 24381973 ms = 24381 s (avg 524343 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 582 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 731 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 47094 with 47000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 92398208 B = 88.117 MB
+	NORM_SAMPLING_WR-ss400: 165336768 B = 157.677 MB
+Update timers:
+	PFD-l60: tot = 24203503 ms = 24203 s (avg 514968 us = 514 ms)
+	PFD-l10: tot = 24639978 ms = 24639 s (avg 524254 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 588 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 739 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 47595 with 47500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 92718544 B = 88.423 MB
+	NORM_SAMPLING_WR-ss400: 165577104 B = 157.906 MB
+Update timers:
+	PFD-l60: tot = 24454805 ms = 24454 s (avg 514838 us = 514 ms)
+	PFD-l10: tot = 24903674 ms = 24903 s (avg 524287 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 595 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 747 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 48096 with 48000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 92878848 B = 88.576 MB
+	NORM_SAMPLING_WR-ss400: 166297664 B = 158.593 MB
+Update timers:
+	PFD-l60: tot = 24706251 ms = 24706 s (avg 514713 us = 514 ms)
+	PFD-l10: tot = 25161519 ms = 25161 s (avg 524198 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 601 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 755 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 48597 with 48500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 93199168 B = 88.881 MB
+	NORM_SAMPLING_WR-ss400: 166858240 B = 159.128 MB
+Update timers:
+	PFD-l60: tot = 24989072 ms = 24989 s (avg 515238 us = 515 ms)
+	PFD-l10: tot = 25424676 ms = 25424 s (avg 524220 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 607 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 762 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 49098 with 49000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 93359520 B = 89.034 MB
+	NORM_SAMPLING_WR-ss400: 167018592 B = 159.281 MB
+Update timers:
+	PFD-l60: tot = 25240214 ms = 25240 s (avg 515106 us = 515 ms)
+	PFD-l10: tot = 25682308 ms = 25682 s (avg 524128 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 614 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 770 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 49599 with 49500 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 93439840 B = 89.111 MB
+	NORM_SAMPLING_WR-ss400: 167339168 B = 159.587 MB
+Update timers:
+	PFD-l60: tot = 25491796 ms = 25491 s (avg 514985 us = 514 ms)
+	PFD-l10: tot = 25945869 ms = 25945 s (avg 524158 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 620 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 778 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 50100 with 50000 processed
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 93600176 B = 89.264 MB
+	NORM_SAMPLING_WR-ss400: 167819504 B = 160.045 MB
+Update timers:
+	PFD-l60: tot = 25742898 ms = 25742 s (avg 514857 us = 514 ms)
+	PFD-l10: tot = 26203613 ms = 26203 s (avg 524072 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 626 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 786 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PFD-l10: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+MS(490):
+MS(500):
+MS(510):
+MS(520):
+MS(530):
+MS(550):
+START_OF_FINAL_STATS_REPORT
+MS(600):
+MS(800):
+MS(1000):
+	PFD-l60: 23921104 B = 22.812 MB
+	PFD-l10: 3920304 B = 3.738 MB
+	NORM_SAMPLING_WR-ss200: 93600176 B = 89.264 MB
+	NORM_SAMPLING_WR-ss400: 167819504 B = 160.045 MB
+Update timers:
+	PFD-l60: tot = 25742898 ms = 25742 s (avg 514857 us = 514 ms)
+	PFD-l10: tot = 26203613 ms = 26203 s (avg 524072 us = 524 ms)
+	NORM_SAMPLING_WR-ss200: tot = 626 ms = 0 s (avg 12 us = 0 ms)
+	NORM_SAMPLING_WR-ss400: tot = 786 ms = 0 s (avg 15 us = 0 ms)
+Query timers:
+	PFD-l60: tot = 143466 ms = 143 s (avg 9564457 us = 9564 ms)
+	PFD-l10: tot = 17655 ms = 17 s (avg 1177042 us = 1177 ms)
+	NORM_SAMPLING_WR-ss200: tot = 142237 ms = 142 s (avg 9482469 us = 9482 ms)
+	NORM_SAMPLING_WR-ss400: tot = 284161 ms = 284 s (avg 18944120 us = 18944 ms)

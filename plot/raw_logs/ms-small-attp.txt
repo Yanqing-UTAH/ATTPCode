@@ -1,0 +1,3 @@
+/uusoc/scratch/raven1/zyzhao/ATTPCode/output/ms-small-stats-00.txt
+/uusoc/scratch/raven1/zyzhao/ATTPCode/output/ms-small-stats-01.txt
+/uusoc/scratch/raven1/zyzhao/ATTPCode/output/ms-small-stats-02.txt

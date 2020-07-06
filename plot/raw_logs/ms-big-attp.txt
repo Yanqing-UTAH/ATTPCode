@@ -1,0 +1,6 @@
+/uusoc/scratch/raven11/zyzhao/ATTPCode/output/ms-big-stats-00.txt
+/uusoc/scratch/raven12/zyzhao/ATTPCode/output/ms-big-stats-01.txt
+/uusoc/scratch/raven13/zyzhao/ATTPCode/output/ms-big-stats-02.txt
+/uusoc/scratch/raven14/zyzhao/ATTPCode/output/ms-big-stats-03.txt
+/uusoc/scratch/raven15/zyzhao/ATTPCode/output/ms-big-stats-04.txt
+/uusoc/scratch/raven16/zyzhao/ATTPCode/output/ms-big-stats-05.txt

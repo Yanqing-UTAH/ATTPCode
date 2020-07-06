@@ -1,0 +1,1650 @@
+Running query heavy_hitter at 2020/07/02 16:39:31
+Stats request at line 13528042 with 13528041 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 209535528 B = 199.828 MB
+	SAMPLING-ss500000: 128005024 B = 122.075 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 29151088 B = 27.800 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 2026 ms = 2 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 1504 ms = 1 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 56689 ms = 56 s (avg 4 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 27056084 with 27056082 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 415092072 B = 395.862 MB
+	SAMPLING-ss500000: 128005024 B = 122.075 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 35561072 B = 33.913 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 4195 ms = 4 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 2732 ms = 2 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 115267 ms = 115 s (avg 4 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 40584126 with 40584123 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 611174968 B = 582.861 MB
+	SAMPLING-ss500000: 128006304 B = 122.076 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 42785296 B = 40.803 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 6426 ms = 6 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 3942 ms = 3 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 175785 ms = 175 s (avg 4 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 54112168 with 54112164 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 814034072 B = 776.323 MB
+	SAMPLING-ss500000: 128009120 B = 122.079 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 50938032 B = 48.578 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 8808 ms = 8 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 5127 ms = 5 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 237288 ms = 237 s (avg 4 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 67640210 with 67640205 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 1016225256 B = 969.147 MB
+	SAMPLING-ss500000: 128011168 B = 122.080 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 57818384 B = 55.139 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 11226 ms = 11 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 6324 ms = 6 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 300308 ms = 300 s (avg 4 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 81168252 with 81168246 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 1233959560 B = 1176.795 MB
+	SAMPLING-ss500000: 128015264 B = 122.084 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 65087504 B = 62.072 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 13761 ms = 13 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 7494 ms = 7 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 364208 ms = 364 s (avg 4 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 94696294 with 94696287 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 1452545848 B = 1385.255 MB
+	SAMPLING-ss500000: 128019872 B = 122.089 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 72299856 B = 68.950 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 16353 ms = 16 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 8664 ms = 8 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 428832 ms = 428 s (avg 4 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 108224336 with 108224328 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 1666228328 B = 1589.039 MB
+	SAMPLING-ss500000: 128024224 B = 122.093 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 78316944 B = 74.688 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 18942 ms = 18 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 9839 ms = 9 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 493798 ms = 493 s (avg 4 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 121752378 with 121752369 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 1888176216 B = 1800.705 MB
+	SAMPLING-ss500000: 128030880 B = 122.099 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 84080880 B = 80.185 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 21655 ms = 21 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 11072 ms = 11 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 558706 ms = 558 s (avg 4 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 135280420 with 135280410 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 2088957064 B = 1992.184 MB
+	SAMPLING-ss500000: 128037024 B = 122.105 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 92480016 B = 88.195 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 24460 ms = 24 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 12231 ms = 12 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 626671 ms = 626 s (avg 4 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 148808462 with 148808451 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 2300659208 B = 2194.079 MB
+	SAMPLING-ss500000: 128042144 B = 122.110 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 99421296 B = 94.815 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 27391 ms = 27 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 13386 ms = 13 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 695727 ms = 695 s (avg 4 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 162336504 with 162336492 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 2510618376 B = 2394.312 MB
+	SAMPLING-ss500000: 128048288 B = 122.116 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 105609744 B = 100.717 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 30193 ms = 30 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 14539 ms = 14 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 764665 ms = 764 s (avg 4 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 175864546 with 175864533 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 2710912840 B = 2585.327 MB
+	SAMPLING-ss500000: 128055200 B = 122.122 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 113058960 B = 107.821 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 33517 ms = 33 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 15697 ms = 15 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 839224 ms = 839 s (avg 4 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 189392588 with 189392574 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 2875049576 B = 2741.860 MB
+	SAMPLING-ss500000: 128064160 B = 122.131 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 118598256 B = 113.104 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 37848 ms = 37 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 16858 ms = 16 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 922491 ms = 922 s (avg 4 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 202920630 with 202920615 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 3039550680 B = 2898.741 MB
+	SAMPLING-ss500000: 128071328 B = 122.138 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 124896560 B = 119.110 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 41311 ms = 41 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 18022 ms = 18 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 1000141 ms = 1000 s (avg 4 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 216448672 with 216448656 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 3216234648 B = 3067.240 MB
+	SAMPLING-ss500000: 128076448 B = 122.143 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 130412752 B = 124.371 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 44244 ms = 44 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 19186 ms = 19 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 1072151 ms = 1072 s (avg 4 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 229976714 with 229976697 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 3387237576 B = 3230.321 MB
+	SAMPLING-ss500000: 128083104 B = 122.149 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 136248880 B = 129.937 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 47240 ms = 47 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 20349 ms = 20 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 1145299 ms = 1145 s (avg 4 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 243504756 with 243504738 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 3543221672 B = 3379.079 MB
+	SAMPLING-ss500000: 128088736 B = 122.154 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 141962256 B = 135.385 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 50904 ms = 50 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 21509 ms = 21 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 1225418 ms = 1225 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 257032798 with 257032779 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 3703692424 B = 3532.116 MB
+	SAMPLING-ss500000: 128100000 B = 122.165 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 147205200 B = 140.385 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 54189 ms = 54 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 22682 ms = 22 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 1302900 ms = 1302 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 270560840 with 270560820 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 3896017336 B = 3715.531 MB
+	SAMPLING-ss500000: 128107936 B = 122.173 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 152819920 B = 145.740 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 57112 ms = 57 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 23835 ms = 23 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 1374128 ms = 1374 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 284088882 with 284088861 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 4079916456 B = 3890.911 MB
+	SAMPLING-ss500000: 128119456 B = 122.184 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 159425264 B = 152.039 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 60743 ms = 60 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 25044 ms = 25 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 1451898 ms = 1451 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 297616924 with 297616902 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 4256842008 B = 4059.640 MB
+	SAMPLING-ss500000: 128127136 B = 122.191 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 166876816 B = 159.146 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 64472 ms = 64 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 26285 ms = 26 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 1530619 ms = 1530 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 311144966 with 311144943 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 4446695576 B = 4240.699 MB
+	SAMPLING-ss500000: 128133280 B = 122.197 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 173016400 B = 165.001 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 67596 ms = 67 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 27525 ms = 27 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 1603849 ms = 1603 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 324673008 with 324672984 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 4661350280 B = 4445.410 MB
+	SAMPLING-ss500000: 128140960 B = 122.204 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 180487440 B = 172.126 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 70487 ms = 70 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 28683 ms = 28 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 1673915 ms = 1673 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 338201050 with 338201025 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 4875800600 B = 4649.925 MB
+	SAMPLING-ss500000: 128148384 B = 122.211 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 187430064 B = 178.747 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 73332 ms = 73 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 29849 ms = 29 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 1743699 ms = 1743 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 351729092 with 351729066 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 5088404200 B = 4852.680 MB
+	SAMPLING-ss500000: 128155808 B = 122.218 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 194246896 B = 185.248 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 76280 ms = 76 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 31006 ms = 31 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 1815339 ms = 1815 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 365257134 with 365257107 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 5304766344 B = 5059.019 MB
+	SAMPLING-ss500000: 128167840 B = 122.230 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 200689168 B = 191.392 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 79399 ms = 79 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 32165 ms = 32 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 1888409 ms = 1888 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 378785176 with 378785148 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 5489339944 B = 5235.042 MB
+	SAMPLING-ss500000: 128176288 B = 122.238 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 205878096 B = 196.340 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 84019 ms = 84 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 33333 ms = 33 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 1974392 ms = 1974 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 392313218 with 392313189 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 5665003320 B = 5402.568 MB
+	SAMPLING-ss500000: 128185504 B = 122.247 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 210832400 B = 201.065 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 88323 ms = 88 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 34495 ms = 34 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 2058943 ms = 2058 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 405841260 with 405841230 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 5837834696 B = 5567.393 MB
+	SAMPLING-ss500000: 128198304 B = 122.259 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 215030800 B = 205.069 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 92350 ms = 92 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 35676 ms = 35 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 2141536 ms = 2141 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 419369302 with 419369271 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 6044369752 B = 5764.360 MB
+	SAMPLING-ss500000: 128207008 B = 122.267 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 219330448 B = 209.169 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 95450 ms = 95 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 36838 ms = 36 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 2214613 ms = 2214 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 432897344 with 432897312 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 6233590872 B = 5944.815 MB
+	SAMPLING-ss500000: 128217504 B = 122.277 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 225163344 B = 214.732 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 98875 ms = 98 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 37995 ms = 37 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 2291672 ms = 2291 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 446425386 with 446425353 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 6420793704 B = 6123.346 MB
+	SAMPLING-ss500000: 128224928 B = 122.284 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 229718704 B = 219.076 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 102794 ms = 102 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 39171 ms = 39 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 2373078 ms = 2373 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 459953428 with 459953394 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 6624604120 B = 6317.714 MB
+	SAMPLING-ss500000: 128233632 B = 122.293 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 235170512 B = 224.276 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 105862 ms = 105 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 40332 ms = 40 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 2446097 ms = 2446 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 473481470 with 473481435 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 6813428840 B = 6497.792 MB
+	SAMPLING-ss500000: 128241568 B = 122.300 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 241708272 B = 230.510 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 109558 ms = 109 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 41505 ms = 41 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 2525363 ms = 2525 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 487009512 with 487009476 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 6997033384 B = 6672.891 MB
+	SAMPLING-ss500000: 128252832 B = 122.311 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 247657360 B = 236.184 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 113402 ms = 113 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 42699 ms = 42 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 2607420 ms = 2607 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 500537554 with 500537517 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 7218938472 B = 6884.516 MB
+	SAMPLING-ss500000: 128266144 B = 122.324 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 252706096 B = 240.999 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 116521 ms = 116 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 43902 ms = 43 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 2681872 ms = 2681 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 514065596 with 514065558 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 7402754872 B = 7059.817 MB
+	SAMPLING-ss500000: 128278688 B = 122.336 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 259730896 B = 247.698 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 120245 ms = 120 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 45090 ms = 45 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 2762519 ms = 2762 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 527593638 with 527593599 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 7596825352 B = 7244.897 MB
+	SAMPLING-ss500000: 128287392 B = 122.344 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 265541808 B = 253.240 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 123638 ms = 123 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 46255 ms = 46 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 2839277 ms = 2839 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 541121680 with 541121640 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 7796808168 B = 7435.615 MB
+	SAMPLING-ss500000: 128295072 B = 122.351 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 272285168 B = 259.671 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 126735 ms = 126 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 47419 ms = 47 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 2912498 ms = 2912 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 554649722 with 554649681 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 7981910664 B = 7612.143 MB
+	SAMPLING-ss500000: 128305312 B = 122.361 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 279413360 B = 266.469 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 130474 ms = 130 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 48597 ms = 48 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 2992880 ms = 2992 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 568177764 with 568177722 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 8198627496 B = 7818.820 MB
+	SAMPLING-ss500000: 128314784 B = 122.370 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 285807024 B = 272.566 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 133479 ms = 133 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 49768 ms = 49 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 3064064 ms = 3064 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 581705806 with 581705763 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 8438478232 B = 8047.559 MB
+	SAMPLING-ss500000: 128325024 B = 122.380 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 293471056 B = 279.875 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 136513 ms = 136 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 50926 ms = 50 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 3134349 ms = 3134 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 595233848 with 595233804 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 8659999848 B = 8258.819 MB
+	SAMPLING-ss500000: 128334240 B = 122.389 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 301733392 B = 287.755 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 139592 ms = 139 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 52091 ms = 52 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 3207325 ms = 3207 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 608761890 with 608761845 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 8869826488 B = 8458.925 MB
+	SAMPLING-ss500000: 128344736 B = 122.399 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 310467792 B = 296.085 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 142926 ms = 142 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 53280 ms = 53 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 3282604 ms = 3282 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 622289932 with 622289886 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 9065780744 B = 8645.802 MB
+	SAMPLING-ss500000: 128355488 B = 122.409 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 319506928 B = 304.705 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 146900 ms = 146 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 54505 ms = 54 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 3364949 ms = 3364 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 635817974 with 635817927 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 9263743416 B = 8834.594 MB
+	SAMPLING-ss500000: 128366240 B = 122.419 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 326301936 B = 311.185 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 150390 ms = 150 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 55721 ms = 55 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 3442407 ms = 3442 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 649346016 with 649345968 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 9479353288 B = 9040.215 MB
+	SAMPLING-ss500000: 128376992 B = 122.429 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 334024080 B = 318.550 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 154308 ms = 154 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 56923 ms = 56 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 3522804 ms = 3522 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 662874058 with 662874009 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 9665168488 B = 9217.422 MB
+	SAMPLING-ss500000: 128387488 B = 122.439 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 340602096 B = 324.823 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 159223 ms = 159 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 58102 ms = 58 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 3612054 ms = 3612 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 676402100 with 676402050 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 9855696456 B = 9399.124 MB
+	SAMPLING-ss500000: 128397728 B = 122.449 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 347133712 B = 331.052 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 163450 ms = 163 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 59273 ms = 59 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 3696500 ms = 3696 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 689930142 with 689930091 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 10087632392 B = 9620.315 MB
+	SAMPLING-ss500000: 128408224 B = 122.459 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 355419376 B = 338.954 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 166759 ms = 166 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 60444 ms = 60 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 3771727 ms = 3771 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 703458184 with 703458132 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 10288108728 B = 9811.505 MB
+	SAMPLING-ss500000: 128417184 B = 122.468 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 361322640 B = 344.584 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 170974 ms = 170 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 61618 ms = 61 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 3855633 ms = 3855 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 716986226 with 716986173 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 10471881544 B = 9986.764 MB
+	SAMPLING-ss500000: 128428704 B = 122.479 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 366693552 B = 349.706 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 175376 ms = 175 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 62779 ms = 62 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 3941419 ms = 3941 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 730514268 with 730514214 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 10660078248 B = 10166.242 MB
+	SAMPLING-ss500000: 128439968 B = 122.489 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 371754064 B = 354.532 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 179166 ms = 179 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 63969 ms = 63 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 4021988 ms = 4021 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 744042310 with 744042255 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 10874561896 B = 10370.790 MB
+	SAMPLING-ss500000: 128452768 B = 122.502 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 377424848 B = 359.940 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 182610 ms = 182 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 65154 ms = 65 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 4098259 ms = 4098 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 757570352 with 757570296 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 11042523288 B = 10530.970 MB
+	SAMPLING-ss500000: 128461984 B = 122.510 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 382640304 B = 364.914 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 187648 ms = 187 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 66340 ms = 66 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 4189779 ms = 4189 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 771098394 with 771098337 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 11219073368 B = 10699.342 MB
+	SAMPLING-ss500000: 128472224 B = 122.520 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 387567632 B = 369.613 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 191730 ms = 191 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 67519 ms = 67 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 4273697 ms = 4273 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 784626436 with 784626378 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 11397994200 B = 10869.974 MB
+	SAMPLING-ss500000: 128484000 B = 122.531 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 396505264 B = 378.136 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 195940 ms = 195 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 68698 ms = 68 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 4358966 ms = 4358 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 798154478 with 798154419 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 11616018072 B = 11077.898 MB
+	SAMPLING-ss500000: 128494496 B = 122.541 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 401619216 B = 383.013 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 199146 ms = 199 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 69866 ms = 69 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 4433870 ms = 4433 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 811682520 with 811682460 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 11781365048 B = 11235.585 MB
+	SAMPLING-ss500000: 128504736 B = 122.551 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 406284976 B = 387.463 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 204087 ms = 204 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 71035 ms = 71 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 4524974 ms = 4524 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 825210562 with 825210501 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 11934692168 B = 11381.809 MB
+	SAMPLING-ss500000: 128512928 B = 122.559 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 409666736 B = 390.688 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 208929 ms = 208 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 72200 ms = 72 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 4615740 ms = 4615 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 838738604 with 838738542 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 12086407592 B = 11526.496 MB
+	SAMPLING-ss500000: 128523936 B = 122.569 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 414437744 B = 395.238 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 213430 ms = 213 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 73365 ms = 73 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 4704360 ms = 4704 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 852266646 with 852266583 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 12272034232 B = 11703.523 MB
+	SAMPLING-ss500000: 128537504 B = 122.582 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 419084592 B = 399.670 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 217269 ms = 217 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 74536 ms = 74 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 4784786 ms = 4784 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 865794688 with 865794624 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 12483237912 B = 11904.943 MB
+	SAMPLING-ss500000: 128546208 B = 122.591 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 424018320 B = 404.375 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 220368 ms = 220 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 75713 ms = 75 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 4858244 ms = 4858 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 879322730 with 879322665 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 12699417240 B = 12111.108 MB
+	SAMPLING-ss500000: 128557728 B = 122.602 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 428558800 B = 408.705 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 223406 ms = 223 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 76918 ms = 76 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 4930731 ms = 4930 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 892850772 with 892850706 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 12907350632 B = 12309.408 MB
+	SAMPLING-ss500000: 128565664 B = 122.609 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 433487056 B = 413.405 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 226540 ms = 226 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 78123 ms = 78 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 5005160 ms = 5005 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 906378814 with 906378747 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 13110495752 B = 12503.143 MB
+	SAMPLING-ss500000: 128577440 B = 122.621 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 438961648 B = 418.626 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 230439 ms = 230 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 79331 ms = 79 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 5086217 ms = 5086 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 919906856 with 919906788 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 13276960424 B = 12661.896 MB
+	SAMPLING-ss500000: 128589984 B = 122.632 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 442437968 B = 421.941 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 235957 ms = 235 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 80544 ms = 80 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 5181820 ms = 5181 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 933434898 with 933434829 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 13458381192 B = 12834.912 MB
+	SAMPLING-ss500000: 128598688 B = 122.641 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 446577488 B = 425.889 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 240695 ms = 240 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 81753 ms = 81 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 5271583 ms = 5271 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 946962940 with 946962870 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 13640359496 B = 13008.460 MB
+	SAMPLING-ss500000: 128608160 B = 122.650 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 451737168 B = 430.810 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 245370 ms = 245 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 82954 ms = 82 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 5361010 ms = 5361 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 960490982 with 960490911 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 13807223192 B = 13167.594 MB
+	SAMPLING-ss500000: 128617632 B = 122.659 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 458311856 B = 437.080 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 250293 ms = 250 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 84151 ms = 84 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 5452666 ms = 5452 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 974019024 with 974018952 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 14011954328 B = 13362.840 MB
+	SAMPLING-ss500000: 128628640 B = 122.669 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 464206448 B = 442.701 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 253568 ms = 253 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 85329 ms = 85 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 5528425 ms = 5528 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 987547066 with 987546993 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 14189064424 B = 13531.746 MB
+	SAMPLING-ss500000: 128637600 B = 122.678 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 468679792 B = 446.967 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 258941 ms = 258 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 86508 ms = 86 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 5621923 ms = 5621 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1001075108 with 1001075034 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 14354916440 B = 13689.915 MB
+	SAMPLING-ss500000: 128649120 B = 122.689 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 473734480 B = 451.788 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 263845 ms = 263 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 87685 ms = 87 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 5712983 ms = 5712 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1014603150 with 1014603075 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 14530561336 B = 13857.423 MB
+	SAMPLING-ss500000: 128657568 B = 122.697 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 477969968 B = 455.827 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 269031 ms = 269 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 88860 ms = 88 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 5806103 ms = 5806 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1028131192 with 1028131116 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 14711433864 B = 14029.916 MB
+	SAMPLING-ss500000: 128668064 B = 122.707 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 484472464 B = 462.028 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 273450 ms = 273 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 90028 ms = 90 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 5892456 ms = 5892 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1041659234 with 1041659157 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 14929965512 B = 14238.324 MB
+	SAMPLING-ss500000: 128680608 B = 122.719 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 490175280 B = 467.467 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 276678 ms = 276 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 91190 ms = 91 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 5967349 ms = 5967 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1055187276 with 1055187198 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 15151319160 B = 14449.423 MB
+	SAMPLING-ss500000: 128691360 B = 122.729 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 496580048 B = 473.575 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 279695 ms = 279 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 92349 ms = 92 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 6039964 ms = 6039 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1068715318 with 1068715239 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 15360840376 B = 14649.238 MB
+	SAMPLING-ss500000: 128700320 B = 122.738 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 503588432 B = 480.259 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 282741 ms = 282 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 93500 ms = 93 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 6112501 ms = 6112 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1082243360 with 1082243280 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 15558718808 B = 14837.950 MB
+	SAMPLING-ss500000: 128708000 B = 122.745 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 511559920 B = 487.861 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 286516 ms = 286 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 94696 ms = 94 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 6192236 ms = 6192 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1095771402 with 1095771321 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 15723518504 B = 14995.115 MB
+	SAMPLING-ss500000: 128718496 B = 122.755 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 518472208 B = 494.453 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 291802 ms = 291 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 95924 ms = 95 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 6285893 ms = 6285 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1109299444 with 1109299362 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 15903879592 B = 15167.121 MB
+	SAMPLING-ss500000: 128727712 B = 122.764 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 524556400 B = 500.255 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 296168 ms = 296 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 97145 ms = 97 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 6372766 ms = 6372 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1122827486 with 1122827403 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 16104324760 B = 15358.280 MB
+	SAMPLING-ss500000: 128734880 B = 122.771 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 531710768 B = 507.078 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 299191 ms = 299 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 98355 ms = 98 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 6445317 ms = 6445 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1136355528 with 1136355444 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 16317363128 B = 15561.450 MB
+	SAMPLING-ss500000: 128746912 B = 122.782 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 539823728 B = 514.816 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 302205 ms = 302 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 99559 ms = 99 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 6517792 ms = 6517 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1149883570 with 1149883485 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 16522581928 B = 15757.162 MB
+	SAMPLING-ss500000: 128756384 B = 122.791 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 546656592 B = 521.332 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 305149 ms = 305 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 100764 ms = 100 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 6588912 ms = 6588 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1163411612 with 1163411526 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 16727953272 B = 15953.019 MB
+	SAMPLING-ss500000: 128762016 B = 122.797 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 555497968 B = 529.764 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 308166 ms = 308 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 101963 ms = 101 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 6661285 ms = 6661 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1176939654 with 1176939567 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 16923847992 B = 16139.839 MB
+	SAMPLING-ss500000: 128770720 B = 122.805 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 564040560 B = 537.910 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 311655 ms = 311 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 103162 ms = 103 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 6739485 ms = 6739 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1190467696 with 1190467608 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 17095726792 B = 16303.755 MB
+	SAMPLING-ss500000: 128780448 B = 122.814 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 569752048 B = 543.357 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 317092 ms = 317 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 104369 ms = 104 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 6834622 ms = 6834 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1203995738 with 1203995649 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 17265650632 B = 16465.807 MB
+	SAMPLING-ss500000: 128789920 B = 122.823 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 576031152 B = 549.346 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 321656 ms = 321 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 105571 ms = 105 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 6922914 ms = 6922 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1217523780 with 1217523690 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 17473249800 B = 16663.789 MB
+	SAMPLING-ss500000: 128800416 B = 122.833 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 583045456 B = 556.035 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 324668 ms = 324 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 106767 ms = 106 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 6995962 ms = 6995 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1231051822 with 1231051731 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 17664846648 B = 16846.510 MB
+	SAMPLING-ss500000: 128811168 B = 122.843 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 590312880 B = 562.966 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 329946 ms = 329 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 107977 ms = 107 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 7090068 ms = 7090 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1244579864 with 1244579772 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 17869771848 B = 17041.942 MB
+	SAMPLING-ss500000: 128821664 B = 122.853 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 596876208 B = 569.225 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 333850 ms = 333 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 109185 ms = 109 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 7171638 ms = 7171 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1258107906 with 1258107813 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 18078100024 B = 17240.619 MB
+	SAMPLING-ss500000: 128831136 B = 122.862 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 603464880 B = 575.508 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 336731 ms = 336 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 110389 ms = 110 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 7242443 ms = 7242 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1271635948 with 1271635854 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 18301406504 B = 17453.581 MB
+	SAMPLING-ss500000: 128842912 B = 122.874 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 610076880 B = 581.814 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 339520 ms = 339 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 111572 ms = 111 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 7311502 ms = 7311 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1285163990 with 1285163895 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 18513951976 B = 17656.280 MB
+	SAMPLING-ss500000: 128853920 B = 122.884 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 618672240 B = 590.011 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 342482 ms = 342 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 112789 ms = 112 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 7382356 ms = 7382 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1298692032 with 1298691936 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 18742314584 B = 17874.064 MB
+	SAMPLING-ss500000: 128863904 B = 122.894 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 628805296 B = 599.675 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 345810 ms = 345 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 114000 ms = 114 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 7458597 ms = 7458 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1312220074 with 1312219977 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 18958193624 B = 18079.942 MB
+	SAMPLING-ss500000: 128873888 B = 122.903 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 636141648 B = 606.671 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 348900 ms = 348 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 115180 ms = 115 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 7532380 ms = 7532 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1325748116 with 1325748018 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 19198165480 B = 18308.797 MB
+	SAMPLING-ss500000: 128883616 B = 122.912 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 642952304 B = 613.167 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 351643 ms = 351 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 116363 ms = 116 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 7600065 ms = 7600 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1339276158 with 1339276059 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 19413074792 B = 18513.750 MB
+	SAMPLING-ss500000: 128895136 B = 122.923 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 652298128 B = 622.079 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 354240 ms = 354 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 117529 ms = 117 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 7664638 ms = 7664 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1352804200 with 1352804100 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 19605175576 B = 18696.952 MB
+	SAMPLING-ss500000: 128909984 B = 122.938 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 660432720 B = 629.837 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 356786 ms = 356 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 118680 ms = 118 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 7728602 ms = 7728 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+HH(0.0002|10001):
+	EXACT_HH: 0
+	SAMPLING-ss500000: prec = 0/0 = -nan, recall = 0/0 = -nan
+	PCM_HH-logU23-e0.002-d0.01-D2000: prec = 0/0 = -nan, recall = 0/0 = -nan
+
+HH(0.0002|897641976):
+	EXACT_HH: 103
+	SAMPLING-ss500000: prec = 96/108 = 0.888889, recall = 96/103 = 0.932039
+	PCM_HH-logU23-e0.002-d0.01-D2000: prec = 0/110592 = 0, recall = 0/103 = 0
+
+HH(0.0002|898271001):
+	EXACT_HH: 136
+	SAMPLING-ss500000: prec = 128/137 = 0.934307, recall = 128/136 = 0.941176
+	PCM_HH-logU23-e0.002-d0.01-D2000: prec = 4/481910 = 8.30031e-06, recall = 4/136 = 0.0294118
+
+HH(0.0002|898876267):
+	EXACT_HH: 151
+	SAMPLING-ss500000: prec = 138/145 = 0.951724, recall = 138/151 = 0.913907
+	PCM_HH-logU23-e0.002-d0.01-D2000: prec = 1/111527 = 8.96644e-06, recall = 1/151 = 0.00662252
+
+HH(0.0002|899479307):
+	EXACT_HH: 166
+	SAMPLING-ss500000: prec = 157/164 = 0.957317, recall = 157/166 = 0.945783
+	PCM_HH-logU23-e0.002-d0.01-D2000: prec = 0/0 = -nan, recall = 0/166 = 0
+
+HH(0.0002|901489153):
+	EXACT_HH: 158
+	SAMPLING-ss500000: prec = 147/157 = 0.936306, recall = 147/158 = 0.93038
+	PCM_HH-logU23-e0.002-d0.01-D2000: prec = 21/2409472 = 8.7156e-06, recall = 21/158 = 0.132911
+
+HH(0.0002|901500000):
+	EXACT_HH: 158
+	SAMPLING-ss500000: prec = 147/157 = 0.936306, recall = 147/158 = 0.93038
+	PCM_HH-logU23-e0.002-d0.01-D2000: prec = 158/2671616 = 5.91402e-05, recall = 158/158 = 1
+
+
+=============  Memory Usage  =============
+	EXACT_HH: 19605175576 B = 18696.952 MB
+	SAMPLING-ss500000: 128909984 B = 122.938 MB
+	PCM_HH-logU23-e0.002-d0.01-D2000: 660432720 B = 629.837 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 356786 ms = 356 s (avg 0 us = 0 ms)
+	SAMPLING-ss500000: tot = 118680 ms = 118 s (avg 0 us = 0 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 7728602 ms = 7728 s (avg 5 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 3333 ms = 3 s (avg 476283 us = 476 ms)
+	SAMPLING-ss500000: tot = 1906 ms = 1 s (avg 272299 us = 272 ms)
+	PCM_HH-logU23-e0.002-d0.01-D2000: tot = 9353 ms = 9 s (avg 1336197 us = 1336 ms)

@@ -1,0 +1,4 @@
+/uusoc/scratch/raven1/zyzhao/ATTPCode/output/ms-medium-stats-00.txt
+/uusoc/scratch/raven2/zyzhao/ATTPCode/output/ms-medium-stats-02.txt
+/uusoc/scratch/raven3/zyzhao/ATTPCode/output/ms-medium-stats-01.txt
+/uusoc/scratch/raven3/zyzhao/ATTPCode/output/ms-medium-stats-03.txt
