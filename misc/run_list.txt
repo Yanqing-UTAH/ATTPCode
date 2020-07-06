@@ -1,8 +1,5 @@
-0.1	/uusoc/scratch/raven1/zyzhao/ATTPCode/output/test-client-id-all-stats-12.txt	raven1
-0.08	/uusoc/scratch/raven2/zyzhao/ATTPCode/output/test-client-id-all-stats-13.txt	raven2
-0.06	/uusoc/scratch/raven3/zyzhao/ATTPCode/output/test-client-id-all-stats-14.txt	raven3
-0.04	/uusoc/scratch/raven5/zyzhao/ATTPCode/output/test-client-id-all-stats-15.txt	raven5
-0.02	/uusoc/scratch/raven6/zyzhao/ATTPCode/output/test-client-id-all-stats-16.txt	raven6
-0.01	/uusoc/scratch/raven7/zyzhao/ATTPCode/output/test-client-id-all-stats-17.txt	raven7
-0.008	/uusoc/scratch/raven8/zyzhao/ATTPCode/output/test-client-id-all-stats-18.txt	raven8
-0.005	/uusoc/scratch/raven9/zyzhao/ATTPCode/output/test-client-id-all-stats-19.txt	raven9
+[0.01,0.0002] /uusoc/scratch/raven1/zyzhao/ATTPCode/output/object-id-bitp-new-stats-11.txt	raven1
+[0.008,0.0004] /uusoc/scratch/raven2/zyzhao/ATTPCode/output/object-id-bitp-new-stats-12.txt	raven2
+[0.006,0.0008] /uusoc/scratch/raven3/zyzhao/ATTPCode/output/object-id-bitp-new-stats-13.txt	raven3
+[0.004,0.001] /uusoc/scratch/raven4/zyzhao/ATTPCode/output/object-id-bitp-new-stats-14.txt	raven4
+[0.002] /uusoc/scratch/raven5/zyzhao/ATTPCode/output/object-id-bitp-new-stats-15.txt	raven5

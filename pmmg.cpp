@@ -1221,6 +1221,7 @@ TreeMisraGriesBITP::TreeMisraGriesBITP(
     m_remaining_nodes_at_cur_level(2 * m_k),
     m_cur_sketch(nullptr),
     m_size_counter(0),
+    m_size_counter_max(0),
     m_tmp_ts(~0ul),
     m_tmp_mg(nullptr),
     m_est_tot_cnt(0)
@@ -1243,6 +1244,7 @@ TreeMisraGriesBITP::clear()
     m_remaining_nodes_at_cur_level = 0;
     m_cur_sketch->clear();
     m_size_counter = 0;
+    m_size_counter_max = 0;
 
     for (size_t i = 0; i != m_right_most_nodes.size(); ++i)
     {
@@ -1271,10 +1273,20 @@ TreeMisraGriesBITP::clear()
 size_t
 TreeMisraGriesBITP::memory_usage() const
 {
-    return 64 // scalar members
+    return 72 // scalar members
         + sizeof(m_tree) + m_tree.capacity() * sizeof(TreeNode*)
         + sizeof(m_right_most_nodes) + m_right_most_nodes.capacity() * sizeof(TreeNode*)
         + m_size_counter
+        + m_cur_sketch->memory_usage();
+}
+
+size_t
+TreeMisraGriesBITP::max_memory_usage() const
+{
+    return 72 // scalar members
+        + sizeof(m_tree) + m_tree.capacity() * sizeof(TreeNode*)
+        + sizeof(m_right_most_nodes) + m_right_most_nodes.capacity() * sizeof(TreeNode*)
+        + m_size_counter_max
         + m_cur_sketch->memory_usage();
 }
 
@@ -1303,6 +1315,11 @@ TreeMisraGriesBITP::update(
     if (m_last_ts != 0 && m_last_ts != ts)
     {
         merge_cur_sketch(); 
+    }
+
+    if (m_size_counter > m_size_counter_max)
+    {
+        m_size_counter_max = m_size_counter;
     }
 
     m_cur_sketch->update(value, c);

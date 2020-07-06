@@ -37,6 +37,9 @@ struct IPersistentSketch
     virtual size_t
     max_memory_usage() const { return memory_usage(); }
 
+    virtual bool
+    max_memory_usage_overriden() const { return false; }
+
     virtual std::string
     get_short_description() const = 0;
 

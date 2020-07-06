@@ -291,6 +291,9 @@ public:
     size_t
     max_memory_usage() const override;
 
+    bool
+    max_memory_usage_overriden() const { return true; }
+
     std::string
     get_short_description() const override;
     

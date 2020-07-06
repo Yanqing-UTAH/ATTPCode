@@ -425,6 +425,12 @@ public:
     size_t
     memory_usage() const override;
 
+    size_t
+    max_memory_usage() const override;
+
+    bool
+    max_memory_usage_overriden() const override { return true; }
+
     std::string
     get_short_description() const override;
     
@@ -473,6 +479,8 @@ private:
     MisraGries              *m_cur_sketch;
 
     size_t                  m_size_counter;
+
+    size_t                  m_size_counter_max;
     
     // for frequency estimation
     mutable TIMESTAMP       m_tmp_ts; 

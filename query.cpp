@@ -309,9 +309,9 @@ public:
                  << " MB"
                  << std::endl;
 
-            size_t max_mm_b = sketch->max_memory_usage();
-            if (max_mm_b != mm_b)
+            if (sketch->max_memory_usage_overriden())
             {
+                size_t max_mm_b = sketch->max_memory_usage();
                 double max_mm_mb = max_mm_b / 1024.0 / 1024;
                 char saved_fill = m_out.fill();
                 m_out << '\t'
