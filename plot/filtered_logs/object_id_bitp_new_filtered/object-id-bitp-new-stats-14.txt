@@ -1,0 +1,1126 @@
+Stats request at line 13528042 with 13528041 processed
+	TMG_BITP-e0.004000: 97282832 B = 92.776 MB
+	TMG_BITP-e0.004000_max: 97550480 B = 93.031 MB
+	TMG_BITP-e0.001000: 292540096 B = 278.987 MB
+	TMG_BITP-e0.001000_max: 292552744 B = 279.000 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 9805 ms = 9 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 9133 ms = 9 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 27056084 with 27056082 processed
+	TMG_BITP-e0.004000: 111323968 B = 106.166 MB
+	TMG_BITP-e0.004000_max: 115967064 B = 110.594 MB
+	TMG_BITP-e0.001000: 400775088 B = 382.208 MB
+	TMG_BITP-e0.001000_max: 401603264 B = 382.998 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 19771 ms = 19 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 18671 ms = 18 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 40584126 with 40584123 processed
+	TMG_BITP-e0.004000: 127954296 B = 122.026 MB
+	TMG_BITP-e0.004000_max: 134114744 B = 127.901 MB
+	TMG_BITP-e0.001000: 500238400 B = 477.064 MB
+	TMG_BITP-e0.001000_max: 505122536 B = 481.722 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 28862 ms = 28 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 27441 ms = 27 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 54112168 with 54112164 processed
+	TMG_BITP-e0.004000: 147897304 B = 141.045 MB
+	TMG_BITP-e0.004000_max: 148686696 B = 141.798 MB
+	TMG_BITP-e0.001000: 606006472 B = 577.932 MB
+	TMG_BITP-e0.001000_max: 606037544 B = 577.962 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 37662 ms = 37 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 35984 ms = 35 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 67640210 with 67640205 processed
+	TMG_BITP-e0.004000: 143630832 B = 136.977 MB
+	TMG_BITP-e0.004000_max: 153527552 B = 146.415 MB
+	TMG_BITP-e0.001000: 650067592 B = 619.952 MB
+	TMG_BITP-e0.001000_max: 663965920 B = 633.207 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 46457 ms = 46 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 44680 ms = 44 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 81168252 with 81168246 processed
+	TMG_BITP-e0.004000: 167310288 B = 159.559 MB
+	TMG_BITP-e0.004000_max: 167345144 B = 159.592 MB
+	TMG_BITP-e0.001000: 752822720 B = 717.947 MB
+	TMG_BITP-e0.001000_max: 752822720 B = 717.947 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 54476 ms = 54 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 52502 ms = 52 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 94696294 with 94696287 processed
+	TMG_BITP-e0.004000: 165950624 B = 158.262 MB
+	TMG_BITP-e0.004000_max: 168031448 B = 160.247 MB
+	TMG_BITP-e0.001000: 796575096 B = 759.673 MB
+	TMG_BITP-e0.001000_max: 796662408 B = 759.756 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 61909 ms = 61 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 59835 ms = 59 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 108224336 with 108224328 processed
+	TMG_BITP-e0.004000: 167556888 B = 159.794 MB
+	TMG_BITP-e0.004000_max: 173440920 B = 165.406 MB
+	TMG_BITP-e0.001000: 850211912 B = 810.825 MB
+	TMG_BITP-e0.001000_max: 858284952 B = 818.524 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 69201 ms = 69 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 67084 ms = 67 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 121752378 with 121752369 processed
+	TMG_BITP-e0.004000: 169846496 B = 161.978 MB
+	TMG_BITP-e0.004000_max: 173443240 B = 165.408 MB
+	TMG_BITP-e0.001000: 856094744 B = 816.435 MB
+	TMG_BITP-e0.001000_max: 858287272 B = 818.526 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 77770 ms = 77 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 75638 ms = 75 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 135280420 with 135280410 processed
+	TMG_BITP-e0.004000: 182781112 B = 174.313 MB
+	TMG_BITP-e0.004000_max: 191003728 B = 182.155 MB
+	TMG_BITP-e0.001000: 955358064 B = 911.100 MB
+	TMG_BITP-e0.001000_max: 964815008 B = 920.119 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 83162 ms = 83 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 80964 ms = 80 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 148808462 with 148808451 processed
+	TMG_BITP-e0.004000: 197613312 B = 188.458 MB
+	TMG_BITP-e0.004000_max: 197789072 B = 188.626 MB
+	TMG_BITP-e0.001000: 1038452992 B = 990.345 MB
+	TMG_BITP-e0.001000_max: 1038540088 B = 990.429 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 88407 ms = 88 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 86161 ms = 86 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 162336504 with 162336492 processed
+	TMG_BITP-e0.004000: 194428856 B = 185.421 MB
+	TMG_BITP-e0.004000_max: 197809936 B = 188.646 MB
+	TMG_BITP-e0.001000: 1057294064 B = 1008.314 MB
+	TMG_BITP-e0.001000_max: 1057300104 B = 1008.319 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 93674 ms = 93 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 91517 ms = 91 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 175864546 with 175864533 processed
+	TMG_BITP-e0.004000: 210790640 B = 201.025 MB
+	TMG_BITP-e0.004000_max: 210862448 B = 201.094 MB
+	TMG_BITP-e0.001000: 1141894648 B = 1088.995 MB
+	TMG_BITP-e0.001000_max: 1141912472 B = 1089.012 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 97237 ms = 97 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 95003 ms = 95 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 189392588 with 189392574 processed
+	TMG_BITP-e0.004000: 211397216 B = 201.604 MB
+	TMG_BITP-e0.004000_max: 212919576 B = 203.055 MB
+	TMG_BITP-e0.001000: 1155863512 B = 1102.317 MB
+	TMG_BITP-e0.001000_max: 1155863512 B = 1102.317 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 99173 ms = 99 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 96771 ms = 96 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 202920630 with 202920615 processed
+	TMG_BITP-e0.004000: 212223600 B = 202.392 MB
+	TMG_BITP-e0.004000_max: 215568520 B = 205.582 MB
+	TMG_BITP-e0.001000: 1176534208 B = 1122.030 MB
+	TMG_BITP-e0.001000_max: 1176538408 B = 1122.034 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 101987 ms = 101 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 99490 ms = 99 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 216448672 with 216448656 processed
+	TMG_BITP-e0.004000: 199502392 B = 190.260 MB
+	TMG_BITP-e0.004000_max: 215570376 B = 205.583 MB
+	TMG_BITP-e0.001000: 1146749672 B = 1093.625 MB
+	TMG_BITP-e0.001000_max: 1178190008 B = 1123.609 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 106596 ms = 106 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 104399 ms = 104 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 229976714 with 229976697 processed
+	TMG_BITP-e0.004000: 210585136 B = 200.829 MB
+	TMG_BITP-e0.004000_max: 215560632 B = 205.574 MB
+	TMG_BITP-e0.001000: 1202291256 B = 1146.594 MB
+	TMG_BITP-e0.001000_max: 1202363064 B = 1146.662 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 110919 ms = 110 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 108735 ms = 108 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 243504756 with 243504738 processed
+	TMG_BITP-e0.004000: 213806512 B = 203.901 MB
+	TMG_BITP-e0.004000_max: 215568968 B = 205.582 MB
+	TMG_BITP-e0.001000: 1224028736 B = 1167.324 MB
+	TMG_BITP-e0.001000_max: 1224028736 B = 1167.324 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 113310 ms = 113 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 111019 ms = 111 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 257032798 with 257032779 processed
+	TMG_BITP-e0.004000: 208372472 B = 198.719 MB
+	TMG_BITP-e0.004000_max: 216499832 B = 206.470 MB
+	TMG_BITP-e0.001000: 1231407176 B = 1174.361 MB
+	TMG_BITP-e0.001000_max: 1234897336 B = 1177.689 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 116560 ms = 116 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 114235 ms = 114 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 270560840 with 270560820 processed
+	TMG_BITP-e0.004000: 202596656 B = 193.211 MB
+	TMG_BITP-e0.004000_max: 216509336 B = 206.479 MB
+	TMG_BITP-e0.001000: 1203091736 B = 1147.357 MB
+	TMG_BITP-e0.001000_max: 1234906840 B = 1177.698 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 121784 ms = 121 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 119918 ms = 119 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 284088882 with 284088861 processed
+	TMG_BITP-e0.004000: 213773976 B = 203.870 MB
+	TMG_BITP-e0.004000_max: 216507800 B = 206.477 MB
+	TMG_BITP-e0.001000: 1254579512 B = 1196.460 MB
+	TMG_BITP-e0.001000_max: 1254579512 B = 1196.460 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 125201 ms = 125 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 123280 ms = 123 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 297616924 with 297616902 processed
+	TMG_BITP-e0.004000: 211138864 B = 201.357 MB
+	TMG_BITP-e0.004000_max: 216501832 B = 206.472 MB
+	TMG_BITP-e0.001000: 1272451456 B = 1213.504 MB
+	TMG_BITP-e0.001000_max: 1272585848 B = 1213.632 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 128259 ms = 128 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 126316 ms = 126 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 311144966 with 311144943 processed
+	TMG_BITP-e0.004000: 193287800 B = 184.333 MB
+	TMG_BITP-e0.004000_max: 216499960 B = 206.470 MB
+	TMG_BITP-e0.001000: 1218706648 B = 1162.249 MB
+	TMG_BITP-e0.001000_max: 1272679096 B = 1213.721 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 132805 ms = 132 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 131289 ms = 131 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 324673008 with 324672984 processed
+	TMG_BITP-e0.004000: 202125648 B = 192.762 MB
+	TMG_BITP-e0.004000_max: 216504808 B = 206.475 MB
+	TMG_BITP-e0.001000: 1225753496 B = 1168.969 MB
+	TMG_BITP-e0.001000_max: 1272683944 B = 1213.725 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 138452 ms = 138 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 137153 ms = 137 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 338201050 with 338201025 processed
+	TMG_BITP-e0.004000: 191394992 B = 182.528 MB
+	TMG_BITP-e0.004000_max: 216500824 B = 206.471 MB
+	TMG_BITP-e0.001000: 1196009096 B = 1140.603 MB
+	TMG_BITP-e0.001000_max: 1272679960 B = 1213.722 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 144866 ms = 144 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 144105 ms = 144 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 351729092 with 351729066 processed
+	TMG_BITP-e0.004000: 197399520 B = 188.254 MB
+	TMG_BITP-e0.004000_max: 216502216 B = 206.472 MB
+	TMG_BITP-e0.001000: 1238527592 B = 1181.151 MB
+	TMG_BITP-e0.001000_max: 1272681352 B = 1213.723 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 150046 ms = 150 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 149437 ms = 149 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 365257134 with 365257107 processed
+	TMG_BITP-e0.004000: 210019472 B = 200.290 MB
+	TMG_BITP-e0.004000_max: 216502344 B = 206.472 MB
+	TMG_BITP-e0.001000: 1292091304 B = 1232.234 MB
+	TMG_BITP-e0.001000_max: 1292104952 B = 1232.247 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 155113 ms = 155 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 154671 ms = 154 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 378785176 with 378785148 processed
+	TMG_BITP-e0.004000: 215458144 B = 205.476 MB
+	TMG_BITP-e0.004000_max: 216508312 B = 206.478 MB
+	TMG_BITP-e0.001000: 1331576056 B = 1269.889 MB
+	TMG_BITP-e0.001000_max: 1331590792 B = 1269.903 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 157394 ms = 157 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 156832 ms = 156 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 392313218 with 392313189 processed
+	TMG_BITP-e0.004000: 214115904 B = 204.196 MB
+	TMG_BITP-e0.004000_max: 219958912 B = 209.769 MB
+	TMG_BITP-e0.001000: 1354648368 B = 1291.893 MB
+	TMG_BITP-e0.001000_max: 1354648368 B = 1291.893 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 159970 ms = 159 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 159306 ms = 159 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 405841260 with 405841230 processed
+	TMG_BITP-e0.004000: 212571136 B = 202.723 MB
+	TMG_BITP-e0.004000_max: 219964432 B = 209.774 MB
+	TMG_BITP-e0.001000: 1356138680 B = 1293.314 MB
+	TMG_BITP-e0.001000_max: 1359263096 B = 1296.294 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 162647 ms = 162 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 161957 ms = 161 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 419369302 with 419369271 processed
+	TMG_BITP-e0.004000: 200685504 B = 191.388 MB
+	TMG_BITP-e0.004000_max: 219961488 B = 209.771 MB
+	TMG_BITP-e0.001000: 1310813272 B = 1250.088 MB
+	TMG_BITP-e0.001000_max: 1359260152 B = 1296.291 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 168081 ms = 168 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 168075 ms = 168 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 432897344 with 432897312 processed
+	TMG_BITP-e0.004000: 212751952 B = 202.896 MB
+	TMG_BITP-e0.004000_max: 219961776 B = 209.771 MB
+	TMG_BITP-e0.001000: 1370261968 B = 1306.783 MB
+	TMG_BITP-e0.001000_max: 1370347856 B = 1306.865 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 172158 ms = 172 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 172262 ms = 172 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 446425386 with 446425353 processed
+	TMG_BITP-e0.004000: 208255240 B = 198.607 MB
+	TMG_BITP-e0.004000_max: 219959328 B = 209.769 MB
+	TMG_BITP-e0.001000: 1371689720 B = 1308.145 MB
+	TMG_BITP-e0.001000_max: 1380701696 B = 1316.739 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 175184 ms = 175 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 175332 ms = 175 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 459953428 with 459953394 processed
+	TMG_BITP-e0.004000: 199817896 B = 190.561 MB
+	TMG_BITP-e0.004000_max: 219956896 B = 209.767 MB
+	TMG_BITP-e0.001000: 1338575488 B = 1276.565 MB
+	TMG_BITP-e0.001000_max: 1380699264 B = 1316.737 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 180778 ms = 180 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 181614 ms = 181 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 473481470 with 473481435 processed
+	TMG_BITP-e0.004000: 213033208 B = 203.164 MB
+	TMG_BITP-e0.004000_max: 219957504 B = 209.767 MB
+	TMG_BITP-e0.001000: 1388878600 B = 1324.537 MB
+	TMG_BITP-e0.001000_max: 1388985064 B = 1324.639 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 184835 ms = 184 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 185735 ms = 185 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 487009512 with 487009476 processed
+	TMG_BITP-e0.004000: 207300264 B = 197.696 MB
+	TMG_BITP-e0.004000_max: 219955424 B = 209.765 MB
+	TMG_BITP-e0.001000: 1394338912 B = 1329.745 MB
+	TMG_BITP-e0.001000_max: 1397687256 B = 1332.938 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 188142 ms = 188 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 189088 ms = 189 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 500537554 with 500537517 processed
+	TMG_BITP-e0.004000: 204529288 B = 195.054 MB
+	TMG_BITP-e0.004000_max: 219957248 B = 209.767 MB
+	TMG_BITP-e0.001000: 1373754368 B = 1310.114 MB
+	TMG_BITP-e0.001000_max: 1397689080 B = 1332.940 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 194171 ms = 194 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 195830 ms = 195 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 514065596 with 514065558 processed
+	TMG_BITP-e0.004000: 213618664 B = 203.722 MB
+	TMG_BITP-e0.004000_max: 219962128 B = 209.772 MB
+	TMG_BITP-e0.001000: 1427680312 B = 1361.542 MB
+	TMG_BITP-e0.001000_max: 1427950024 B = 1361.799 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 197800 ms = 197 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 199507 ms = 199 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 527593638 with 527593599 processed
+	TMG_BITP-e0.004000: 198506952 B = 189.310 MB
+	TMG_BITP-e0.004000_max: 219957504 B = 209.767 MB
+	TMG_BITP-e0.001000: 1393926104 B = 1329.351 MB
+	TMG_BITP-e0.001000_max: 1428849912 B = 1362.657 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 202299 ms = 202 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 204389 ms = 204 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 541121680 with 541121640 processed
+	TMG_BITP-e0.004000: 208845120 B = 199.170 MB
+	TMG_BITP-e0.004000_max: 219961040 B = 209.771 MB
+	TMG_BITP-e0.001000: 1413632280 B = 1348.144 MB
+	TMG_BITP-e0.001000_max: 1428853448 B = 1362.660 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 207885 ms = 207 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 210415 ms = 210 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 554649722 with 554649681 processed
+	TMG_BITP-e0.004000: 207265168 B = 197.663 MB
+	TMG_BITP-e0.004000_max: 219962640 B = 209.772 MB
+	TMG_BITP-e0.001000: 1420136480 B = 1354.347 MB
+	TMG_BITP-e0.001000_max: 1428855048 B = 1362.662 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 211113 ms = 211 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 213658 ms = 213 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 568177764 with 568177722 processed
+	TMG_BITP-e0.004000: 193692688 B = 184.719 MB
+	TMG_BITP-e0.004000_max: 219955744 B = 209.766 MB
+	TMG_BITP-e0.001000: 1340031760 B = 1277.953 MB
+	TMG_BITP-e0.001000_max: 1428848152 B = 1362.655 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 217688 ms = 217 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 220863 ms = 220 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 581705806 with 581705763 processed
+	TMG_BITP-e0.004000: 187320544 B = 178.642 MB
+	TMG_BITP-e0.004000_max: 219957792 B = 209.768 MB
+	TMG_BITP-e0.001000: 1305936968 B = 1245.438 MB
+	TMG_BITP-e0.001000_max: 1428850200 B = 1362.657 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 224325 ms = 224 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 227950 ms = 227 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 595233848 with 595233804 processed
+	TMG_BITP-e0.004000: 198766912 B = 189.558 MB
+	TMG_BITP-e0.004000_max: 219957920 B = 209.768 MB
+	TMG_BITP-e0.001000: 1345467352 B = 1283.137 MB
+	TMG_BITP-e0.001000_max: 1428850328 B = 1362.657 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 229563 ms = 229 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 233456 ms = 233 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 608761890 with 608761845 processed
+	TMG_BITP-e0.004000: 212297288 B = 202.462 MB
+	TMG_BITP-e0.004000_max: 219958240 B = 209.768 MB
+	TMG_BITP-e0.001000: 1415229848 B = 1349.668 MB
+	TMG_BITP-e0.001000_max: 1428850648 B = 1362.658 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 234688 ms = 234 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 238767 ms = 238 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 622289932 with 622289886 processed
+	TMG_BITP-e0.004000: 210193144 B = 200.455 MB
+	TMG_BITP-e0.004000_max: 219961424 B = 209.771 MB
+	TMG_BITP-e0.001000: 1437006840 B = 1370.436 MB
+	TMG_BITP-e0.001000_max: 1441719464 B = 1374.930 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 237907 ms = 237 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 242031 ms = 242 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 635817974 with 635817927 processed
+	TMG_BITP-e0.004000: 199593632 B = 190.347 MB
+	TMG_BITP-e0.004000_max: 219961104 B = 209.771 MB
+	TMG_BITP-e0.001000: 1402381736 B = 1337.415 MB
+	TMG_BITP-e0.001000_max: 1441719144 B = 1374.930 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 242624 ms = 242 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 247271 ms = 247 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 649346016 with 649345968 processed
+	TMG_BITP-e0.004000: 214669760 B = 204.725 MB
+	TMG_BITP-e0.004000_max: 219965168 B = 209.775 MB
+	TMG_BITP-e0.001000: 1454133768 B = 1386.770 MB
+	TMG_BITP-e0.001000_max: 1454133768 B = 1386.770 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 246831 ms = 246 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 251682 ms = 251 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 662874058 with 662874009 processed
+	TMG_BITP-e0.004000: 215951784 B = 205.947 MB
+	TMG_BITP-e0.004000_max: 220609656 B = 210.389 MB
+	TMG_BITP-e0.001000: 1488238464 B = 1419.294 MB
+	TMG_BITP-e0.001000_max: 1489414184 B = 1420.416 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 249209 ms = 249 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 254014 ms = 254 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 676402100 with 676402050 processed
+	TMG_BITP-e0.004000: 213673456 B = 203.774 MB
+	TMG_BITP-e0.004000_max: 220609560 B = 210.389 MB
+	TMG_BITP-e0.001000: 1492035976 B = 1422.916 MB
+	TMG_BITP-e0.001000_max: 1492225384 B = 1423.097 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 252216 ms = 252 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 257057 ms = 257 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 689930142 with 689930091 processed
+	TMG_BITP-e0.004000: 205925640 B = 196.385 MB
+	TMG_BITP-e0.004000_max: 220608920 B = 210.389 MB
+	TMG_BITP-e0.001000: 1459416496 B = 1391.808 MB
+	TMG_BITP-e0.001000_max: 1492354480 B = 1423.220 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 257752 ms = 257 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 263341 ms = 263 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 703458184 with 703458132 processed
+	TMG_BITP-e0.004000: 217829464 B = 207.738 MB
+	TMG_BITP-e0.004000_max: 220615304 B = 210.395 MB
+	TMG_BITP-e0.001000: 1511769192 B = 1441.735 MB
+	TMG_BITP-e0.001000_max: 1511797824 B = 1441.762 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 261116 ms = 261 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 266770 ms = 266 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 716986226 with 716986173 processed
+	TMG_BITP-e0.004000: 213382928 B = 203.497 MB
+	TMG_BITP-e0.004000_max: 220610488 B = 210.390 MB
+	TMG_BITP-e0.001000: 1518032320 B = 1447.708 MB
+	TMG_BITP-e0.001000_max: 1527310720 B = 1456.557 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 264076 ms = 264 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 269837 ms = 269 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 730514268 with 730514214 processed
+	TMG_BITP-e0.004000: 203577288 B = 194.146 MB
+	TMG_BITP-e0.004000_max: 220610808 B = 210.390 MB
+	TMG_BITP-e0.001000: 1496879080 B = 1427.535 MB
+	TMG_BITP-e0.001000_max: 1527311040 B = 1456.557 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 268118 ms = 268 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 274274 ms = 274 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 744042310 with 744042255 processed
+	TMG_BITP-e0.004000: 214718448 B = 204.771 MB
+	TMG_BITP-e0.004000_max: 220615592 B = 210.395 MB
+	TMG_BITP-e0.001000: 1519383744 B = 1448.997 MB
+	TMG_BITP-e0.001000_max: 1527315824 B = 1456.561 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 273412 ms = 273 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 280136 ms = 280 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 757570352 with 757570296 processed
+	TMG_BITP-e0.004000: 222192304 B = 211.899 MB
+	TMG_BITP-e0.004000_max: 222192304 B = 211.899 MB
+	TMG_BITP-e0.001000: 1550111600 B = 1478.301 MB
+	TMG_BITP-e0.001000_max: 1550111600 B = 1478.301 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 275501 ms = 275 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 282101 ms = 282 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 771098394 with 771098337 processed
+	TMG_BITP-e0.004000: 217342696 B = 207.274 MB
+	TMG_BITP-e0.004000_max: 222758336 B = 212.438 MB
+	TMG_BITP-e0.001000: 1559705320 B = 1487.450 MB
+	TMG_BITP-e0.001000_max: 1563910992 B = 1491.461 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 278606 ms = 278 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 285303 ms = 285 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 784626436 with 784626378 processed
+	TMG_BITP-e0.004000: 208468712 B = 198.811 MB
+	TMG_BITP-e0.004000_max: 222749760 B = 212.430 MB
+	TMG_BITP-e0.001000: 1547218696 B = 1475.542 MB
+	TMG_BITP-e0.001000_max: 1566429080 B = 1493.863 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 281978 ms = 281 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 288895 ms = 288 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 798154478 with 798154419 processed
+	TMG_BITP-e0.004000: 210988832 B = 201.214 MB
+	TMG_BITP-e0.004000_max: 222750592 B = 212.431 MB
+	TMG_BITP-e0.001000: 1531581936 B = 1460.630 MB
+	TMG_BITP-e0.001000_max: 1566429912 B = 1493.863 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 287877 ms = 287 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 295719 ms = 295 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 811682520 with 811682460 processed
+	TMG_BITP-e0.004000: 216451048 B = 206.423 MB
+	TMG_BITP-e0.004000_max: 222758272 B = 212.438 MB
+	TMG_BITP-e0.001000: 1554559704 B = 1482.543 MB
+	TMG_BITP-e0.001000_max: 1566437592 B = 1493.871 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 289830 ms = 289 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 297522 ms = 297 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 825210562 with 825210501 processed
+	TMG_BITP-e0.004000: 215653648 B = 205.663 MB
+	TMG_BITP-e0.004000_max: 222755472 B = 212.436 MB
+	TMG_BITP-e0.001000: 1567219968 B = 1494.617 MB
+	TMG_BITP-e0.001000_max: 1567876136 B = 1495.243 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 291811 ms = 291 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 299416 ms = 299 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 838738604 with 838738542 processed
+	TMG_BITP-e0.004000: 214897592 B = 204.942 MB
+	TMG_BITP-e0.004000_max: 222757824 B = 212.438 MB
+	TMG_BITP-e0.001000: 1560607416 B = 1488.311 MB
+	TMG_BITP-e0.001000_max: 1567878488 B = 1495.245 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 293863 ms = 293 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 301425 ms = 301 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 852266646 with 852266583 processed
+	TMG_BITP-e0.004000: 196932728 B = 187.809 MB
+	TMG_BITP-e0.004000_max: 222750080 B = 212.431 MB
+	TMG_BITP-e0.001000: 1501526728 B = 1431.967 MB
+	TMG_BITP-e0.001000_max: 1567870744 B = 1495.238 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 298485 ms = 298 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 306693 ms = 306 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 865794688 with 865794624 processed
+	TMG_BITP-e0.004000: 201396928 B = 192.067 MB
+	TMG_BITP-e0.004000_max: 222753616 B = 212.434 MB
+	TMG_BITP-e0.001000: 1496596048 B = 1427.265 MB
+	TMG_BITP-e0.001000_max: 1567874280 B = 1495.241 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 304317 ms = 304 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 313116 ms = 313 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 879322730 with 879322665 processed
+	TMG_BITP-e0.004000: 201397496 B = 192.067 MB
+	TMG_BITP-e0.004000_max: 222754832 B = 212.435 MB
+	TMG_BITP-e0.001000: 1462166560 B = 1394.430 MB
+	TMG_BITP-e0.001000_max: 1567875496 B = 1495.242 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 310788 ms = 310 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 320095 ms = 320 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 892850772 with 892850706 processed
+	TMG_BITP-e0.004000: 204043696 B = 194.591 MB
+	TMG_BITP-e0.004000_max: 222755728 B = 212.436 MB
+	TMG_BITP-e0.001000: 1480178128 B = 1411.607 MB
+	TMG_BITP-e0.001000_max: 1567876392 B = 1495.243 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 315931 ms = 315 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 325727 ms = 325 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 906378814 with 906378747 processed
+	TMG_BITP-e0.004000: 217053504 B = 206.998 MB
+	TMG_BITP-e0.004000_max: 222758240 B = 212.438 MB
+	TMG_BITP-e0.001000: 1543821992 B = 1472.303 MB
+	TMG_BITP-e0.001000_max: 1567878904 B = 1495.245 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 320112 ms = 320 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 330013 ms = 330 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 919906856 with 919906788 processed
+	TMG_BITP-e0.004000: 219034728 B = 208.887 MB
+	TMG_BITP-e0.004000_max: 222760960 B = 212.441 MB
+	TMG_BITP-e0.001000: 1557557552 B = 1485.402 MB
+	TMG_BITP-e0.001000_max: 1567881624 B = 1495.248 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 321828 ms = 321 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 331577 ms = 331 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 933434898 with 933434829 processed
+	TMG_BITP-e0.004000: 216821136 B = 206.776 MB
+	TMG_BITP-e0.004000_max: 222758720 B = 212.439 MB
+	TMG_BITP-e0.001000: 1572788760 B = 1499.928 MB
+	TMG_BITP-e0.001000_max: 1576617048 B = 1503.579 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 324135 ms = 324 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 333853 ms = 333 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 946962940 with 946962870 processed
+	TMG_BITP-e0.004000: 213811816 B = 203.906 MB
+	TMG_BITP-e0.004000_max: 222759232 B = 212.439 MB
+	TMG_BITP-e0.001000: 1571521568 B = 1498.719 MB
+	TMG_BITP-e0.001000_max: 1576617560 B = 1503.579 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 326466 ms = 326 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 336153 ms = 336 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 960490982 with 960490911 processed
+	TMG_BITP-e0.004000: 206307584 B = 196.750 MB
+	TMG_BITP-e0.004000_max: 222757312 B = 212.437 MB
+	TMG_BITP-e0.001000: 1549360744 B = 1477.585 MB
+	TMG_BITP-e0.001000_max: 1576615640 B = 1503.577 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 329068 ms = 329 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 338904 ms = 338 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 974019024 with 974018952 processed
+	TMG_BITP-e0.004000: 213955088 B = 204.043 MB
+	TMG_BITP-e0.004000_max: 222755824 B = 212.436 MB
+	TMG_BITP-e0.001000: 1558246256 B = 1486.059 MB
+	TMG_BITP-e0.001000_max: 1576614152 B = 1503.576 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 334838 ms = 334 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 345355 ms = 345 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 987547066 with 987546993 processed
+	TMG_BITP-e0.004000: 218335320 B = 208.220 MB
+	TMG_BITP-e0.004000_max: 222758688 B = 212.439 MB
+	TMG_BITP-e0.001000: 1589364328 B = 1515.735 MB
+	TMG_BITP-e0.001000_max: 1589382872 B = 1515.753 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 336876 ms = 336 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 347305 ms = 347 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1001075108 with 1001075034 processed
+	TMG_BITP-e0.004000: 217391992 B = 207.321 MB
+	TMG_BITP-e0.004000_max: 222758208 B = 212.438 MB
+	TMG_BITP-e0.001000: 1602583736 B = 1528.342 MB
+	TMG_BITP-e0.001000_max: 1604361248 B = 1530.038 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 338995 ms = 338 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 349394 ms = 349 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1014603150 with 1014603075 processed
+	TMG_BITP-e0.004000: 216663112 B = 206.626 MB
+	TMG_BITP-e0.004000_max: 222755152 B = 212.435 MB
+	TMG_BITP-e0.001000: 1597214968 B = 1523.222 MB
+	TMG_BITP-e0.001000_max: 1604358192 B = 1530.035 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 340860 ms = 340 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 351182 ms = 351 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1028131192 with 1028131116 processed
+	TMG_BITP-e0.004000: 207076880 B = 197.483 MB
+	TMG_BITP-e0.004000_max: 222757472 B = 212.438 MB
+	TMG_BITP-e0.001000: 1574636056 B = 1501.689 MB
+	TMG_BITP-e0.001000_max: 1604360512 B = 1530.037 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 344249 ms = 344 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 354866 ms = 354 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1041659234 with 1041659157 processed
+	TMG_BITP-e0.004000: 212309352 B = 202.473 MB
+	TMG_BITP-e0.004000_max: 222753968 B = 212.434 MB
+	TMG_BITP-e0.001000: 1574117880 B = 1501.195 MB
+	TMG_BITP-e0.001000_max: 1604357008 B = 1530.034 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 349987 ms = 349 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 361370 ms = 361 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1055187276 with 1055187198 processed
+	TMG_BITP-e0.004000: 198234512 B = 189.051 MB
+	TMG_BITP-e0.004000_max: 222753584 B = 212.434 MB
+	TMG_BITP-e0.001000: 1513308432 B = 1443.203 MB
+	TMG_BITP-e0.001000_max: 1604356624 B = 1530.033 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 356680 ms = 356 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 368879 ms = 368 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1068715318 with 1068715239 processed
+	TMG_BITP-e0.004000: 196083592 B = 186.999 MB
+	TMG_BITP-e0.004000_max: 222752208 B = 212.433 MB
+	TMG_BITP-e0.001000: 1514512080 B = 1444.351 MB
+	TMG_BITP-e0.001000_max: 1604355248 B = 1530.032 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 363106 ms = 363 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 375955 ms = 375 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1082243360 with 1082243280 processed
+	TMG_BITP-e0.004000: 213368680 B = 203.484 MB
+	TMG_BITP-e0.004000_max: 222760352 B = 212.440 MB
+	TMG_BITP-e0.001000: 1566045640 B = 1493.497 MB
+	TMG_BITP-e0.001000_max: 1604363392 B = 1530.040 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 368082 ms = 368 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 381092 ms = 381 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1095771402 with 1095771321 processed
+	TMG_BITP-e0.004000: 210056128 B = 200.325 MB
+	TMG_BITP-e0.004000_max: 222759424 B = 212.439 MB
+	TMG_BITP-e0.001000: 1571209312 B = 1498.421 MB
+	TMG_BITP-e0.001000_max: 1604362464 B = 1530.039 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 369873 ms = 369 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 382741 ms = 382 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1109299444 with 1109299362 processed
+	TMG_BITP-e0.004000: 208719888 B = 199.050 MB
+	TMG_BITP-e0.004000_max: 222754896 B = 212.435 MB
+	TMG_BITP-e0.001000: 1565701560 B = 1493.169 MB
+	TMG_BITP-e0.001000_max: 1604357936 B = 1530.034 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 372538 ms = 372 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 385510 ms = 385 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1122827486 with 1122827403 processed
+	TMG_BITP-e0.004000: 200743960 B = 191.444 MB
+	TMG_BITP-e0.004000_max: 222754256 B = 212.435 MB
+	TMG_BITP-e0.001000: 1503694144 B = 1434.034 MB
+	TMG_BITP-e0.001000_max: 1604357296 B = 1530.034 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 379269 ms = 379 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 392952 ms = 392 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1136355528 with 1136355444 processed
+	TMG_BITP-e0.004000: 193347144 B = 184.390 MB
+	TMG_BITP-e0.004000_max: 222752176 B = 212.433 MB
+	TMG_BITP-e0.001000: 1473749496 B = 1405.477 MB
+	TMG_BITP-e0.001000_max: 1604355216 B = 1530.032 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 385859 ms = 385 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 400109 ms = 400 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1149883570 with 1149883485 processed
+	TMG_BITP-e0.004000: 205572880 B = 196.049 MB
+	TMG_BITP-e0.004000_max: 222751792 B = 212.432 MB
+	TMG_BITP-e0.001000: 1508648376 B = 1438.759 MB
+	TMG_BITP-e0.001000_max: 1604354832 B = 1530.031 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 393199 ms = 393 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 407878 ms = 407 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1163411612 with 1163411526 processed
+	TMG_BITP-e0.004000: 196214432 B = 187.124 MB
+	TMG_BITP-e0.004000_max: 222753136 B = 212.433 MB
+	TMG_BITP-e0.001000: 1498691664 B = 1429.263 MB
+	TMG_BITP-e0.001000_max: 1604356176 B = 1530.033 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 399744 ms = 399 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 415014 ms = 415 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1176939654 with 1176939567 processed
+	TMG_BITP-e0.004000: 211399064 B = 201.605 MB
+	TMG_BITP-e0.004000_max: 222758752 B = 212.439 MB
+	TMG_BITP-e0.001000: 1559939928 B = 1487.674 MB
+	TMG_BITP-e0.001000_max: 1604361792 B = 1530.038 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 404231 ms = 404 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 419629 ms = 419 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1190467696 with 1190467608 processed
+	TMG_BITP-e0.004000: 212149048 B = 202.321 MB
+	TMG_BITP-e0.004000_max: 222759488 B = 212.440 MB
+	TMG_BITP-e0.001000: 1567020856 B = 1494.427 MB
+	TMG_BITP-e0.001000_max: 1604362528 B = 1530.039 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 405909 ms = 405 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 421155 ms = 421 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1203995738 with 1203995649 processed
+	TMG_BITP-e0.004000: 205248512 B = 195.740 MB
+	TMG_BITP-e0.004000_max: 222753232 B = 212.434 MB
+	TMG_BITP-e0.001000: 1546960944 B = 1475.296 MB
+	TMG_BITP-e0.001000_max: 1604356272 B = 1530.033 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 408792 ms = 408 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 424215 ms = 424 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1217523780 with 1217523690 processed
+	TMG_BITP-e0.004000: 210176016 B = 200.439 MB
+	TMG_BITP-e0.004000_max: 222751248 B = 212.432 MB
+	TMG_BITP-e0.001000: 1576681168 B = 1503.640 MB
+	TMG_BITP-e0.001000_max: 1604354288 B = 1530.031 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 414980 ms = 414 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 430866 ms = 430 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1231051822 with 1231051731 processed
+	TMG_BITP-e0.004000: 214549072 B = 204.609 MB
+	TMG_BITP-e0.004000_max: 222751600 B = 212.432 MB
+	TMG_BITP-e0.001000: 1591697520 B = 1517.961 MB
+	TMG_BITP-e0.001000_max: 1604354640 B = 1530.031 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 416816 ms = 416 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 432562 ms = 432 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1244579864 with 1244579772 processed
+	TMG_BITP-e0.004000: 203252408 B = 193.836 MB
+	TMG_BITP-e0.004000_max: 222751536 B = 212.432 MB
+	TMG_BITP-e0.001000: 1561443096 B = 1489.108 MB
+	TMG_BITP-e0.001000_max: 1604703736 B = 1530.364 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 421606 ms = 421 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 437866 ms = 437 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1258107906 with 1258107813 processed
+	TMG_BITP-e0.004000: 191210856 B = 182.352 MB
+	TMG_BITP-e0.004000_max: 222751248 B = 212.432 MB
+	TMG_BITP-e0.001000: 1531254992 B = 1460.318 MB
+	TMG_BITP-e0.001000_max: 1604703448 B = 1530.364 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 429202 ms = 429 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 446285 ms = 446 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1271635948 with 1271635854 processed
+	TMG_BITP-e0.004000: 191652128 B = 182.773 MB
+	TMG_BITP-e0.004000_max: 222752016 B = 212.432 MB
+	TMG_BITP-e0.001000: 1504130040 B = 1434.450 MB
+	TMG_BITP-e0.001000_max: 1604704216 B = 1530.365 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 437553 ms = 437 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 455397 ms = 455 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1285163990 with 1285163895 processed
+	TMG_BITP-e0.004000: 200807424 B = 191.504 MB
+	TMG_BITP-e0.004000_max: 222757472 B = 212.438 MB
+	TMG_BITP-e0.001000: 1520109224 B = 1449.689 MB
+	TMG_BITP-e0.001000_max: 1604709672 B = 1530.370 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 444810 ms = 444 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 463052 ms = 463 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1298692032 with 1298691936 processed
+	TMG_BITP-e0.004000: 209401600 B = 199.700 MB
+	TMG_BITP-e0.004000_max: 222754960 B = 212.435 MB
+	TMG_BITP-e0.001000: 1580216216 B = 1507.011 MB
+	TMG_BITP-e0.001000_max: 1604707160 B = 1530.368 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 450025 ms = 450 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 468615 ms = 468 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1312220074 with 1312219977 processed
+	TMG_BITP-e0.004000: 198083664 B = 188.907 MB
+	TMG_BITP-e0.004000_max: 222750624 B = 212.431 MB
+	TMG_BITP-e0.001000: 1593479024 B = 1519.660 MB
+	TMG_BITP-e0.001000_max: 1628164904 B = 1552.739 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 456312 ms = 456 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 475661 ms = 475 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1325748116 with 1325748018 processed
+	TMG_BITP-e0.004000: 184143680 B = 175.613 MB
+	TMG_BITP-e0.004000_max: 222750592 B = 212.431 MB
+	TMG_BITP-e0.001000: 1516234584 B = 1445.993 MB
+	TMG_BITP-e0.001000_max: 1628164872 B = 1552.739 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 466289 ms = 466 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 487081 ms = 487 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1339276158 with 1339276059 processed
+	TMG_BITP-e0.004000: 157817184 B = 150.506 MB
+	TMG_BITP-e0.004000_max: 222749760 B = 212.430 MB
+	TMG_BITP-e0.001000: 1293851544 B = 1233.912 MB
+	TMG_BITP-e0.001000_max: 1628164040 B = 1552.738 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 478473 ms = 478 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 501128 ms = 501 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+Stats request at line 1352804200 with 1352804100 processed
+	TMG_BITP-e0.004000: 147111776 B = 140.296 MB
+	TMG_BITP-e0.004000_max: 222749632 B = 212.430 MB
+	TMG_BITP-e0.001000: 1162029032 B = 1108.197 MB
+	TMG_BITP-e0.001000_max: 1628163912 B = 1552.738 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 491637 ms = 491 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 515651 ms = 515 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+HH(0.01|893971816):
+	TMG_BITP-e0.004000: prec = 3/13 = 0.230769, recall = 3/3 = 1
+	TMG_BITP-e0.001000: prec = 3/4 = 0.75, recall = 3/3 = 1
+HH(0.01|897641976):
+	TMG_BITP-e0.004000: prec = 4/18 = 0.222222, recall = 4/4 = 1
+	TMG_BITP-e0.001000: prec = 4/6 = 0.666667, recall = 4/4 = 1
+HH(0.01|898271001):
+	TMG_BITP-e0.004000: prec = 6/14 = 0.428571, recall = 6/6 = 1
+	TMG_BITP-e0.001000: prec = 6/6 = 1, recall = 6/6 = 1
+HH(0.01|898876267):
+	TMG_BITP-e0.004000: prec = 6/14 = 0.428571, recall = 6/6 = 1
+	TMG_BITP-e0.001000: prec = 6/6 = 1, recall = 6/6 = 1
+HH(0.01|899479307):
+	TMG_BITP-e0.004000: prec = 4/12 = 0.333333, recall = 4/4 = 1
+	TMG_BITP-e0.001000: prec = 4/4 = 1, recall = 4/4 = 1
+START_OF_FINAL_STATS_REPORT
+	TMG_BITP-e0.004000: 147111856 B = 140.296 MB
+	TMG_BITP-e0.004000_max: 222749424 B = 212.430 MB
+	TMG_BITP-e0.001000: 1162029208 B = 1108.197 MB
+	TMG_BITP-e0.001000_max: 1628163704 B = 1552.737 MB
+Update timers:
+	TMG_BITP-e0.004000: tot = 491637 ms = 491 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.001000: tot = 515651 ms = 515 s (avg 0 us = 0 ms)
+Query timers:
+	TMG_BITP-e0.004000: tot = 16 ms = 0 s (avg 2323 us = 2 ms)
+	TMG_BITP-e0.001000: tot = 63 ms = 0 s (avg 9070 us = 9 ms)

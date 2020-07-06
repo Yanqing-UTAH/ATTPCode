@@ -1,1025 +1,717 @@
 Stats request at line 13528042 with 13528041 processed
-	TMG_BITP-e0.002000: 190800968 B = 181.961 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 42807712 B = 40.824 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 256005056 B = 244.145 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 10398 ms = 10 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 3518 ms = 3 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 27056084 with 27056082 processed
-	TMG_BITP-e0.002000: 246481568 B = 235.063 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 247119552 B = 235.671 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 272005056 B = 259.404 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 20970 ms = 20 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 6805 ms = 6 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 40584126 with 40584123 processed
-	TMG_BITP-e0.002000: 298853344 B = 285.008 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 213423712 B = 203.536 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 288005056 B = 274.663 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 31319 ms = 31 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 12185 ms = 12 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 54112168 with 54112164 processed
-	TMG_BITP-e0.002000: 355134312 B = 338.682 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 169931616 B = 162.059 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 288005056 B = 274.663 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 41527 ms = 41 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 17882 ms = 17 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 67640210 with 67640205 processed
-	TMG_BITP-e0.002000: 366160832 B = 349.198 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 130872960 B = 124.810 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 288005056 B = 274.663 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 51628 ms = 51 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 23792 ms = 23 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 81168252 with 81168246 processed
-	TMG_BITP-e0.002000: 423599448 B = 403.975 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 79200512 B = 75.531 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 304005056 B = 289.921 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 61096 ms = 61 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 29847 ms = 29 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 94696294 with 94696287 processed
-	TMG_BITP-e0.002000: 437952864 B = 417.664 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 263057408 B = 250.871 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 304005056 B = 289.921 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 69421 ms = 69 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 33859 ms = 33 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 108224336 with 108224328 processed
-	TMG_BITP-e0.002000: 454122112 B = 433.084 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 199698784 B = 190.447 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 304005056 B = 289.921 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 78175 ms = 78 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 40156 ms = 40 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 121752378 with 121752369 processed
-	TMG_BITP-e0.002000: 455281656 B = 434.190 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 138739680 B = 132.312 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 304005056 B = 289.921 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 87915 ms = 87 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 46570 ms = 46 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 135280420 with 135280410 processed
-	TMG_BITP-e0.002000: 508362264 B = 484.812 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 79781440 B = 76.085 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 304005056 B = 289.921 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 94723 ms = 94 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 52947 ms = 52 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 148808462 with 148808451 processed
-	TMG_BITP-e0.002000: 550003408 B = 524.524 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 267424864 B = 255.036 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 304005056 B = 289.921 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 100930 ms = 100 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 57154 ms = 57 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 162336504 with 162336492 processed
-	TMG_BITP-e0.002000: 546879648 B = 521.545 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 211203104 B = 201.418 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 304005056 B = 289.921 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 107791 ms = 107 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 63762 ms = 63 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 175864546 with 175864533 processed
-	TMG_BITP-e0.002000: 591800952 B = 564.385 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 156375040 B = 149.130 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 304005056 B = 289.921 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 112711 ms = 112 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 70358 ms = 70 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 189392588 with 189392574 processed
-	TMG_BITP-e0.002000: 597134328 B = 569.471 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 86929696 B = 82.902 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 320005056 B = 305.180 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 115687 ms = 115 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 76944 ms = 76 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 202920630 with 202920615 processed
-	TMG_BITP-e0.002000: 607795656 B = 579.639 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 261205728 B = 249.105 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 320005056 B = 305.180 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 119318 ms = 119 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 81369 ms = 81 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 216448672 with 216448656 processed
-	TMG_BITP-e0.002000: 577258048 B = 550.516 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 177746912 B = 169.512 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 320005056 B = 305.180 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 125319 ms = 125 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 88256 ms = 88 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 229976714 with 229976697 processed
-	TMG_BITP-e0.002000: 610230080 B = 581.960 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 95493184 B = 91.069 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 320005056 B = 305.180 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 130837 ms = 130 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 95085 ms = 95 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 243504756 with 243504738 processed
-	TMG_BITP-e0.002000: 620286640 B = 591.551 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 271273568 B = 258.706 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 320005056 B = 305.180 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 133932 ms = 133 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 99517 ms = 99 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 257032798 with 257032779 processed
-	TMG_BITP-e0.002000: 616020032 B = 587.482 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 190717312 B = 181.882 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 320005056 B = 305.180 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 138365 ms = 138 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 106462 ms = 106 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 270560840 with 270560820 processed
-	TMG_BITP-e0.002000: 595887664 B = 568.282 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 111045344 B = 105.901 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 320005056 B = 305.180 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 144793 ms = 144 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 113423 ms = 113 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 284088882 with 284088861 processed
-	TMG_BITP-e0.002000: 627204432 B = 598.148 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 288063488 B = 274.718 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 320005056 B = 305.180 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 148832 ms = 148 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 117855 ms = 117 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 297616924 with 297616902 processed
-	TMG_BITP-e0.002000: 632343880 B = 603.050 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 209828192 B = 200.107 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 320005056 B = 305.180 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 153092 ms = 153 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 125016 ms = 125 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 311144966 with 311144943 processed
-	TMG_BITP-e0.002000: 586784256 B = 559.601 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 132440032 B = 126.304 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 320005056 B = 305.180 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 158960 ms = 158 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 132142 ms = 132 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 324673008 with 324672984 processed
-	TMG_BITP-e0.002000: 595066632 B = 567.499 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 310455520 B = 296.073 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 320005056 B = 305.180 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 165137 ms = 165 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 136615 ms = 136 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 338201050 with 338201025 processed
-	TMG_BITP-e0.002000: 571388736 B = 544.918 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 234211616 B = 223.361 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 320005056 B = 305.180 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 172430 ms = 172 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 143699 ms = 143 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 351729092 with 351729066 processed
-	TMG_BITP-e0.002000: 589596168 B = 562.282 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 158748768 B = 151.394 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 320005056 B = 305.180 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 178813 ms = 178 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 150685 ms = 150 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 365257134 with 365257107 processed
-	TMG_BITP-e0.002000: 618019688 B = 589.389 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 84044768 B = 80.151 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 320005056 B = 305.180 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 185108 ms = 185 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 157626 ms = 157 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 378785176 with 378785148 processed
-	TMG_BITP-e0.002000: 638463248 B = 608.886 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 263471168 B = 251.265 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 320005056 B = 305.180 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 188063 ms = 188 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 162131 ms = 162 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 392313218 with 392313189 processed
-	TMG_BITP-e0.002000: 644791624 B = 614.921 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 189743904 B = 180.953 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 320005056 B = 305.180 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 191796 ms = 191 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 169192 ms = 169 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 405841260 with 405841230 processed
-	TMG_BITP-e0.002000: 638839904 B = 609.245 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 116751808 B = 111.343 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 320005056 B = 305.180 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 195538 ms = 195 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 176293 ms = 176 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 419369302 with 419369271 processed
-	TMG_BITP-e0.002000: 609126160 B = 580.907 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 296960800 B = 283.203 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 320005056 B = 305.180 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 201786 ms = 201 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 180877 ms = 180 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 432897344 with 432897312 processed
-	TMG_BITP-e0.002000: 644797688 B = 614.926 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 224840800 B = 214.424 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 320005056 B = 305.180 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 207049 ms = 207 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 188037 ms = 188 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 446425386 with 446425353 processed
-	TMG_BITP-e0.002000: 637490000 B = 607.957 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 153296640 B = 146.195 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 320005056 B = 305.180 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 211187 ms = 211 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 195153 ms = 195 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 459953428 with 459953394 processed
-	TMG_BITP-e0.002000: 615573992 B = 587.057 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 82298656 B = 78.486 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 320005056 B = 305.180 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 217965 ms = 217 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 202268 ms = 202 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 473481470 with 473481435 processed
-	TMG_BITP-e0.002000: 643931240 B = 614.100 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 263460288 B = 251.255 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 320005056 B = 305.180 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 222686 ms = 222 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 206829 ms = 206 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 487009512 with 487009476 processed
-	TMG_BITP-e0.002000: 640016576 B = 610.367 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 193384512 B = 184.425 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 320005056 B = 305.180 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 227119 ms = 227 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 214075 ms = 214 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 500537554 with 500537517 processed
-	TMG_BITP-e0.002000: 624226288 B = 595.308 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 107683072 B = 102.694 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 234325 ms = 234 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 221226 ms = 221 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 514065596 with 514065558 processed
-	TMG_BITP-e0.002000: 653587248 B = 623.309 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 273524288 B = 260.853 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 238628 ms = 238 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 225784 ms = 225 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 527593638 with 527593599 processed
-	TMG_BITP-e0.002000: 620441112 B = 591.698 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 172722912 B = 164.721 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 244175 ms = 244 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 233035 ms = 233 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 541121680 with 541121640 processed
-	TMG_BITP-e0.002000: 635085208 B = 605.664 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 72300768 B = 68.951 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 250917 ms = 250 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 240242 ms = 240 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 554649722 with 554649681 processed
-	TMG_BITP-e0.002000: 635410928 B = 605.975 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 238768736 B = 227.707 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 254785 ms = 254 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 244991 ms = 244 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 568177764 with 568177722 processed
-	TMG_BITP-e0.002000: 590384776 B = 563.034 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 139164032 B = 132.717 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 262365 ms = 262 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 252313 ms = 252 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 581705806 with 581705763 processed
-	TMG_BITP-e0.002000: 574619416 B = 547.999 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 305961152 B = 291.787 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 269566 ms = 269 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 256918 ms = 256 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 595233848 with 595233804 processed
-	TMG_BITP-e0.002000: 599051816 B = 571.300 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 207131872 B = 197.536 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 275857 ms = 275 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 264201 ms = 264 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 608761890 with 608761845 processed
-	TMG_BITP-e0.002000: 636782584 B = 607.283 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 108734144 B = 103.696 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 282127 ms = 282 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 271400 ms = 271 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 622289932 with 622289886 processed
-	TMG_BITP-e0.002000: 641438992 B = 611.723 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 276085696 B = 263.295 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 286074 ms = 286 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 276015 ms = 276 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 635817974 with 635817927 processed
-	TMG_BITP-e0.002000: 613629224 B = 585.202 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 178301472 B = 170.041 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 291942 ms = 291 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 283446 ms = 283 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 649346016 with 649345968 processed
-	TMG_BITP-e0.002000: 650300696 B = 620.175 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 80848576 B = 77.103 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 297389 ms = 297 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 290752 ms = 290 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 662874058 with 662874009 processed
-	TMG_BITP-e0.002000: 663821400 B = 633.069 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 248772736 B = 237.248 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 300517 ms = 300 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 295442 ms = 295 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 676402100 with 676402050 processed
-	TMG_BITP-e0.002000: 662398528 B = 631.712 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 151940768 B = 144.902 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 304653 ms = 304 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 302822 ms = 302 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 689930142 with 689930091 processed
-	TMG_BITP-e0.002000: 640637160 B = 610.959 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 320147264 B = 305.316 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 310969 ms = 310 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 307527 ms = 307 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 703458184 with 703458132 processed
-	TMG_BITP-e0.002000: 671764512 B = 640.644 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 223934304 B = 213.560 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 315453 ms = 315 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 314965 ms = 314 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 716986226 with 716986173 processed
-	TMG_BITP-e0.002000: 666086416 B = 635.229 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 128115680 B = 122.180 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 319601 ms = 319 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 322399 ms = 322 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 730514268 with 730514214 processed
-	TMG_BITP-e0.002000: 641867408 B = 612.132 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 296790016 B = 283.041 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 324335 ms = 324 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 327090 ms = 327 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 744042310 with 744042255 processed
-	TMG_BITP-e0.002000: 663626520 B = 632.883 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 201412768 B = 192.082 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 330754 ms = 330 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 334575 ms = 334 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 757570352 with 757570296 processed
-	TMG_BITP-e0.002000: 679277192 B = 647.809 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 106401248 B = 101.472 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 333743 ms = 333 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 341883 ms = 341 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 771098394 with 771098337 processed
-	TMG_BITP-e0.002000: 674922808 B = 643.656 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 275384384 B = 262.627 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 337624 ms = 337 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 346639 ms = 346 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 784626436 with 784626378 processed
-	TMG_BITP-e0.002000: 656886304 B = 626.455 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 180875328 B = 172.496 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 342027 ms = 342 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 354106 ms = 354 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 798154478 with 798154419 processed
-	TMG_BITP-e0.002000: 654547832 B = 624.225 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 86782784 B = 82.762 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 348914 ms = 348 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 361528 ms = 361 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 811682520 with 811682460 processed
-	TMG_BITP-e0.002000: 667236552 B = 636.326 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 256306336 B = 244.432 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 351334 ms = 351 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 366287 ms = 366 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 825210562 with 825210501 processed
-	TMG_BITP-e0.002000: 671468224 B = 640.361 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 162785472 B = 155.244 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 354246 ms = 354 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 373808 ms = 373 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 838738604 with 838738542 processed
-	TMG_BITP-e0.002000: 667285912 B = 636.373 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 332536896 B = 317.131 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 356795 ms = 356 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 378517 ms = 378 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 852266646 with 852266583 processed
-	TMG_BITP-e0.002000: 625640256 B = 596.657 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 239426176 B = 228.334 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 362506 ms = 362 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 386086 ms = 386 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 865794688 with 865794624 processed
-	TMG_BITP-e0.002000: 626261552 B = 597.249 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 146654048 B = 139.860 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 369364 ms = 369 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 393636 ms = 393 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 879322730 with 879322665 processed
-	TMG_BITP-e0.002000: 614835472 B = 586.352 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 316790752 B = 302.115 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 376292 ms = 376 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 398355 ms = 398 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 892850772 with 892850706 processed
-	TMG_BITP-e0.002000: 628642136 B = 599.519 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 224414720 B = 214.018 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 382573 ms = 382 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 405927 ms = 405 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 906378814 with 906378747 processed
-	TMG_BITP-e0.002000: 660951280 B = 630.332 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 132437184 B = 126.301 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 387758 ms = 387 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 413365 ms = 413 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 919906856 with 919906788 processed
-	TMG_BITP-e0.002000: 665260416 B = 634.441 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 303006976 B = 288.969 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 389934 ms = 389 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 418084 ms = 418 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 933434898 with 933434829 processed
-	TMG_BITP-e0.002000: 669174328 B = 638.174 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 211454528 B = 201.658 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 393226 ms = 393 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 425614 ms = 425 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 946962940 with 946962870 processed
-	TMG_BITP-e0.002000: 664169512 B = 633.401 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 120179520 B = 114.612 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 396532 ms = 396 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 433123 ms = 433 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 960490982 with 960490911 processed
-	TMG_BITP-e0.002000: 644300600 B = 614.452 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 291185472 B = 277.696 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 399675 ms = 399 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 437913 ms = 437 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 974019024 with 974018952 processed
-	TMG_BITP-e0.002000: 661397736 B = 630.758 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 200362208 B = 191.080 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 406506 ms = 406 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 445487 ms = 445 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 987547066 with 987546993 processed
-	TMG_BITP-e0.002000: 677645184 B = 646.252 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 109493952 B = 104.421 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 409475 ms = 409 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 452995 ms = 452 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1001075108 with 1001075034 processed
-	TMG_BITP-e0.002000: 681871696 B = 650.283 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 280674976 B = 267.672 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 412239 ms = 412 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 457816 ms = 457 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1014603150 with 1014603075 processed
-	TMG_BITP-e0.002000: 676671664 B = 645.324 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 190302496 B = 181.486 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 415053 ms = 415 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 465542 ms = 465 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1028131192 with 1028131116 processed
-	TMG_BITP-e0.002000: 655700280 B = 625.324 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 100298400 B = 95.652 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 419471 ms = 419 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 473062 ms = 473 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1041659234 with 1041659157 processed
-	TMG_BITP-e0.002000: 663721712 B = 632.974 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 271864448 B = 259.270 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 425855 ms = 425 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 477918 ms = 477 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1055187276 with 1055187198 processed
-	TMG_BITP-e0.002000: 623713648 B = 594.819 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 182270080 B = 173.826 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 433596 ms = 433 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 485505 ms = 485 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1068715318 with 1068715239 processed
-	TMG_BITP-e0.002000: 622269496 B = 593.442 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 92839904 B = 88.539 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 441028 ms = 441 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 493004 ms = 493 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1082243360 with 1082243280 processed
-	TMG_BITP-e0.002000: 653301816 B = 623.037 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 264670976 B = 252.409 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 446238 ms = 446 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 497801 ms = 497 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1095771402 with 1095771321 processed
-	TMG_BITP-e0.002000: 651014944 B = 620.856 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 175688192 B = 167.549 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 448869 ms = 448 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 505346 ms = 505 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1109299444 with 1109299362 processed
-	TMG_BITP-e0.002000: 649551920 B = 619.460 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 87000416 B = 82.970 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 452430 ms = 452 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 512874 ms = 512 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1122827486 with 1122827403 processed
-	TMG_BITP-e0.002000: 617601632 B = 588.990 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 259245440 B = 247.235 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 459525 ms = 459 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 517734 ms = 517 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1136355528 with 1136355444 processed
-	TMG_BITP-e0.002000: 603282960 B = 575.335 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 171042656 B = 163.118 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 466990 ms = 466 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 525384 ms = 525 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1149883570 with 1149883485 processed
-	TMG_BITP-e0.002000: 628116400 B = 599.018 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 83018016 B = 79.172 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 475222 ms = 475 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 532909 ms = 532 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1163411612 with 1163411526 processed
-	TMG_BITP-e0.002000: 609572888 B = 581.334 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 255482656 B = 243.647 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 482697 ms = 482 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 537821 ms = 537 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1176939654 with 1176939567 processed
-	TMG_BITP-e0.002000: 650930384 B = 620.775 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 167712288 B = 159.942 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 488147 ms = 488 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 545352 ms = 545 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1190467696 with 1190467608 processed
-	TMG_BITP-e0.002000: 655025528 B = 624.681 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 80105952 B = 76.394 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 490645 ms = 490 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 552824 ms = 552 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1203995738 with 1203995649 processed
-	TMG_BITP-e0.002000: 641659576 B = 611.934 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 252799040 B = 241.087 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 494055 ms = 494 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 557674 ms = 557 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1217523780 with 1217523690 processed
-	TMG_BITP-e0.002000: 653606712 B = 623.327 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 165519840 B = 157.852 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 501241 ms = 501 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 565337 ms = 565 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1231051822 with 1231051731 processed
-	TMG_BITP-e0.002000: 662720600 B = 632.019 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 78405344 B = 74.773 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 503917 ms = 503 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 572834 ms = 572 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1244579864 with 1244579772 processed
-	TMG_BITP-e0.002000: 635753264 B = 606.301 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 251321024 B = 239.678 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 509384 ms = 509 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 577739 ms = 577 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1258107906 with 1258107813 processed
-	TMG_BITP-e0.002000: 609473784 B = 581.239 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 164396960 B = 156.781 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 518298 ms = 518 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 585442 ms = 585 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1271635948 with 1271635854 processed
-	TMG_BITP-e0.002000: 598609792 B = 570.878 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 77892448 B = 74.284 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 527587 ms = 527 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 593013 ms = 593 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1285163990 with 1285163895 processed
-	TMG_BITP-e0.002000: 616238144 B = 587.690 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 251153184 B = 239.518 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 535285 ms = 535 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 597817 ms = 597 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1298692032 with 1298691936 processed
-	TMG_BITP-e0.002000: 647504760 B = 617.508 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 164918816 B = 157.278 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 541616 ms = 541 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 605379 ms = 605 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1312220074 with 1312219977 processed
-	TMG_BITP-e0.002000: 629293096 B = 600.140 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 78855584 B = 75.202 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 549389 ms = 549 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 612920 ms = 612 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1325748116 with 1325748018 processed
-	TMG_BITP-e0.002000: 593541888 B = 566.045 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 252347104 B = 240.656 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 336005056 B = 320.439 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 559840 ms = 559 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 617848 ms = 617 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1339276158 with 1339276059 processed
-	TMG_BITP-e0.002000: 497011088 B = 473.986 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 134654176 B = 128.416 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 352005056 B = 335.698 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 572890 ms = 572 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 625559 ms = 625 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 Stats request at line 1352804200 with 1352804100 processed
-	TMG_BITP-e0.002000: 448266720 B = 427.500 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 292344832 B = 278.801 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 352005056 B = 335.698 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 586408 ms = 586 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 630390 ms = 630 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 0 ms = 0 s (avg 0 us = 0 ms)
 HH(0.01|893971816):
-	TMG_BITP-e0.002000: prec = 3/4 = 0.75, recall = 3/3 = 1
 	SAMPLING_BITP-ss250000-use_new_impl-2: prec = 3/4 = 0.75, recall = 3/3 = 1
 HH(0.01|897641976):
-	TMG_BITP-e0.002000: prec = 4/6 = 0.666667, recall = 4/4 = 1
 	SAMPLING_BITP-ss250000-use_new_impl-2: prec = 4/4 = 1, recall = 4/4 = 1
 HH(0.01|898271001):
-	TMG_BITP-e0.002000: prec = 6/8 = 0.75, recall = 6/6 = 1
 	SAMPLING_BITP-ss250000-use_new_impl-2: prec = 6/6 = 1, recall = 6/6 = 1
 HH(0.01|898876267):
-	TMG_BITP-e0.002000: prec = 6/9 = 0.666667, recall = 6/6 = 1
 	SAMPLING_BITP-ss250000-use_new_impl-2: prec = 6/6 = 1, recall = 6/6 = 1
 HH(0.01|899479307):
-	TMG_BITP-e0.002000: prec = 4/5 = 0.8, recall = 4/4 = 1
 	SAMPLING_BITP-ss250000-use_new_impl-2: prec = 4/4 = 1, recall = 4/4 = 1
 START_OF_FINAL_STATS_REPORT
-	TMG_BITP-e0.002000: 448266480 B = 427.500 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2: 292345056 B = 278.801 MB
 	SAMPLING_BITP-ss250000-use_new_impl-2_max: 352005056 B = 335.698 MB
 Update timers:
-	TMG_BITP-e0.002000: tot = 586408 ms = 586 s (avg 0 us = 0 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 630390 ms = 630 s (avg 0 us = 0 ms)
 Query timers:
-	TMG_BITP-e0.002000: tot = 31 ms = 0 s (avg 4475 us = 4 ms)
 	SAMPLING_BITP-ss250000-use_new_impl-2: tot = 10878 ms = 10 s (avg 1554140 us = 1554 ms)
