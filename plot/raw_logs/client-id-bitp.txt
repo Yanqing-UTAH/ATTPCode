@@ -1,6 +1,11 @@
-/uusoc/scratch/raven4/zyzhao/ATTPCode/output/client-id-bitp-new-stats-03.txt
-/uusoc/scratch/raven8/zyzhao/ATTPCode/output/client-id-bitp-new-stats-05.txt
+/uusoc/scratch/raven10/zyzhao/ATTPCode/output/client-id-bitp-new-stats-10.txt
 /uusoc/scratch/raven1/zyzhao/ATTPCode/output/client-id-bitp-new-stats-00.txt
 /uusoc/scratch/raven2/zyzhao/ATTPCode/output/client-id-bitp-new-stats-01.txt
 /uusoc/scratch/raven3/zyzhao/ATTPCode/output/client-id-bitp-new-stats-02.txt
+/uusoc/scratch/raven4/zyzhao/ATTPCode/output/client-id-bitp-new-stats-03.txt
+/uusoc/scratch/raven6/zyzhao/ATTPCode/output/client-id-bitp-new-stats-06.txt
 /uusoc/scratch/raven7/zyzhao/ATTPCode/output/client-id-bitp-new-stats-04.txt
+/uusoc/scratch/raven7/zyzhao/ATTPCode/output/client-id-bitp-new-stats-07.txt
+/uusoc/scratch/raven8/zyzhao/ATTPCode/output/client-id-bitp-new-stats-05.txt
+/uusoc/scratch/raven8/zyzhao/ATTPCode/output/client-id-bitp-new-stats-08.txt
+/uusoc/scratch/raven9/zyzhao/ATTPCode/output/client-id-bitp-new-stats-09.txt

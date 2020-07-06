@@ -1,0 +1,1845 @@
+Running query heavy_hitter_bitp at 2020/07/06 16:15:54
+Stats request at line 13528042 with 13528041 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 290131752 B = 276.691 MB
+	TMG_BITP-e0.010000: 26717480 B = 25.479 MB
+	TMG_BITP-e0.010000_max: 26981000 B = 25.731 MB
+	TMG_BITP-e0.000200: 636074648 B = 606.608 MB
+	TMG_BITP-e0.000200_max: 636074648 B = 606.608 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 1831 ms = 1 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 8678 ms = 8 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 8003 ms = 8 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 27056084 with 27056082 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 587302584 B = 560.095 MB
+	TMG_BITP-e0.010000: 27877576 B = 26.586 MB
+	TMG_BITP-e0.010000_max: 29491296 B = 28.125 MB
+	TMG_BITP-e0.000200: 925677200 B = 882.794 MB
+	TMG_BITP-e0.000200_max: 925677200 B = 882.794 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 3735 ms = 3 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 17715 ms = 17 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 16950 ms = 16 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 40584126 with 40584123 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 870567560 B = 830.237 MB
+	TMG_BITP-e0.010000: 30727512 B = 29.304 MB
+	TMG_BITP-e0.010000_max: 32374520 B = 30.874 MB
+	TMG_BITP-e0.000200: 1202242968 B = 1146.548 MB
+	TMG_BITP-e0.000200_max: 1208320664 B = 1152.344 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 5760 ms = 5 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 25966 ms = 25 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 25264 ms = 25 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 54112168 with 54112164 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 1130020936 B = 1077.671 MB
+	TMG_BITP-e0.010000: 34240112 B = 32.653 MB
+	TMG_BITP-e0.010000_max: 34763232 B = 33.152 MB
+	TMG_BITP-e0.000200: 1468116800 B = 1400.105 MB
+	TMG_BITP-e0.000200_max: 1468116800 B = 1400.105 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 7745 ms = 7 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 33831 ms = 33 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 33368 ms = 33 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 67640210 with 67640205 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 1368919560 B = 1305.503 MB
+	TMG_BITP-e0.010000: 32605272 B = 31.094 MB
+	TMG_BITP-e0.010000_max: 35078976 B = 33.453 MB
+	TMG_BITP-e0.000200: 1623326992 B = 1548.125 MB
+	TMG_BITP-e0.000200_max: 1631368320 B = 1555.794 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 9788 ms = 9 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 41802 ms = 41 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 41930 ms = 41 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 81168252 with 81168246 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 1767177608 B = 1685.311 MB
+	TMG_BITP-e0.010000: 37969032 B = 36.210 MB
+	TMG_BITP-e0.010000_max: 37988352 B = 36.228 MB
+	TMG_BITP-e0.000200: 1851358864 B = 1765.593 MB
+	TMG_BITP-e0.000200_max: 1851358864 B = 1765.593 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 11939 ms = 11 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 49067 ms = 49 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 49644 ms = 49 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 94696294 with 94696287 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 1978871912 B = 1887.199 MB
+	TMG_BITP-e0.010000: 36906160 B = 35.196 MB
+	TMG_BITP-e0.010000_max: 38215080 B = 36.444 MB
+	TMG_BITP-e0.000200: 2000503392 B = 1907.828 MB
+	TMG_BITP-e0.000200_max: 2003391936 B = 1910.583 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 13932 ms = 13 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 55543 ms = 55 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 56642 ms = 56 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 108224336 with 108224328 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 2274651464 B = 2169.276 MB
+	TMG_BITP-e0.010000: 36338360 B = 34.654 MB
+	TMG_BITP-e0.010000_max: 39114272 B = 37.302 MB
+	TMG_BITP-e0.000200: 2187757464 B = 2086.408 MB
+	TMG_BITP-e0.000200_max: 2191641504 B = 2090.112 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 16005 ms = 16 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 61925 ms = 61 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 63595 ms = 63 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 121752378 with 121752369 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 2485128504 B = 2370.003 MB
+	TMG_BITP-e0.010000: 37189376 B = 35.466 MB
+	TMG_BITP-e0.010000_max: 39116592 B = 37.304 MB
+	TMG_BITP-e0.000200: 2231295328 B = 2127.929 MB
+	TMG_BITP-e0.000200_max: 2231295328 B = 2127.929 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 18071 ms = 18 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 69888 ms = 69 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 72565 ms = 72 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 135280420 with 135280410 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 2650679640 B = 2527.885 MB
+	TMG_BITP-e0.010000: 39115960 B = 37.303 MB
+	TMG_BITP-e0.010000_max: 41947608 B = 40.004 MB
+	TMG_BITP-e0.000200: 2501458424 B = 2385.576 MB
+	TMG_BITP-e0.000200_max: 2502094936 B = 2386.183 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 19926 ms = 19 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 74111 ms = 74 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 77201 ms = 77 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 148808462 with 148808451 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 2852032872 B = 2719.910 MB
+	TMG_BITP-e0.010000: 39870680 B = 38.023 MB
+	TMG_BITP-e0.010000_max: 42233744 B = 40.277 MB
+	TMG_BITP-e0.000200: 2694779752 B = 2569.942 MB
+	TMG_BITP-e0.000200_max: 2694779752 B = 2569.942 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 21794 ms = 21 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 78322 ms = 78 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 81874 ms = 81 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 162336504 with 162336492 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 3081078856 B = 2938.345 MB
+	TMG_BITP-e0.010000: 41842872 B = 39.904 MB
+	TMG_BITP-e0.010000_max: 42236400 B = 40.279 MB
+	TMG_BITP-e0.000200: 2775201720 B = 2646.638 MB
+	TMG_BITP-e0.000200_max: 2775201720 B = 2646.638 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 23719 ms = 23 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 82502 ms = 82 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 86664 ms = 86 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 175864546 with 175864533 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 3163054392 B = 3016.523 MB
+	TMG_BITP-e0.010000: 41595160 B = 39.668 MB
+	TMG_BITP-e0.010000_max: 43905336 B = 41.871 MB
+	TMG_BITP-e0.000200: 2965949368 B = 2828.549 MB
+	TMG_BITP-e0.000200_max: 2965949368 B = 2828.549 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 25379 ms = 25 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 85237 ms = 85 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 89688 ms = 89 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 189392588 with 189392574 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 3194539272 B = 3046.550 MB
+	TMG_BITP-e0.010000: 41803648 B = 39.867 MB
+	TMG_BITP-e0.010000_max: 43911016 B = 41.876 MB
+	TMG_BITP-e0.000200: 3030373928 B = 2889.989 MB
+	TMG_BITP-e0.000200_max: 3030373928 B = 2889.989 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 26717 ms = 26 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 86813 ms = 86 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 91212 ms = 91 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 202920630 with 202920615 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 3260964232 B = 3109.897 MB
+	TMG_BITP-e0.010000: 41846016 B = 39.907 MB
+	TMG_BITP-e0.010000_max: 43907240 B = 41.873 MB
+	TMG_BITP-e0.000200: 3137253120 B = 2991.917 MB
+	TMG_BITP-e0.000200_max: 3137253120 B = 2991.917 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 28230 ms = 28 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 88866 ms = 88 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 93370 ms = 93 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 216448672 with 216448656 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 3408773944 B = 3250.860 MB
+	TMG_BITP-e0.010000: 40911768 B = 39.016 MB
+	TMG_BITP-e0.010000_max: 43909096 B = 41.874 MB
+	TMG_BITP-e0.000200: 3130806952 B = 2985.770 MB
+	TMG_BITP-e0.000200_max: 3161257304 B = 3014.809 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 30028 ms = 30 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 92311 ms = 92 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 97429 ms = 97 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 229976714 with 229976697 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 3570049896 B = 3404.664 MB
+	TMG_BITP-e0.010000: 43754696 B = 41.727 MB
+	TMG_BITP-e0.010000_max: 44323040 B = 42.269 MB
+	TMG_BITP-e0.000200: 3226419912 B = 3076.953 MB
+	TMG_BITP-e0.000200_max: 3226419912 B = 3076.953 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 31845 ms = 31 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 95738 ms = 95 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 101417 ms = 101 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 243504756 with 243504738 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 3797328776 B = 3621.414 MB
+	TMG_BITP-e0.010000: 42168800 B = 40.215 MB
+	TMG_BITP-e0.010000_max: 44331376 B = 42.277 MB
+	TMG_BITP-e0.000200: 3288651760 B = 3136.302 MB
+	TMG_BITP-e0.000200_max: 3288651760 B = 3136.302 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 33382 ms = 33 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 97618 ms = 97 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 103436 ms = 103 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 257032798 with 257032779 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 4001344664 B = 3815.979 MB
+	TMG_BITP-e0.010000: 43605104 B = 41.585 MB
+	TMG_BITP-e0.010000_max: 44323216 B = 42.269 MB
+	TMG_BITP-e0.000200: 3374185864 B = 3217.874 MB
+	TMG_BITP-e0.000200_max: 3374185864 B = 3217.874 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 35049 ms = 35 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 100032 ms = 100 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 106131 ms = 106 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 270560840 with 270560820 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 4159154728 B = 3966.479 MB
+	TMG_BITP-e0.010000: 40614056 B = 38.732 MB
+	TMG_BITP-e0.010000_max: 44332720 B = 42.278 MB
+	TMG_BITP-e0.000200: 3326551896 B = 3172.447 MB
+	TMG_BITP-e0.000200_max: 3377386160 B = 3220.926 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 36936 ms = 36 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 104196 ms = 104 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 111415 ms = 111 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 284088882 with 284088861 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 4238430760 B = 4042.082 MB
+	TMG_BITP-e0.010000: 41545368 B = 39.620 MB
+	TMG_BITP-e0.010000_max: 44331184 B = 42.277 MB
+	TMG_BITP-e0.000200: 3409612144 B = 3251.659 MB
+	TMG_BITP-e0.000200_max: 3409612144 B = 3251.659 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 38576 ms = 38 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 106988 ms = 106 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 114601 ms = 114 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 297616924 with 297616902 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 4318405672 B = 4118.352 MB
+	TMG_BITP-e0.010000: 43620192 B = 41.599 MB
+	TMG_BITP-e0.010000_max: 44325216 B = 42.271 MB
+	TMG_BITP-e0.000200: 3506066640 B = 3343.645 MB
+	TMG_BITP-e0.000200_max: 3506066640 B = 3343.645 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 40172 ms = 40 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 109277 ms = 109 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 117240 ms = 117 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 311144966 with 311144943 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 4471549176 B = 4264.401 MB
+	TMG_BITP-e0.010000: 40131096 B = 38.271 MB
+	TMG_BITP-e0.010000_max: 44323344 B = 42.270 MB
+	TMG_BITP-e0.000200: 3476434536 B = 3315.386 MB
+	TMG_BITP-e0.000200_max: 3539349608 B = 3375.386 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 41979 ms = 41 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 112921 ms = 112 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 121921 ms = 121 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 324673008 with 324672984 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 4622912584 B = 4408.752 MB
+	TMG_BITP-e0.010000: 41985616 B = 40.040 MB
+	TMG_BITP-e0.010000_max: 44328192 B = 42.274 MB
+	TMG_BITP-e0.000200: 3424351424 B = 3265.716 MB
+	TMG_BITP-e0.000200_max: 3539354456 B = 3375.391 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 43905 ms = 43 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 117917 ms = 117 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 128457 ms = 128 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 338201050 with 338201025 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 4786095688 B = 4564.376 MB
+	TMG_BITP-e0.010000: 39840440 B = 37.994 MB
+	TMG_BITP-e0.010000_max: 44324208 B = 42.270 MB
+	TMG_BITP-e0.000200: 3385601016 B = 3228.760 MB
+	TMG_BITP-e0.000200_max: 3539350472 B = 3375.387 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 45917 ms = 45 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 123350 ms = 123 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 135717 ms = 135 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 351729092 with 351729066 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 4927621752 B = 4699.346 MB
+	TMG_BITP-e0.010000: 42532392 B = 40.562 MB
+	TMG_BITP-e0.010000_max: 44325600 B = 42.272 MB
+	TMG_BITP-e0.000200: 3516630952 B = 3353.720 MB
+	TMG_BITP-e0.000200_max: 3539351864 B = 3375.388 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 47904 ms = 47 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 128099 ms = 128 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 141344 ms = 141 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 365257134 with 365257107 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 5315008168 B = 5068.786 MB
+	TMG_BITP-e0.010000: 44263648 B = 42.213 MB
+	TMG_BITP-e0.010000_max: 44325728 B = 42.272 MB
+	TMG_BITP-e0.000200: 3597643880 B = 3430.980 MB
+	TMG_BITP-e0.000200_max: 3597647192 B = 3430.983 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 49934 ms = 49 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 132324 ms = 132 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 146749 ms = 146 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 378785176 with 378785148 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 5479463048 B = 5225.623 MB
+	TMG_BITP-e0.010000: 42306376 B = 40.346 MB
+	TMG_BITP-e0.010000_max: 44757064 B = 42.683 MB
+	TMG_BITP-e0.000200: 3676947352 B = 3506.610 MB
+	TMG_BITP-e0.000200_max: 3676947352 B = 3506.610 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 51409 ms = 51 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 134139 ms = 134 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 148727 ms = 148 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 392313218 with 392313189 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 5587092216 B = 5328.266 MB
+	TMG_BITP-e0.010000: 42351256 B = 40.389 MB
+	TMG_BITP-e0.010000_max: 44754296 B = 42.681 MB
+	TMG_BITP-e0.000200: 3771191800 B = 3596.488 MB
+	TMG_BITP-e0.000200_max: 3771191800 B = 3596.488 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 52962 ms = 52 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 136098 ms = 136 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 150949 ms = 150 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 405841260 with 405841230 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 5669845784 B = 5407.186 MB
+	TMG_BITP-e0.010000: 44538608 B = 42.475 MB
+	TMG_BITP-e0.010000_max: 44759816 B = 42.686 MB
+	TMG_BITP-e0.000200: 3833754800 B = 3656.153 MB
+	TMG_BITP-e0.000200_max: 3833754800 B = 3656.153 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 54534 ms = 54 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 138147 ms = 138 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 153214 ms = 153 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 419369302 with 419369271 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 5784168184 B = 5516.212 MB
+	TMG_BITP-e0.010000: 42019816 B = 40.073 MB
+	TMG_BITP-e0.010000_max: 44756872 B = 42.683 MB
+	TMG_BITP-e0.000200: 3748969400 B = 3575.295 MB
+	TMG_BITP-e0.000200_max: 3841657528 B = 3663.690 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 56555 ms = 56 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 142632 ms = 142 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 159267 ms = 159 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 432897344 with 432897312 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 5958268072 B = 5682.247 MB
+	TMG_BITP-e0.010000: 44521464 B = 42.458 MB
+	TMG_BITP-e0.010000_max: 45006928 B = 42.921 MB
+	TMG_BITP-e0.000200: 3848226136 B = 3669.954 MB
+	TMG_BITP-e0.000200_max: 3848257336 B = 3669.984 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 58482 ms = 58 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 146140 ms = 146 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 163497 ms = 163 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 446425386 with 446425353 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 6051700328 B = 5771.351 MB
+	TMG_BITP-e0.010000: 42761408 B = 40.780 MB
+	TMG_BITP-e0.010000_max: 45008792 B = 42.923 MB
+	TMG_BITP-e0.000200: 3917396096 B = 3735.920 MB
+	TMG_BITP-e0.000200_max: 3917434336 B = 3735.956 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 60199 ms = 60 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 148588 ms = 148 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 166358 ms = 166 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 459953428 with 459953394 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 6268837704 B = 5978.429 MB
+	TMG_BITP-e0.010000: 42960056 B = 40.969 MB
+	TMG_BITP-e0.010000_max: 45006360 B = 42.921 MB
+	TMG_BITP-e0.000200: 3859171032 B = 3680.392 MB
+	TMG_BITP-e0.000200_max: 3927176408 B = 3745.247 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 62337 ms = 62 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 153474 ms = 153 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 173123 ms = 173 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 473481470 with 473481435 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 6393216952 B = 6097.046 MB
+	TMG_BITP-e0.010000: 45288240 B = 43.190 MB
+	TMG_BITP-e0.010000_max: 45338736 B = 43.238 MB
+	TMG_BITP-e0.000200: 3957288328 B = 3773.964 MB
+	TMG_BITP-e0.000200_max: 3957320648 B = 3773.995 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 64216 ms = 64 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 156962 ms = 156 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 177280 ms = 177 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 487009512 with 487009476 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 6440962648 B = 6142.580 MB
+	TMG_BITP-e0.010000: 42855560 B = 40.870 MB
+	TMG_BITP-e0.010000_max: 45386720 B = 43.284 MB
+	TMG_BITP-e0.000200: 4038737136 B = 3851.639 MB
+	TMG_BITP-e0.000200_max: 4038737976 B = 3851.640 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 65935 ms = 65 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 159563 ms = 159 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 180373 ms = 180 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 500537554 with 500537517 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 6601785576 B = 6295.953 MB
+	TMG_BITP-e0.010000: 41788456 B = 39.852 MB
+	TMG_BITP-e0.010000_max: 45388544 B = 43.285 MB
+	TMG_BITP-e0.000200: 3973426664 B = 3789.354 MB
+	TMG_BITP-e0.000200_max: 4039187288 B = 3852.069 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 68156 ms = 68 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 164997 ms = 164 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 187888 ms = 187 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 514065596 with 514065558 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 6681192472 B = 6371.681 MB
+	TMG_BITP-e0.010000: 45158208 B = 43.066 MB
+	TMG_BITP-e0.010000_max: 45514448 B = 43.405 MB
+	TMG_BITP-e0.000200: 4088850752 B = 3899.431 MB
+	TMG_BITP-e0.000200_max: 4088877336 B = 3899.457 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 70008 ms = 70 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 168028 ms = 168 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 191551 ms = 191 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 527593638 with 527593599 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 6752894152 B = 6440.061 MB
+	TMG_BITP-e0.010000: 42664360 B = 40.687 MB
+	TMG_BITP-e0.010000_max: 45509824 B = 43.401 MB
+	TMG_BITP-e0.000200: 4120564232 B = 3929.676 MB
+	TMG_BITP-e0.000200_max: 4146035224 B = 3953.967 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 71912 ms = 71 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 171632 ms = 171 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 196175 ms = 196 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 541121680 with 541121640 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 6859879064 B = 6542.090 MB
+	TMG_BITP-e0.010000: 43122864 B = 41.125 MB
+	TMG_BITP-e0.010000_max: 45513360 B = 43.404 MB
+	TMG_BITP-e0.000200: 4110351464 B = 3919.936 MB
+	TMG_BITP-e0.000200_max: 4146038760 B = 3953.970 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 73933 ms = 73 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 176718 ms = 176 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 203027 ms = 203 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 554649722 with 554649681 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 6927320296 B = 6606.407 MB
+	TMG_BITP-e0.010000: 42326608 B = 40.365 MB
+	TMG_BITP-e0.010000_max: 45514960 B = 43.406 MB
+	TMG_BITP-e0.000200: 4183042856 B = 3989.260 MB
+	TMG_BITP-e0.000200_max: 4183060536 B = 3989.277 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 75540 ms = 75 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 179337 ms = 179 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 206106 ms = 206 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 568177764 with 568177722 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 7016731080 B = 6691.676 MB
+	TMG_BITP-e0.010000: 41939208 B = 39.996 MB
+	TMG_BITP-e0.010000_max: 45508064 B = 43.399 MB
+	TMG_BITP-e0.000200: 3999387216 B = 3814.112 MB
+	TMG_BITP-e0.000200_max: 4190788880 B = 3996.647 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 77598 ms = 77 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 185323 ms = 185 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 214540 ms = 214 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 581705806 with 581705763 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 7217979560 B = 6883.601 MB
+	TMG_BITP-e0.010000: 40841744 B = 38.949 MB
+	TMG_BITP-e0.010000_max: 45510112 B = 43.401 MB
+	TMG_BITP-e0.000200: 3942736256 B = 3760.086 MB
+	TMG_BITP-e0.000200_max: 4190790928 B = 3996.649 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 79722 ms = 79 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 191702 ms = 191 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 222920 ms = 222 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 595233848 with 595233804 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 7391598168 B = 7049.177 MB
+	TMG_BITP-e0.010000: 43213328 B = 41.211 MB
+	TMG_BITP-e0.010000_max: 45510240 B = 43.401 MB
+	TMG_BITP-e0.000200: 4049878840 B = 3862.265 MB
+	TMG_BITP-e0.000200_max: 4190791056 B = 3996.649 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 81704 ms = 81 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 196690 ms = 196 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 228829 ms = 228 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 608761890 with 608761845 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 7681225592 B = 7325.387 MB
+	TMG_BITP-e0.010000: 45111872 B = 43.022 MB
+	TMG_BITP-e0.010000_max: 45510560 B = 43.402 MB
+	TMG_BITP-e0.000200: 4182652728 B = 3988.888 MB
+	TMG_BITP-e0.000200_max: 4190791376 B = 3996.650 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 83787 ms = 83 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 201174 ms = 201 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 234431 ms = 234 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 622289932 with 622289886 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 7951248392 B = 7582.901 MB
+	TMG_BITP-e0.010000: 43162104 B = 41.162 MB
+	TMG_BITP-e0.010000_max: 45974088 B = 43.844 MB
+	TMG_BITP-e0.000200: 4287015840 B = 4088.416 MB
+	TMG_BITP-e0.000200_max: 4287115152 B = 4088.511 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 85508 ms = 85 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 203699 ms = 203 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 237465 ms = 237 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 635817974 with 635817927 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 8311854584 B = 7926.802 MB
+	TMG_BITP-e0.010000: 43201520 B = 41.200 MB
+	TMG_BITP-e0.010000_max: 45973768 B = 43.844 MB
+	TMG_BITP-e0.000200: 4275992696 B = 4077.904 MB
+	TMG_BITP-e0.000200_max: 4315715304 B = 4115.786 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 87440 ms = 87 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 207617 ms = 207 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 242695 ms = 242 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 649346016 with 649345968 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 8611713416 B = 8212.769 MB
+	TMG_BITP-e0.010000: 43815360 B = 41.785 MB
+	TMG_BITP-e0.010000_max: 45973864 B = 43.844 MB
+	TMG_BITP-e0.000200: 4334730464 B = 4133.921 MB
+	TMG_BITP-e0.000200_max: 4334730464 B = 4133.921 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 89334 ms = 89 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 211376 ms = 211 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 247412 ms = 247 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 662874058 with 662874009 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 8743454392 B = 8338.407 MB
+	TMG_BITP-e0.010000: 44943680 B = 42.861 MB
+	TMG_BITP-e0.010000_max: 45970424 B = 43.840 MB
+	TMG_BITP-e0.000200: 4420099144 B = 4215.335 MB
+	TMG_BITP-e0.000200_max: 4420099144 B = 4215.335 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 90861 ms = 90 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 213243 ms = 213 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 249562 ms = 249 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 676402100 with 676402050 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 8827951256 B = 8418.990 MB
+	TMG_BITP-e0.010000: 45047736 B = 42.960 MB
+	TMG_BITP-e0.010000_max: 45970328 B = 43.840 MB
+	TMG_BITP-e0.000200: 4501857752 B = 4293.306 MB
+	TMG_BITP-e0.000200_max: 4501857752 B = 4293.306 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 92481 ms = 92 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 215615 ms = 215 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 252360 ms = 252 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 689930142 with 689930091 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 8899010680 B = 8486.757 MB
+	TMG_BITP-e0.010000: 42075640 B = 40.126 MB
+	TMG_BITP-e0.010000_max: 45969688 B = 43.840 MB
+	TMG_BITP-e0.000200: 4457150744 B = 4250.670 MB
+	TMG_BITP-e0.000200_max: 4504327160 B = 4295.661 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 94467 ms = 94 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 220179 ms = 220 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 258700 ms = 258 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 703458184 with 703458132 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 9109338744 B = 8687.342 MB
+	TMG_BITP-e0.010000: 42954848 B = 40.964 MB
+	TMG_BITP-e0.010000_max: 45976072 B = 43.846 MB
+	TMG_BITP-e0.000200: 4534515824 B = 4324.451 MB
+	TMG_BITP-e0.000200_max: 4534516648 B = 4324.452 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 96223 ms = 96 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 222978 ms = 222 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 262096 ms = 262 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 716986226 with 716986173 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 9227603992 B = 8800.128 MB
+	TMG_BITP-e0.010000: 43397680 B = 41.387 MB
+	TMG_BITP-e0.010000_max: 45971256 B = 43.841 MB
+	TMG_BITP-e0.000200: 4615329336 B = 4401.521 MB
+	TMG_BITP-e0.000200_max: 4615342184 B = 4401.533 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 97828 ms = 97 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 225225 ms = 225 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 264825 ms = 264 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 730514268 with 730514214 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 9269680760 B = 8840.256 MB
+	TMG_BITP-e0.010000: 43354376 B = 41.345 MB
+	TMG_BITP-e0.010000_max: 45971576 B = 43.841 MB
+	TMG_BITP-e0.000200: 4613844320 B = 4400.104 MB
+	TMG_BITP-e0.000200_max: 4645247984 B = 4430.053 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 99552 ms = 99 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 228497 ms = 228 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 269135 ms = 269 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 744042310 with 744042255 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 9448713256 B = 9010.995 MB
+	TMG_BITP-e0.010000: 45241544 B = 43.145 MB
+	TMG_BITP-e0.010000_max: 45976360 B = 43.846 MB
+	TMG_BITP-e0.000200: 4602096952 B = 4388.901 MB
+	TMG_BITP-e0.000200_max: 4645252768 B = 4430.058 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 101590 ms = 101 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 233296 ms = 233 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 275711 ms = 275 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 757570352 with 757570296 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 9676045112 B = 9227.795 MB
+	TMG_BITP-e0.010000: 43820608 B = 41.790 MB
+	TMG_BITP-e0.010000_max: 45973384 B = 43.843 MB
+	TMG_BITP-e0.000200: 4653866608 B = 4438.273 MB
+	TMG_BITP-e0.000200_max: 4653866608 B = 4438.273 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 103138 ms = 103 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 235114 ms = 235 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 277648 ms = 277 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 771098394 with 771098337 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 9875970328 B = 9418.459 MB
+	TMG_BITP-e0.010000: 46117712 B = 43.981 MB
+	TMG_BITP-e0.010000_max: 46170264 B = 44.031 MB
+	TMG_BITP-e0.000200: 4756313304 B = 4535.973 MB
+	TMG_BITP-e0.000200_max: 4756317448 B = 4535.977 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 104831 ms = 104 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 237451 ms = 237 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 280461 ms = 280 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 784626436 with 784626378 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 9965170024 B = 9503.526 MB
+	TMG_BITP-e0.010000: 42685656 B = 40.708 MB
+	TMG_BITP-e0.010000_max: 46258328 B = 44.115 MB
+	TMG_BITP-e0.000200: 4779560904 B = 4558.144 MB
+	TMG_BITP-e0.000200_max: 4794865144 B = 4572.739 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 106465 ms = 106 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 240166 ms = 240 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 283894 ms = 283 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 798154478 with 798154419 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 10112171832 B = 9643.718 MB
+	TMG_BITP-e0.010000: 44287520 B = 42.235 MB
+	TMG_BITP-e0.010000_max: 46259160 B = 44.116 MB
+	TMG_BITP-e0.000200: 4711659416 B = 4493.388 MB
+	TMG_BITP-e0.000200_max: 4794865976 B = 4572.740 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 108581 ms = 108 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 245511 ms = 245 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 291568 ms = 291 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 811682520 with 811682460 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 10198021112 B = 9725.590 MB
+	TMG_BITP-e0.010000: 45719528 B = 43.601 MB
+	TMG_BITP-e0.010000_max: 46266840 B = 44.123 MB
+	TMG_BITP-e0.000200: 4745056160 B = 4525.238 MB
+	TMG_BITP-e0.000200_max: 4794873656 B = 4572.747 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 109973 ms = 109 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 247335 ms = 247 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 293426 ms = 293 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 825210562 with 825210501 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 10240413608 B = 9766.019 MB
+	TMG_BITP-e0.010000: 45775688 B = 43.655 MB
+	TMG_BITP-e0.010000_max: 46264040 B = 44.120 MB
+	TMG_BITP-e0.000200: 4791531440 B = 4569.560 MB
+	TMG_BITP-e0.000200_max: 4794870856 B = 4572.745 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 111287 ms = 111 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 249048 ms = 249 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 295220 ms = 295 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 838738604 with 838738542 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 10251363544 B = 9776.462 MB
+	TMG_BITP-e0.010000: 45457448 B = 43.351 MB
+	TMG_BITP-e0.010000_max: 46266392 B = 44.123 MB
+	TMG_BITP-e0.000200: 4832240648 B = 4608.383 MB
+	TMG_BITP-e0.000200_max: 4832240648 B = 4608.383 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 112576 ms = 112 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 250725 ms = 250 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 297003 ms = 297 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 852266646 with 852266583 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 10317332888 B = 9839.375 MB
+	TMG_BITP-e0.010000: 40345288 B = 38.476 MB
+	TMG_BITP-e0.010000_max: 46258648 B = 44.115 MB
+	TMG_BITP-e0.000200: 4769077376 B = 4548.146 MB
+	TMG_BITP-e0.000200_max: 4851317464 B = 4626.576 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 114351 ms = 114 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 254624 ms = 254 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 302587 ms = 302 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 865794688 with 865794624 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 10401384600 B = 9919.533 MB
+	TMG_BITP-e0.010000: 43274088 B = 41.269 MB
+	TMG_BITP-e0.010000_max: 46262184 B = 44.119 MB
+	TMG_BITP-e0.000200: 4743243496 B = 4523.509 MB
+	TMG_BITP-e0.000200_max: 4851321000 B = 4626.580 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 116359 ms = 116 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 260049 ms = 260 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 309881 ms = 309 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 879322730 with 879322665 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 10513495912 B = 10026.451 MB
+	TMG_BITP-e0.010000: 42859280 B = 40.873 MB
+	TMG_BITP-e0.010000_max: 46263400 B = 44.120 MB
+	TMG_BITP-e0.000200: 4645156456 B = 4429.966 MB
+	TMG_BITP-e0.000200_max: 4851322216 B = 4626.581 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 118423 ms = 118 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 266075 ms = 266 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 318270 ms = 318 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 892850772 with 892850706 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 10634626888 B = 10141.970 MB
+	TMG_BITP-e0.010000: 44310384 B = 42.257 MB
+	TMG_BITP-e0.010000_max: 46264296 B = 44.121 MB
+	TMG_BITP-e0.000200: 4733238800 B = 4513.968 MB
+	TMG_BITP-e0.000200_max: 4851323112 B = 4626.582 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 120362 ms = 120 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 270762 ms = 270 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 324031 ms = 324 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 906378814 with 906378747 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 10698074472 B = 10202.478 MB
+	TMG_BITP-e0.010000: 45599680 B = 43.487 MB
+	TMG_BITP-e0.010000_max: 46266808 B = 44.123 MB
+	TMG_BITP-e0.000200: 4847916360 B = 4623.333 MB
+	TMG_BITP-e0.000200_max: 4851325624 B = 4626.584 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 122196 ms = 122 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 274321 ms = 274 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 328469 ms = 328 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 919906856 with 919906788 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 10710855000 B = 10214.667 MB
+	TMG_BITP-e0.010000: 44693976 B = 42.623 MB
+	TMG_BITP-e0.010000_max: 46269528 B = 44.126 MB
+	TMG_BITP-e0.000200: 4879561888 B = 4653.512 MB
+	TMG_BITP-e0.000200_max: 4879561888 B = 4653.512 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 123496 ms = 123 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 275804 ms = 275 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 329940 ms = 329 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 933434898 with 933434829 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 10786146536 B = 10286.470 MB
+	TMG_BITP-e0.010000: 45386136 B = 43.283 MB
+	TMG_BITP-e0.010000_max: 46267288 B = 44.123 MB
+	TMG_BITP-e0.000200: 4949897272 B = 4720.589 MB
+	TMG_BITP-e0.000200_max: 4949897272 B = 4720.589 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 124913 ms = 124 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 277580 ms = 277 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 331950 ms = 331 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 946962940 with 946962870 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 10828262072 B = 10326.635 MB
+	TMG_BITP-e0.010000: 44209568 B = 42.161 MB
+	TMG_BITP-e0.010000_max: 46267800 B = 44.124 MB
+	TMG_BITP-e0.000200: 4993493840 B = 4762.166 MB
+	TMG_BITP-e0.000200_max: 4993493840 B = 4762.166 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 126314 ms = 126 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 279493 ms = 279 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 334053 ms = 334 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 960490982 with 960490911 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 10857106696 B = 10354.143 MB
+	TMG_BITP-e0.010000: 44285952 B = 42.234 MB
+	TMG_BITP-e0.010000_max: 46265880 B = 44.122 MB
+	TMG_BITP-e0.000200: 4985950592 B = 4754.973 MB
+	TMG_BITP-e0.000200_max: 5003106232 B = 4771.333 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 127739 ms = 127 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 281700 ms = 281 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 336653 ms = 336 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 974019024 with 974018952 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 10948976200 B = 10441.757 MB
+	TMG_BITP-e0.010000: 44123528 B = 42.079 MB
+	TMG_BITP-e0.010000_max: 46264392 B = 44.121 MB
+	TMG_BITP-e0.000200: 4974744208 B = 4744.285 MB
+	TMG_BITP-e0.000200_max: 5003104744 B = 4771.332 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 129816 ms = 129 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 286892 ms = 286 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 343867 ms = 343 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 987547066 with 987546993 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 11023431224 B = 10512.763 MB
+	TMG_BITP-e0.010000: 45182824 B = 43.089 MB
+	TMG_BITP-e0.010000_max: 46267256 B = 44.123 MB
+	TMG_BITP-e0.000200: 5026017440 B = 4793.183 MB
+	TMG_BITP-e0.000200_max: 5026023888 B = 4793.189 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 131244 ms = 131 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 288671 ms = 288 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 345789 ms = 345 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1001075108 with 1001075034 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 11101938520 B = 10587.633 MB
+	TMG_BITP-e0.010000: 45667864 B = 43.552 MB
+	TMG_BITP-e0.010000_max: 46266776 B = 44.123 MB
+	TMG_BITP-e0.000200: 5084880488 B = 4849.319 MB
+	TMG_BITP-e0.000200_max: 5084880488 B = 4849.319 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 132669 ms = 132 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 290397 ms = 290 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 347744 ms = 347 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1014603150 with 1014603075 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 11110386504 B = 10595.690 MB
+	TMG_BITP-e0.010000: 45232256 B = 43.136 MB
+	TMG_BITP-e0.010000_max: 46263720 B = 44.120 MB
+	TMG_BITP-e0.000200: 5110418872 B = 4873.675 MB
+	TMG_BITP-e0.000200_max: 5110428968 B = 4873.684 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 133966 ms = 133 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 292018 ms = 292 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 349412 ms = 349 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1028131192 with 1028131116 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 11155302872 B = 10638.525 MB
+	TMG_BITP-e0.010000: 43990240 B = 41.952 MB
+	TMG_BITP-e0.010000_max: 46266040 B = 44.122 MB
+	TMG_BITP-e0.000200: 5113426264 B = 4876.543 MB
+	TMG_BITP-e0.000200_max: 5131883368 B = 4894.145 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 135577 ms = 135 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 294835 ms = 294 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 353029 ms = 353 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1041659234 with 1041659157 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 11251639368 B = 10730.399 MB
+	TMG_BITP-e0.010000: 42880480 B = 40.894 MB
+	TMG_BITP-e0.010000_max: 46262536 B = 44.119 MB
+	TMG_BITP-e0.000200: 5101250272 B = 4864.931 MB
+	TMG_BITP-e0.000200_max: 5131879864 B = 4894.142 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 137643 ms = 137 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 300019 ms = 300 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 360147 ms = 360 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1055187276 with 1055187198 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 11326245800 B = 10801.549 MB
+	TMG_BITP-e0.010000: 41013616 B = 39.113 MB
+	TMG_BITP-e0.010000_max: 46262152 B = 44.119 MB
+	TMG_BITP-e0.000200: 5008191096 B = 4776.183 MB
+	TMG_BITP-e0.000200_max: 5136903920 B = 4898.933 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 139773 ms = 139 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 305674 ms = 305 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 368444 ms = 368 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1068715318 with 1068715239 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 11591877128 B = 11054.875 MB
+	TMG_BITP-e0.010000: 41212680 B = 39.303 MB
+	TMG_BITP-e0.010000_max: 46260776 B = 44.117 MB
+	TMG_BITP-e0.000200: 5033575624 B = 4800.391 MB
+	TMG_BITP-e0.000200_max: 5136902544 B = 4898.932 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 141968 ms = 141 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 311671 ms = 311 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 376427 ms = 376 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1082243360 with 1082243280 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 11685877192 B = 11144.520 MB
+	TMG_BITP-e0.010000: 45589168 B = 43.477 MB
+	TMG_BITP-e0.010000_max: 46268920 B = 44.125 MB
+	TMG_BITP-e0.000200: 5086242232 B = 4850.618 MB
+	TMG_BITP-e0.000200_max: 5136910688 B = 4898.939 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 143865 ms = 143 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 316336 ms = 316 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 382301 ms = 382 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1095771402 with 1095771321 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 11715128904 B = 11172.417 MB
+	TMG_BITP-e0.010000: 43503160 B = 41.487 MB
+	TMG_BITP-e0.010000_max: 46267992 B = 44.124 MB
+	TMG_BITP-e0.000200: 5121161920 B = 4883.920 MB
+	TMG_BITP-e0.000200_max: 5136909760 B = 4898.938 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 145169 ms = 145 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 317984 ms = 317 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 383894 ms = 383 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1109299444 with 1109299362 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 11757024632 B = 11212.372 MB
+	TMG_BITP-e0.010000: 43818112 B = 41.788 MB
+	TMG_BITP-e0.010000_max: 46263464 B = 44.120 MB
+	TMG_BITP-e0.000200: 5183025976 B = 4942.918 MB
+	TMG_BITP-e0.000200_max: 5183025976 B = 4942.918 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 146639 ms = 146 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 320156 ms = 320 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 386324 ms = 386 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1122827486 with 1122827403 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 11883693464 B = 11333.173 MB
+	TMG_BITP-e0.010000: 43591456 B = 41.572 MB
+	TMG_BITP-e0.010000_max: 46262824 B = 44.119 MB
+	TMG_BITP-e0.000200: 5026987960 B = 4794.109 MB
+	TMG_BITP-e0.000200_max: 5188495088 B = 4948.134 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 148743 ms = 148 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 326231 ms = 326 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 394972 ms = 394 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1136355528 with 1136355444 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 11989755000 B = 11434.321 MB
+	TMG_BITP-e0.010000: 42011376 B = 40.065 MB
+	TMG_BITP-e0.010000_max: 46260744 B = 44.117 MB
+	TMG_BITP-e0.000200: 4988280936 B = 4757.195 MB
+	TMG_BITP-e0.000200_max: 5188493008 B = 4948.132 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 150826 ms = 150 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 332457 ms = 332 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 403232 ms = 403 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1149883570 with 1149883485 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 12178759560 B = 11614.570 MB
+	TMG_BITP-e0.010000: 44593168 B = 42.527 MB
+	TMG_BITP-e0.010000_max: 46260360 B = 44.117 MB
+	TMG_BITP-e0.000200: 5038093464 B = 4804.700 MB
+	TMG_BITP-e0.000200_max: 5188492624 B = 4948.132 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 153105 ms = 153 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 339678 ms = 339 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 412430 ms = 412 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1163411612 with 1163411526 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 12478613592 B = 11900.533 MB
+	TMG_BITP-e0.010000: 41427496 B = 39.508 MB
+	TMG_BITP-e0.010000_max: 46261704 B = 44.118 MB
+	TMG_BITP-e0.000200: 5062896320 B = 4828.354 MB
+	TMG_BITP-e0.000200_max: 5188493968 B = 4948.133 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 155396 ms = 155 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 345790 ms = 345 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 420545 ms = 420 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1176939654 with 1176939567 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 12750456824 B = 12159.783 MB
+	TMG_BITP-e0.010000: 43715360 B = 41.690 MB
+	TMG_BITP-e0.010000_max: 46267320 B = 44.123 MB
+	TMG_BITP-e0.000200: 5198240088 B = 4957.428 MB
+	TMG_BITP-e0.000200_max: 5198240088 B = 4957.428 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 157351 ms = 157 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 350008 ms = 350 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 425534 ms = 425 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1190467696 with 1190467608 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 12824058424 B = 12229.975 MB
+	TMG_BITP-e0.010000: 43707008 B = 41.682 MB
+	TMG_BITP-e0.010000_max: 46268056 B = 44.124 MB
+	TMG_BITP-e0.000200: 5226598424 B = 4984.472 MB
+	TMG_BITP-e0.000200_max: 5226598424 B = 4984.472 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 158633 ms = 158 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 351486 ms = 351 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 426985 ms = 426 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1203995738 with 1203995649 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 13019546104 B = 12416.406 MB
+	TMG_BITP-e0.010000: 42675656 B = 40.698 MB
+	TMG_BITP-e0.010000_max: 46261800 B = 44.118 MB
+	TMG_BITP-e0.000200: 5244522688 B = 5001.566 MB
+	TMG_BITP-e0.000200_max: 5252583944 B = 5009.254 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 160235 ms = 160 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 353960 ms = 353 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 429869 ms = 429 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1217523780 with 1217523690 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 13499463016 B = 12874.091 MB
+	TMG_BITP-e0.010000: 44299712 B = 42.247 MB
+	TMG_BITP-e0.010000_max: 46259816 B = 44.116 MB
+	TMG_BITP-e0.000200: 5275761648 B = 5031.358 MB
+	TMG_BITP-e0.000200_max: 5275761648 B = 5031.358 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 162555 ms = 162 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 359504 ms = 359 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 437405 ms = 437 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1231051822 with 1231051731 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 13554304088 B = 12926.391 MB
+	TMG_BITP-e0.010000: 44806456 B = 42.730 MB
+	TMG_BITP-e0.010000_max: 46260168 B = 44.117 MB
+	TMG_BITP-e0.000200: 5316597912 B = 5070.302 MB
+	TMG_BITP-e0.000200_max: 5316597912 B = 5070.302 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 163858 ms = 163 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 361083 ms = 361 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 439003 ms = 439 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1244579864 with 1244579772 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 13632850648 B = 13001.299 MB
+	TMG_BITP-e0.010000: 41800528 B = 39.864 MB
+	TMG_BITP-e0.010000_max: 46260104 B = 44.117 MB
+	TMG_BITP-e0.000200: 5276486816 B = 5032.049 MB
+	TMG_BITP-e0.000200_max: 5351892160 B = 5103.962 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 165709 ms = 165 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 365089 ms = 365 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 444616 ms = 444 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1258107906 with 1258107813 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 14156380904 B = 13500.576 MB
+	TMG_BITP-e0.010000: 41705608 B = 39.773 MB
+	TMG_BITP-e0.010000_max: 46259816 B = 44.116 MB
+	TMG_BITP-e0.000200: 5225421192 B = 4983.349 MB
+	TMG_BITP-e0.000200_max: 5351891872 B = 5103.961 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 168220 ms = 168 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 372015 ms = 372 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 454167 ms = 454 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1271635948 with 1271635854 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 14403564536 B = 13736.309 MB
+	TMG_BITP-e0.010000: 41256968 B = 39.345 MB
+	TMG_BITP-e0.010000_max: 46260584 B = 44.117 MB
+	TMG_BITP-e0.000200: 5165046112 B = 4925.771 MB
+	TMG_BITP-e0.000200_max: 5351892640 B = 5103.962 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 170638 ms = 170 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 380041 ms = 380 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 465038 ms = 465 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1285163990 with 1285163895 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 14578543576 B = 13903.182 MB
+	TMG_BITP-e0.010000: 43443416 B = 41.430 MB
+	TMG_BITP-e0.010000_max: 46266040 B = 44.122 MB
+	TMG_BITP-e0.000200: 5221137160 B = 4979.264 MB
+	TMG_BITP-e0.000200_max: 5351898096 B = 5103.967 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 172842 ms = 172 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 387348 ms = 387 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 474024 ms = 474 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1298692032 with 1298691936 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 14715532808 B = 14033.825 MB
+	TMG_BITP-e0.010000: 44704864 B = 42.633 MB
+	TMG_BITP-e0.010000_max: 46263528 B = 44.120 MB
+	TMG_BITP-e0.000200: 5399880168 B = 5149.727 MB
+	TMG_BITP-e0.000200_max: 5399892856 B = 5149.739 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 174880 ms = 174 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 391804 ms = 391 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 479563 ms = 479 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1312220074 with 1312219977 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 14850784344 B = 14162.811 MB
+	TMG_BITP-e0.010000: 41942272 B = 39.999 MB
+	TMG_BITP-e0.010000_max: 46259192 B = 44.116 MB
+	TMG_BITP-e0.000200: 5524952832 B = 5269.005 MB
+	TMG_BITP-e0.000200_max: 5561151704 B = 5303.527 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 177129 ms = 177 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 396615 ms = 396 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 486471 ms = 486 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1325748116 with 1325748018 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 15012157384 B = 14316.708 MB
+	TMG_BITP-e0.010000: 38746056 B = 36.951 MB
+	TMG_BITP-e0.010000_max: 46259160 B = 44.116 MB
+	TMG_BITP-e0.000200: 5383859776 B = 5134.448 MB
+	TMG_BITP-e0.000200_max: 5561151672 B = 5303.527 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 179841 ms = 179 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 405985 ms = 405 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 499960 ms = 499 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1339276158 with 1339276059 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 15161258648 B = 14458.902 MB
+	TMG_BITP-e0.010000: 34864072 B = 33.248 MB
+	TMG_BITP-e0.010000_max: 46258328 B = 44.115 MB
+	TMG_BITP-e0.000200: 4924080936 B = 4695.969 MB
+	TMG_BITP-e0.000200_max: 5561150840 B = 5303.526 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 182667 ms = 182 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 417918 ms = 417 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 517716 ms = 517 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+Stats request at line 1352804200 with 1352804100 processed
+
+=============  Memory Usage  =============
+	EXACT_HH: 15588726440 B = 14866.568 MB
+	TMG_BITP-e0.010000: 32972552 B = 31.445 MB
+	TMG_BITP-e0.010000_max: 46258200 B = 44.115 MB
+	TMG_BITP-e0.000200: 4550553872 B = 4339.746 MB
+	TMG_BITP-e0.000200_max: 5561150712 B = 5303.526 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 185610 ms = 185 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 431436 ms = 431 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 536571 ms = 536 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 0 ms = 0 s (avg 0 us = 0 ms)
+
+HH(0.01|0):
+	EXACT_HH: 3
+	TMG_BITP-e0.010000: prec = 3/83 = 0.0361446, recall = 3/3 = 1
+	TMG_BITP-e0.000200: prec = 3/4 = 0.75, recall = 3/3 = 1
+HH(0.01|893971816):
+	EXACT_HH: 3
+	TMG_BITP-e0.010000: prec = 3/83 = 0.0361446, recall = 3/3 = 1
+	TMG_BITP-e0.000200: prec = 3/4 = 0.75, recall = 3/3 = 1
+HH(0.01|897641976):
+	EXACT_HH: 4
+	TMG_BITP-e0.010000: prec = 4/87 = 0.045977, recall = 4/4 = 1
+	TMG_BITP-e0.000200: prec = 4/4 = 1, recall = 4/4 = 1
+HH(0.01|898271001):
+	EXACT_HH: 6
+	TMG_BITP-e0.010000: prec = 6/85 = 0.0705882, recall = 6/6 = 1
+	TMG_BITP-e0.000200: prec = 6/6 = 1, recall = 6/6 = 1
+HH(0.01|898876267):
+	EXACT_HH: 6
+	TMG_BITP-e0.010000: prec = 6/83 = 0.0722892, recall = 6/6 = 1
+	TMG_BITP-e0.000200: prec = 6/6 = 1, recall = 6/6 = 1
+HH(0.01|899479307):
+	EXACT_HH: 4
+	TMG_BITP-e0.010000: prec = 4/82 = 0.0487805, recall = 4/4 = 1
+	TMG_BITP-e0.000200: prec = 4/4 = 1, recall = 4/4 = 1
+HH(0.01|901489529):
+	EXACT_HH: 1
+	TMG_BITP-e0.010000: prec = 1/61 = 0.0163934, recall = 1/1 = 1
+	TMG_BITP-e0.000200: prec = 1/2 = 0.5, recall = 1/1 = 1
+
+=============  Memory Usage  =============
+	EXACT_HH: 15588726440 B = 14866.568 MB
+	TMG_BITP-e0.010000: 32972248 B = 31.444 MB
+	TMG_BITP-e0.010000_max: 46257992 B = 44.115 MB
+	TMG_BITP-e0.000200: 4550553952 B = 4339.746 MB
+	TMG_BITP-e0.000200_max: 5561150504 B = 5303.526 MB
+=============  Time stats    =============
+Update timers:
+	EXACT_HH: tot = 185610 ms = 185 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.010000: tot = 431436 ms = 431 s (avg 0 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 536571 ms = 536 s (avg 0 us = 0 ms)
+Query timers:
+	EXACT_HH: tot = 142 ms = 0 s (avg 20331 us = 20 ms)
+	TMG_BITP-e0.010000: tot = 6 ms = 0 s (avg 878 us = 0 ms)
+	TMG_BITP-e0.000200: tot = 231 ms = 0 s (avg 33054 us = 33 ms)
