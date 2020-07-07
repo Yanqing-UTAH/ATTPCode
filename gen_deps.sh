@@ -26,7 +26,7 @@ for src_file in $FILE_LIST; do
     fi
     $@ -MMD -MF "${dep_filebase}.d.raw" -E "$BASEDIR/${src_file}" -o /dev/null || exit 1
     sed "s,[$BASEDIR]/,,g" "${dep_filebase}.d.raw" |
-    sed 's,external[a-z0-9./-]*[.]h,,g' > "${dep_filebase}.d"
+    sed 's,/[a-z0-9./-]*[.]h,,g' > "${dep_filebase}.d"
     echo -e '' >> "${dep_filebase}.d"
 done
 

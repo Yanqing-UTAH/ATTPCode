@@ -26,18 +26,18 @@ AC_PROG_CC
 AC_LANG([C])
 
 # Checks for header files.
-AC_CHECK_HEADERS([lapacke.h])
-AC_CHECK_HEADERS([lapacke_utils.h])
-AC_CHECK_HEADERS([cblas.h])
+AC_CHECK_HEADERS([lapacke.h lapacke_utils.h], [], [AC_MSG_ERROR([Missing liblapacke-dev])])
+AC_CHECK_HEADER([cblas.h], [], [AC_MSG_ERROR([Missing CBLAS library])])
+AC_CHECK_HEADER([fftw3.h], [], [AC_MSG_ERROR([Missing libfftw3-dev])])
 
 # check cblas with the c compiler
-AC_SEARCH_LIBS([cblas_ddot], [cblas])
+AC_SEARCH_LIBS([cblas_ddot], [cblas], [], [AC_MSG_ERROR([CBLAS not working])])
 
 LAPACK_dlange_name="`echo '
 #include <lapacke.h>
 LAPACK_dlange
 ' | gcc -E - | tail -n 1`"
-AC_SEARCH_LIBS([$LAPACK_dlange_name], [lapack])
+AC_SEARCH_LIBS([$LAPACK_dlange_name], [lapack], [], [AC_MSG_ERROR([LAPACK not working])])
 
 
 # C++ compiler and c++ libraries
@@ -45,7 +45,8 @@ AC_PROG_CXX
 AC_LANG([C++])
 
 # Checks for libraries.
-AC_SEARCH_LIBS([LAPACKE_dgesv], [lapacke])
+AC_SEARCH_LIBS([LAPACKE_dgesv], [lapacke], [], [AC_MSG_ERROR([LAPACKE not working])])
+AC_SEARCH_LIBS([fftw_plan_many_r2r], [fftw3], [], [AC_MSG_ERROR([fftw3 not working])])
 
 
 # Checks for typedefs, structures, and compiler characteristics.
@@ -61,22 +62,6 @@ AC_TYPE_UINTPTR_T
 AC_TYPE_SIZE_T
 AC_TYPE_SSIZE_T
 AC_CHECK_TYPES(ptrdiff_t)
-
-#AC_CHECK_TYPES(__int128)
-#AC_CHECK_TYPES(unsigned __int128)
-
-#AC_CHECK_DECLS([strdup])
-
-#AC_COMPILE_IFELSE(
-#[AC_LANG_SOURCE([[
-##define MSG(msg, ...) fprintf(stderr, msg, ##__VA_ARGS__)
-#int main() { MSG("msg"); return 0; }
-#]])],
-#AC_DEFINE([SUPPORT_MACRO_VA_ARGS_COMMA_REMOVAL],[1],[
-#        Define to 1 if the preprocessor supports the syntax of using ##__VA_ARGS__
-#        to remove the trailing comma prior to __VA_ARGS__
-#    ])
-#)
 
 # Checks for library functions.
 
