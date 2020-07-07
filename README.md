@@ -1,3 +1,6 @@
+## Dependencies
+lapacke, cblas, fftw3
+
 ## How to compile:
 1. To configure it with -O2 -DNDEBUG flags, run
 

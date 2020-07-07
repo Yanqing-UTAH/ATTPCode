@@ -2,7 +2,7 @@ CC = COMPILER='@CC@' ./bin/compile
 CXX = COMPILER='@CXX@' ./bin/compile
 LINK.o = $(LINK.cc)
 CXXFLAGS = @CXXFLAGS@ -Wall -Wno-comment
-CPPFLAGS = @CPPFLAGS@ -Iexternal/fftw-3.3.8/api
+CPPFLAGS = @CPPFLAGS@
 LDFLAGS = @LDFLAGS@
 LDLIBS = @LIBS@ -pthread
 
@@ -13,13 +13,9 @@ EXES=driver
 OBJS=test_pla.o driver.o sketch.o old_driver.o test_conf.o misra_gries.o test_hh.o norm_sampling.o fd.o pmmg.o perf_timer.o pcm.o test_pams.o pams.o lapack_wrapper.o exact_query.o MurmurHash3.o norm_sampling_wr.o query.o conf.o sampling.o pla.o test_dct.o heavyhitters.o test_pcm.o 
 DRIVER_OBJS=driver.o sketch.o old_driver.o misra_gries.o norm_sampling.o fd.o pmmg.o perf_timer.o pcm.o pams.o lapack_wrapper.o exact_query.o MurmurHash3.o norm_sampling_wr.o query.o conf.o sampling.o pla.o heavyhitters.o 
 
-FFTW3_BUILD_DIR=external/fftw-3.3.8/build
-FFTW3_LDFLAGS=-L$(FFTW3_BUILD_DIR)/lib
-FFTW3_LIBS=-lfftw3
+.PHONY: all clean depend
 
-.PHONY: all clean depend driver_tgt fftw3
-
-all: driver_tgt
+all: driver
 
 # exe targets
 
@@ -31,17 +27,11 @@ test_pams: test_pams.o pams.o conf.o MurmurHash3.o
 
 test_hh: test_hh.o heavyhitters.o pcm.o pla.o conf.o MurmurHash3.o
 
-test_dct: fftw3 test_dct.cpp
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o test_dct test_dct.cpp $(LDFLAGS) $(FFTW3_LDFLAGS) $(LDLIBS) $(FFTW3_LIBS)
-
-driver_tgt: fftw3 driver
+test_dct: test_dct.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o test_dct test_dct.cpp $(LDFLAGS) $(LDLIBS)
 
 driver: $(DRIVER_OBJS)
-	$(CXX) -o driver $(DRIVER_OBJS) $(LDFLAGS) $(FFTW3_LDFLAGS) $(LDLIBS) $(FFTW3_LIBS)
-
-# libs
-fftw3:
-	cd external/fftw-3.3.8; if [ '(' ! -e build/include/fftw3.h ')' -o '(' ! -e build/lib/libfftw3.a ')' ]; then ./configure --prefix="`pwd`/build" && make && make install; fi
+	$(CXX) -o driver $(DRIVER_OBJS) $(LDFLAGS) $(LDLIBS)
 
 # objs
 
