@@ -98,7 +98,8 @@ sampling.o: sampling.cpp sampling.h sketch.h util.h MurmurHash3.h \
 
 pla.o: pla.cpp pla.h
 
-test_dct.o: test_dct.cpp 
+test_dct.o: test_dct.cpp \
+ 
 
 heavyhitters.o: heavyhitters.cpp heavyhitters.h pcm.h pla.h util.h \
  MurmurHash3.h sketch.h sketch_lib.h conf.h hashtable.h
