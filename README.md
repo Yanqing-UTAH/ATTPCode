@@ -1,5 +1,6 @@
 ## Dependencies
-lapacke, cblas, fftw3
+c/c++ compileres: must be gcc/g++ >= 8. Sorry, the code won't work with other compilers.
+libraries: lapacke, cblas, fftw3
 
 ## How to compile:
 1. To configure it with -O2 -DNDEBUG flags, run
