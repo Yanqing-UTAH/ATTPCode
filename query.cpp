@@ -156,6 +156,7 @@ public:
         m_out << "Processing infile 0: " << m_infile_names[0] << std::endl;
         m_infile.open(m_infile_names[0]);
         m_next_infile_idx = 1;
+        m_infile_prev_pos = 0;
 
         std::optional<std::string> outfile_name_opt = g_config->get("outfile");
         m_has_outfile = (bool) outfile_name_opt;
@@ -223,13 +224,16 @@ public:
                         << ' ' 
                         << m_infile_names[m_next_infile_idx] << std::endl;
                     m_infile.open(m_infile_names[m_next_infile_idx++]);
+                    m_infile_prev_pos = 0;
                     continue;
                 } else {
                     break;
                 }
             }
             ++lineno;
-            m_infile_read_bytes += line.length();
+            auto pos = m_infile.tellg();
+            m_infile_read_bytes += pos - m_infile_prev_pos;
+            m_infile_prev_pos = pos;
             if (line.empty())
             {
                 continue;
@@ -610,6 +614,8 @@ private:
     uint64_t                    m_infile_tot_bytes;
 
     uint64_t                    m_infile_read_bytes;
+
+    uint64_t                    m_infile_prev_pos;
 
     std::thread                 m_progress_bar_thread;
     
