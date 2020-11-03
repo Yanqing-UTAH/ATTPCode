@@ -12,6 +12,9 @@
 #include <chrono>
 #include <dirent.h>
 
+#define STRINGIFY(x) STRINGIFY_HELPER(x)
+#define STRINGIFY_HELPER(x) #x
+
 #define TIMEIT(msg, statements) \
     { \
         std::cout << msg << " finished in "; \
@@ -44,7 +47,7 @@ void printError(SQLHSTMT hdlStmt) {
 
 #define CHECK_OK_OR_PRINT() \
     do { \
-        if (!SQL_SUCCEEDED(ret)) { \
+        if (!SQL_SUCCEEDED(ret) || ret == SQL_SUCCESS_WITH_INFO) { \
             printError(hdlStmt); \
             goto cleanup; \
         } \
@@ -175,6 +178,7 @@ int main(int argc, char *argv[]) {
     
     std::cout << "Start loading and querying data" << std::endl;
     for (int day : days) {
+        std::cout << "--day " <<  day << std::endl;
         std::string prefix = "vday";
         prefix += std::to_string(day);
         std::string dat_file = prefix + ".dat";
@@ -204,7 +208,6 @@ int main(int argc, char *argv[]) {
         }
 
         // load data
-        std::cout << "day " <<  day << std::endl;
         std::string copy_stmt_str;
         copy_stmt_str.append("copy ")
             .append(load_target)
@@ -218,6 +221,7 @@ int main(int argc, char *argv[]) {
                 (SQLCHAR*) copy_stmt_str.c_str(), SQL_NTS);
         })
         CHECK_OK_OR_PRINT();
+        //std::cerr << copy_stmt_str << std::endl;
 
         if (use_preaggregate) {
             // compute daily aggregates and insert into wc_client_id
@@ -229,6 +233,7 @@ int main(int argc, char *argv[]) {
                     "group by ts, cid",
                     SQL_NTS);
             });
+            CHECK_OK_OR_PRINT();
         }
         
         // query
@@ -258,14 +263,14 @@ int main(int argc, char *argv[]) {
                 "       select ").append(agg_expr).append(" from t) "
                 "   ) A");
 
-            unsigned long cnt;
+            SQLBIGINT cnt;
             TIMEIT("Select", {
                 ret = SQLExecDirect(hdlStmt,
                     (SQLCHAR*) query_stmt_str.c_str(), SQL_NTS);
                 CHECK_OK_OR_PRINT();
                 ret = SQLFetch(hdlStmt);
                 CHECK_OK_OR_PRINT();
-                ret = SQLGetData(hdlStmt, 1, SQL_C_ULONG, (SQLPOINTER) &cnt,
+                ret = SQLGetData(hdlStmt, 1, SQL_C_SBIGINT, (SQLPOINTER) &cnt,
                     sizeof(cnt), nullptr);
                 CHECK_OK_OR_PRINT();
                 ret = SQLCloseCursor(hdlStmt);
@@ -273,6 +278,7 @@ int main(int argc, char *argv[]) {
             });
             std::cout << "day " << day << " ts (0, "
                 << ts_str << "] #heavy_hitters = " << cnt << std::endl;
+            ///std::cerr << query_stmt_str << std::endl;
         }
     }
 

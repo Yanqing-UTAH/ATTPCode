@@ -1,6 +1,6 @@
 
 with t as (
-    select * from wc_client_id where ts > 897641976
+    select * from wc_client_id where ts <= 894041293
 )
 select count(*) from (
     select cid, count(*) as cnt
