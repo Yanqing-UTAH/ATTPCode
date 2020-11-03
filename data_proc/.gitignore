@@ -3,3 +3,4 @@ create_client_ip_log
 create_object_id_log
 ip.map
 create_scalability_test_client_id
+create_scalability_test_client_id_for_vertica
