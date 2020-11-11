@@ -17,7 +17,7 @@
 #endif
 
 // Test configs
-DEFINE_CONFIG_ENTRY(infile, string, false)
+DEFINE_CONFIG_ENTRY(infile, string, false, true)
 DEFINE_CONFIG_ENTRY(outfile, string, true)
 DEFINE_CONFIG_ENTRY(out_limit, u64, true, false, 0) // 0 for unlimited
 DEFINE_CONFIG_ENTRY(test_name, string, false)

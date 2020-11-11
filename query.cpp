@@ -141,9 +141,22 @@ public:
             m_update_timers.resize(m_sketches.size());
             m_query_timers.resize(m_sketches.size());
         }
+    
+        m_infile_names.clear();
+        if (g_config->is_list("infile")) {
+            int n = g_config->list_length("infile");
+            m_infile_names.reserve(n);
+            for (int i = 0; i < n; ++i) {
+                m_infile_names.emplace_back(g_config->get("infile", i).value());
+            }
+        } else {
+            m_infile_names.emplace_back(g_config->get("infile").value());
+        }
 
-        m_infile_name = g_config->get("infile").value();
-        m_infile.open(m_infile_name);
+        m_out << "Processing infile 0: " << m_infile_names[0] << std::endl;
+        m_infile.open(m_infile_names[0]);
+        m_next_infile_idx = 1;
+        m_infile_prev_pos = 0;
 
         std::optional<std::string> outfile_name_opt = g_config->get("outfile");
         m_has_outfile = (bool) outfile_name_opt;
@@ -163,10 +176,13 @@ public:
         m_out_limit = g_config->get_u64("out_limit").value();
         m_n_data = 0;
         m_infile_read_bytes = 0;
-    
-        struct stat infile_stat;
-        stat(m_infile_name.c_str(), &infile_stat);
-        m_infile_tot_bytes = infile_stat.st_size;
+
+        m_infile_tot_bytes = 0;
+        for (const std::string &infile_name : m_infile_names) {
+            struct stat infile_stat;
+            stat(infile_name.c_str(), &infile_stat);
+            m_infile_tot_bytes += infile_stat.st_size;
+        }
 
         m_stderr_is_a_tty = isatty(fileno(stderr));
     
@@ -191,10 +207,33 @@ public:
         
         std::string line;
         size_t lineno = 0;
-        while (std::getline(m_infile, line))
+        for (;;)
         {
+            if (!std::getline(m_infile, line))
+            {
+                if (m_next_infile_idx < m_infile_names.size()) {
+                    m_infile.close();
+                    m_out << "Infile "
+                        << m_next_infile_idx - 1
+                        << " processed, printing stats"
+                        << std::endl;
+                    print_stats();
+
+                    m_out << "Processing infile "
+                        << m_next_infile_idx
+                        << ' ' 
+                        << m_infile_names[m_next_infile_idx] << std::endl;
+                    m_infile.open(m_infile_names[m_next_infile_idx++]);
+                    m_infile_prev_pos = 0;
+                    continue;
+                } else {
+                    break;
+                }
+            }
             ++lineno;
-            m_infile_read_bytes = m_infile.tellg();
+            auto pos = m_infile.tellg();
+            m_infile_read_bytes += pos - m_infile_prev_pos;
+            m_infile_prev_pos = pos;
             if (line.empty())
             {
                 continue;
@@ -277,6 +316,13 @@ public:
             }
             // a line starting with # is a comment
         }
+
+        m_infile.close();
+        m_out << "Infile "
+            << m_next_infile_idx - 1
+            << " processed, printing stats"
+            << std::endl;
+        print_stats();
 
         stop_progress_bar();
 
@@ -550,7 +596,9 @@ private:
 
     std::vector<PerfTimer>      m_query_timers;
 
-    std::string                 m_infile_name;
+    std::vector<std::string>    m_infile_names;
+
+    size_t                      m_next_infile_idx;
 
     std::string                 m_outfile_name_template;
 
@@ -566,6 +614,8 @@ private:
     uint64_t                    m_infile_tot_bytes;
 
     uint64_t                    m_infile_read_bytes;
+
+    uint64_t                    m_infile_prev_pos;
 
     std::thread                 m_progress_bar_thread;
     
@@ -2110,7 +2160,6 @@ int run_query_impl()
 
     if ((ret = query.setup())) return ret;
     if ((ret = query.run())) return ret;
-    if ((ret = query.print_stats())) return ret;
     query.finish();
 
     return 0;
