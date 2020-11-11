@@ -280,6 +280,28 @@ int main(int argc, char *argv[]) {
                 << ts_str << "] #heavy_hitters = " << cnt << std::endl;
             ///std::cerr << query_stmt_str << std::endl;
         }
+
+        // memory stats
+        SQLBIGINT size_in_bytes;
+        ret = SQLExecDirect(hdlStmt, (SQLCHAR*)
+            "select sum(used_bytes) as size_in_bytes "
+            "from v_monitor.column_storage "
+            "where anchor_table_name = 'wc_client_id'"
+            "group by anchor_table_name",
+            SQL_NTS);
+        CHECK_OK_OR_PRINT();
+        ret = SQLFetch(hdlStmt);
+        CHECK_OK_OR_PRINT();
+        ret = SQLGetData(hdlStmt, 1, SQL_C_SBIGINT,
+            (SQLPOINTER) &size_in_bytes,
+            sizeof(size_in_bytes), nullptr);
+        CHECK_OK_OR_PRINT();
+        ret = SQLCloseCursor(hdlStmt);
+        CHECK_OK_OR_PRINT();
+        std::cout << "day " << day << " mem = "
+            << size_in_bytes << " B = "
+            << size_in_bytes / (1024. * 1024 * 1024)
+            << " GB" << std::endl;
     }
 
 cleanup:
