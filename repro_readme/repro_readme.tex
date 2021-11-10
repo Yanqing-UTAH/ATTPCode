@@ -1,0 +1,128 @@
+\documentclass[11pt]{article}
+\usepackage{euscript}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{epsfig}
+\usepackage{xspace}
+\usepackage{color}
+\usepackage{url}
+\usepackage{enumerate}
+\usepackage{subfigure}
+
+%%%%%%%  For drawing trees  %%%%%%%%%
+\usepackage{tikz}
+\usetikzlibrary{calc, shapes, backgrounds}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\textheight}{9in}
+\setlength{\topmargin}{-0.600in}
+\setlength{\headheight}{0.2in}
+\setlength{\headsep}{0.250in}
+\setlength{\footskip}{0.5in}
+\flushbottom
+\setlength{\textwidth}{6.5in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\columnsep}{2pc}
+\setlength{\parindent}{0em}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\eps}{\varepsilon}
+
+\renewcommand{\c}[1]{\ensuremath{\EuScript{#1}}}
+\renewcommand{\b}[1]{\ensuremath{\mathbb{#1}}}
+\newcommand{\s}[1]{\textsf{#1}}
+
+\newcommand{\E}{\textbf{\textsf{E}}}
+\renewcommand{\Pr}{\textbf{\textsf{Pr}}}
+
+\newenvironment{pkl}{%
+\begin{itemize}%
+%\vspace{-\topsep}%
+\setlength\itemsep{-0.5\parskip}%
+\setlength\parsep{0in}%
+}{%
+%\vspace{-\topsep}%
+\end{itemize}}
+
+\newenvironment{enu}{%
+\begin{enumerate}%
+\vspace{-\topsep}%
+\setlength\itemsep{-\parskip}%
+\setlength\parsep{0in}%
+}{%
+\vspace{-\topsep}%
+\end{enumerate}}
+\allowdisplaybreaks
+
+
+\title{Readme for reproducibility submission of SIGMOD'21 paper ID 68}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+{\bf Source code info}
+
+Repository: https://github.com/Yanqing-UTAH/ATTPCode\\
+Programming Langauge: mainly C/C++, some of the scripts are written in
+Python 2\\
+Required software: gcc/g++ >= 8 (requires support for -std=gnu++17),
+lapack and lapacke, blas and cblas, fftw3, python3 and the standard
+shell programs (bash, grep, sed, and etc.).\\
+Optional software: jupyter notebook, python2 (for plotting
+figures); m4, autoconf, autoheader (not needed unless the ./configure
+script does not work).
+
+
+{\bf Test environment}
+Software environment. Note that these are the ones installed at the
+time we performed the experiments but it should be ok if you use later
+versions of these packages.  If you're using Ubuntu, you should be
+able to use ``apt install'' to get all these packages.
+\begin{pkl}
+	\item Ubuntu 18.04.6 LTS
+	\item GCC/G++ 8.3.0
+	\item liblapack-dev 3.7.1
+	\item liblapacke-dev 3.7.1
+	\item libblas-dev 3.7.1
+	\item libatlas-base-dev 3.10.3
+	\item libfftw3-dev 3.3.7
+	\item (optional) m4 1.4.18
+	\item (optional) autoconf 2.69
+	\item (optional) autoheader 2.69
+	\item (optional) for plotting figures: python2 and jupyter
+		notebook
+\end{pkl}
+
+Hardware environment: The experiments are single-threaded and we only
+launch one experiement at a time on a single node so the number of
+cores or hyperthreading is irrelevant to our purpose. Cache size is
+also irrelevant for our purpose as our data structure size far exceeds
+even the L3 cache size (listed below just for reference). On the other
+hand, we have 10 type-1 nodes and 6 type-2 nodes and we may launch any
+of the experiments on any one of them depending on the availability.
+We made sure that there were no computation or I/O heavy programs
+running concurrently.
+\begin{tabular}{|l|l|l|}
+	\hline
+	Node type &  1 & 2 \\\hline
+	CPU & Intel Core i7-3820 & Intel Xeon E5-1650 v3 \\\hline
+	CPU Frequency & 3.6 GHz & 3.50 GHz \\\hline
+	L1 Cache & 32KB + 32 KB & 32KB + 32 KB\\\hline
+	L2 Cache & 256 KB & 256 KB\\\hline
+	L3 Cache & 10 MB (shared) & 15 MB (shared) \\\hline
+	Memory & 64GB (DDR3-1600 x 8) & 128GB (DDR4-2133 x 4)
+	Secondary storage & WD HDD 7200RPM 2TB & Seagate HDD 7200RPM 1TB
+	\\\hline
+	Network & not used & not used \\\hline
+\end{tabular}
+
+
+
+\end{document}
+
