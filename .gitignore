@@ -19,8 +19,9 @@ python/.vscode/settings.json
 *.pyc
 *.fftw3
 test_dct
-misc/create_fe_data
-misc/insert_mem_stats
+data_proc/create_fe_data
+data_proc/insert_mem_stats
+data_proc/__pycache__
 Makefile
 repro_readme/*.log
 repro_readme/*.aux
