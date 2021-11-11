@@ -28,5 +28,6 @@ EOF
     rm -f X_${DS}.csv
     cat XS_${DS}.csv mat_queries.txt > ../data/matrix_${DS}-w-stats-report.txt
     rm -f XS_${DS}.csv
+	mv ground_truth_${DS}.txt ../data/
 done
       
