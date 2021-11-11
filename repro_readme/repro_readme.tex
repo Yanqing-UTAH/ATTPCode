@@ -73,7 +73,8 @@
 Python\\
 {\bf Required software/library:} gcc/g++ >= 8 (requires support for
 -std=gnu++17), make, lapack and lapacke, blas and cblas, fftw3,
-python3 and the common shell programs (bash, grep, sed, and etc.).\\
+python3, numpy, scipy, sklearn and the common shell programs (bash,
+grep, sed, and etc.).\\
 {\bf Optional software/library:} for plotting figures: jupyter notebook, python2
 matplotlib, pandas, numpy; for recreating ``configure'' script if that
 does not work in your environment: m4, autoconf, autoheader.  \\
@@ -93,6 +94,8 @@ That's the case with any Intel/AMD processor other than Intel Ice Lake
 	\item libblas-dev 3.7.1
 	\item libatlas-base-dev 3.10.3
 	\item libfftw3-dev 3.3.7
+    \item python3 3.6.9, sklearn, scipy, numpy
+    \item sklearn, scipy and numpy (maybe python3-pip
 \end{pkl}
 Note that these are the ones installed at the
 time we performed the experiments but it should be ok if you use newer
@@ -100,6 +103,7 @@ versions. If you're using Ubuntu, you should be able to use the
 following to get all these packages:
 \begin{verbatim}
 sudo apt install gcc g++ make liblapacke-dev libatlas-base-dev libfftw3-dev
+pip install sklearn scipy numpy
 \end{verbatim}
 
 \newpage
@@ -135,7 +139,9 @@ running concurrently.
 
 We created datasets based on the FIFA World Cup 98 website access logs
 for the ATTP/BITP heavy hitter experiments and generated synthetic
-datasets for the ATTP/BITP frequent direction experiments.
+datasets for the ATTP/BITP frequent direction experiments. Note these
+scripts assumes python3 is available as ``python3'' and a GNU c++
+compiler as ``g++'' in your environment.
 
 For the world-cup datasets, run:
 \begin{verbatim}
