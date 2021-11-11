@@ -22,3 +22,5 @@ test_dct
 misc/create_fe_data
 misc/insert_mem_stats
 Makefile
+repro_readme/*.log
+repro_readme/*.aux

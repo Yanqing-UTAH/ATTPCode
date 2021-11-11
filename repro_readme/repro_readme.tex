@@ -66,48 +66,46 @@
 \begin{document}
 \maketitle
 
-{\bf Source code info}
+\section{Source code info}
 
-Repository: https://github.com/Yanqing-UTAH/ATTPCode\\
-Programming Langauge: mainly C/C++, some of the scripts are written in
-Python 2\\
-Required software: gcc/g++ >= 8 (requires support for -std=gnu++17),
-lapack and lapacke, blas and cblas, fftw3, python3 and the standard
-shell programs (bash, grep, sed, and etc.).\\
-Optional software: jupyter notebook, python2 (for plotting
-figures); m4, autoconf, autoheader (not needed unless the ./configure
-script does not work).
+{\bf Repository:} https://github.com/Yanqing-UTAH/ATTPCode\\
+{\bf Programming Langauge:} mainly C/C++, some of the scripts are written in
+Python\\
+{\bf Required software/library:} gcc/g++ >= 8 (requires support for
+-std=gnu++17), make, lapack and lapacke, blas and cblas, fftw3,
+python3 and the common shell programs (bash, grep, sed, and etc.).\\
+{\bf Optional software/library:} for plotting figures: jupyter notebook, python2
+matplotlib, pandas, numpy; for recreating ``configure'' script if that
+does not work in your environment: m4, autoconf, autoheader.  \\
+{\bf Hardware requirement:} we assume the architecture implements <= 48-bit
+virtual address space and always uses x86-64 canonical addresses.
+That's the case with any Intel/AMD processor other than Intel Ice Lake
+(which supports 5-level paging) as of right now (2021).
 
-
-{\bf Test environment}
-Software environment. Note that these are the ones installed at the
-time we performed the experiments but it should be ok if you use later
-versions of these packages.  If you're using Ubuntu, you should be
-able to use ``apt install'' to get all these packages.
+\section{Test environment}
+{\bf Software environment:}
 \begin{pkl}
 	\item Ubuntu 18.04.6 LTS
+    \item GNU make 4.1
 	\item GCC/G++ 8.3.0
 	\item liblapack-dev 3.7.1
 	\item liblapacke-dev 3.7.1
 	\item libblas-dev 3.7.1
 	\item libatlas-base-dev 3.10.3
 	\item libfftw3-dev 3.3.7
-	\item (optional) m4 1.4.18
-	\item (optional) autoconf 2.69
-	\item (optional) autoheader 2.69
-	\item (optional) for plotting figures: python2 and jupyter
-		notebook
 \end{pkl}
+Note that these are the ones installed at the
+time we performed the experiments but it should be ok if you use newer
+versions. If you're using Ubuntu, you should be able to use the
+following to get all these packages:
+\begin{verbatim}
+sudo apt install gcc g++ make liblapacke-dev libatlas-base-dev libfftw3-dev
+\end{verbatim}
 
-Hardware environment: The experiments are single-threaded and we only
-launch one experiement at a time on a single node so the number of
-cores or hyperthreading is irrelevant to our purpose. Cache size is
-also irrelevant for our purpose as our data structure size far exceeds
-even the L3 cache size (listed below just for reference). On the other
-hand, we have 10 type-1 nodes and 6 type-2 nodes and we may launch any
-of the experiments on any one of them depending on the availability.
-We made sure that there were no computation or I/O heavy programs
-running concurrently.
+\newpage
+{\bf Hardware environment:}
+
+\vspace{1mm}
 \begin{tabular}{|l|l|l|}
 	\hline
 	Node type &  1 & 2 \\\hline
@@ -116,12 +114,25 @@ running concurrently.
 	L1 Cache & 32KB + 32 KB & 32KB + 32 KB\\\hline
 	L2 Cache & 256 KB & 256 KB\\\hline
 	L3 Cache & 10 MB (shared) & 15 MB (shared) \\\hline
-	Memory & 64GB (DDR3-1600 x 8) & 128GB (DDR4-2133 x 4)
+	Memory & 64GB (DDR3-1600 x 8) & 128GB (DDR4-2133 x 4) \\\hline
 	Secondary storage & WD HDD 7200RPM 2TB & Seagate HDD 7200RPM 1TB
 	\\\hline
 	Network & not used & not used \\\hline
 \end{tabular}
+\vspace{1mm}
 
+The experiments are single-threaded and we only
+launch one experiement at a time on a single node so the number of
+cores or hyperthreading is irrelevant to our purpose. Cache size is
+also irrelevant for our purpose as our data structure size far exceeds
+even the L3 cache size (listed below just for reference). On the other
+hand, we have 10 type-1 nodes and 6 type-2 nodes and we may launch any
+of the experiments on any one of them depending on the availability.
+We made sure that there were no computation or I/O heavy programs
+running concurrently.
+
+
+\section{Preparing datasets}
 
 
 \end{document}

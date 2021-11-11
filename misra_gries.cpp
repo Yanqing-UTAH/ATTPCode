@@ -240,7 +240,7 @@ MisraGries::estimate_heavy_hitters(
         }
     }
 
-    return std::move(ret);
+    return ret;
 }
 
 void

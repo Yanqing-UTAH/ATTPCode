@@ -381,7 +381,7 @@ SamplingSketch::estimate_heavy_hitters(
                     p.first, (float) p.second / nvalid});
         }
     }
-    return std::move(ret);
+    return ret;
 }
 
 uint64_t
@@ -1596,7 +1596,7 @@ SamplingSketchBITP::estimate_heavy_hitters_bitp_new(
 
     destroy_sample_set(sset);
 
-    return std::move(ret);
+    return ret;
 }
 
 void
@@ -1796,7 +1796,7 @@ SamplingSketchBITP::estimate_heavy_hitters_bitp_old(
         }
     }
 
-    return std::move(ret);
+    return ret;
 }
 
 void
@@ -1948,7 +1948,7 @@ SamplingSketchBITP::estimate_heavy_hitters_bitp_batched(
         }
     }
 
-    return std::move(ret);
+    return ret;
 }
 
 uint64_t

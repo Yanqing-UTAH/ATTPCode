@@ -97,7 +97,7 @@ vector<uint32_t> HeavyHitters::query_hh(unsigned long long ts, double threshold)
 			}
 		}
 	}
-	return std::move(result);
+	return result;
 }
 
 std::vector<IPersistentHeavyHitterSketch::HeavyHitter>
@@ -123,7 +123,7 @@ HeavyHitters::estimate_heavy_hitters(
                 .m_fraction = (float) (freq / cnt_est)
             };
         });
-    return std::move(ret); 
+    return ret; 
 }
 
 vector<uint32_t> HeavyHitters::query_hh_bitp(unsigned long long ts, double threshold) const {
@@ -148,7 +148,7 @@ vector<uint32_t> HeavyHitters::query_hh_bitp(unsigned long long ts, double thres
 			}
 		}
 	}
-	return std::move(result);
+	return result;
 }
 
 std::vector<IPersistentHeavyHitterSketchBITP::HeavyHitter>
@@ -176,7 +176,7 @@ HeavyHitters::estimate_heavy_hitters_bitp(
                 .m_fraction = (float) (freq / cnt_est)
             };
         });
-    return std::move(ret); 
+    return ret; 
 }
 
 size_t HeavyHitters::memory_usage() const {
