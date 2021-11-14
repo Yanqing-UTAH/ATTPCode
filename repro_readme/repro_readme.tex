@@ -69,23 +69,26 @@
 \section{Source code info}
 
 {\bf Repository:} https://github.com/Yanqing-UTAH/ATTPCode\\
+{\bf Contact: } Zhuoyue (zzhao35@buffalo.edu) \\
 {\bf Programming Langauge:} mainly C/C++, some of the scripts are written in
 Python\\
-{\bf Required software/library:} gcc/g++ >= 8 (requires support for
--std=gnu++17), make, lapack and lapacke, blas and cblas, fftw3,
-python3, numpy, scipy, sklearn and the common shell programs (bash,
-grep, sed, and etc.).\\
-{\bf Optional software/library:} for plotting figures: jupyter
-notebook, python3
-matplotlib, pandas, numpy; for recreating ``configure'' script if that
-does not work in your environment: m4, autoconf, autoheader.  \\
-{\bf Hardware requirement:} we assume the architecture implements <= 48-bit
-virtual address space and always uses x86-64 canonical addresses.
-That's the case with any Intel/AMD processor and Linux kernel
-combination other than the recent Linux kernels that are configured to
-allocate memory beyond 47-bit user address space on the processors
-that support 5-level paging (e.g., Intel Ice Lake) as of right now
-(2021). 
+{\bf Software/library:}
+\begin{pkl}
+    \item (Required for our code) gcc/g++ >= 8 (requires support for
+-std=gnu++17), make, lapack and lapacke, blas and cblas, fftw3
+    \item (Required for Vertica baseline in Figure 1) unixodbc, Vertica
+    \item (Required for creating datasets) python3, numpy, scipy,
+sklearn and the common shell programs (bash, grep, sed, and etc.).
+    \item (Required for plotting figures): jupyter notebook, python3, matplotlib, pandas, numpy
+    \item (Optional, only if you need to regenerate the configure
+        script): m4, autoconf, autoheader
+\end{pkl}
+{\bf Hardware requirement:} we assume the architecture implements <=
+48-bit virtual address space and always uses x86-64 canonical
+addresses.  That's the case for any combination of Intel/AMD processor
+and Linux kernel, except for the kernels that are configured to allocate
+memory beyond 47-bit user address space on the processors that
+support 5-level paging (e.g., Intel Ice Lake).
 
 \section{Test environment}
 {\bf Software environment:}
@@ -102,13 +105,22 @@ that support 5-level paging (e.g., Intel Ice Lake) as of right now
     \item sklearn 0.22.2
     \item scipy 1.4.1
     \item numpy 1.19.0
+    \item unixodbc-dev 2.3.4
+    \item Vertica 10.0.1 Community Edition
 \end{pkl}
-Note that these are the ones installed at the
-time we performed the experiments but it should be ok if you use newer
-versions. 
+Note that these are the ones installed at the time we performed the
+experiments but it should be ok if you use newer versions. For Vertica
+10.0.1 Community Edition, you may find the free community version at
+\url{https://www.vertica.com/}.
 
-\newpage
 {\bf Hardware environment:}
+
+
+For all experiments in Section 6: we have 10 type-1 nodes and 6 type-2
+nodes and we launched any of the experiments on any one of them
+depending on the availability. They have comparable performance and we
+made sure that there were no computation or I/O heavy programs running
+concurrently.
 
 \vspace{1mm}
 \begin{tabular}{|l|l|l|}
@@ -126,15 +138,26 @@ versions.
 \end{tabular}
 \vspace{1mm}
 
-The experiments are single-threaded and we only
-launch one experiement at a time on a single node so the number of
-cores or hyperthreading is irrelevant to our purpose. Cache size is
-also irrelevant for our purpose as our data structure size far exceeds
-even the L3 cache size (listed below just for reference). On the other
-hand, we have 10 type-1 nodes and 6 type-2 nodes and we may launch any
-of the experiments on any one of them depending on the availability.
-We made sure that there were no computation or I/O heavy programs
-running concurrently.
+For Figure 1 scalability test against Vertica, we used the following
+server to make it run faster. Note that this figure is only used for
+introduction and is not used for comparison against any of the
+existing persistent sketches.
+
+\vspace{1mm}
+\begin{tabular}{|l|l|}
+    \hline
+	Node type &  3 \\\hline
+	CPU & \\\hline
+	CPU Frequency & 3.6 GHz \\\hline
+	L1 Cache & 32KB + 32 KB \\\hline
+	L2 Cache & 256 KB \\\hline
+	L3 Cache & 10 MB (shared)  \\\hline
+	Memory & 64GB (DDR3-1600 x 8)  \\\hline
+	Secondary storage & WD HDD 7200RPM 2TB \\\hline
+	Network & not used \\\hline
+\end{tabular}
+\vspace{1mm}
+
 
 \section{Preparing datasets}
 
@@ -147,9 +170,9 @@ For the world-cup datasets (for the ATTP/BITP heavy hitters), run:
 \begin{verbatim}
 $ ./data_proc/world-cup/prepare_data.sh
 \end{verbatim}
-It takes about xxx to generate all the datasets. In case the website
-hosting the raw logs is unreachable, please contact Zhuoyue
-(zzhao35@buffalo.edu) for our own copy.
+It takes about 2 hours + 51 min to download and generate all the datasets. In
+case the website hosting the raw logs is unreachable, please contact
+Zhuoyue (zzhao35@buffalo.edu) for our own copy.
 
 For the matrix datasets (for the ATTP frequent directions): run:
 \begin{verbatim}
@@ -163,20 +186,42 @@ $\texttt{./data\_proc/gen\_mat\_data.sh small}$)
 All the generated data are put into the data/ directory, see
 data/README.md for descriptions.
 
-\section{Building the code}
+\section{Prepare the system and building the code}
 If you're using Ubuntu, you should be able to use the following to
-prepare all the required prerequisites:
+prepare all the required prerequisites except Vertica:
 \begin{verbatim}
 $ sudo apt install gcc g++ make liblapacke-dev libatlas-base-dev \
-> libfftw3-dev python3 python3-pip
+> libfftw3-dev python3 python3-pip unixodbc unixodbc-dev
 $ pip3 install sklearn scipy numpy
 \end{verbatim}
 
-To build the code:
+To build our code:
 \begin{verbatim}
 $ ./configure
 $ make
 \end{verbatim}
+
+To setup a single-node Vertica for the baseline in Figure 1, first
+request and download the free vertica community version from
+\url{https://www.vertica.com/} and install it in your system. In case
+it's no longer available, we still have a copy on our server. We
+provided a script $\texttt{vertica/setup\_vertica.sh}$ to help you set
+it up on Ubuntu. Please take a look at the first a few lines of the
+script (change them if needed) and do the following:
+\begin{verbatim}
+$ dpkg -i <path-to-vertica-deb-package>
+$ sudo ./vertica/setup_vertica.sh # you might have to tweak it, see comments
+$ sudo su verticadba
+$ admintools # follow prompts to finish setup and create a DB
+$ exit # back to your own account
+$ /opt/vertica/bin/vsql <your-db-name> verticadba # use this to check if the DB is running
+$ export VERTICAINI=${HOME}/.vertica.ini
+\end{verbatim}
+You'll also need to create two files $\mathtt{\sim/.odbc.ini}$ and
+$\mathtt{\sim/.vertica.ini}$ for Vertica ODBC connection. We provided
+a sample for them in $\texttt{vertica/}$ and you might want to tweak
+them according to your own system setup.
+
 
 \section{Running the experiments}
 
