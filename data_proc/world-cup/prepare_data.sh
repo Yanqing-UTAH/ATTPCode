@@ -57,14 +57,14 @@ done
 
 INFILES="$(cat $DATADIR/wc_raw_file_list.txt | sed "s,^,$DATADIR/raw_world_cup_data/," | tr '\n' ' ')"
 
-echo "Creating world-cup-98-client-id.txt"
+echo "Creating wc-client-id"
 ./create_client_id_log $DATADIR/world-cup-98-client-id.txt $INFILES
 NLINES=`cat $DATADIR/world-cup-98-client-id.txt | wc -l`
 ../insert_mem_stats $DATADIR/world-cup-98-client-id.txt $DATADIR/world-cup-98-client-id-w-stats-report.txt $NLINES 100
 cat $DATADIR/world-cup-98-client-id-w-stats-report.txt client_id_attp_queries.txt > $DATADIR/wc-client-id-attp-w-stats-report.txt
 cat $DATADIR/world-cup-98-client-id-w-stats-report.txt client_id_bitp_queries.txt > $DATADIR/wc-client-id-bitp-w-stats-report.txt
 
-echo "Creating world-cup-98-object-id.txt"
+echo "Creating wc-object-id"
 ./create_object_id_log $DATADIR/world-cup-98-object-id.txt $INFILES
 ../insert_mem_stats $DATADIR/world-cup-98-object-id.txt $DATADIR/world-cup-98-object-id-w-stats-report.txt $NLINES 100
 cat $DATADIR/world-cup-98-object-id-w-stats-report.txt object_id_attp_queries.txt > $DATADIR/wc-object-id-attp-w-stats-report.txt
@@ -75,4 +75,12 @@ cat $DATADIR/world-cup-98-object-id-w-stats-report.txt object_id_bitp_queries.tx
 #../insert_mem_stats $DATADIR/world-cup-98-client-ip.txt $DATADIR/world-cup-98-client-ip-w-stats-report.txt $NLINES 100
 #cat $DATADIR/world-cup-98-client-ip-w-stats-report.txt client_id_attp_queries.txt > $DATADIR/wc-client-ip-attp-w-stats-report.txt
 #cat $DATADIR/world-cup-98-client-ip-w-stats-report.txt client_id_bitp_queries.txt > $DATADIR/wc-client-ip-bitp-w-stats-report.txt
+
+echo "creating cid_10x.txt"
+./create_scalability_test_client_id ../../data/cid_10x.txt 10 0.0002 ../../data/raw_world_cup_data
+
+echo "creating cid_10x_vertica"
+[ -d ../../data/cid_10x_vertica ] || mkdir ../../data/cid_10x_vertica
+time ./create_scalability_test_client_id_for_vertica ../../data/cid_10x_vertica 10 \
+	0.0002 ../../data/raw_world_cup_data
 
