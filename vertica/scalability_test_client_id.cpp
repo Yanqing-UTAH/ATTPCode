@@ -25,43 +25,45 @@
             t2 - t1).count() << " ms" << std::endl; \
     }
 
-void printError(SQLHSTMT hdlStmt) {
+void printError(SQLSMALLINT handleType, SQLHANDLE hdlStmt, bool isError=true) {
     SQLLEN numRecs = 0;
-    SQLGetDiagField(SQL_HANDLE_STMT,
+    SQLGetDiagField(handleType,
             hdlStmt, 0, SQL_DIAG_NUMBER, &numRecs, 0, 0);
     SQLCHAR SqlState[6];
     SQLINTEGER NativeError;
     SQLCHAR Msg[SQL_MAX_MESSAGE_LENGTH];
     SQLSMALLINT MsgLen;
     for (SQLLEN i = 1; i <= numRecs; ++i) {
-        SQLRETURN ret = SQLGetDiagRec(SQL_HANDLE_STMT, hdlStmt, i, SqlState,
+        SQLRETURN ret = SQLGetDiagRec(handleType, hdlStmt, i, SqlState,
             &NativeError, Msg, sizeof(Msg), &MsgLen);
         if (!SQL_SUCCEEDED(ret)) {
             std::cerr << "[ERROR] error when printing error state "
                 << i << std::endl;
             return ;
         }
-        std::cerr << "[ERROR] " << Msg << std::endl;
+        std::cerr << (isError ? "[ERROR] " : "[INFO]" ) << Msg << std::endl;
     }
 }
 
 #define CHECK_OK_OR_PRINT() \
     do { \
-        if (!SQL_SUCCEEDED(ret) || ret == SQL_SUCCESS_WITH_INFO) { \
-            printError(hdlStmt); \
-            goto cleanup; \
+        if (ret != SQL_SUCCESS) { \
+            printError(SQL_HANDLE_STMT, hdlStmt, ret != SQL_SUCCESS_WITH_INFO); \
+            if (ret != SQL_SUCCESS_WITH_INFO) \
+                goto cleanup; \
         } \
     } while (0)
 
 int main(int argc, char *argv[]) {
     
-    if (argc < 3) {
-        std::cout << "usage: " << argv[0] << " <input_dir> <use_preaggregate:t/f>" << std::endl;
+    if (argc < 4) {
+        std::cout << "usage: " << argv[0] << " <dsn_name> <input_dir> <use_preaggregate:t/f>" << std::endl;
         return 1;
     }
 
-    std::string input_dir = argv[1];
-    bool use_preaggregate = argv[2][0] == 't';
+    const char *dsn_name = argv[1];
+    std::string input_dir = argv[2];
+    bool use_preaggregate = argv[3][0] == 't';
 
     std::vector<int> days;
     DIR *dp;
@@ -125,13 +127,12 @@ int main(int argc, char *argv[]) {
     tcsetattr(STDIN_FILENO, TCSANOW, &t_old);
     std::cout << std::endl;
 
-    const char *dsnName = "VerticaDSN";
     ret = SQLConnect(hdlDbc,
-            (SQLCHAR*) dsnName, SQL_NTS,
+            (SQLCHAR*) dsn_name, SQL_NTS,
             (SQLCHAR*) username.c_str(), SQL_NTS,
             (SQLCHAR*) passwd.c_str(), SQL_NTS);
     if (!SQL_SUCCEEDED(ret)) {
-        std::cerr << "[ERROR] unable to connect to db" << std::endl;
+        printError(SQL_HANDLE_DBC, hdlDbc);
         return 1;
     }
 
