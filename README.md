@@ -1,8 +1,14 @@
-## Dependencies
-c/c++ compileres: must be gcc/g++ >= 8. Sorry, the code won't work with other compilers.
-libraries: lapacke, cblas, fftw3
+# Codebase of At-the-time and Back-in-time persistent sketches
 
-## How to compile:
+
+## Dependencies
+c/c++ compileres: must be gcc/g++ >= 8. libraries: lapacke, cblas, fftw3
+
+curl, python3, sklearn, scipy, numpy for preparing datasets.
+
+matplotlib, python2, jupyter notebook for plotting figures.
+
+## How to compile
 1. To configure it with -O2 -DNDEBUG flags, run
 
     ./configure
@@ -19,5 +25,16 @@ or to configure it with -O0 -g flags, run
 
     make depend
 
+## Usage
+Run the following for help.
 
-Note: avl.h, min_heap.h and basic_defs.h are hard links on ravenserv1.
+    ./driver
+
+## Contact
+
+Authors: Benwei Shi, Zhuoyue Zhao, Yanqing Peng, Feifei Li, Jeff Phillips
+
+If you have any question about the code, please contact Zhuoyue (zzhao35 [at]
+buffalo [dot] edu) for help.
+
+

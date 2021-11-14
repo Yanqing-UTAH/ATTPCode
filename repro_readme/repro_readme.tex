@@ -69,19 +69,26 @@
 \section{Source code info}
 
 {\bf Repository:} https://github.com/Yanqing-UTAH/ATTPCode\\
+{\bf Contact: } Zhuoyue (zzhao35@buffalo.edu) \\
 {\bf Programming Langauge:} mainly C/C++, some of the scripts are written in
 Python\\
-{\bf Required software/library:} gcc/g++ >= 8 (requires support for
--std=gnu++17), make, lapack and lapacke, blas and cblas, fftw3,
-python3, numpy, scipy, sklearn and the common shell programs (bash,
-grep, sed, and etc.).\\
-{\bf Optional software/library:} for plotting figures: jupyter notebook, python2
-matplotlib, pandas, numpy; for recreating ``configure'' script if that
-does not work in your environment: m4, autoconf, autoheader.  \\
-{\bf Hardware requirement:} we assume the architecture implements <= 48-bit
-virtual address space and always uses x86-64 canonical addresses.
-That's the case with any Intel/AMD processor other than Intel Ice Lake
-(which supports 5-level paging) as of right now (2021).
+{\bf Software/library:}
+\begin{pkl}
+    \item (Required for our code) gcc/g++ >= 8 (requires support for
+-std=gnu++17), make, lapack and lapacke, blas and cblas, fftw3
+    \item (Required for Vertica baseline in Figure 1) unixodbc, Vertica
+    \item (Required for creating datasets) python3, numpy, scipy,
+sklearn and the common shell programs (bash, grep, sed, and etc.).
+    \item (Required for plotting figures): jupyter notebook, python3, matplotlib, pandas, numpy
+    \item (Optional, only if you need to regenerate the configure
+        script): m4, autoconf, autoheader
+\end{pkl}
+{\bf Hardware requirement:} we assume the architecture implements <=
+48-bit virtual address space and always uses x86-64 canonical
+addresses.  That's the case for any combination of Intel/AMD processor
+and Linux kernel, except for the kernels that are configured to allocate
+memory beyond 47-bit user address space on the processors that
+support 5-level paging (e.g., Intel Ice Lake).
 
 \section{Test environment}
 {\bf Software environment:}
@@ -94,20 +101,26 @@ That's the case with any Intel/AMD processor other than Intel Ice Lake
 	\item libblas-dev 3.7.1
 	\item libatlas-base-dev 3.10.3
 	\item libfftw3-dev 3.3.7
-    \item python3 3.6.9, sklearn, scipy, numpy
-    \item sklearn, scipy and numpy (maybe python3-pip
+    \item python3 3.6.9
+    \item sklearn 0.22.2
+    \item scipy 1.4.1
+    \item numpy 1.19.0
+    \item unixodbc-dev 2.3.4
+    \item Vertica 10.0.1 Community Edition
 \end{pkl}
-Note that these are the ones installed at the
-time we performed the experiments but it should be ok if you use newer
-versions. If you're using Ubuntu, you should be able to use the
-following to get all these packages:
-\begin{verbatim}
-sudo apt install gcc g++ make liblapacke-dev libatlas-base-dev libfftw3-dev
-pip install sklearn scipy numpy
-\end{verbatim}
+Note that these are the ones installed at the time we performed the
+experiments but it should be ok if you use newer versions. For Vertica
+10.0.1 Community Edition, you may find the free community version at
+\url{https://www.vertica.com/}.
 
-\newpage
 {\bf Hardware environment:}
+
+
+For all experiments in Section 6: we have 10 type-1 nodes and 6 type-2
+nodes and we launched any of the experiments on any one of them
+depending on the availability. They have comparable performance and we
+made sure that there were no computation or I/O heavy programs running
+concurrently.
 
 \vspace{1mm}
 \begin{tabular}{|l|l|l|}
@@ -125,36 +138,130 @@ pip install sklearn scipy numpy
 \end{tabular}
 \vspace{1mm}
 
-The experiments are single-threaded and we only
-launch one experiement at a time on a single node so the number of
-cores or hyperthreading is irrelevant to our purpose. Cache size is
-also irrelevant for our purpose as our data structure size far exceeds
-even the L3 cache size (listed below just for reference). On the other
-hand, we have 10 type-1 nodes and 6 type-2 nodes and we may launch any
-of the experiments on any one of them depending on the availability.
-We made sure that there were no computation or I/O heavy programs
-running concurrently.
+For Figure 1 scalability test against Vertica, we used the following
+server to make it run faster. Note that this figure is only used for
+introduction and is not used for comparison against any of the
+existing persistent sketches.
+
+\vspace{1mm}
+\begin{tabular}{|l|l|}
+    \hline
+	Node type &  3 \\\hline
+	CPU & \\\hline
+	CPU Frequency & 3.6 GHz \\\hline
+	L1 Cache & 32KB + 32 KB \\\hline
+	L2 Cache & 256 KB \\\hline
+	L3 Cache & 10 MB (shared)  \\\hline
+	Memory & 64GB (DDR3-1600 x 8)  \\\hline
+	Secondary storage & WD HDD 7200RPM 2TB \\\hline
+	Network & not used \\\hline
+\end{tabular}
+\vspace{1mm}
+
 
 \section{Preparing datasets}
 
-We created datasets based on the FIFA World Cup 98 website access logs
-for the ATTP/BITP heavy hitter experiments and generated synthetic
-datasets for the ATTP/BITP frequent direction experiments. Note these
-scripts assumes python3 is available as ``python3'' and a GNU c++
-compiler as ``g++'' in your environment.
+We have two scripts for creating the datasets: 1) the datasets based
+on the FIFA World Cup 98 website access logs for the ATTP/BITP heavy
+hitter experiments; 2) the synthetic datasets for the ATTP
+frequent direction experiments. 
 
-For the world-cup datasets, run:
+For the world-cup datasets (for the ATTP/BITP heavy hitters), run:
 \begin{verbatim}
-./data_proc/world-cup/prepare_data.sh
+$ ./data_proc/world-cup/prepare_data.sh
+\end{verbatim}
+It takes about 2 hours + 51 min to download and generate all the datasets. In
+case the website hosting the raw logs is unreachable, please contact
+Zhuoyue (zzhao35@buffalo.edu) for our own copy.
+
+For the matrix datasets (for the ATTP frequent directions): run:
+\begin{verbatim}
+$ ./data_proc/gen_mat_data.sh
+\end{verbatim}
+It takes less than 12 minutes to generate all the three datasets (small,
+medium and large). If you only want one or some of the three datasets,
+specify its name as a command line argument to the script (e.g.,
+$\texttt{./data\_proc/gen\_mat\_data.sh small}$)
+
+All the generated data are put into the data/ directory, see
+data/README.md for descriptions.
+
+\section{Prepare the system and building the code}
+If you're using Ubuntu, you should be able to use the following to
+prepare all the required prerequisites except Vertica:
+\begin{verbatim}
+$ sudo apt install gcc g++ make liblapacke-dev libatlas-base-dev \
+> libfftw3-dev python3 python3-pip unixodbc unixodbc-dev
+$ pip3 install sklearn scipy numpy
 \end{verbatim}
 
+To build our code:
+\begin{verbatim}
+$ ./configure
+$ make
+\end{verbatim}
+
+To setup a single-node Vertica for the baseline in Figure 1, first
+request and download the free vertica community version from
+\url{https://www.vertica.com/} and install it in your system. In case
+it's no longer available, we still have a copy on our server. We
+provided a script $\texttt{vertica/setup\_vertica.sh}$ to help you set
+it up on Ubuntu. Please take a look at the first a few lines of the
+script (change them if needed) and do the following:
+\begin{verbatim}
+$ dpkg -i <path-to-vertica-deb-package>
+$ sudo ./vertica/setup_vertica.sh # you might have to tweak it, see comments
+$ sudo su verticadba
+$ admintools # follow prompts to finish setup and create a DB
+$ exit # back to your own account
+$ /opt/vertica/bin/vsql <your-db-name> verticadba # use this to check if the DB is running
+$ export VERTICAINI=${HOME}/.vertica.ini
+\end{verbatim}
+You'll also need to create two files $\mathtt{\sim/.odbc.ini}$ and
+$\mathtt{\sim/.vertica.ini}$ for Vertica ODBC connection. We provided
+a sample for them in $\texttt{vertica/}$ and you might want to tweak
+them according to your own system setup.
 
 
-The
-following list summarizes all the datasets:
+\section{Running the experiments}
 
-\begin{tabular}{}
+\section{Plotting the figures}
+
+You'll need jupyter notebook, matplotlib, numpy and pandas to plot the
+figures. The scripts provided in plot/ work on my local WSL 2.0
+installation with Ubuntu 20.04 LTS, python 3.8.10, matplotlib 3.4.3,
+numpy 1.21.3, pandas 1.3.4 and jupter notebook 6.0.3.
+\begin{verbatim}
+$ sudo apt install python3 python3-pip jupyter-notebook
+$ pip3 install matplotlib numpy pandas
+\end{verbatim}
+
+The following table lists which notebook you should run to generate
+specific figures as well as the expected input file. These scripts
+also generates pdf files for the figures in the plot/ directory.
+
+{\scriptsize
+\begin{tabular}{|l|l|l|}
+    \hline
+    Notebook & Figures & Input \\\hline
+    $\texttt{HH\_ATTP\_clientid.ipynb}$ & 2, 3(left), 4 &
+    $\texttt{filtered\_logs/client\_id\_attp\_filtered\_combined.txt}$\\\hline
+    $\texttt{HH\_ATTP\_objectid.ipynb}$ & 3(right), 5, 6 &
+    $\texttt{filtered\_logs/object\_id\_attp\_filtered\_combined.txt}$\\\hline
+    $\texttt{HH\_BITP\_clientid.ipynb}$ & 7, 8(left), 9 &
+    $\texttt{filtered\_logs/client\_id\_bitp\_filtered\_combined.txt}$\\\hline
+    $\texttt{HH\_BITP\_objectid.ipynb}$ & 8(right), 10, 11&
+    $\texttt{filtered\_logs/object\_id\_bitp\_new\_filtered\_combined.txt}$\\\hline
+    $\texttt{MAT\_ATTP\_small.ipynb}$ & 12(a), 13(left), 14&
+    $\texttt{filtered\_logs/ms\_small\_attp\_filtered\_combined.txt}$ \\\hline
+    $\texttt{MAT\_ATTP\_medium.ipynb}$ & 12(b), 13(right), 15&
+    $\texttt{filtered\_logs/ms\_medium\_attp\_filtered\_combined.txt}$ \\\hline
+    $\texttt{MAT\_ATTP\_big.ipynb}$ & 12(c), 16&
+    $\texttt{filtered\_logs/ms\_big\_attp\_filtered\_combined.txt}$ \\\hline
+    $\texttt{scalability\_test\_client\_id\_ATTP.ipynb}$ & 1 &
+    $\texttt{scalability\_logs/scalability-test-client-id.log}$ \\\hline
 \end{tabular}
+}
 
 
 \end{document}
