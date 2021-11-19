@@ -227,21 +227,40 @@ them according to your own system setup.
 
 
 We provide the config files in $\texttt{configs}$ for running the
-experiments in Section 5 and Figure 1. To run the experiments in a
-file (e.g., $\texttt{configs/test-client-id-attp-}$)
+experiments in Section 5 and Figure 1. To run the experiments
+specified in a config file, say $\texttt{config/xxx.conf}$, run:
+\begin{verbatim}
+$ ./driver configs/xxx.conf
+\end{verbatim}
 
-We have the original logs saved in
-$\texttt{plot/raw\_logs}$ for Section 5, and in
-$\texttt{plot/scalability\_logs}$ for Figure 1. The experiments took
-us a couple of days to run with all the 17 servers, so you might find
-the raw logs to be useful for validating the results. Also note that
-the log files contain additional data points that were not shown in
-the experiment figures mainly because their x-axis values (memory
-usage) are too small or too large to be fit into the figures -- these
-files need to be processed by $\texttt{plot/filtered\_logs/filter.sh}$
-before they may be used for plotting the figures.
+Note that this must be run from the repository root, as the data file
+location are specified as relative path from the working directory in
+the configuration files. Most of these experiments are both
+computation and memory intensive. The largest one would be
+$\texttt{configs/test-client-id-bitp.conf}$, which should run for a
+few days and with around 100GB of memory. So we actually split them
+into smaller batches of experiments when we ran them. To do so, just
+copy the config file to a different machine, edit the file to disable some of the sketch
+and/or remove some of the experiment parameters from the settings, and
+run that subset of experiments there.
+
+To run vertica baseline experiments in Figure 1, use the
+$\texttt{vertica/run\_vertica.sh}$ script.
 
 \section{Plotting the figures}
+
+{\bf (Collecting the logs) } Redirect the stdout of these experiments
+to a file (or using tee) to save the logs. They can used to plot the
+figures in the paper. We also provided our original logs in
+$\texttt{plot/raw\_logs}$ for Section 5, and in
+$\texttt{plot/scalability\_logs}$ for Figure 1, which may be used for
+recreating the figures.
+
+If you generated new logs for plotting the figures, create a list of
+file location and experiment canonical name pairs similar to
+$\texttt{plot/filtered\_logs/client\_id\_attp\_list.txt}$ and run
+\begin{verbatim}
+\end{verbatim}
 
 You'll need jupyter notebook, matplotlib, numpy and pandas to plot the
 figures. The scripts provided in plot/ work on my local WSL 2.0
