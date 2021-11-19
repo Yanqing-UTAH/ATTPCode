@@ -1,5 +1,9 @@
 # Codebase of At-the-time and Back-in-time persistent sketches
 
+## Detailed README
+
+repro_readme/repro_readme.pdf is a detailed readme for how to setup and run the
+experiments.
 
 ## Dependencies
 c/c++ compileres: must be gcc/g++ >= 8. libraries: lapacke, cblas, fftw3
