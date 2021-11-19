@@ -126,9 +126,9 @@ static ConfigEntry EntryList[] = {
         .m_can_be_list = CENT_CAN_BE_LIST(__VA_ARGS__), \
         .m_has_dependent = IF_BOOLEAN_LITERAL(CENT_IS_OPTIONAL(__VA_ARGS__), false, true), \
         .m_has_min = IS_NONEMPTY(CENT_MIN_INCLUSIVE(__VA_ARGS__)), \
-        IF_NONEMPTY_COMMA(CENT_MIN_INCLUSIVE(__VA_ARGS__), .m_min_inclusive = CENT_MIN_VALUE(__VA_ARGS__))  \
+        IF_NONEMPTY_COMMA(CENT_MIN_INCLUSIVE(__VA_ARGS__), .m_min_inclusive = CENT_MIN_INCLUSIVE(__VA_ARGS__))  \
         .m_has_max = IS_NONEMPTY(CENT_MAX_INCLUSIVE(__VA_ARGS__)), \
-        IF_NONEMPTY_COMMA(CENT_MAX_INCLUSIVE(__VA_ARGS__), .m_max_inclusive = CENT_MAX_VALUE(__VA_ARGS__)) \
+        IF_NONEMPTY_COMMA(CENT_MAX_INCLUSIVE(__VA_ARGS__), .m_max_inclusive = CENT_MAX_INCLUSIVE(__VA_ARGS__)) \
         .m_is_assigned = NOT(IS_EMPTY(CENT_DEFAULT_VALUE(__VA_ARGS__))), \
         IF_NONEMPTY_COMMA(CENT_MIN_INCLUSIVE(__VA_ARGS__), .m_min = (CVT2Type_t<CVT(CENT_TYP(__VA_ARGS__))>) CENT_MIN_VALUE(__VA_ARGS__)) \
         IF_NONEMPTY_COMMA(CENT_MAX_INCLUSIVE(__VA_ARGS__), .m_max = (CVT2Type_t<CVT(CENT_TYP(__VA_ARGS__))>) CENT_MAX_VALUE(__VA_ARGS__)) \
@@ -430,7 +430,7 @@ struct config_get_valid_range_string_impl<T,
             ret.append("+oo)");
         }
 
-        return std::move(ret);
+        return ret;
     }
 };
 

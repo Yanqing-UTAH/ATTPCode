@@ -98,7 +98,7 @@ ExactHeavyHitters::estimate_heavy_hitters(
         }
     }
 
-    return std::move(ret);
+    return ret;
 }
 
 std::vector<IPersistentHeavyHitterSketchBITP::HeavyHitter>
@@ -144,7 +144,7 @@ ExactHeavyHitters::estimate_heavy_hitters_bitp(
         }
     }
 
-    return std::move(ret);
+    return ret;
 }
 
 uint64_t

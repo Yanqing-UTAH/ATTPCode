@@ -447,7 +447,7 @@ private:
             }
         }
         
-        return std::move(ret);
+        return ret;
     }
     
     void

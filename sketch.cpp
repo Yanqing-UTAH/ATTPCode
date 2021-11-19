@@ -201,7 +201,7 @@ check_query_type(
         *help_str = help_str_buffer;
     }
 
-    return std::move(ret);
+    return ret;
 }
 
 std::vector<IPersistentSketch*>
@@ -230,6 +230,6 @@ create_persistent_sketch_from_config(
 #   undef DEFINE_SKETCH_TYPE
     }
 
-    return std::move(ret);
+    return ret;
 }
 

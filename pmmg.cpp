@@ -689,7 +689,7 @@ ChainMisraGries::estimate_heavy_hitters(
         }
     }
 
-    return std::move(ret);
+    return ret;
 }
 
 void
@@ -1090,7 +1090,7 @@ TreeMisraGries::estimate_heavy_hitters(
             frac_threshold - m_epsilon_prime, est_tot_cnt);
 
     delete mg;
-    return std::move(ret);
+    return ret;
 }
 
 void
