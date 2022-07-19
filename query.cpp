@@ -24,8 +24,8 @@
 extern "C"
 {
 #include <cblas.h>
-#include <lapacke.h>
 }
+#include <lapacke.h>
 #include "lapack_wrapper.h"
 #include <fftw3.h>
 

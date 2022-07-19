@@ -3,10 +3,9 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-extern "C"
-{
 #include <lapacke.h>
 #include <lapacke_utils.h>
+extern "C" {
 #include <cblas.h>
 }
 #include <cassert>

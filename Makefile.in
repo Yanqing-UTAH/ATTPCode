@@ -1,7 +1,7 @@
 CC = COMPILER='@CC@' ./bin/compile
 CXX = COMPILER='@CXX@' ./bin/compile
 LINK.o = $(LINK.cc)
-CXXFLAGS = @CXXFLAGS@ -Wall -Wno-comment
+CXXFLAGS = @CXXFLAGS@ -Wall -Wno-comment -Wno-stringop-overflow -Wno-nonnull -Wno-array-bounds
 CPPFLAGS = @CPPFLAGS@
 LDFLAGS = @LDFLAGS@
 LDLIBS = @LIBS@ -pthread

@@ -33,11 +33,7 @@ AC_CHECK_HEADER([fftw3.h], [], [AC_MSG_ERROR([Missing libfftw3-dev])])
 # check cblas with the c compiler
 AC_SEARCH_LIBS([cblas_ddot], [cblas], [], [AC_MSG_ERROR([CBLAS not working])])
 
-LAPACK_dlange_name="`echo '
-#include <lapacke.h>
-LAPACK_dlange
-' | gcc -E - | tail -n 1`"
-AC_SEARCH_LIBS([$LAPACK_dlange_name], [lapack], [], [AC_MSG_ERROR([LAPACK not working])])
+AC_SEARCH_LIBS([dlange_], [lapack], [], [AC_MSG_ERROR([LAPACK not working])])
 
 
 # C++ compiler and c++ libraries

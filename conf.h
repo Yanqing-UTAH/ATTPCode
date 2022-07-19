@@ -3,9 +3,14 @@
 
 #include <string>
 #include <functional>
+#include <optional>
 #include "hashtable.h"
 
 struct ConfigEntry;
+
+struct ConfigEntryKeyExtractor {
+    const std::string &operator()(ConfigEntry *entry) const noexcept;
+};
 
 class Config
 {
@@ -113,8 +118,7 @@ private:
         const std::string &key,
         int idx = -1) const;
 
-    __HashSet<ConfigEntry*,
-        std::function<const std::string&(ConfigEntry*)>>
+    __HashSet<ConfigEntry*, ConfigEntryKeyExtractor>
                                         m_entry_map;
 
     std::string                         m_help_str;

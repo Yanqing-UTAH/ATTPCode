@@ -1,12 +1,13 @@
 #include <lapacke.h>
+#include <lapack.h>
 #include <lapacke_utils.h>
 
-#define LAPACK_dlansp LAPACK_GLOBAL(dlansp,DLANSP)
+/*#define LAPACK_dlansp LAPACK_GLOBAL(dlansp,DLANSP)
 double LAPACK_dlansp(
     char const* norm, char const* uplo,
     lapack_int const* n,
     double const* AP,
-    double* work);
+    double* work); */
 
 double lapack_wrapper_dlansp(
     char            norm,

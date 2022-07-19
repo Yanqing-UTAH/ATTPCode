@@ -29,29 +29,6 @@ struct __HashSet: public std::_Hashtable<
                     std::__detail::_Default_ranged_hash,
                     std::__detail::_Prime_rehash_policy,
                     Tr> {
-    
-    __HashSet(
-        KeyExtractor keyExtractor)
-    : std::_Hashtable<
-        ExtractedKeyType<Value, KeyExtractor>,
-        Value,
-        Alloc,
-        KeyExtractor,
-        Pred,
-        Hash,
-        std::__detail::_Mod_range_hashing,
-        std::__detail::_Default_ranged_hash,
-        std::__detail::_Prime_rehash_policy,
-        Tr>(
-
-        0,
-        Hash(), 
-        std::__detail::_Mod_range_hashing(),
-        std::__detail::_Default_ranged_hash(),
-        Pred(),
-        keyExtractor,
-        Alloc())
-    {}
 };
 
 template<typename umap_t>

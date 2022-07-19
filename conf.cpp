@@ -139,12 +139,13 @@ static ConfigEntry EntryList[] = {
 #   undef DEFINE_CONFIG_ENTRY
 };
 
-static const std::string &ConfigEntry2Key(ConfigEntry *entry) {
+const std::string &ConfigEntryKeyExtractor::operator() (
+    ConfigEntry *entry) const noexcept {
     return entry->m_key;
 }
 
 Config::Config():
-    m_entry_map(ConfigEntry2Key)
+    m_entry_map()
 {
     for (size_t i = 0; i < sizeof(EntryList) / sizeof(EntryList[0]); ++i) {
         m_entry_map.insert(EntryList + i);
