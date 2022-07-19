@@ -1,3 +1,4 @@
+#include "config.h"
 #include <lapacke.h>
 #if HAVE_LAPACK_H == 1
 #include <lapack.h>
