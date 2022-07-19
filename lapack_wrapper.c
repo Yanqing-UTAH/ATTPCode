@@ -1,13 +1,18 @@
 #include <lapacke.h>
+#if HAVE_LAPACK_H == 1
 #include <lapack.h>
+#endif
 #include <lapacke_utils.h>
 
-/*#define LAPACK_dlansp LAPACK_GLOBAL(dlansp,DLANSP)
+#if !defined(HAVE_LAPACK_H) || HAVE_LAPACK_H != 1
+// liblapacke-dev 3.7.1 is missing the declaration for dlansp_
+#define LAPACK_dlansp LAPACK_GLOBAL(dlansp,DLANSP)
 double LAPACK_dlansp(
     char const* norm, char const* uplo,
     lapack_int const* n,
     double const* AP,
-    double* work); */
+    double* work);
+#endif
 
 double lapack_wrapper_dlansp(
     char            norm,

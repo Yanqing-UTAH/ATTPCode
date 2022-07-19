@@ -27,6 +27,8 @@ AC_LANG([C])
 
 # Checks for header files.
 AC_CHECK_HEADERS([lapacke.h lapacke_utils.h], [], [AC_MSG_ERROR([Missing liblapacke-dev])])
+# It lapack.h wasn't available in liblapacke-dev:3.7.1 but was needed in 3.10.2.
+AC_CHECK_HEADERS([lapack.h])
 AC_CHECK_HEADER([cblas.h], [], [AC_MSG_ERROR([Missing CBLAS library])])
 AC_CHECK_HEADER([fftw3.h], [], [AC_MSG_ERROR([Missing libfftw3-dev])])
 
